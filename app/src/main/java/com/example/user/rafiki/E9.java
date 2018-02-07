@@ -64,7 +64,7 @@ public class E9 extends AppCompatActivity {
         yvalues.add(new Entry(14,65f));
         yvalues.add(new Entry(15,80f));
         yvalues.add(new Entry(16,60f));
-        //jjj
+        //
 
         LineDataSet set1 = new LineDataSet(yvalues,"");
 
