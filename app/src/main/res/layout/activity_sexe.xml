@@ -74,7 +74,8 @@
                 android:fontFamily="Raleway Bold"
                 android:text="@string/masculin"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                />
 
             <RadioButton
 
