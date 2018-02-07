@@ -1,0 +1,175 @@
+html{
+    overflow-x: hidden;
+}
+#nom_site{
+    color: #364048;
+}
+#navbar-inverse {
+    width: 300px;
+    height: 588px;
+    box-shadow: 8px 4px 13px 0px #9c9c9c;
+    background: #242b2e;
+    position: fixed;
+    top: 68px;
+    overflow: scroll;
+}
+#container-logo{
+    height: 126px;
+    width: 285px;
+    margin-bottom: 0px;
+    background-color: white;
+    padding-left: 46px;
+    padding-top: 1px;
+
+}
+#titre-logo{
+    color: #d4d4d4;
+    position: relative;
+    left: 28px;
+    top: -32px;
+    width: 70px;
+}
+.navbar-inverse{
+    width: 285px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-radius: 0px;
+    background-color: #31393d;
+
+}
+#ul-nav{
+    text-align: left;
+    width: 285px;
+
+}
+.nav > li > a {
+
+    padding-right: 80px;
+    color: #ffffff;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #1faaa9;
+}
+.well-lg {
+    margin-bottom: 0px;
+    position: fixed;
+
+    width: 1375px;
+
+    z-index: 1030!important;
+    height: auto;
+    border-bottom-width: 0px;
+    padding-left: 73px;
+    padding-bottom: 9px;
+    padding-top: 8px;
+}
+.row {
+    margin-right:0px;
+    margin-left: -15px;
+}
+
+.image-articl{
+    width: 110px;
+}
+
+#container-rapport{
+    position: relative;
+    left: 410px;
+    top: 86px;
+}
+.img-profil{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+#nom-user{
+    float: right;
+    margin-top: 12px;
+    font-size: 17px;
+}
+#div-infoUser{
+
+    width: 200px;
+
+}
+
+.div-nav-page{
+    position: relative;
+    left: 40px;
+    height: 45px;
+}
+.pos-lient{
+    float: left;
+    color: #989898;
+}
+
+a.pos-lient:hover, a.pos-lient:focus {
+    color: #26b0af;
+    text-decoration: none;
+}
+#btn-profil{
+    position: fixed;
+    left: 1162px;
+    top: 21px;
+}
+#d{
+    margin-right: 10px;
+}
+.icons{
+    left: 9px;
+    top: 2px;
+}
+.div-recherch{
+    position: relative;
+    left: 347px;
+    top: -40px;
+}
+#btn-radio{
+position: relative;
+left: -35px;
+top: 17px;
+}
+#input-recherch{
+    position: relative;
+    top: -17px;
+}
+#h2{
+    color: #9a9a9a;
+    position: relative;
+    left: -49px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #31393d;
+    border-color: #bcbfc1;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: #31393d;
+    border-color: #31393d;
+}
+
+.modal-body{
+    position: relative;
+    padding: 50px;
+    left: 109px;
+    top: -17px;
+}
+#btn-close{
+    position: relative;
+    top: 462px;
+}
+.icon-user{
+    margin-right: 18px;
+}
+.pr{    margin-left: 10px;
+}
+
+.thumbnail .caption {
+    padding: 9px;
+    color: #333;
+    height: 140px;
+}
+#ff{height: 80px;}

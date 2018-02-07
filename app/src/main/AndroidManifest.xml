@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.user.rafiki">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".E8" />
+        <activity android:name=".E10" />
+        <activity android:name=".E12" />
+        <activity android:name=".E11" />
+        <activity android:name=".E9" />
+        <activity android:name=".Verif_code_mailActivity" />
+        <activity android:name=".SexeActivity" />
+        <activity android:name=".Inscription" />
+        <activity android:name=".Liste_payers" />
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

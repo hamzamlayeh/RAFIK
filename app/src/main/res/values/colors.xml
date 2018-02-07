@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bleu">#00ffdd</color>
+    <color name="orang">#ff8400</color>
+    <color name="chart">#cc57f7e2</color>
+    <color name="left">#c6000000</color>
+    <color name="courbe">#30000000</color>
+
+
+
+</resources>
