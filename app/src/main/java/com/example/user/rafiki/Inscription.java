@@ -2,6 +2,7 @@ package com.example.user.rafiki;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,19 +14,29 @@ import android.widget.Toast;
 
 public class Inscription extends AppCompatActivity {
     EditText naisence, nom, prenom, sexe, email, pass, confirm_pass;
-    String name, password, conf_password, after_name, berthday, mail, sexee;
+    String name, password, conf_password, after_name, berthday, mail, sexee="0";
     Intent ite;
-
+    Bundle bd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
-//        Bundle bd = getIntent().getExtras();
+
+
+        SharedPreferences prefs = getSharedPreferences("sexe", MODE_PRIVATE);
+        String restoredText = prefs.getString("sexe", null);
+
         email = (EditText) findViewById(R.id.email);
         sexe = (EditText) findViewById(R.id.sexe);
         naisence = (EditText) findViewById(R.id.age);
 
-//        sexe.setText(bd.getString("sexe"));
+        if (restoredText != null) {
+            String sex = prefs.getString("sexe", "");//"No name defined" is the default value.
+            sexe.setText(sex);
+        }
+
+
+
     }
 
     public void get_age(View view) {
@@ -48,6 +59,7 @@ public class Inscription extends AppCompatActivity {
 
     public void get_sexe(View view) {
         ite = new Intent(this, SexeActivity.class);
+     sexee="1";
         startActivity(ite);
 
 
@@ -59,6 +71,9 @@ public class Inscription extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.pass);
         confirm_pass = (EditText) findViewById(R.id.conf_pass);
         connecter();
+        SharedPreferences.Editor editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+        editor.clear();
+        editor.commit();
     }
 
     private void connecter() {

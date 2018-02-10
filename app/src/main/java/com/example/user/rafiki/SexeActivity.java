@@ -1,6 +1,7 @@
 package com.example.user.rafiki;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,25 +15,47 @@ public class SexeActivity extends AppCompatActivity {
     RadioButton rd_sexe;
     int id_sex;
     Inscription inscription;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sexe);
-         inscription=new Inscription();
+
+
+
     }
 
+    public void onRadioButtonClicked(View view) {
+
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch(view.getId()) {
+            case R.id.homme:
+                if (checked){
+
+                    SharedPreferences.Editor editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+                    editor.putString("sexe","Masculin");
+                    editor.apply();
+
+                }
+                  break;
+            case R.id.famme:
+                if (checked){
+                    SharedPreferences.Editor editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+                    editor.putString("sexe","Fiminin");
+                    editor.apply();
+
+
+
+                }
+                    break;
+        }
+
+    }
     public void valide_sexe(View view) {
-        sexe = (RadioGroup) findViewById(R.id.sexes);
-        id_sex = sexe.getCheckedRadioButtonId();
-        rd_sexe = (RadioButton) findViewById(id_sex);
 
-//        Bundle bd=new Bundle();
-//        bd.putString("sexe",rd_sexe.getText().toString());
-//        ite.putExtras(bd);
-        String val=rd_sexe.getText().toString();
-        inscription.email.setText(val);
-        ite=new Intent(this,Inscription.class);
+        ite = new Intent(this, Inscription.class);
         startActivity(ite);
-
     }
+
 }

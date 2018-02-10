@@ -70,8 +70,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:buttonTint="#18e2c5"
-                android:checked="true"
+
                 android:fontFamily="Raleway Bold"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/masculin"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="18sp"/>
@@ -81,6 +82,8 @@
                 android:id="@+id/famme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
