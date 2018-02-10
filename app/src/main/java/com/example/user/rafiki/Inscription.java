@@ -72,7 +72,7 @@ public class Inscription extends AppCompatActivity {
         confirm_pass = (EditText) findViewById(R.id.conf_pass);
         connecter();
         SharedPreferences.Editor editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
-        editor.clear();
+        editor.remove("sexe");
         editor.commit();
     }
 
