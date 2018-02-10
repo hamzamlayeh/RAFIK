@@ -113,7 +113,7 @@ public class Inscription extends AppCompatActivity {
         confirm_pass.setError("Remplir Votre mot de passe de confirmation ");
         valide = false;
     }
-        if (!conf_password.isEmpty() && (conf_password.length()!=password.length())) {
+        if (!conf_password.isEmpty() && (!conf_password.contentEquals(password))) {
             confirm_pass.setError(" Votre mot de passe n ai pas identique  ");
             valide = false;
         }
