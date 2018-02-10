@@ -14,16 +14,15 @@ import android.widget.Toast;
 
 public class Inscription extends AppCompatActivity {
     EditText naisence, nom, prenom, sexe, email, pass, confirm_pass;
-    String name, password, conf_password, after_name, berthday, mail, sexee="0";
+    String name, password, conf_password, after_name, berthday, mail;
     Intent ite;
-    Bundle bd;
+    SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
 
-
-        SharedPreferences prefs = getSharedPreferences("sexe", MODE_PRIVATE);
+         prefs = getSharedPreferences("sexe", MODE_PRIVATE);
         String restoredText = prefs.getString("sexe", null);
 
         email = (EditText) findViewById(R.id.email);
@@ -34,9 +33,6 @@ public class Inscription extends AppCompatActivity {
             String sex = prefs.getString("sexe", "");//"No name defined" is the default value.
             sexe.setText(sex);
         }
-
-
-
     }
 
     public void get_age(View view) {
@@ -59,10 +55,7 @@ public class Inscription extends AppCompatActivity {
 
     public void get_sexe(View view) {
         ite = new Intent(this, SexeActivity.class);
-     sexee="1";
         startActivity(ite);
-
-
     }
 
     public void sinscrire(View view) {

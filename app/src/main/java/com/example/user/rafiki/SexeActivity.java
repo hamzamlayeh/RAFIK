@@ -11,17 +11,11 @@ import android.widget.RadioGroup;
 public class SexeActivity extends AppCompatActivity {
 
     Intent ite;
-    RadioGroup sexe;
-    RadioButton rd_sexe;
-    int id_sex;
-    Inscription inscription;
-
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sexe);
-
-
 
     }
 
@@ -33,7 +27,7 @@ public class SexeActivity extends AppCompatActivity {
             case R.id.homme:
                 if (checked){
 
-                    SharedPreferences.Editor editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+                    editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
                     editor.putString("sexe","Masculin");
                     editor.apply();
 
@@ -41,12 +35,9 @@ public class SexeActivity extends AppCompatActivity {
                   break;
             case R.id.famme:
                 if (checked){
-                    SharedPreferences.Editor editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+                    editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
                     editor.putString("sexe","Fiminin");
                     editor.apply();
-
-
-
                 }
                     break;
         }

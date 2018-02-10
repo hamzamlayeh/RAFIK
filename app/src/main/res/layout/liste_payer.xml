@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageitem"
         android:layout_width="56dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="3dp"
+        android:layout_height="38dp"
         android:layout_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/france"
         tools:layout_editor_absoluteY="37dp" />
 
     <TextView
@@ -21,9 +19,5 @@
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_weight="8"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        tools:layout_editor_absoluteY="32dp" />
-</android.support.constraint.ConstraintLayout>
+        android:padding="10dp"/>
+</LinearLayout>

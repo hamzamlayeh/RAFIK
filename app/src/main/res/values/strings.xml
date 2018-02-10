@@ -1,4 +1,11 @@
 <resources xmlns:android="http://schemas.android.com/tools">
+    <string-array name="Names">
+        <item>france</item>
+        <item>tunisie</item>
+        <item>turkey</item>
+        <item>togo</item>
+    </string-array>
+
     <string name="app_name">RAFIKI</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
