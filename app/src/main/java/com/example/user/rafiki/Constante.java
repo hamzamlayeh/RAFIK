@@ -13,9 +13,7 @@ import java.io.InputStreamReader;
 
 public class Constante extends AppCompatActivity {
 
-    private String[] tap;
-
-    public  static int[] imgess= new int[]{
+        public  static int[] imgs= new int[]{
             R.drawable.af,R.drawable.za,R.drawable.al,R.drawable.dz,
             R.drawable.de,R.drawable.ad,R.drawable.ao,R.drawable.ag,
             R.drawable.sa,R.drawable.ar,R.drawable.am,R.drawable.au,
@@ -67,25 +65,6 @@ public class Constante extends AppCompatActivity {
             R.drawable.vu,R.drawable.va,R.drawable.ve,R.drawable.vn,
             R.drawable.ye,R.drawable.zm,R.drawable.zw};
 
-    int i=1;
-     String line;
-  public String[] rempli_nom_pays(){
-    try{
-        InputStream inputStream=getAssets().open("payes.txt");
-        InputStreamReader inputStreamReader=new InputStreamReader(inputStream);
-        BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-
-         while ((line=bufferedReader.readLine())!=null)
-         {
-             tap[i]=line;
-             i++;
-
-         }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    return tap;
-}
 
 
 }

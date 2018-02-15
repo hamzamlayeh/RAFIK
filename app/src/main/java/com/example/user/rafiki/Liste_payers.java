@@ -27,51 +27,22 @@ import java.util.Arrays;
 
 public class Liste_payers extends AppCompatActivity {
 
-    String[] items;
-    String[] x;
-    int y=0;
-    ArrayList<String> l;
-    public static int[] imgs;
+    String[] items = new String[199];
     ArrayList<DataItem> listA;
     ListAdapter listAdapter;
     ListView listView;
     EditText recherch;
     Intent ite;
     SharedPreferences.Editor editor;
-    InputStream inputStream = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_payers);
-//        Constante con=new Constante();
-//        x=con.rempli_nom_pays();
-
-        try {
-            inputStream = getAssets().open("payes.txt");
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            String ligne;
-            while (bufferedReader.ready()) {
-                ligne = bufferedReader.readLine();
-                  //il fou9 mdiclari zouz ahwka tableux w arraylist
-
-                //l.add(ligne);
-                x[y]=ligne;
-                if(y==190){
-                    //Toast.makeText(getApplicationContext(),""+l.get(y).toString(),Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(),""+x[y].toString(),Toast.LENGTH_LONG).show();
-                }
-                y++;
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         listView = (ListView) findViewById(R.id.listview);
         recherch = (EditText) findViewById(R.id.txtsearch);
+        rempli_nom_pays();
         initList();
         recherch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -109,12 +80,33 @@ public class Liste_payers extends AppCompatActivity {
         });
 
     }
+
+    public void rempli_nom_pays() {
+
+        try {
+            InputStream inputStream = getAssets().open("payes.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            int x = 0;
+            String ligne;
+            while (bufferedReader.ready()) {
+
+                ligne = bufferedReader.readLine();
+                items[x] = ligne;
+                x++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void searchItem(String textToSearch) {
 
-        for (int i=0;i<listA.size();i++){
-            if(!listA.get(i).nom_payer.contains(textToSearch))
-            {
-                   listA.remove(listA.get(i));
+        for (int i = 0; i < listA.size(); i++)
+        {
+            if (!listA.get(i).nom_payer.contains(textToSearch)) {
+                listA.remove(listA.get(i));
             }
             listAdapter.notifyDataSetChanged();
         }
@@ -124,14 +116,11 @@ public class Liste_payers extends AppCompatActivity {
     public void initList() {
 
         listA = new ArrayList<DataItem>();
-        items = getResources().getStringArray(R.array.Names);
-        imgs = new int[]{R.drawable.france, R.drawable.tunisia, R.drawable.turkey, R.drawable.togo};
         int id = 0;
         for (String i : items) {
-            listA.add(new DataItem(String.valueOf(id), imgs[id], i));
+            listA.add(new DataItem(String.valueOf(id), Constante.imgs[id], i));
             id++;
         }
-
         listAdapter = new ListAdapter(listA);
         listView.setAdapter(listAdapter);
     }
