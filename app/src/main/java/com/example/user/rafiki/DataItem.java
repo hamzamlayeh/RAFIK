@@ -5,11 +5,12 @@ package com.example.user.rafiki;
  */
 
 public class DataItem {
-
+    String id;
     int img_payer;
     String nom_payer;
 
-    public DataItem(int img_payer, String nom_payer) {
+    public DataItem(String id, int img_payer, String nom_payer) {
+        this.id = id;
         this.img_payer = img_payer;
         this.nom_payer = nom_payer;
     }

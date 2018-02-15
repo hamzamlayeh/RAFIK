@@ -1,5 +1,7 @@
 package com.example.user.rafiki;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,29 +18,62 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Liste_payers extends AppCompatActivity {
 
     String[] items;
-    int[] imgs;
+    String[] x;
+    int y=0;
+    ArrayList<String> l;
+    public static int[] imgs;
     ArrayList<DataItem> listA;
-    ArrayList<String> listItems;
-    ArrayAdapter<String> adapter;
     ListAdapter listAdapter;
     ListView listView;
-    EditText editText;
+    EditText recherch;
+    Intent ite;
+    SharedPreferences.Editor editor;
+    InputStream inputStream = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_payers);
+//        Constante con=new Constante();
+//        x=con.rempli_nom_pays();
+
+        try {
+            inputStream = getAssets().open("payes.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            String ligne;
+            while (bufferedReader.ready()) {
+                ligne = bufferedReader.readLine();
+                  //il fou9 mdiclari zouz ahwka tableux w arraylist
+
+                //l.add(ligne);
+                x[y]=ligne;
+                if(y==190){
+                    //Toast.makeText(getApplicationContext(),""+l.get(y).toString(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),""+x[y].toString(),Toast.LENGTH_LONG).show();
+                }
+                y++;
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         listView = (ListView) findViewById(R.id.listview);
-        editText = (EditText) findViewById(R.id.txtsearch);
+        recherch = (EditText) findViewById(R.id.txtsearch);
         initList();
-        editText.addTextChangedListener(new TextWatcher() {
+        recherch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -63,59 +98,62 @@ public class Liste_payers extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 TextView txt = (TextView) view.findViewById(R.id.txtitem);
-                Toast.makeText(getApplicationContext(),txt.getText().toString(),Toast.LENGTH_LONG).show();
+                TextView id = (TextView) view.findViewById(R.id.id_image);
+                editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
+                editor.putString("Nom_Pays", txt.getText().toString());
+                editor.putString("Id_img", id.getText().toString());
+                editor.apply();
+                ite = new Intent(Liste_payers.this, Inscription.class);
+                startActivity(ite);
             }
         });
 
     }
     public void searchItem(String textToSearch) {
 
-        for (String item : items)
-        {
-            if (!item.contains(textToSearch))
+        for (int i=0;i<listA.size();i++){
+            if(!listA.get(i).nom_payer.contains(textToSearch))
             {
-                listA.remove(item);
+                   listA.remove(listA.get(i));
             }
+            listAdapter.notifyDataSetChanged();
         }
-        listAdapter.notifyDataSetChanged();
+
     }
 
     public void initList() {
 
-         listA = new ArrayList<DataItem>();
-
+        listA = new ArrayList<DataItem>();
         items = getResources().getStringArray(R.array.Names);
-        imgs= new int[]{R.drawable.france,R.drawable.tunisia,R.drawable.turkey,R.drawable.togo};
-        listItems = new ArrayList<>(Arrays.asList(items));
-        int id=0;
-        for(String i : items){
-            listA.add(new DataItem(imgs[id],i));
+        imgs = new int[]{R.drawable.france, R.drawable.tunisia, R.drawable.turkey, R.drawable.togo};
+        int id = 0;
+        for (String i : items) {
+            listA.add(new DataItem(String.valueOf(id), imgs[id], i));
             id++;
         }
 
-         listAdapter = new ListAdapter(listA);
-          listView.setAdapter(listAdapter);
-//           adapter = new ArrayAdapter<String>(this, R.layout.liste_payer, R.id.txtitem,listItems);
-//          listView.setAdapter(adapter);
-
-
+        listAdapter = new ListAdapter(listA);
+        listView.setAdapter(listAdapter);
     }
+
     class ListAdapter extends BaseAdapter {
 
         ArrayList<DataItem> list = new ArrayList<DataItem>();
 
-        ListAdapter(ArrayList<DataItem> list2)
-        {
+        ListAdapter(ArrayList<DataItem> list2) {
             this.list = list2;
         }
+
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
 
             LayoutInflater layoutInflater = getLayoutInflater();
-             view = layoutInflater.inflate(R.layout.liste_payer, null);
+            view = layoutInflater.inflate(R.layout.liste_payer, null);
             TextView txt = (TextView) view.findViewById(R.id.txtitem);
+            TextView id = (TextView) view.findViewById(R.id.id_image);
             ImageView img = (ImageView) view.findViewById(R.id.imageitem);
 
+            id.setText(list.get(i).id);
             txt.setText(list.get(i).nom_payer);
             img.setImageResource(list.get(i).img_payer);
 

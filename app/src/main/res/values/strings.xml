@@ -5,6 +5,32 @@
         <item>turkey</item>
         <item>togo</item>
     </string-array>
+    <string-array name="codes">
+        <item>+210</item>
+        <item>+216</item>
+        <item>+32</item>
+        <item>+33</item>
+        <item>+210</item>
+        <item>+216</item>
+        <item>+32</item>
+        <item>+33</item>
+        <item>+210</item>
+        <item>+216</item>
+        <item>+32</item>
+        <item>+33</item>
+        <item>+210</item>
+        <item>+216</item>
+        <item>+32</item>
+        <item>+33</item>
+        <item>+210</item>
+        <item>+216</item>
+        <item>+32</item>
+        <item>+33</item>
+        <item>+210</item>
+        <item>+216</item>
+        <item>+32</item>
+        <item>+33</item>
+    </string-array>
 
     <string name="app_name">RAFIKI</string>
     <string name="title_home">Home</string>
@@ -47,4 +73,8 @@
     <string name="ok">OK</string>
     <string name="alert_msg1">Consulter votre mail pour</string>
     <string name="alert_msg2">valider votre inscription.</string>
+    <string name="recherche">   Recherche...</string>
+    <string name="pays">PAYS</string>
+    <string name="telephone">Telephone</string>
+    <string name="confirmer_mot_de_pass">Confirmer mot de pass</string>
 </resources>

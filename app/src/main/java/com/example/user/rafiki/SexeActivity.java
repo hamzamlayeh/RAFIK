@@ -27,7 +27,7 @@ public class SexeActivity extends AppCompatActivity {
             case R.id.homme:
                 if (checked){
 
-                    editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+                    editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
                     editor.putString("sexe","Masculin");
                     editor.apply();
 
@@ -35,7 +35,7 @@ public class SexeActivity extends AppCompatActivity {
                   break;
             case R.id.famme:
                 if (checked){
-                    editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+                    editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
                     editor.putString("sexe","Fiminin");
                     editor.apply();
                 }

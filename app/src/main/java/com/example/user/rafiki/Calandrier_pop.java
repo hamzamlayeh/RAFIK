@@ -1,6 +1,9 @@
 package com.example.user.rafiki;
 
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +22,7 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
     View view;
     Button ok,anuller;
     DatePicker naisence;
-
+    SharedPreferences.Editor editor;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -33,21 +36,21 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
 
         Button button=(Button)view;
-        if(button.getText().toString().equals("ANULER")){
+        if(button.getText().toString().equals("Anuler")){
             this.dismiss();
         }else {
-            this.dismiss();
             Calendar cal = Calendar.getInstance();
             int x = cal.getWeekYear()- naisence.getYear();
             String age = x + " ans";
 
             Inscription inscr = (Inscription) getActivity();
             inscr.setage(age);
-
+            this.dismiss();
         }
     }
 }

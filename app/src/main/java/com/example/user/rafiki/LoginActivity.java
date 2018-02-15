@@ -23,8 +23,10 @@ public class LoginActivity extends AppCompatActivity {
     public void inscrire(View view) {
         ite=new Intent(this,Inscription.class);
         startActivity(ite);
-        SharedPreferences.Editor editor = getSharedPreferences("sexe", MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
         editor.remove("sexe");
+        editor.remove("Nom_Pays");
+        editor.remove("ID_img");
         editor.commit();
     }
 
