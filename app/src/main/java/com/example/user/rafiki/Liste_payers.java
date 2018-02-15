@@ -44,7 +44,6 @@ public class Liste_payers extends AppCompatActivity {
         recherch = (EditText) findViewById(R.id.txtsearch);
         rempli_nom_pays();
         initList();
-
         recherch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

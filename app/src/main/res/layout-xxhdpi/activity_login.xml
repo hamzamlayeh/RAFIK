@@ -142,7 +142,9 @@
             android:hint="@string/adresse_mail"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
-            android:textColor="@android:color/black" />
+            android:onClick="monCompte"
+            android:textColor="@android:color/black"
+            tools:ignore="OnClick" />
 
         <EditText
             android:id="@+id/password"
