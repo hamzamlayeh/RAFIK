@@ -45,4 +45,15 @@
     <string name="pays">PAYS</string>
     <string name="telephone">Telephone</string>
     <string name="confirmer_mot_de_pass">Confirmer mot de pass</string>
+    <string name="err_nom">Remplir Votre nom</string>
+    <string name="err_pays">Remplir Votre Pays</string>
+    <string name="err_phone">Taper votre N°Telephone</string>
+    <string name="err_sexe">Remplir Votre Sexe</string>
+    <string name="err_age">Remplir Votre Date de naissence</string>
+    <string name="err_pass2">Votre mot de passe n ai pas identique</string>
+    <string name="err_pass_conf">Remplir Votre mot de passe de confirmation(6 caractères minimum )</string>
+    <string name="err_pass">Remplir Votre mot de passe (6 caractères minimum )</string>
+    <string name="err_pass1">Votre mot de passe doit etre 6 caractères minimum</string>
+    <string name="err_mail">Votre E-mail doit etre valide</string>
+    <string name="err_prenom">Remplir Votre prenom</string>
 </resources>

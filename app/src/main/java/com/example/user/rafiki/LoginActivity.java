@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         email= findViewById(R.id.emil);
     }
     public void identifier(View view) {
@@ -26,10 +27,22 @@ public class LoginActivity extends AppCompatActivity {
     public void inscrire(View view) {
         ite=new Intent(this,Inscription.class);
         startActivity(ite);
+        resetvalue();
+    }
+    public  void resetvalue(){
         SharedPreferences.Editor editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
+        editor.remove("Nom");
+        editor.remove("Prenom");
+        editor.remove("Age");
+        editor.remove("Email");
+        editor.remove("Mobile");
+        editor.remove("Password");
+        editor.remove("Password_conf");
         editor.remove("sexe");
         editor.remove("Nom_Pays");
         editor.remove("ID_img");
+        editor.remove("Id_code");
+        editor.remove("Code_pays");
         editor.commit();
     }
     public void setEmail(String e) {
