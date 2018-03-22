@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context="com.example.user.rafiki.E8"
     >
+
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
@@ -138,29 +139,27 @@
 
             <ImageView
                 android:id="@+id/Coeur"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="68dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginStart="256dp"
                 android:layout_marginTop="120dp"
                 android:onClick="E10"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.14"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/g1" />
 
             <LinearLayout
                 android:id="@+id/BPM-Layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="228dp"
-                android:layout_marginStart="228dp"
-                android:layout_marginTop="132dp"
+                android:layout_width="35dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="124dp"
                 android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/Coeur"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -170,7 +169,7 @@
                     android:layout_height="30dp"
                     android:text="86"
                     android:textColor="@android:color/background_light"
-                    android:textSize="26sp" />
+                    android:textSize="22dp" />
 
                 <TextView
                     android:id="@+id/BPM-S"
@@ -185,16 +184,15 @@
                 android:id="@+id/bpm-Layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="56dp"
-                android:layout_marginRight="56dp"
-                android:layout_marginTop="192dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="180dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:id="@+id/bpm-Layout-D"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -206,27 +204,27 @@
                         android:layout_marginRight="8dp"
                         android:text="63"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/bpm-text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginLeft="14dp"
                         android:layout_marginRight="8dp"
                         android:text="81"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/bpm-text3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginRight="8dp"
                         android:text="140"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -280,14 +278,14 @@
 
             <ImageView
                 android:id="@+id/image-RMP"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:onClick="E11"
+                android:layout_marginTop="236dp"
 
-                android:layout_marginTop="247dp"
-                app:layout_constraintHorizontal_bias="0.943"
+                android:onClick="E11"
+                app:layout_constraintHorizontal_bias="0.916"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -297,11 +295,9 @@
                 android:id="@+id/Layout-RPM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="272dp"
-                android:layout_marginStart="272dp"
-                android:layout_marginTop="256dp"
+                android:layout_marginTop="236dp"
                 android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/image-RMP"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -310,7 +306,7 @@
                     android:layout_height="30dp"
                     android:text="23"
                     android:textColor="@android:color/background_light"
-                    android:textSize="26sp" />
+                    android:textSize="22dp" />
 
                 <TextView
                     android:id="@+id/rpm-s"
@@ -331,8 +327,10 @@
                 android:orientation="vertical"
                 app:layout_constraintBottom_toTopOf="@+id/Tampirature"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/hom"
-                app:layout_constraintTop_toBottomOf="@+id/image-RMP">
+                app:layout_constraintTop_toBottomOf="@+id/image-RMP"
+                app:layout_constraintVertical_bias="0.0">
 
                 <LinearLayout
                     android:id="@+id/rpm-D"
@@ -350,7 +348,7 @@
                         android:layout_weight="1"
                         android:text="20"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.87"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -366,7 +364,7 @@
                         android:layout_weight="1"
                         android:text="38"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.33"
                         app:layout_constraintLeft_toRightOf="@+id/rpm-text1"
                         app:layout_constraintRight_toRightOf="parent"
@@ -381,7 +379,7 @@
                         android:layout_weight="1"
                         android:text="16"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.77"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -447,14 +445,14 @@
 
             <ImageView
                 android:id="@+id/Tampirature"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:onClick="E12"
+                android:layout_marginTop="356dp"
 
-                android:layout_marginTop="372dp"
-                app:layout_constraintHorizontal_bias="0.91"
+                android:onClick="E12"
+                app:layout_constraintHorizontal_bias="0.856"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -464,12 +462,11 @@
                 android:id="@+id/TEMPIRATURE-Layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="250dp"
-                android:layout_marginTop="380dp"
+                android:layout_marginTop="356dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.19"
+                app:layout_constraintEnd_toStartOf="@+id/Tampirature"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints">
@@ -480,7 +477,7 @@
                     android:layout_height="wrap_content"
                     android:text="38"
                     android:textColor="@android:color/background_light"
-                    android:textSize="26sp" />
+                    android:textSize="22dp" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -498,10 +495,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="436dp"
+                android:layout_marginTop="416dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.989"
+                app:layout_constraintHorizontal_bias="0.919"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -521,7 +518,7 @@
                         android:layout_weight="1"
                         android:text="40"
                         android:textColor="#c7c4c4"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintLeft_toRightOf="@+id/rpm-text1"
                         app:layout_constraintRight_toRightOf="parent"
@@ -536,7 +533,7 @@
                         android:layout_weight="1"
                         android:text="36"
                         android:textColor="#c7c4c4"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.76"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -551,7 +548,7 @@
                         android:layout_weight="1"
                         android:text="37"
                         android:textColor="#c7c4c4"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.848"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -616,12 +613,12 @@
 
             <ImageView
                 android:id="@+id/OXIGEN"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="480dp"
-                app:layout_constraintHorizontal_bias="0.794"
+                android:layout_marginTop="456dp"
+                app:layout_constraintHorizontal_bias="0.785"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -634,28 +631,28 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="492dp"
+                android:layout_marginTop="470dp"
                 android:text="98%"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/OXIGEN"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintHorizontal_bias="0.622"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.074"
                 tools:ignore="MissingConstraints" />
 
             <LinearLayout
                 android:id="@+id/Layot-Oxigen"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="540dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.97"
+                app:layout_constraintHorizontal_bias="0.895"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/OXIGEN">
 
                 <TextView
                     android:id="@+id/text-oxigen1"
@@ -664,7 +661,7 @@
                     android:layout_margin="3dp"
                     android:text="95%"
                     android:textColor="@android:color/background_light"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     tools:layout_editor_absoluteX="257dp"
                     tools:layout_editor_absoluteY="551dp" />

@@ -170,10 +170,13 @@ public class Inscription extends AppCompatActivity {
                             editor.putString("Password_conf", conf_password);
                             editor.putString("Mobile", phone);
                             editor.apply();
+
                             ite = new Intent(Inscription.this, Verif_code_mailActivity.class);
                             startActivity(ite);
                         }
                     }).show();
+
+
         }
     }
 

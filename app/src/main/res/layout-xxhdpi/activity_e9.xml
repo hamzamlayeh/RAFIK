@@ -108,8 +108,8 @@
                 android:id="@+id/btn"
                 android:layout_width="307dp"
                 android:layout_height="31dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="600dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="582dp"
                 android:background="#24bf0a"
                 android:onClick="retour"
                 android:text="OK"
@@ -127,10 +127,10 @@
                 android:layout_width="185dp"
                 android:layout_height="51dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="532dp"
+                android:layout_marginTop="515dp"
                 android:background="@drawable/notes"
-                android:text="@string/notes_conseils"
                 android:onClick="alert"
+                android:text="@string/notes_conseils"
                 android:textColor="@android:color/background_light"
                 app:layout_constraintBottom_toTopOf="@+id/btn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +138,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.875" />
+                app:layout_constraintVertical_bias="0.07999998" />
 
             <ProgressBar
                 android:id="@+id/vertical"
@@ -293,7 +293,7 @@
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart1"
                 android:layout_width="0dp"
-                android:layout_height="229dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="4dp"
                 android:animationCache="false"
                 android:background="@drawable/gard"

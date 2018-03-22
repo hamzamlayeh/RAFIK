@@ -96,9 +96,9 @@
                 android:layout_height="3dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/RAFIKI-Icon"
                 app:srcCompat="@drawable/bare2" />
@@ -122,8 +122,7 @@
                 android:id="@+id/btn"
                 android:layout_width="307dp"
                 android:layout_height="31dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="600dp"
+                android:layout_marginBottom="20dp"
                 android:background="#24bf0a"
                 android:onClick="retour"
                 android:text="OK"
@@ -134,14 +133,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/notes" />
 
             <Button
                 android:id="@+id/notes"
                 android:layout_width="185dp"
                 android:layout_height="51dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="532dp"
+                android:layout_marginTop="520dp"
                 android:background="@drawable/notes"
                 android:onClick="alert"
                 android:text="@string/notes_conseils"
@@ -152,7 +151,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.875" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <ProgressBar
                 android:id="@+id/vertical"
@@ -495,7 +494,7 @@
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart1"
                 android:layout_width="0dp"
-                android:layout_height="229dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="8dp"
                 android:animateLayoutChanges="false"
                 android:animationCache="false"
