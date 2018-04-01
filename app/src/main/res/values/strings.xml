@@ -56,4 +56,5 @@
     <string name="err_pass1">Votre mot de passe doit etre 6 caractères minimum</string>
     <string name="err_mail">Votre E-mail doit etre valide</string>
     <string name="err_prenom">Remplir Votre prenom</string>
+    <string name="chekmail">Votre Email deja utiliser</string>
 </resources>

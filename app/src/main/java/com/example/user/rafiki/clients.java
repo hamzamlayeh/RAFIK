@@ -6,7 +6,7 @@ package com.example.user.rafiki;
 
 public class clients {
 
-
+    private int _id;
     private String nom;
     private String prenom;
     private String age;
@@ -28,6 +28,14 @@ public class clients {
         this.sexe = sexe;
         this.email = email;
         this.password = password;
+    }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public String getNom() {

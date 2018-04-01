@@ -47,7 +47,7 @@ public class Compte_pop extends DialogFragment implements View.OnClickListener{
 
 
             LoginActivity log = (LoginActivity) getActivity();
-            log.setEmail("khaled@gmail.com");
+            //log.setEmail("khaled@gmail.com");
             this.dismiss();
         }
     }
