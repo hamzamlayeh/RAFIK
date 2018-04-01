@@ -134,7 +134,7 @@
                 app:srcCompat="@drawable/eclipc" />
 
             <ImageView
-                android:id="@+id/respiration"
+                android:id="@+id/Respiration"
                 android:layout_width="209dp"
                 android:layout_height="143dp"
                 android:layout_marginLeft="16dp"
@@ -248,7 +248,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.56"
-                app:srcCompat="@drawable/tirer" />
+                app:srcCompat="@drawable/tirer"
+                tools:ignore="UnknownId" />
 
             <LinearLayout
                 android:id="@+id/LayoutBaProgress"
@@ -441,7 +442,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.93" />
+                app:layout_constraintVertical_bias="0.93"
+                android:layout_marginRight="308dp" />
 
             <View
                 android:id="@+id/tirer8"
@@ -494,7 +496,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.78"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirer12" />
+                app:layout_constraintTop_toBottomOf="@+id/tirer12"
+                android:layout_marginRight="3dp"
+                android:layout_marginLeft="8dp" />
 
             <View
                 android:id="@+id/tirer15"
@@ -509,7 +513,9 @@
                 app:layout_constraintHorizontal_bias="0.78"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tirer12"
-                app:layout_constraintVertical_bias="0.94" />
+                app:layout_constraintVertical_bias="0.94"
+                android:layout_marginRight="3dp"
+                android:layout_marginLeft="8dp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart1"
