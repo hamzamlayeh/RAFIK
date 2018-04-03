@@ -153,7 +153,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/LayoutBaProgress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.16000003" />
+                app:layout_constraintVertical_bias="0.16000003"
+                android:layout_marginRight="60dp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -381,7 +382,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4" />
+                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="9dp" />
 
             <View
                 android:id="@+id/tirerMaw6"
@@ -394,7 +397,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4" />
+                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4"
+                android:layout_marginRight="9dp"
+                android:layout_marginLeft="8dp" />
 
             <View
                 android:id="@+id/tirerMaw7"
@@ -407,7 +412,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4" />
+                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="9dp" />
 
             <View
                 android:id="@+id/tirerMaw8"
@@ -420,7 +427,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4" />
+                app:layout_constraintTop_toBottomOf="@+id/tirerMaw4"
+                android:layout_marginRight="9dp"
+                android:layout_marginLeft="8dp" />
 
             <View
                 android:id="@+id/tirerMaw3"

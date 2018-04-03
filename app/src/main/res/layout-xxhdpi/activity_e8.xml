@@ -96,7 +96,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/coure" />
+                app:srcCompat="@drawable/coure"
+                android:layout_marginRight="140dp"
+                android:layout_marginLeft="16dp" />
 
             <LinearLayout
                 android:id="@+id/Nutre-Layout"
@@ -161,7 +163,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/Coeur"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="8dp">
 
                 <TextView
                     android:id="@+id/BPM-D"
@@ -188,7 +191,8 @@
                 android:layout_marginTop="180dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="36dp">
 
                 <LinearLayout
                     android:id="@+id/bpm-Layout-D"
@@ -330,7 +334,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/hom"
                 app:layout_constraintTop_toBottomOf="@+id/image-RMP"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginRight="8dp">
 
                 <LinearLayout
                     android:id="@+id/rpm-D"
@@ -469,7 +474,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints">
+                tools:ignore="MissingConstraints"
+                android:layout_marginLeft="250dp">
 
                 <TextView
                     android:id="@+id/TEMP-D"
@@ -501,7 +507,8 @@
                 app:layout_constraintHorizontal_bias="0.919"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="8dp">
 
                 <LinearLayout
                     android:id="@+id/temp-D"

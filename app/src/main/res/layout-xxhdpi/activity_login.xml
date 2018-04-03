@@ -205,5 +205,5 @@
             android:textAllCaps="false"
             android:textColor="#bd024e76" />
     </LinearLayout>
-    
+
 </android.support.constraint.ConstraintLayout>

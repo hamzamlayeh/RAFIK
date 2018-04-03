@@ -39,14 +39,18 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
-
+        String age;
         Button button=(Button)view;
         if(button.getText().toString().equals("Anuler")){
             this.dismiss();
         }else {
             Calendar cal = Calendar.getInstance();
             int x = cal.get(Calendar.YEAR)- naisence.getYear();
-            String age = x + " ans";
+            int mois = cal.get(Calendar.MONTH)-naisence.getMonth();
+            if(mois <6)
+                age = x + " ans";
+            else
+                age = (x+1) + "ans";
 
             Inscription inscr = (Inscription) getActivity();
             inscr.setage(age);

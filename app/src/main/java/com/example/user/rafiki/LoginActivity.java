@@ -1,7 +1,9 @@
 package com.example.user.rafiki;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,12 +22,14 @@ public class LoginActivity extends AppCompatActivity {
     String mail, password;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-
+    Drawable d,d1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        d = getResources().getDrawable(R.drawable.edittext_error_style);
+        d1 = getResources().getDrawable(R.drawable.edittext_style_default);
         email = findViewById(R.id.emil);
         pass = findViewById(R.id.password);
 
@@ -37,32 +41,48 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println(list.size());
 
     }
-
+    @TargetApi(16)
     public void identifier(View view) {
+
+
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-        if (!valider()) {
-            Toast.makeText(getApplicationContext(), "Vérifier tous les champs", Toast.LENGTH_LONG).show();
-        } else {
-            if (ds.verifUser(mail, password)) {
-                ite = new Intent(this, E8.class);
-                startActivity(ite);
-            } else {
-                Toast.makeText(this, "Email ou mot de pass invalide", Toast.LENGTH_LONG).show();
-            }
-        }
+        ite = new Intent(this, E8.class);
+        startActivity(ite);
+//        if (!valider()) {
+//            Toast.makeText(getApplicationContext(), "Verifier Tous les champs", Toast.LENGTH_LONG).show();
+//        } else {
+//            if (ds.verifUser(mail, password)) {
+//                ite = new Intent(this, E8.class);
+//                startActivity(ite);
+//                pass.setBackground(d1);
+//                email.setBackground(d1);
+//            } else {
+//                Toast.makeText(this, "Email ou mot de pass Invalide", Toast.LENGTH_LONG).show();
+//                pass.setBackground(d);
+//                email.setBackground(d);
+//            }
+//        }
     }
-
+    @TargetApi(16)
     private boolean valider() {
-
         boolean valide = true;
         if (mail.isEmpty() || (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
-            email.setError(getString(R.string.err_mail));
+           email.setError("");
             valide = false;
+            email.setBackground(d);
+        }
+        else
+        {
+            email.setBackground(d1);
         }
         if (password.isEmpty()) {
-            pass.setError(getString(R.string.err_pass));
+            pass.setError("");
             valide = false;
+            pass.setBackground(d);
+        }
+        else {
+            pass.setBackground(d1);
         }
         return valide;
     }
@@ -89,17 +109,16 @@ public class LoginActivity extends AppCompatActivity {
         editor.remove("Code_pays");
         editor.commit();
     }
-//    public void setEmail(String e) {
-//
-//        email.setText(e);
-//    }
+    public void setEmail(String e) {
+
+        email.setText(e);
+    }
 
     public void monCompte(View view) {
 
-
-//            FragmentTransaction manager = getSupportFragmentManager().beginTransaction();
-//            Compte_pop  pop= new Compte_pop();
-//            pop.show(manager, null);
+        FragmentTransaction manager = getSupportFragmentManager().beginTransaction();
+        Compte_pop  pop= new Compte_pop();
+        pop.show(manager, null);
 
 
     }

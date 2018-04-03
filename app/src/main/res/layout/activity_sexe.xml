@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.rafiki.SexeActivity"
-    android:background="@drawable/bag10">
+    android:background="@drawable/bag10"
+    tools:context="com.example.user.rafiki.SexeActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -42,7 +42,6 @@
             android:textSize="24sp" />
     </LinearLayout>
 
-
     <android.support.v7.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="0dp"
@@ -57,40 +56,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
-        <RadioGroup
-            android:id="@+id/sexes"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/homme"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:buttonTint="#18e2c5"
-                android:fontFamily="Raleway Bold"
-                android:onClick="onRadioButtonClicked"
-                android:text="@string/masculin"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="18sp"/>
+                android:layout_weight="5"
+                android:orientation="vertical">
 
-            <RadioButton
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="14dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/masculin" />
 
-                android:id="@+id/famme"
-                android:layout_width="match_parent"
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="#000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/f_minin" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/sexes"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:buttonTint="#18e2c5"
-                android:fontFamily="Raleway Bold"
-                android:text="@string/f_minin"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="18sp" />
-        </RadioGroup>
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/homme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:buttonTint="#18e2c5"
+                    android:fontFamily="Raleway Bold"
+                    android:onClick="onRadioButtonClicked"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="#000000" />
+
+                <RadioButton
+
+                    android:id="@+id/famme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:buttonTint="#18e2c5"
+                    android:fontFamily="Raleway Bold"
+                    android:onClick="onRadioButtonClicked"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp" />
+            </RadioGroup>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <Button
@@ -109,4 +145,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
