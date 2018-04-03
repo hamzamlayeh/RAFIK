@@ -24,7 +24,7 @@
     <string name="adresse_mail">Adresse email</string>
     <string name="s_identifier">S\'identifier</string>
     <string name="mot_de_passe_oublier">Mot de passe oublié ?</string>
-    <string name="cr_e_un_nouveau_compte">+ Crée un Nouveau compte</string>
+    <string name="cr_e_un_nouveau_compte">+ Créer un Nouveau compte</string>
     <string name="prenom">Prénom</string>
     <string name="nom">Nom</string>
     <string name="age">Age</string>
