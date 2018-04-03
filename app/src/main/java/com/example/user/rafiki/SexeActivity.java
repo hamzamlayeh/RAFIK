@@ -28,18 +28,18 @@ public class SexeActivity extends AppCompatActivity {
                 if (checked){
 
                     editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
-                    editor.putString("sexe","Masculin");
+                    editor.putString("sexe","Homme");
                     editor.apply();
 
                 }
-                  break;
+                break;
             case R.id.famme:
                 if (checked){
                     editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
-                    editor.putString("sexe","Fiminin");
+                    editor.putString("sexe","Femme");
                     editor.apply();
                 }
-                    break;
+                break;
         }
 
     }
@@ -47,6 +47,7 @@ public class SexeActivity extends AppCompatActivity {
 
         ite = new Intent(this, Inscription.class);
         startActivity(ite);
+        this.finish();
     }
 
 }

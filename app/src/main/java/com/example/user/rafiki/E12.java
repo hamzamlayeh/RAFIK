@@ -80,7 +80,7 @@ public class E12 extends AppCompatActivity {
         datasets.add(set1);
         LineData data=new LineData(datasets);
         mchart.setData(data);
-         mchart.animateX(1400, Easing.EasingOption.Linear);
+        mchart.animateX(1400, Easing.EasingOption.Linear);
     }
 
     public void retour(View view) {

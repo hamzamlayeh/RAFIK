@@ -24,7 +24,7 @@ import static com.example.user.rafiki.R.*;
 
 public class Inscription extends AppCompatActivity {
     EditText naisence, nom, prenom, sexe, email, pass, confirm_pass, payes, mobile;
-    String name, password, conf_password, after_name, berthday, mail, sexee, payers, phone;
+    String name, password, conf_password, after_name, berthday, mail, sexee, payers, phone, key;
     String[] codes = new String[199];
     Spinner spinner;
     Intent ite;
@@ -34,7 +34,6 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,7 +184,7 @@ public class Inscription extends AppCompatActivity {
         editor.putString("Age", naisence.getText().toString());
         ite = new Intent(this, Liste_payers.class);
         startActivity(ite);
-
+        this.finish();
     }
 
     public void get_sexe(View view) {
@@ -193,6 +192,7 @@ public class Inscription extends AppCompatActivity {
         editor.putString("Age", naisence.getText().toString());
         ite = new Intent(this, SexeActivity.class);
         startActivity(ite);
+        this.finish();
     }
 
     public void sinscrire(View view) {
@@ -207,32 +207,33 @@ public class Inscription extends AppCompatActivity {
         phone = mobile.getText().toString().trim();
 
         if (!valider()) {
-            Toast.makeText(getApplicationContext(), "Verifier Tout les champs", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Vérifier tous les champs", Toast.LENGTH_LONG).show();
         } else {
             String fullphone = prefs.getString("Code_pays", null) + phone;
             remplir_champs();
 
             client = new clients(name, after_name, berthday, payers, fullphone, sexee, mail, password);
+
             List<clients> list = ds.getAllClient();
             if (list.size() > 2) {
-                Toast.makeText(Inscription.this, "Vous avez depasser 3 comptes ", Toast.LENGTH_LONG).show();
+                Toast.makeText(Inscription.this, "Vous avez depassé 3 comptes !!! ", Toast.LENGTH_LONG).show();
             } else {
-            AlertDialog.Builder alert = new AlertDialog.Builder(Inscription.this);
-            alert.setMessage(" " + getString(string.alert_msg1) + "\n" + " " + getString(string.alert_msg2))
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                                long ids = ds.addClient(client);
-                                if (ids == -1) {
-                                    Toast.makeText(Inscription.this, "Ereur dans l insertion", Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(Inscription.this, "Insertion terminer", Toast.LENGTH_LONG).show();
+                long ids = ds.addClient(client);
+                if (ids == -1) {
+                    Toast.makeText(Inscription.this, "Ereur dans l'insertion !!!", Toast.LENGTH_LONG).show();
+                } else {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(Inscription.this);
+                    alert.setMessage(" " + getString(string.alert_msg1) + "\n" + " " + getString(string.alert_msg2))
+                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
                                     ite = new Intent(Inscription.this, Verif_code_mailActivity.class);
                                     startActivity(ite);
+                                    Inscription.this.finish();
                                 }
-                            }
-
-                    }).show();
+                            })
+                            .show();
+                }
             }
         }
     }
@@ -262,23 +263,24 @@ public class Inscription extends AppCompatActivity {
             email.setError(getString(string.err_mail));
             valide = false;
         }
+        if(mobile.length()!=8)
+        {
+            mobile.setError(getString(string.err_phone));
+            valide = false;
+        }
         if (ds.verifEmail(mail)) {
             email.setError(getString(string.chekmail));
             valide = false;
         }
-        if (password.isEmpty()) {
+        if (password.isEmpty() || password.length()<6) {
             pass.setError(getString(string.err_pass));
             valide = false;
         }
-        if (!password.isEmpty() && (password.length() < 6)) {
-            pass.setError(getString(string.err_pass1));
-            valide = false;
-        }
-        if (conf_password.isEmpty()) {
+        if (conf_password.isEmpty() || conf_password.length()<6) {
             confirm_pass.setError(getString(string.err_pass_conf));
             valide = false;
         }
-        if (!conf_password.isEmpty() && (!conf_password.contentEquals(password))) {
+        if (!conf_password.contentEquals(password)) {
             confirm_pass.setError(getString(string.err_pass2));
             valide = false;
         }
@@ -298,7 +300,7 @@ public class Inscription extends AppCompatActivity {
             mobile.setError(getString(string.err_phone));
             valide = false;
         }
-        if (spinner.getSelectedItemPosition() == -1) {
+        if (spinner.getSelectedItemPosition() == 0) {
 
             valide = false;
         }

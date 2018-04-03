@@ -45,7 +45,7 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
             this.dismiss();
         }else {
             Calendar cal = Calendar.getInstance();
-            int x = cal.getWeekYear()- naisence.getYear();
+            int x = cal.get(Calendar.YEAR)- naisence.getYear();
             String age = x + " ans";
 
             Inscription inscr = (Inscription) getActivity();

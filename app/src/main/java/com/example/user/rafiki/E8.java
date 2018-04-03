@@ -27,7 +27,7 @@ public class E8 extends AppCompatActivity {
 
 
     public void E12(View view) {
-       intent = new Intent(this, E12.class);
+        intent = new Intent(this, E12.class);
         startActivity(intent);
     }
 

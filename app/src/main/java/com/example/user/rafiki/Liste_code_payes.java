@@ -34,7 +34,7 @@ public class Liste_code_payes extends ArrayAdapter<String> {
     public View getDropDownView(int position,  View convertView, ViewGroup parent) {
 
         inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-         row=inflater.inflate(R.layout.liste_codes_pays,null);
+        row=inflater.inflate(R.layout.liste_codes_pays,null);
         TextView code = (TextView) row.findViewById(R.id.code_payes);
         ImageView img = (ImageView) row.findViewById(R.id.img_code);
 

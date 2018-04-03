@@ -76,6 +76,7 @@ public class Liste_payers extends AppCompatActivity {
                 editor.apply();
                 ite = new Intent(Liste_payers.this, Inscription.class);
                 startActivity(ite);
+                Liste_payers.this.finish();
             }
         });
 

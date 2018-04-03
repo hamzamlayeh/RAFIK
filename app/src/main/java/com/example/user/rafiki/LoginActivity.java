@@ -31,10 +31,10 @@ public class LoginActivity extends AppCompatActivity {
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 1);
         ds = new UserDataSource(helper);
-       //si vous pouvez supprimer touts les champs de table just lever le commentaire
+        //si vous pouvez supprimer touts les champs de table just lever le commentaire
         //ds.removetable();
         List<clients> list=ds.getAllClient();
-       System.out.println(list.size());
+        System.out.println(list.size());
 
     }
 
@@ -42,13 +42,13 @@ public class LoginActivity extends AppCompatActivity {
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
         if (!valider()) {
-            Toast.makeText(getApplicationContext(), "Verifier Tout les champs", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Vérifier tous les champs", Toast.LENGTH_LONG).show();
         } else {
             if (ds.verifUser(mail, password)) {
                 ite = new Intent(this, E8.class);
                 startActivity(ite);
             } else {
-                Toast.makeText(this, "Email ou mot de pass Invalide", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Email ou mot de pass invalide", Toast.LENGTH_LONG).show();
             }
         }
     }
