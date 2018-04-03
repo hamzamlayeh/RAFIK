@@ -1,5 +1,6 @@
 <resources xmlns:android="http://schemas.android.com/tools">
 
+
     <string name="app_name">RAFIKI</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -17,14 +18,13 @@
     <string name="emotions">EMOTIONS</string>
     <string name="stresse">STRESSE</string>
 
-
     <string name="bienvenue">Bienvenue à</string>
     <string name="surveillance">Surveillance des signaux biométriques</string>
     <string name="mot_de_passe">Mot de passe</string>
     <string name="adresse_mail">Adresse email</string>
     <string name="s_identifier">S\'identifier</string>
     <string name="mot_de_passe_oublier">Mot de passe oublié ?</string>
-    <string name="cr_e_un_nouveau_compte">+ Créer un Nouveau compte</string>
+    <string name="cr_e_un_nouveau_compte">+ Crée un Nouveau compte</string>
     <string name="prenom">Prénom</string>
     <string name="nom">Nom</string>
     <string name="age">Age</string>
@@ -58,4 +58,8 @@
     <string name="err_mail">Votre e-mail doit etre valide</string>
     <string name="err_prenom">Remplir votre prénom</string>
     <string name="chekmail">Votre email est déjà utilisé</string>
+    <string name="couplage">Couplage de votre T-shirt avec SRT phone</string>
+    <string name="votre_t_shirt">Votre T-shirt doit être couplé avec votre Smartphone via Bluetooth</string>
+    <string name="couplage2">Couplage de votre T-shirt</string>
+    <string name="recherche_gadget">Recherche Gadget</string>
 </resources>
