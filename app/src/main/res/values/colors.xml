@@ -8,7 +8,7 @@
     <color name="chart">#cc57f7e2</color>
     <color name="left">#c6000000</color>
     <color name="courbe">#30000000</color>
-
-
+    <color name="couple">#9ff2f0f1</color>
+    <color name="text_alert">#87024572</color>
 
 </resources>

@@ -14,10 +14,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +24,7 @@ import static com.example.user.rafiki.R.*;
 
 public class Inscription extends AppCompatActivity {
     EditText naisence, nom, prenom, sexe, email, pass, confirm_pass, payes, mobile;
-    String name, password, conf_password, after_name, berthday, mail, sexee, payers, phone, key;
+    String name, password, conf_password, after_name, berthday, mail, sexee, payers, phone;
     String[] codes = new String[199];
     Spinner spinner;
     Intent ite;
@@ -38,8 +34,6 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-//    DatabaseReference dbRef;
-//    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +54,6 @@ public class Inscription extends AppCompatActivity {
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 1);
         ds = new UserDataSource(helper);
 
-//        dbRef = FirebaseDatabase.getInstance().getReference("Clients");
-//        mAuth = FirebaseAuth.getInstance();
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
         editor = prefs.edit();
 
@@ -221,16 +213,15 @@ public class Inscription extends AppCompatActivity {
             remplir_champs();
 
             client = new clients(name, after_name, berthday, payers, fullphone, sexee, mail, password);
-
+            List<clients> list = ds.getAllClient();
+            if (list.size() > 2) {
+                Toast.makeText(Inscription.this, "Vous avez depasser 3 comptes ", Toast.LENGTH_LONG).show();
+            } else {
             AlertDialog.Builder alert = new AlertDialog.Builder(Inscription.this);
             alert.setMessage(" " + getString(string.alert_msg1) + "\n" + " " + getString(string.alert_msg2))
                     .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            List<clients> list = ds.getAllClient();
-                            if (list.size() > 2) {
-                                Toast.makeText(Inscription.this, "Vous avez depasser 3 comptes ", Toast.LENGTH_LONG).show();
-                            } else {
                                 long ids = ds.addClient(client);
                                 if (ids == -1) {
                                     Toast.makeText(Inscription.this, "Ereur dans l insertion", Toast.LENGTH_LONG).show();
@@ -240,8 +231,9 @@ public class Inscription extends AppCompatActivity {
                                     startActivity(ite);
                                 }
                             }
-                        }
+
                     }).show();
+            }
         }
     }
 
@@ -306,7 +298,7 @@ public class Inscription extends AppCompatActivity {
             mobile.setError(getString(string.err_phone));
             valide = false;
         }
-        if (spinner.getSelectedItemPosition() == 0) {
+        if (spinner.getSelectedItemPosition() == -1) {
 
             valide = false;
         }

@@ -18,13 +18,16 @@
         <activity android:name=".SexeActivity" />
         <activity android:name=".Inscription" />
         <activity android:name=".Liste_payers" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".E7">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".E7_1" />
+        <activity android:name=".E7_2"></activity>
     </application>
 
 </manifest>
