@@ -19,7 +19,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rafik" />
+        app:srcCompat="@drawable/rafik"
+        android:layout_marginRight="137dp"
+        android:layout_marginLeft="119dp" />
 
     <TextView
         android:id="@+id/sevill"
@@ -66,7 +68,9 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/couplage"
-        app:srcCompat="@drawable/tshert" />
+        app:srcCompat="@drawable/tshert"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="31dp" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -76,7 +80,8 @@
         android:layout_marginTop="120dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView13"
         app:layout_constraintTop_toBottomOf="@+id/couplage"
-        app:srcCompat="@drawable/bluetooth" />
+        app:srcCompat="@drawable/bluetooth"
+        android:layout_marginRight="26dp" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -86,7 +91,8 @@
         android:layout_marginTop="404dp"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gadget" />
+        app:srcCompat="@drawable/gadget"
+        android:layout_marginLeft="64dp" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -96,7 +102,8 @@
         android:layout_marginTop="92dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/couplage"
-        app:srcCompat="@drawable/phone" />
+        app:srcCompat="@drawable/phone"
+        android:layout_marginRight="52dp" />
 
     <TextView
         android:id="@+id/message_connexion"
@@ -119,6 +126,7 @@
         android:id="@+id/ok"
         android:layout_width="match_parent"
         android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="62dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
@@ -127,6 +135,7 @@
         android:text="@string/ok"
         android:textColor="@android:color/white"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message_connexion" />
