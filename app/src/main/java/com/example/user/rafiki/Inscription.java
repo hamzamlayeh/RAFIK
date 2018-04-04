@@ -39,7 +39,7 @@ public class Inscription extends AppCompatActivity {
     MySQLiteOpenHelper helper;
     UserDataSource ds;
 
-    public static int idc;
+    public static int idc=-1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class Inscription extends AppCompatActivity {
     public void restoredvalue() {
         String restoredsexe = prefs.getString("sexe", null);
         String restoredpays = prefs.getString("Nom_Pays", null);
-        int restoredcode = prefs.getInt("Id_code", 0);
+        //int restoredcode = prefs.getInt("Id_code", 0);
         String restorednom = prefs.getString("Nom", null);
         String restoredprenom = prefs.getString("Prenom", null);
         String restoredage = prefs.getString("Age", null);
@@ -91,9 +91,8 @@ public class Inscription extends AppCompatActivity {
             payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Integer.parseInt(imgp)], 0, 0, 0);
 
         }
-        if (restoredcode != 0) {
-            int id_code = prefs.getInt("Id_code", 0);
-            spinner.setSelection(id_code);
+        if (idc != -1) {
+            spinner.setSelection(idc);
 
         }
         if (restorednom != null) {
@@ -143,6 +142,7 @@ public class Inscription extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 editor.putString("Code_pays", codes[i]);
                 editor.putInt("Id_code", i);
+                idc=i;
                 editor.apply();
 
             }
@@ -268,7 +268,6 @@ public class Inscription extends AppCompatActivity {
         else
         {
             nom.setBackground(d1);
-
         }
         if (after_name.isEmpty() || after_name.length() > 25) {
             prenom.setError("");
@@ -305,9 +304,6 @@ public class Inscription extends AppCompatActivity {
             pass.setError("");
             pass.setBackground(d);
             valide = false;
-        }else{
-
-            pass.setBackground(d1);
         }
         if (conf_password.isEmpty()) {
             confirm_pass.setError("");
@@ -322,9 +318,6 @@ public class Inscription extends AppCompatActivity {
             confirm_pass.setError(getString(string.err_pass2));
             confirm_pass.setBackground(d);
             valide = false;
-        }else {
-
-            confirm_pass.setBackground(d1);
         }
         if (berthday.isEmpty()) {
             naisence.setError("");

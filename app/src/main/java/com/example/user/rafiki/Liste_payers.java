@@ -73,8 +73,8 @@ public class Liste_payers extends AppCompatActivity {
                 editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
                 editor.putString("Nom_Pays", txt.getText().toString());
                 editor.putString("Id_img", id.getText().toString());
-                Inscription.idc=i;
                 editor.apply();
+                Inscription.idc=i;
                 ite = new Intent(Liste_payers.this, Inscription.class);
                 startActivity(ite);
                 Liste_payers.this.finish();

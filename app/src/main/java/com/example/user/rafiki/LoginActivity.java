@@ -28,8 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        d = getResources().getDrawable(R.drawable.edittext_error_style);
-        d1 = getResources().getDrawable(R.drawable.edittext_style_default);
+        d = getResources().getDrawable(R.drawable.edittext_error_style_log);
+        d1 = getResources().getDrawable(R.drawable.edittext_style_default_log);
         email = findViewById(R.id.emil);
         pass = findViewById(R.id.password);
 
@@ -55,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
             if (ds.verifUser(mail, password)) {
                 ite = new Intent(this, E8.class);
                 startActivity(ite);
-                d.setVisible(false,false);
                 pass.setBackground(d1);
                 email.setBackground(d1);
             } else {
