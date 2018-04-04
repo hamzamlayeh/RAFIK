@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.renderscript.Sampler;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +38,7 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-
+    public static int idc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +60,17 @@ public class Inscription extends AppCompatActivity {
 
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
         editor = prefs.edit();
+        int restoredcode = prefs.getInt("Id_code", 0);
+        Toast.makeText(getApplicationContext(),String.valueOf(restoredcode),Toast.LENGTH_LONG).show();
 
+        if (restoredcode !=0) {
+
+            int id_code = prefs.getInt("Id_code", 0);
+            Toast.makeText(getApplicationContext(),String.valueOf(idc),Toast.LENGTH_LONG).show();
+
+            spinner.setSelection(idc);
+
+        }
         remplirspinir();
         restoredvalue();
     }
@@ -75,6 +86,7 @@ public class Inscription extends AppCompatActivity {
         String restoredtel = prefs.getString("Mobile", null);
         String restoredpass = prefs.getString("Password", null);
         String restoredpass_conf = prefs.getString("Password_conf", null);
+        String restoredid_img = prefs.getString("Id_img", null);
         if (restoredsexe != null) {
             String sex = prefs.getString("sexe", "");//"No name defined" is the default value.
             sexe.setText(sex);
@@ -83,15 +95,25 @@ public class Inscription extends AppCompatActivity {
         if (restoredpays != null) {
             String payss = prefs.getString("Nom_Pays", "");//"No name defined" is the default value.
             String imgp = prefs.getString("Id_img", "");//"No name defined" is the default value.
+            //spinner.setSelection(Integer.parseInt(imgp));
             payes.setText(" " + payss);
             payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Integer.parseInt(imgp)], 0, 0, 0);
 
         }
-        if (restoredcode != 0) {
-            int id_code = prefs.getInt("Id_code", 0);
-            spinner.setSelection(id_code);
+        if (restoredid_img != null  ) {
+            String imgp = prefs.getString("Id_img", "");//"No name defined" is the default value.
+            spinner.setSelection(Integer.parseInt(imgp));
 
         }
+//        Toast.makeText(getApplicationContext(),String.valueOf(restoredcode),Toast.LENGTH_LONG).show();
+//
+//        if (restoredcode !=0) {
+//
+//            int id_code = prefs.getInt("Id_code", 0);
+//            spinner.setSelection(id_code);
+//
+//        }
+
         if (restorednom != null) {
             String value = prefs.getString("Nom", "");//"No name defined" is the default value.
             nom.setText(value);
@@ -139,6 +161,7 @@ public class Inscription extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 editor.putString("Code_pays", codes[i]);
                 editor.putInt("Id_code", i);
+                idc=i;
                 editor.apply();
 
             }
@@ -194,6 +217,7 @@ public class Inscription extends AppCompatActivity {
     public void get_sexe(View view) {
         remplir_champs();
         editor.putString("Age", naisence.getText().toString());
+
         ite = new Intent(this, SexeActivity.class);
         startActivity(ite);
     }
@@ -217,7 +241,7 @@ public class Inscription extends AppCompatActivity {
 
             client = new clients(name, after_name, berthday, payers, fullphone, sexee, mail, password);
             List<clients> list = ds.getAllClient();
-            if (list.size() > 2) {
+            if (list.size() > 0) {
                 Toast.makeText(Inscription.this, "Vous avez depasser 3 comptes ", Toast.LENGTH_LONG).show();
             } else {
                 AlertDialog.Builder alert = new AlertDialog.Builder(Inscription.this);
@@ -301,9 +325,6 @@ public class Inscription extends AppCompatActivity {
             pass.setError("");
             pass.setBackground(d);
             valide = false;
-        }else{
-
-            pass.setBackground(d1);
         }
         if (conf_password.isEmpty()) {
             confirm_pass.setError("");
@@ -318,9 +339,6 @@ public class Inscription extends AppCompatActivity {
             confirm_pass.setError(getString(string.err_pass2));
             confirm_pass.setBackground(d);
             valide = false;
-        }else {
-
-            confirm_pass.setBackground(d1);
         }
         if (berthday.isEmpty()) {
             naisence.setError("");
