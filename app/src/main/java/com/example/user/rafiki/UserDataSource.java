@@ -101,4 +101,15 @@ public class UserDataSource {
         }
         return false;
     }
+    public String getPassword(String email) {
+
+        Cursor cursor = db.query(TABLE_NAME,new String[]{"password"},"email=?",new String[]{email},
+                null,null,null,null);
+        int cursorcount=cursor.getCount();
+        if(cursorcount>0) {
+            cursor.moveToFirst();
+            return cursor.getString(0);
+        }
+        return "";
+    }
 }

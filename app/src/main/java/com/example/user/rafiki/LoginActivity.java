@@ -47,22 +47,23 @@ public class LoginActivity extends AppCompatActivity {
 
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-        ite = new Intent(this, E8.class);
-        startActivity(ite);
-//        if (!valider()) {
-//            Toast.makeText(getApplicationContext(), "Verifier Tous les champs", Toast.LENGTH_LONG).show();
-//        } else {
-//            if (ds.verifUser(mail, password)) {
-//                ite = new Intent(this, E8.class);
-//                startActivity(ite);
-//                pass.setBackground(d1);
-//                email.setBackground(d1);
-//            } else {
-//                Toast.makeText(this, "Email ou mot de pass Invalide", Toast.LENGTH_LONG).show();
-//                pass.setBackground(d);
-//                email.setBackground(d);
-//            }
-//        }
+//        ite = new Intent(this, E8.class);
+//        startActivity(ite);
+        if (!valider()) {
+            Toast.makeText(getApplicationContext(), "Verifier Tous les champs", Toast.LENGTH_LONG).show();
+        } else {
+            if (ds.verifUser(mail, password)) {
+                ite = new Intent(this, E8.class);
+                startActivity(ite);
+                d.setVisible(false,false);
+                pass.setBackground(d1);
+                email.setBackground(d1);
+            } else {
+                Toast.makeText(this, "Email ou mot de pass Invalide", Toast.LENGTH_LONG).show();
+                pass.setBackground(d);
+                email.setBackground(d);
+            }
+        }
     }
     @TargetApi(16)
     private boolean valider() {
@@ -104,10 +105,28 @@ public class LoginActivity extends AppCompatActivity {
         editor.remove("Password_conf");
         editor.remove("sexe");
         editor.remove("Nom_Pays");
-        editor.remove("Id_img");
+        editor.remove("ID_img");
         editor.remove("Id_code");
         editor.remove("Code_pays");
         editor.commit();
     }
 
+
+
+    public void password_lost(View view)
+    {
+        //Intent intent = new Intent(LoginActivity.this,PasswordLostMailSender.class);
+        //startActivity(intent);
+       if(ds.verifEmail(email.getText().toString()))
+       {
+           SendMail sm = new SendMail(this, email.getText().toString(), "Mot de passe oublié", ds.getPassword(email.getText().toString()));
+           sm.execute();
+       }
+       else
+       {
+           Toast.makeText(LoginActivity.this,"Mail n'existe pas",Toast.LENGTH_LONG).show();
+       }
+
+
+    }
 }

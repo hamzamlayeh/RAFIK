@@ -190,6 +190,7 @@
             android:fontFamily="Raleway Regular"
             android:text="@string/mot_de_passe_oublier"
             android:textAllCaps="false"
+            android:onClick="password_lost"
             android:textColor="#bd024e76" />
 
         <Button

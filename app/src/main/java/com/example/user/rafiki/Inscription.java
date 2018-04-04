@@ -39,6 +39,7 @@ public class Inscription extends AppCompatActivity {
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     ImageView image ;
+    public static int idc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
