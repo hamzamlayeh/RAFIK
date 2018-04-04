@@ -142,7 +142,6 @@
             android:hint="@string/adresse_mail"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
-            android:onClick="monCompte"
             android:textColor="@android:color/black"
             tools:ignore="OnClick" />
 

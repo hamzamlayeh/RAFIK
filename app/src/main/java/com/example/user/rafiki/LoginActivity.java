@@ -104,22 +104,10 @@ public class LoginActivity extends AppCompatActivity {
         editor.remove("Password_conf");
         editor.remove("sexe");
         editor.remove("Nom_Pays");
-        editor.remove("ID_img");
+        editor.remove("Id_img");
         editor.remove("Id_code");
         editor.remove("Code_pays");
         editor.commit();
     }
-    public void setEmail(String e) {
 
-        email.setText(e);
-    }
-
-    public void monCompte(View view) {
-
-        FragmentTransaction manager = getSupportFragmentManager().beginTransaction();
-        Compte_pop  pop= new Compte_pop();
-        pop.show(manager, null);
-
-
-    }
 }
