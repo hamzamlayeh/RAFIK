@@ -38,7 +38,7 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    ImageView image ;
+
     public static int idc;
 
     @Override

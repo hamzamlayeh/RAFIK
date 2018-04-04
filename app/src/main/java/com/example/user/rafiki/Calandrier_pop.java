@@ -5,13 +5,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by ASUS on 03/02/2018.
@@ -46,15 +50,20 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
         }else {
             Calendar cal = Calendar.getInstance();
             int x = cal.get(Calendar.YEAR)- naisence.getYear();
-            int mois = cal.get(Calendar.MONTH)-naisence.getMonth();
-            if(mois <6)
+            int mois = naisence.getMonth()+1;
+           Toast.makeText(getContext(),""+mois,Toast.LENGTH_LONG).show();
+            if(mois <6) {
                 age = x + " ans";
+
+            }
+
             else
                 age = (x+1) + "ans";
 
             Inscription inscr = (Inscription) getActivity();
             inscr.setage(age);
             this.dismiss();
+
         }
     }
 }
