@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.rafiki.E8"
-    >
+    tools:context="com.example.user.rafiki.E8">
 
     <FrameLayout
         android:id="@+id/content"
@@ -482,7 +481,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/hom">
+                app:layout_constraintStart_toEndOf="@+id/hom"
+                android:layout_marginRight="8dp">
 
                 <TextView
                     android:id="@+id/TEMP-D"
@@ -517,7 +517,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TEMPIRATURE-Layout"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginLeft="8dp">
 
                 <LinearLayout
                     android:id="@+id/temp-D"
@@ -653,7 +654,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.476"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="100dp" />
 
             <LinearLayout
                 android:id="@+id/Layot-Oxigen"

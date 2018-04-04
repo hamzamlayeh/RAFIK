@@ -8,8 +8,10 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ListView;
 
 import java.util.Calendar;
 
@@ -23,11 +25,17 @@ public class Compte_pop extends DialogFragment implements View.OnClickListener{
     Button ok,anuller;
     DatePicker naisence;
     SharedPreferences.Editor editor;
+    ListView listView;
+    ArrayAdapter<String>arrayAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
         view=inflater.inflate(R.layout.pop_compte,container,false);
+
+
+
         ok=(Button)view.findViewById(R.id.bt_ok);
         anuller=(Button)view.findViewById(R.id.bt_anuler);
         naisence=(DatePicker)view.findViewById(R.id.datePicker);
@@ -47,7 +55,8 @@ public class Compte_pop extends DialogFragment implements View.OnClickListener{
 
 
             LoginActivity log = (LoginActivity) getActivity();
-            //log.setEmail("khaled@gmail.com");
+            log.setEmail("khaled@gmail.com");
+
             this.dismiss();
         }
     }

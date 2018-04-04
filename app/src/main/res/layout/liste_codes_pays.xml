@@ -12,16 +12,15 @@
 
         <ImageView
             android:id="@+id/img_code"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingBottom="5dp" />
+            android:layout_width="20dp"
+            android:layout_height="15dp"
+            android:paddingLeft="2dp"
+            />
 
         <TextView
             android:id="@+id/code_payes"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="2dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

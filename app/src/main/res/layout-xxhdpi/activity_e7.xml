@@ -138,7 +138,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message_connexion" />
+        app:layout_constraintTop_toBottomOf="@+id/message_connexion"
+        android:layout_marginRight="62dp"
+        android:layout_marginLeft="60dp" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -148,6 +150,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@drawable/alerts" />
+        app:srcCompat="@drawable/alerts"
+        android:layout_marginLeft="45dp" />
 
 </android.support.constraint.ConstraintLayout>

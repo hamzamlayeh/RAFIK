@@ -152,7 +152,8 @@
                 android:layout_marginTop="96dp"
                 android:layout_weight="1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="68dp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
