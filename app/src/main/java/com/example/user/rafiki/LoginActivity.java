@@ -47,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-//        ite = new Intent(this, E8.class);
-//        startActivity(ite);
+        ite = new Intent(this, E8.class);
+        startActivity(ite);
         if (!valider()) {
             Toast.makeText(getApplicationContext(), "Verifier Tous les champs", Toast.LENGTH_LONG).show();
         } else {

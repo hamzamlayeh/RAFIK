@@ -29,8 +29,8 @@ public class E10 extends AppCompatActivity {
 
         setContentView(R.layout.activity_e10);
 
-        //ProgressBar bar = (ProgressBar) findViewById(R.id.vertical);
-        //bar.setProgress(25);
+        ProgressBar bar = (ProgressBar) findViewById(R.id.vertical);
+        bar.setProgress(25);
 
         mchart = (LineChart) findViewById(R.id.chart1);
         mchart.setDragEnabled(true);
@@ -75,7 +75,7 @@ public class E10 extends AppCompatActivity {
 
         set1.setLineWidth(2f);
         set1.setDrawValues(false);
-        ;
+
         set1.setDrawCircles(false);
 
         ArrayList<ILineDataSet> datasets = new ArrayList<>();
