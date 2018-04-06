@@ -51,7 +51,6 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
             Calendar cal = Calendar.getInstance();
             int x = cal.get(Calendar.YEAR)- naisence.getYear();
             int mois = naisence.getMonth()+1;
-           Toast.makeText(getContext(),""+mois,Toast.LENGTH_LONG).show();
             if(mois <6) {
                 age = x + " ans";
 

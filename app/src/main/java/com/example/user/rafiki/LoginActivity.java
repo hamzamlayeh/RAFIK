@@ -43,8 +43,6 @@ public class LoginActivity extends AppCompatActivity {
     }
     @TargetApi(16)
     public void identifier(View view) {
-
-
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
         ite = new Intent(this, E8.class);

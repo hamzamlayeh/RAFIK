@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.user.rafiki.LoginActivity"
-    android:background="@drawable/bag10">
+    android:background="@drawable/bglog">
 
     <LinearLayout
         android:id="@+id/linearLayout"
