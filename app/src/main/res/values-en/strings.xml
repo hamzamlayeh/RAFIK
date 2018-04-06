@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RAFIKI</string>
+    <string name="signes">SIGENES</string>
+    <string name="biometrique">BIOMETRICS</string>
+    <string name="neutre">neutral</string>
+    <string name="frequence">" FREQUENCY"</string>
+    <string name="bienvenue">" welcome to"</string>
+</resources>
