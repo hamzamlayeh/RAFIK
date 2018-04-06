@@ -3,6 +3,7 @@ package com.example.user.rafiki;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -125,5 +127,42 @@ public class LoginActivity extends AppCompatActivity {
        }
 
 
+    }
+
+    public void fr(View view) {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+
+
+        editor.putString("lang_code", "fr");  // Saving string
+
+        // Save the changes in SharedPreferences
+        editor.commit();
+
+        Locale locale = new Locale(pref.getString("lang_code","fr"));
+        Locale.setDefault(locale);
+        Configuration conf = getBaseContext().getResources().getConfiguration();
+        conf.locale= locale;
+        getBaseContext().getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
+
+    }
+
+    public void en(View view) {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+
+
+        editor.putString("lang_code", "en");  // Saving string
+
+        // Save the changes in SharedPreferences
+        editor.commit();
+
+        Locale locale = new Locale(pref.getString("lang_code","en"));
+        Locale.setDefault(locale);
+        Configuration conf = getBaseContext().getResources().getConfiguration();
+        conf.locale= locale;
+        getBaseContext().getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
     }
 }

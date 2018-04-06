@@ -51,7 +51,7 @@
         android:gravity="center"
         android:text="@string/couplage"
         android:textAllCaps="false"
-        android:textColor="@color/couple"
+        android:textColor="@color/couples"
         android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"

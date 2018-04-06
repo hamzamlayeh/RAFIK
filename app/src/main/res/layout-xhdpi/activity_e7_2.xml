@@ -82,7 +82,7 @@
         app:srcCompat="@drawable/valide" />
 
     <TextView
-        android:id="@+id/bien couple"
+        android:id="@+id/bienc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
