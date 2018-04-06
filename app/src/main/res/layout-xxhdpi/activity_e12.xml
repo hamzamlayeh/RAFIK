@@ -359,7 +359,7 @@
                 android:layout_height="21dp"
 
                 android:layout_marginTop="277dp"
-                android:text="ELEVEE"
+                android:text="@string/elevee"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"

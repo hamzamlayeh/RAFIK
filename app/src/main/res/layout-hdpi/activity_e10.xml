@@ -72,7 +72,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="56dp"
-                android:text="CARDIAQUE"
+                android:text="@string/cardiaque"
                 android:textColor="@color/bleu"
                 android:textSize="12sp"
                 android:textStyle="bold|italic"

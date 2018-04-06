@@ -214,7 +214,7 @@ public class Inscription extends AppCompatActivity {
         phone = mobile.getText().toString().trim();
 
         if (!valider()) {
-            Toast.makeText(getApplicationContext(), "Verifier Tout les champs", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
         } else {
             String fullphone = prefs.getString("Code_pays", null) + phone;
             remplir_champs();
@@ -231,9 +231,9 @@ public class Inscription extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 long ids = ds.addClient(client);
                                 if (ids == -1) {
-                                    Toast.makeText(Inscription.this, "Ereur dans l insertion", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Inscription.this, string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                                 } else {
-                                    Toast.makeText(Inscription.this, "Insertion terminer", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
                                     ite = new Intent(Inscription.this, Verif_code_mailActivity.class);
                                     startActivity(ite);
                                 }

@@ -59,7 +59,7 @@
                 android:textColor="#02abff"
                 android:textSize="16sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.343"
+                app:layout_constraintHorizontal_bias="0.32"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -70,12 +70,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="78dp"
+                android:layout_marginTop="85dp"
                 android:text="@string/biometrique"
                 android:textColor="#00ffdd"
                 android:textSize="16sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintHorizontal_bias="0.61"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -711,6 +711,31 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/rafiki" />
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="84dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.44"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bare2" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:layout_marginStart="85dp"
+                app:layout_constraintEnd_toStartOf="@+id/BIOMETRIQUE"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/bare1"
+                tools:layout_editor_absoluteY="91dp" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 

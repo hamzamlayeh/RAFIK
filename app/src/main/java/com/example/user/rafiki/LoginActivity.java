@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         ite = new Intent(this, E8.class);
         startActivity(ite);
         if (!valider()) {
-            Toast.makeText(getApplicationContext(), "Verifier Tous les champs", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
         } else {
             if (ds.verifUser(mail, password)) {
                 ite = new Intent(this, E8.class);
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 pass.setBackground(d1);
                 email.setBackground(d1);
             } else {
-                Toast.makeText(this, "Email ou mot de pass Invalide", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.EmailOuMotDePasseInvalide, Toast.LENGTH_LONG).show();
                 pass.setBackground(d);
                 email.setBackground(d);
             }
@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
        }
        else
        {
-           Toast.makeText(LoginActivity.this,"Mail n'existe pas",Toast.LENGTH_LONG).show();
+           Toast.makeText(LoginActivity.this, R.string.MailNexistePas,Toast.LENGTH_LONG).show();
        }
 
 
