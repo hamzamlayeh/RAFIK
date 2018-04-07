@@ -7,6 +7,22 @@
     android:background="@drawable/bag10"
     tools:context="com.example.user.rafiki.SexeActivity">
 
+    <TextView
+        android:id="@+id/sexe2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:fontFamily="Raleway Bold"
+        android:gravity="center"
+        android:text="@string/sexe"
+        android:textAllCaps="true"
+        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/rafiki2"
         android:layout_width="60dp"
@@ -21,47 +37,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rafik" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
-        android:layout_height="133dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/sexe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="Raleway Bold"
-            android:gravity="center"
-            android:text="@string/sexe"
-            android:textAllCaps="true"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="24sp" />
-    </LinearLayout>
-
     <android.support.v7.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="200dp"
         app:cardBackgroundColor="#f2f0f1"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="14dp"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="20dp"
                     android:paddingTop="5dp"
                     android:text="@string/masculin" />
 
@@ -90,7 +78,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="20dp"
                     android:paddingTop="5dp"
                     android:text="@string/f_minin" />
             </LinearLayout>

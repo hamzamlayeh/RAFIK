@@ -63,7 +63,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.29000002" />
+                app:layout_constraintVertical_bias="0.13999999" />
 
             <TextView
                 android:id="@+id/cariaque"
@@ -71,12 +71,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="58dp"
                 android:text="@string/cardiaque"
                 android:textColor="@color/bleu"
                 android:textSize="12sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.687"
+                app:layout_constraintHorizontal_bias="0.64"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -101,7 +101,7 @@
                 android:layout_height="0dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="63dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.3"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,10 +114,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/cariaque"
+                android:layout_marginTop="56dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.76"
+                app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bare2" />
 
             <ImageView
@@ -210,6 +211,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="9dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="9dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="103dp"
                 app:layout_constraintBottom_toTopOf="@+id/notes"
@@ -218,9 +221,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.01999998"
-                app:srcCompat="@drawable/tirer"
-                android:layout_marginRight="9dp"
-                android:layout_marginLeft="8dp" />
+                app:srcCompat="@drawable/tirer" />
 
             <ImageView
                 android:id="@+id/barMin"
@@ -228,6 +229,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="9dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="9dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="114dp"
                 app:layout_constraintBottom_toTopOf="@+id/notes"
@@ -236,9 +239,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.25"
-                app:srcCompat="@drawable/tirer"
-                android:layout_marginRight="9dp"
-                android:layout_marginLeft="8dp" />
+                app:srcCompat="@drawable/tirer" />
 
             <LinearLayout
                 android:id="@+id/LayoutBaProgress"
@@ -415,6 +416,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="164dp"
                 android:text="96"
@@ -423,9 +426,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="8dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/bpm"

@@ -48,16 +48,16 @@
             <TextView
                 android:id="@+id/respiration"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="60dp"
                 android:text="@string/frequence"
                 android:textAllCaps="false"
                 android:textColor="#02abff"
                 android:textSize="13sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.343"
+                app:layout_constraintHorizontal_bias="0.38"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -68,12 +68,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="78dp"
+                android:layout_marginTop="68dp"
                 android:text="@string/cardiaque"
                 android:textColor="#00ffdd"
                 android:textSize="13sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintHorizontal_bias="0.642"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -98,9 +98,9 @@
                 android:layout_height="0dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="88dp"
+                android:layout_marginTop="77dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.305"
+                app:layout_constraintHorizontal_bias="0.35"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bare1" />
@@ -111,26 +111,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/cariaque"
+                android:layout_marginTop="68dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.76"
+                app:layout_constraintHorizontal_bias="0.69"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bare2" />
 
             <ImageView
                 android:id="@+id/eclipc"
                 android:layout_width="161dp"
                 android:layout_height="137dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="103dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.11"
+                app:layout_constraintHorizontal_bias="0.111"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.26999998"
                 app:srcCompat="@drawable/eclipc" />
 
             <ImageView
@@ -139,15 +137,13 @@
                 android:layout_height="143dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="132dp"
+                android:layout_marginTop="100dp"
                 android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/eclipc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.17000002"
                 app:srcCompat="@drawable/coeur" />
 
             <Button
@@ -187,7 +183,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.954" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <ProgressBar
                 android:id="@+id/vertical"
@@ -282,7 +278,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.102" />
+                        app:layout_constraintVertical_bias="0.14999998" />
 
                     <TextView
                         android:id="@+id/index"
@@ -344,7 +340,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.115" />
+                        app:layout_constraintVertical_bias="0.16000003" />
 
                     <TextView
                         android:id="@+id/t2"
@@ -383,6 +379,7 @@
                         android:layout_height="22dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="130dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/nourmal" />
@@ -391,11 +388,11 @@
                         android:id="@+id/etat2"
                         android:layout_width="58dp"
                         android:layout_height="17dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="16dp"
                         android:text="@string/normal"
                         android:textColor="#00ffdd"
                         android:textSize="13sp"
@@ -421,7 +418,7 @@
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.087"
+                app:layout_constraintHorizontal_bias="0.06"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -429,21 +426,17 @@
                 android:id="@+id/bpm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="306dp"
                 android:layout_marginEnd="308dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="225dp"
                 android:text="BPM"
                 android:textColor="@android:color/background_light"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintHorizontal_bias="0.63"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.93"
-                android:layout_marginRight="308dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/tirer8"
