@@ -16,10 +16,8 @@ public class clients {
     private String email;
     private String password;
 
-    public clients() {
-    }
 
-    public clients(String nom, String prenom, String age, String payer, String mobile, String sexe, String email, String password) {
+    public clients(String nom, String prenom, String age, String payer, String mobile, String sexe, String email, String password ) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
@@ -29,6 +27,7 @@ public class clients {
         this.email = email;
         this.password = password;
     }
+
 
     public int get_id() {
         return _id;

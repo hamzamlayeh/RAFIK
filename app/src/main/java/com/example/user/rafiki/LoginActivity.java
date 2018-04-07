@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean valider() {
         boolean valide = true;
         if (mail.isEmpty() || (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
-           email.setError("");
+            email.setError("");
             valide = false;
             email.setBackground(d);
         }
@@ -136,15 +136,15 @@ public class LoginActivity extends AppCompatActivity {
     {
         //Intent intent = new Intent(LoginActivity.this,PasswordLostMailSender.class);
         //startActivity(intent);
-       if(ds.verifEmail(email.getText().toString()))
-       {
-           SendMail sm = new SendMail(this, email.getText().toString(), "Mot de passe oublié", ds.getPassword(email.getText().toString()));
-           sm.execute();
-       }
-       else
-       {
-           Toast.makeText(LoginActivity.this, R.string.MailNexistePas,Toast.LENGTH_LONG).show();
-       }
+        if(ds.verifEmail(email.getText().toString()))
+        {
+            SendMail sm = new SendMail(this, email.getText().toString(), "Mot de passe oublié", ds.getPassword(email.getText().toString()));
+            sm.execute();
+        }
+        else
+        {
+            Toast.makeText(LoginActivity.this, R.string.MailNexistePas,Toast.LENGTH_LONG).show();
+        }
 
 
     }
@@ -175,6 +175,6 @@ public class LoginActivity extends AppCompatActivity {
         Configuration conf= getBaseContext().getResources().getConfiguration();;
         conf.locale = locale;
         getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
-       recreate();
+        recreate();
     }
 }
