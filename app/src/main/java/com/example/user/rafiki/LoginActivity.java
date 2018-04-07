@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
 
     SharedPreferences pref;
     SharedPreferences.Editor editors;
-    Configuration conf;
     Intent ite;
     EditText email, pass;
     String mail, password;
@@ -48,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
             conf.locale= locale;
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
 
-
         }
         d = getResources().getDrawable(R.drawable.edittext_error_style_log);
         d1 = getResources().getDrawable(R.drawable.edittext_style_default_log);
@@ -67,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
     public void identifier(View view) {
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-        ite = new Intent(this, E8.class);
+        ite = new Intent(this, E7.class);
         startActivity(ite);
         if (!valider()) {
             Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();

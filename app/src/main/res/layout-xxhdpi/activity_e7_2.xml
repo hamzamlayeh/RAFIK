@@ -92,6 +92,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
+        android:onClick="nexte"
         android:text="@string/votre_t_shirt_est_bien_couple"
         android:textColor="#f2f0f1"
         android:textSize="20dp"

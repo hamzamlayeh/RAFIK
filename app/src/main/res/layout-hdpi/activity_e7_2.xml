@@ -18,7 +18,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rafik" />
+        app:srcCompat="@drawable/rafik"
+        android:layout_marginLeft="119dp"
+        android:layout_marginRight="137dp" />
 
     <TextView
         android:id="@+id/sevill"
@@ -88,7 +90,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
-        android:text="Votre t-shirt est bien couplé"
+        android:onClick="nexte"
+        android:text="@string/votre_t_shirt_est_bien_couple"
         android:textColor="#f2f0f1"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"

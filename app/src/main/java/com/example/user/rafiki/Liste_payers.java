@@ -108,6 +108,7 @@ public class Liste_payers extends AppCompatActivity {
         {
             if (!listA.get(i).nom_payer.contains(textToSearch)) {
                 listA.remove(listA.get(i));
+
             }
             listAdapter.notifyDataSetChanged();
         }
@@ -119,7 +120,7 @@ public class Liste_payers extends AppCompatActivity {
         listA = new ArrayList<DataItem>();
         int id = 0;
         for (String i : items) {
-            listA.add(new DataItem(String.valueOf(id), Constante.imgs[id], i));
+            listA.add(new DataItem(String.valueOf(id), Constante.imgs[id], i.toLowerCase()));
             id++;
         }
         listAdapter = new ListAdapter(listA);

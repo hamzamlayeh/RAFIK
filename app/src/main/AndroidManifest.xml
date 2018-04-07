@@ -24,18 +24,16 @@
         <activity android:name=".Inscription" />
         <activity android:name=".Liste_payers" />
         <activity android:name=".PasswordLostMailSender"/>
-        <activity android:name=".LoginActivity"  android:configChanges="locale|orientation">
+        <activity android:name=".LoginActivity" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".E7">
-
-        </activity>
+        <activity android:name=".E7"/>
         <activity android:name=".E7_1" />
-        <activity android:name=".E7_2"></activity>
+        <activity android:name=".E7_2"/>
     </application>
 
 </manifest>
