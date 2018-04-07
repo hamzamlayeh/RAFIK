@@ -52,7 +52,6 @@
         android:textAllCaps="true"
         android:textColor="@android:color/darker_gray"
         android:textSize="20sp"
-        android:onClick="en"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -79,6 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="fr"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_france" />
 
@@ -87,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="en"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_anglais" />
         </LinearLayout>

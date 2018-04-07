@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
 
     SharedPreferences pref;
     SharedPreferences.Editor editors;
-    Locale locale;
     Configuration conf;
     Intent ite;
     EditText email, pass;
@@ -37,18 +36,20 @@ public class LoginActivity extends AppCompatActivity {
 
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editors = pref.edit();
-        String restoredlang = pref.getString("lang_code", null);
-        if (restoredlang != null) {
-            locale = new Locale(pref.getString("lang_code","en"));
-            Locale.setDefault(locale);
 
-            conf = getBaseContext().getResources().getConfiguration();
+        String lang = pref.getString("lang", null);
+        Toast.makeText(getApplicationContext(),lang,Toast.LENGTH_LONG).show();
+        if (lang != null) {
+
+            String language  = pref.getString("lang","en"); // ta langue
+            Locale locale = new Locale(language);
+            Locale.setDefault(locale);
+            Configuration conf= getBaseContext().getResources().getConfiguration();;
             conf.locale= locale;
-            getBaseContext().getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
+            getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
+
 
         }
-
-        //Toast.makeText(getApplicationContext(),restoredpays,Toast.LENGTH_LONG).show();
         d = getResources().getDrawable(R.drawable.edittext_error_style_log);
         d1 = getResources().getDrawable(R.drawable.edittext_style_default_log);
         email = findViewById(R.id.emil);
@@ -148,40 +149,32 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-//    public void fr(View view) {
-//        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-//        SharedPreferences.Editor editor = pref.edit();
-//
-//
-//
-//        editor.putString("lang_code", "fr");  // Saving string
-//
-//        // Save the changes in SharedPreferences
-//        editor.commit();
-//
-//        Locale locale = new Locale(pref.getString("lang_code","fr"));
-//        Locale.setDefault(locale);
-//        Configuration conf = getBaseContext().getResources().getConfiguration();
-//        conf.locale= locale;
-//        getBaseContext().getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
-//
-//    }
+    public void fr(View view) {
+
+        editors.putString("lang", "fr");  // Saving string
+        // Save the changes in SharedPreferences
+        editors.commit();
+        String language  = pref.getString("lang","en"); // ta langue
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+        Configuration conf = getBaseContext().getResources().getConfiguration();
+        conf.locale= locale;
+        getBaseContext().getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
+        recreate();
+        Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
+    }
 
     public void en(View view) {
 
-       // Saving string
-        editors.putString("lang_code", "en");
-        // Save the changes in SharedPreferences
-        editors.commit();
-
-//        Locale locale = new Locale("en");
-        locale = new Locale(pref.getString("lang_code","en"));
-        Locale.setDefault(locale);
-
-         conf = getBaseContext().getResources().getConfiguration();
-        conf.locale= locale;
-        getBaseContext().getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
+        editors.putString("lang", "en");
+        editors.commit();
+        String language  = pref.getString("lang","en"); // ta langue
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+        Configuration conf= getBaseContext().getResources().getConfiguration();;
+        conf.locale = locale;
+        getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
        recreate();
     }
 }

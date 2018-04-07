@@ -48,7 +48,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:fontFamily="Raleway Bold"
-        android:onClick="en"
         android:gravity="center"
         android:text="@string/surveillance"
         android:textAllCaps="true"
@@ -81,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
+                android:onClick="fr"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_france" />
 
@@ -90,10 +89,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
+                android:onClick="en"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_anglais"
-                tools:ignore="OnClick" />
+                 />
         </LinearLayout>
 
         <LinearLayout
