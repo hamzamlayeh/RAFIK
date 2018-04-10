@@ -52,13 +52,13 @@ public class Liste_payers extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                if (charSequence.toString().equals("")) {
-//                    // reset listview
-//                    initList();
-//                } else {
-//                    searchItem(charSequence.toString());
-//                }
-                searchItem(charSequence.toString());
+
+                if (charSequence.toString().equals("")) {
+                    // reset listview
+                    initList();
+                } else {
+                    searchItem(charSequence.toString());
+                }
             }
 
             @Override
@@ -105,25 +105,16 @@ public class Liste_payers extends AppCompatActivity {
     }
 
     public void searchItem(String textToSearch) {
-
-        for (int i = 0; i < listA.size()-1; i++)
+        Toast.makeText(getApplicationContext(),textToSearch,Toast.LENGTH_LONG).show();
+        for (int i = 0; i < listA.size(); i++)
         {
-
-//            if (!listA.get(i).nom_payer.matches("(^"+textToSearch+"$)")) {
-//                Log.d("DataItem",listA.get(i).nom_payer+ "; "+textToSearch);
-//                listA.remove(listA.get(i));
-//
-//
-//            }
-            //listA.remove(listA.get(i));
-            listA.clear();
-            listA.add(new DataItem(String.valueOf(1), Constante.imgs[1], "tunis"));
-            listA.add(new DataItem(String.valueOf(1), Constante.imgs[1], "tunis"));
-            listA.add(new DataItem(String.valueOf(1), Constante.imgs[1], "tunis"));
+            if (!listA.get(i).nom_payer.contains(textToSearch)) {
+                //Toast.makeText(getApplicationContext(),listA.get(i).getNom_payer().toString(),Toast.LENGTH_LONG).show();
+                //System.out.println(listA.get(i).nom_payer);
+                listA.remove(listA.get(i));
+            }
             listAdapter.notifyDataSetChanged();
-
         }
-
     }
 
     public void initList() {
@@ -131,7 +122,7 @@ public class Liste_payers extends AppCompatActivity {
         listA = new ArrayList<DataItem>();
         int id = 0;
         for (String i : items) {
-            listA.add(new DataItem(String.valueOf(id), Constante.imgs[id], i.toLowerCase()));
+            listA.add(new DataItem(String.valueOf(id), Constante.imgs[id], i.toLowerCase().trim()));
             id++;
         }
         listAdapter = new ListAdapter(listA);

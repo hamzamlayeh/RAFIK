@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         editors = pref.edit();
 
         String lang = pref.getString("lang", null);
-        Toast.makeText(getApplicationContext(),lang,Toast.LENGTH_LONG).show();
         if (lang != null) {
 
             String language  = pref.getString("lang","en"); // ta langue
@@ -44,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
             Configuration conf= getBaseContext().getResources().getConfiguration();;
             conf.locale= locale;
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
-
         }
         setContentView(R.layout.activity_login);
 
