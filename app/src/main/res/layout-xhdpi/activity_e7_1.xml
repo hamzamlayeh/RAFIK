@@ -8,6 +8,41 @@
     tools:context="com.example.user.rafiki.E7_1">
 
     <ImageView
+        android:id="@+id/imageView33"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="116dp"
+        android:paddingRight="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/couplage"
+        app:srcCompat="@drawable/sound_left" />
+
+    <ImageView
+        android:id="@+id/imageView34"
+        android:layout_width="68dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/couplage"
+        app:srcCompat="@drawable/gadget" />
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginTop="116dp"
+        android:paddingLeft="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/couplage"
+        app:srcCompat="@drawable/sound_right" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="155dp"
         android:layout_height="40dp"
@@ -69,38 +104,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/couplage"
         app:srcCompat="@drawable/tshert" />
-
-    <LinearLayout
-        android:layout_width="132dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="304dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
-            android:paddingRight="8dp"
-            app:srcCompat="@drawable/sound_left" />
-
-        <ImageView
-            android:id="@+id/imageView17"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/gadget" />
-
-        <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
-            android:paddingLeft="8dp"
-            app:srcCompat="@drawable/sound_right" />
-    </LinearLayout>
 
     <TextView
         android:id="@+id/recherche"

@@ -85,14 +85,13 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="55dp"
-        android:layout_height="41dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="328dp"
+        android:layout_marginTop="324dp"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gadget"
-        android:layout_marginLeft="68dp" />
+        app:srcCompat="@drawable/gadget" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -111,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="66dp"
         android:layout_marginStart="66dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="Raleway Medium"
         android:gravity="center"
         android:text="@string/votre_t_shirt"
@@ -142,17 +141,15 @@
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@drawable/alerts"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="40dp" />
+        app:srcCompat="@drawable/alerts" />
 
 </android.support.constraint.ConstraintLayout>

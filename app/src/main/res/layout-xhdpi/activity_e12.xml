@@ -94,11 +94,11 @@
                 android:layout_width="77dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="78dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.66"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/Respiration"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bare2" />
 
@@ -308,31 +308,12 @@
                         app:srcCompat="@drawable/elevee" />
 
                     <TextView
-                        android:id="@+id/etat3"
-                        android:layout_width="58dp"
-                        android:layout_height="17dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/elevee"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="13sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.77"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.98" />
-
-                    <TextView
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="27dp"
                         android:text="C°"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#ff0000"
                         android:textSize="10sp"
                         app:layout_constraintHorizontal_bias="0.373"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -391,14 +372,13 @@
                 android:id="@+id/tempirature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="196dp"
                 android:text="40"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintEnd_toStartOf="@+id/respiration"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -406,21 +386,14 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="306dp"
                 android:layout_marginEnd="308dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="195dp"
                 android:text="C°"
                 android:textColor="@android:color/background_light"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.81"
-                android:layout_marginRight="308dp" />
+                app:layout_constraintStart_toEndOf="@+id/tempirature"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/tirerMaw2"
@@ -428,11 +401,26 @@
                 android:layout_height="2dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
                 android:background="#ff0000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.84"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="123dp" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <TextView
+                android:id="@+id/etat4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="232dp"
+                android:text="@string/elevee"
+                android:textColor="@android:color/background_light"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.839"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/tirerMaw4"
@@ -513,7 +501,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.84"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="220dp" />
+                app:layout_constraintTop_toBottomOf="@+id/vertical" />
 
 
         </android.support.constraint.ConstraintLayout>
