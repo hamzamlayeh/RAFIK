@@ -31,8 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editors = pref.edit();
 
@@ -48,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
 
         }
+        setContentView(R.layout.activity_login);
+
         d = getResources().getDrawable(R.drawable.edittext_error_style_log);
         d1 = getResources().getDrawable(R.drawable.edittext_style_default_log);
         email = findViewById(R.id.emil);

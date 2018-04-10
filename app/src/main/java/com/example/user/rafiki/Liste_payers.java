@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,12 +52,13 @@ public class Liste_payers extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.toString().equals("")) {
-                    // reset listview
-                    initList();
-                } else {
-                    searchItem(charSequence.toString());
-                }
+//                if (charSequence.toString().equals("")) {
+//                    // reset listview
+//                    initList();
+//                } else {
+//                    searchItem(charSequence.toString());
+//                }
+                searchItem(charSequence.toString());
             }
 
             @Override
@@ -104,13 +106,22 @@ public class Liste_payers extends AppCompatActivity {
 
     public void searchItem(String textToSearch) {
 
-        for (int i = 0; i < listA.size(); i++)
+        for (int i = 0; i < listA.size()-1; i++)
         {
-            if (!listA.get(i).nom_payer.contains(textToSearch)) {
-                listA.remove(listA.get(i));
 
-            }
+//            if (!listA.get(i).nom_payer.matches("(^"+textToSearch+"$)")) {
+//                Log.d("DataItem",listA.get(i).nom_payer+ "; "+textToSearch);
+//                listA.remove(listA.get(i));
+//
+//
+//            }
+            //listA.remove(listA.get(i));
+            listA.clear();
+            listA.add(new DataItem(String.valueOf(1), Constante.imgs[1], "tunis"));
+            listA.add(new DataItem(String.valueOf(1), Constante.imgs[1], "tunis"));
+            listA.add(new DataItem(String.valueOf(1), Constante.imgs[1], "tunis"));
             listAdapter.notifyDataSetChanged();
+
         }
 
     }
