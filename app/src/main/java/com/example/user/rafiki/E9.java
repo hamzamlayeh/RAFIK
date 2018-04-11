@@ -90,7 +90,7 @@ public class E9 extends AppCompatActivity {
 
     public void alert(View view) {
         AlertDialog.Builder alt= new AlertDialog.Builder(this);
-        alt.setTitle(" "+" "+getString(R.string.note_consiel))
+        alt.setTitle(" "+" "+getString(R.string.notes_conseils))
                 .setIcon(R.drawable.alert)
                 .setMessage("\n "+" "+" "+" "+" "+" - dernier alert\n \n"+
                         " "+" "+" "+" "+" "+" - khaled  \n \n"+

@@ -37,7 +37,6 @@
     <string name="f_minin">Féminin</string>
     <string name="masculin">Masculin</string>
     <string name="v_rifier">Vérifier</string>
-    <string name="note_consiel"><![CDATA[Notes & conseils]]></string>
     <string name="ok">OK</string>
     <string name="alert_msg1">Consulter votre mail pour</string>
     <string name="alert_msg2">valider votre inscription.</string>
@@ -52,13 +51,16 @@
     <string name="couplage2">Couplage de votre T-shirt</string>
     <string name="recherche_gadget">Recherche Gadget</string>
     <string name="cardiaque">CARDIAQUE</string>
-    <string name="VerifierToutleschamps">Verifier Tout les champs</string>
+    <string name="VerifierToutleschamps">Verifier Touts les champs</string>
     <string name="EreurdanslLinsertion">Ereur dans l\'insertion</string>
     <string name="InsertionTerminer">Insertion terminer</string>
     <string name="EmailOuMotDePasseInvalide">Email ou mot de passe Invalide</string>
     <string name="MailNexistePas">Email n\'existe pas</string>
-
     <string name="Messageenvoyé">Message envoyé</string>
     <string name="votre_t_shirt_est_bien_couple">VOTRE T-SHIRT EST BIEN COUPLÉ</string>
     <string name="nbCompt">vous avez dépassé le nombre des compts autorisé</string>
+    <string name="mot_de_passe_oublie">Mot de passe oublié</string>
+    <string name="envoi_msg">Envoi message</string>
+    <string name="att_msg">Attendez svp...</string>
+    <string name="chek_internet">Vous n\'êtes pas connecté à Internet</string>
 </resources>

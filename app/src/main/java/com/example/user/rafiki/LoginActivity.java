@@ -1,10 +1,13 @@
 package com.example.user.rafiki;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     String mail, password;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    Drawable d,d1;
+    Drawable d, d1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         String lang = pref.getString("lang", null);
         if (lang != null) {
 
-            String language  = pref.getString("lang","en"); // ta langue
+            String language = pref.getString("lang", "en"); // ta langue
             Locale locale = new Locale(language);
             Locale.setDefault(locale);
-            Configuration conf= getBaseContext().getResources().getConfiguration();;
-            conf.locale= locale;
+            Configuration conf = getBaseContext().getResources().getConfiguration();
+            ;
+            conf.locale = locale;
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         }
         setContentView(R.layout.activity_login);
@@ -55,10 +60,11 @@ public class LoginActivity extends AppCompatActivity {
         ds = new UserDataSource(helper);
         //si vous pouvez supprimer touts les champs de table just lever le commentaire
         //ds.removetable();
-        List<clients> list=ds.getAllClient();
+        List<clients> list = ds.getAllClient();
         System.out.println(list.size());
 
     }
+
     @TargetApi(16)
     public void identifier(View view) {
         mail = email.getText().toString().trim();
@@ -66,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 //        ite = new Intent(this, E7.class);
 //        startActivity(ite);
         if (!valider()) {
-          //  Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
         } else {
             if (ds.verifUser(mail, password)) {
                 ite = new Intent(this, E7.class);
@@ -80,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
     @TargetApi(16)
     private boolean valider() {
         boolean valide = true;
@@ -87,17 +94,14 @@ public class LoginActivity extends AppCompatActivity {
             email.setError("");
             valide = false;
             email.setBackground(d);
-        }
-        else
-        {
+        } else {
             email.setBackground(d1);
         }
         if (password.isEmpty()) {
             pass.setError("");
             valide = false;
             pass.setBackground(d);
-        }
-        else {
+        } else {
             pass.setBackground(d1);
         }
         return valide;
@@ -127,22 +131,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
-    public void password_lost(View view)
-    {
+    public void password_lost(View view) {
         //Intent intent = new Intent(LoginActivity.this,PasswordLostMailSender.class);
         //startActivity(intent);
-        if(ds.verifEmail(email.getText().toString()))
-        {
-            SendMail sm = new SendMail(this, email.getText().toString(), "Mot de passe oublié", ds.getPassword(email.getText().toString()));
-            sm.execute();
+        if (isOnline()) {
+            if (ds.verifEmail(email.getText().toString())) {
+                SendMail sm = new SendMail(this, email.getText().toString(), getString(R.string.mot_de_passe_oublie), ds.getPassword(email.getText().toString()));
+                sm.execute();
+            } else {
+                Toast.makeText(LoginActivity.this, R.string.MailNexistePas, Toast.LENGTH_LONG).show();
+            }
+        } else {
+            Toast.makeText(this, R.string.chek_internet, Toast.LENGTH_SHORT).show();
         }
-        else
-        {
-            Toast.makeText(LoginActivity.this, R.string.MailNexistePas,Toast.LENGTH_LONG).show();
+    }
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
         }
-
-
     }
 
     public void fr(View view) {
@@ -150,14 +161,14 @@ public class LoginActivity extends AppCompatActivity {
         editors.putString("lang", "fr");  // Saving string
         // Save the changes in SharedPreferences
         editors.commit();
-        String language  = pref.getString("lang","en"); // ta langue
+        String language = pref.getString("lang", "en"); // ta langue
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
         Configuration conf = getBaseContext().getResources().getConfiguration();
-        conf.locale= locale;
+        conf.locale = locale;
         getBaseContext().getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         recreate();
-        Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
+
     }
 
     public void en(View view) {
@@ -165,10 +176,11 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
         editors.putString("lang", "en");
         editors.commit();
-        String language  = pref.getString("lang","en"); // ta langue
+        String language = pref.getString("lang", "en"); // ta langue
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
-        Configuration conf= getBaseContext().getResources().getConfiguration();;
+        Configuration conf = getBaseContext().getResources().getConfiguration();
+        ;
         conf.locale = locale;
         getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         recreate();

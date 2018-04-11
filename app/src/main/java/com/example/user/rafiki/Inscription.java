@@ -38,14 +38,12 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-
     public static int idc=-1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_inscription);
-
 
         nom = (EditText) findViewById(id.nom);
         prenom = (EditText) findViewById(id.prenom);
@@ -71,7 +69,6 @@ public class Inscription extends AppCompatActivity {
     public void restoredvalue() {
         String restoredsexe = prefs.getString("sexe", null);
         String restoredpays = prefs.getString("Nom_Pays", null);
-        //int restoredcode = prefs.getInt("Id_code", 0);
         String restorednom = prefs.getString("Nom", null);
         String restoredprenom = prefs.getString("Prenom", null);
         String restoredage = prefs.getString("Age", null);
@@ -82,14 +79,12 @@ public class Inscription extends AppCompatActivity {
         if (restoredsexe != null) {
             String sex = prefs.getString("sexe", "");//"No name defined" is the default value.
             sexe.setText(sex);
-
         }
         if (restoredpays != null) {
             String payss = prefs.getString("Nom_Pays", "");//"No name defined" is the default value.
             String imgp = prefs.getString("Id_img", "");//"No name defined" is the default value.
             payes.setText(" " + payss);
             payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Integer.parseInt(imgp)], 0, 0, 0);
-
         }
         if (idc != -1) {
             spinner.setSelection(idc);
@@ -146,7 +141,6 @@ public class Inscription extends AppCompatActivity {
                 editor.apply();
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 spinner.setSelection(-1);
@@ -156,7 +150,6 @@ public class Inscription extends AppCompatActivity {
     }
 
     public void rempli_code_pays() {
-
         try {
             InputStream inputStream = getAssets().open("indicatif_pays.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -238,9 +231,7 @@ public class Inscription extends AppCompatActivity {
                                     startActivity(ite);
                                 }
                             }
-
 //                        }).show();
-
         }
     }
 

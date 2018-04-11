@@ -14,7 +14,6 @@ import android.widget.TextView;
 /**
  * Created by ASUS on 14/02/2018.
  */
-
 public class Liste_code_payes extends ArrayAdapter<String> {
 
     Context context;

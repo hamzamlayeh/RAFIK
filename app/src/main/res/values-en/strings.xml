@@ -50,8 +50,14 @@
     <string name="EmailOuMotDePasseInvalide">" E-mail or password Invalid"</string>
     <string name="MailNexistePas">" E-mail does not exist"</string>
     <string name="Messageenvoyé">"Message sent "</string>
-    <string name="votre_t_shirt_est_bien_coupl">" YOUR T-SHIRT IS WELL COUPLED"</string>
+    <string name="votre_t_shirt_est_bien_couple">" YOUR T-SHIRT IS WELL COUPLED"</string>
     <string name="ok">OK</string>
     <string name="title_home">Home</string>
-    <string name="nbCompt">you have exceeded the number of counts allowed</string>
+    <string name="nbCompt">You have exceeded the number of counts allowed</string>
+    <string name="mot_de_passe_oublie">Forgotten password</string>
+    <string name="notes_conseils"><![CDATA[Notes & Advice]]></string>
+    <string name="masculin">Male</string>
+    <string name="envoi_msg">" Sending message"</string>
+    <string name="att_msg">Please wait...</string>
+    <string name="chek_internet">You are not connected to Internet</string>
 </resources>

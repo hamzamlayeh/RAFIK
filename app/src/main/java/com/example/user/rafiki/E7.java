@@ -15,13 +15,8 @@ public class E7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e7);
 
-        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (bluetoothAdapter == null)
-            Toast.makeText(E7.this, "Pas de Bluetooth",Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(E7.this, "Avec Bluetooth",Toast.LENGTH_SHORT).show();
-
-    }
+      bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+   }
     public void next(View view) {
         if (!bluetoothAdapter.isEnabled()) {
             Intent enableBlueTooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);

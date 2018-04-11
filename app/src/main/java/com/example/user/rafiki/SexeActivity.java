@@ -22,7 +22,6 @@ public class SexeActivity extends AppCompatActivity {
     public void onRadioButtonClicked(View view) {
 
         boolean checked = ((RadioButton) view).isChecked();
-
         switch(view.getId()) {
             case R.id.homme:
                 if (checked){

@@ -23,7 +23,7 @@ import javax.mail.internet.MimeMessage;
 public class SendMail extends AsyncTask<Void,Void,Void> {
 
     //Declaring Variables
-    private Context context;
+    public Context context;
     private Session session;
 
     //Information to send email
@@ -47,7 +47,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
     protected void onPreExecute() {
         super.onPreExecute();
         //Showing progress dialog while sending email
-        progressDialog = ProgressDialog.show(context,"Envoi message","Attendez svp...",false,false);
+        progressDialog = ProgressDialog.show(context,context.getString(R.string.envoi_msg),context.getString(R.string.att_msg),false,false);
     }
 
     @Override

@@ -31,7 +31,6 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
 
     String[] items = new String[199];
     ArrayList<DataItem> listA;
-    //ListAdapter listAdapter;
     Adapter_Liste_pays myAdapter;
     ListView listView;
     EditText recherch;
@@ -60,7 +59,6 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
         }
         myAdapter=new Adapter_Liste_pays(this,listA);
         listView.setAdapter(myAdapter);
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
