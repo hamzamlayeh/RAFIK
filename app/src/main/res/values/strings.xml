@@ -60,4 +60,5 @@
 
     <string name="Messageenvoyé">Message envoyé</string>
     <string name="votre_t_shirt_est_bien_couple">VOTRE T-SHIRT EST BIEN COUPLÉ</string>
+    <string name="nbCompt">vous avez dépassé le nombre des compts autorisé</string>
 </resources>

@@ -96,9 +96,9 @@
                 android:layout_height="3dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/RAFIKI-Icon"
                 app:srcCompat="@drawable/bare2" />
@@ -355,15 +355,15 @@
 
             <TextView
                 android:id="@+id/etat3"
-                android:layout_width="70dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
                 android:layout_marginTop="277dp"
                 android:text="@string/elevee"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.87"
+                app:layout_constraintHorizontal_bias="0.86"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

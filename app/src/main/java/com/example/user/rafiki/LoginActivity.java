@@ -63,13 +63,13 @@ public class LoginActivity extends AppCompatActivity {
     public void identifier(View view) {
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-        ite = new Intent(this, E7.class);
-        startActivity(ite);
+//        ite = new Intent(this, E7.class);
+//        startActivity(ite);
         if (!valider()) {
-            Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
+          //  Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
         } else {
             if (ds.verifUser(mail, password)) {
-                ite = new Intent(this, E8.class);
+                ite = new Intent(this, E7.class);
                 startActivity(ite);
                 pass.setBackground(d1);
                 email.setBackground(d1);

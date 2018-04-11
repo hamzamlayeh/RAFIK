@@ -221,26 +221,26 @@ public class Inscription extends AppCompatActivity {
 
             client = new clients(name, after_name, berthday, payers, fullphone, sexee, mail, password);
             List<clients> list = ds.getAllClient();
-            if (list.size() > 2) {
-                Toast.makeText(Inscription.this, "Vous avez depasser 3 comptes ", Toast.LENGTH_LONG).show();
+            if (list.size() > 0) {
+                Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();
             } else {
-                AlertDialog.Builder alert = new AlertDialog.Builder(Inscription.this);
-                alert.setMessage(" " + getString(string.alert_msg1) + "\n" + " " + getString(string.alert_msg2))
-                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
+//                AlertDialog.Builder alert = new AlertDialog.Builder(Inscription.this);
+//               alert.setMessage(" " + getString(string.alert_msg1) + "\n" + " " + getString(string.alert_msg2))
+//                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
                                 long ids = ds.addClient(client);
                                 if (ids == -1) {
                                     Toast.makeText(Inscription.this, string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                                 } else {
                                     Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
-                                    ite = new Intent(Inscription.this, Verif_code_mailActivity.class);
+                                    ite = new Intent(Inscription.this, E7.class);
                                     startActivity(ite);
                                 }
                             }
 
-                        }).show();
-            }
+//                        }).show();
+
         }
     }
 

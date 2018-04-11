@@ -53,4 +53,5 @@
     <string name="votre_t_shirt_est_bien_coupl">" YOUR T-SHIRT IS WELL COUPLED"</string>
     <string name="ok">OK</string>
     <string name="title_home">Home</string>
+    <string name="nbCompt">you have exceeded the number of counts allowed</string>
 </resources>
