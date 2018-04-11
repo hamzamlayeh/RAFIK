@@ -22,7 +22,7 @@
     <string name="mot_de_passe">Mot de passe</string>
     <string name="adresse_mail">Adresse mail</string>
     <string name="s_identifier">S\'identifier</string>
-    <string name="mot_de_passe_oublier">Mot de passe oublier ?</string>
+    <string name="mot_de_passe_oublier">Mot de passe oublié?</string>
     <string name="cr_e_un_nouveau_compte">+ Créer un Nouveau compte</string>
     <string name="prenom">Prenom</string>
     <string name="nom">Nom</string>

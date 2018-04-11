@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,7 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,7 +25,8 @@ import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
-
+    Typeface champagne_limousines;
+    Typeface raleway;
     SharedPreferences pref;
     SharedPreferences.Editor editors;
     Intent ite;
@@ -31,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     Drawable d, d1;
+    TextView t1,t2;
+    Button pasword,inscription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +51,23 @@ public class LoginActivity extends AppCompatActivity {
             Locale locale = new Locale(language);
             Locale.setDefault(locale);
             Configuration conf = getBaseContext().getResources().getConfiguration();
-            ;
+
             conf.locale = locale;
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         }
         setContentView(R.layout.activity_login);
+
+        champagne_limousines=Typeface.createFromAsset(getAssets(),"Font/Raleway-Regular.ttf");
+        raleway=Typeface.createFromAsset(getAssets(),"Font/Raleway-Bold.ttf");
+
+        t1=findViewById(R.id.bienvenue);
+        t2=findViewById(R.id.sevill);
+        t1.setTypeface(champagne_limousines);
+        t2.setTypeface(champagne_limousines);
+        pasword=findViewById(R.id.oblier);
+        inscription=findViewById(R.id.inscrire);
+        pasword.setTypeface(champagne_limousines);
+        inscription.setTypeface(champagne_limousines);
 
         d = getResources().getDrawable(R.drawable.edittext_error_style_log);
         d1 = getResources().getDrawable(R.drawable.edittext_style_default_log);
@@ -172,15 +190,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void en(View view) {
-
-        Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
         editors.putString("lang", "en");
         editors.commit();
         String language = pref.getString("lang", "en"); // ta langue
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
         Configuration conf = getBaseContext().getResources().getConfiguration();
-        ;
         conf.locale = locale;
         getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         recreate();
