@@ -53,7 +53,7 @@
     <string name="votre_t_shirt_est_bien_couple">" YOUR T-SHIRT IS WELL COUPLED"</string>
     <string name="ok">OK</string>
     <string name="title_home">Home</string>
-    <string name="nbCompt">You have exceeded the number of counts allowed</string>
+    <string name="nbCompt">You have exceeded the number of authorized accounts</string>
     <string name="mot_de_passe_oublie">Forgotten password</string>
     <string name="notes_conseils"><![CDATA[Notes & Advice]]></string>
     <string name="masculin">Male</string>
