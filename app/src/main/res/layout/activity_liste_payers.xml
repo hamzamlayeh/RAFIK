@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:fontFamily="Raleway Bold"
+        android:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="@string/pays"
         android:textAllCaps="true"

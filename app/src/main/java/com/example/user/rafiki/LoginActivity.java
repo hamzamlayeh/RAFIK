@@ -25,8 +25,6 @@ import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Typeface champagne_limousines;
-    Typeface raleway;
     SharedPreferences pref;
     SharedPreferences.Editor editors;
     Intent ite;
@@ -36,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     UserDataSource ds;
     Drawable d, d1;
     TextView t1,t2;
-    Button pasword,inscription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,18 +53,6 @@ public class LoginActivity extends AppCompatActivity {
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         }
         setContentView(R.layout.activity_login);
-
-        champagne_limousines=Typeface.createFromAsset(getAssets(),"Font/Raleway-Regular.ttf");
-        raleway=Typeface.createFromAsset(getAssets(),"Font/Raleway-Bold.ttf");
-
-        t1=findViewById(R.id.bienvenue);
-        t2=findViewById(R.id.sevill);
-        t1.setTypeface(champagne_limousines);
-        t2.setTypeface(champagne_limousines);
-        pasword=findViewById(R.id.oblier);
-        inscription=findViewById(R.id.inscrire);
-        pasword.setTypeface(champagne_limousines);
-        inscription.setTypeface(champagne_limousines);
 
         d = getResources().getDrawable(R.drawable.edittext_error_style_log);
         d1 = getResources().getDrawable(R.drawable.edittext_style_default_log);
