@@ -18,13 +18,13 @@ public class E7 extends AppCompatActivity {
       bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
    }
     public void next(View view) {
-//        if (!bluetoothAdapter.isEnabled()) {
-//            Intent enableBlueTooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-//            startActivityForResult(enableBlueTooth, REQUEST_CODE_ENABLE_BLUETOOTH);
-//        }else{
-//        }
-        Intent ite=new Intent(this,E7_1.class);
-        startActivity(ite);
+        if (!bluetoothAdapter.isEnabled()) {
+            Intent enableBlueTooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBlueTooth, REQUEST_CODE_ENABLE_BLUETOOTH);
+        }else{
+            Intent ite=new Intent(this,E7_1.class);
+            startActivity(ite);
+        }
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

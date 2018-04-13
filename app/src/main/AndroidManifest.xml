@@ -18,26 +18,26 @@
         android:hardwareAccelerated="false"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".E8" />
-        <activity android:name=".E10" />
-        <activity android:name=".E12" />
-        <activity android:name=".E11" />
-        <activity android:name=".E9" />
-        <activity android:name=".Verif_code_mailActivity" />
-        <activity android:name=".SexeActivity" />
-        <activity android:name=".Inscription" />
-        <activity android:name=".Liste_payers" />
-        <activity android:name=".PasswordLostMailSender"/>
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".E8" android:screenOrientation="portrait"/>
+        <activity android:name=".E10" android:screenOrientation="portrait"/>
+        <activity android:name=".E12" android:screenOrientation="portrait"/>
+        <activity android:name=".E11" android:screenOrientation="portrait"/>
+        <activity android:name=".E9" android:screenOrientation="portrait"/>
+        <activity android:name=".Verif_code_mailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SexeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Inscription" android:screenOrientation="portrait"/>
+        <activity android:name=".Liste_payers" android:screenOrientation="portrait"/>
+        <activity android:name=".PasswordLostMailSender" android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".E7"/>
-        <activity android:name=".E7_1" />
-        <activity android:name=".E7_2"/>
+        <activity android:name=".E7" android:screenOrientation="portrait"/>
+        <activity android:name=".E7_1" android:screenOrientation="portrait"/>
+        <activity android:name=".E7_2" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
