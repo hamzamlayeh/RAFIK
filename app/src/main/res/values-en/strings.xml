@@ -59,7 +59,7 @@
     <string name="envoi_msg">" Sending message"</string>
     <string name="att_msg">Please wait...</string>
     <string name="chek_internet">You are not connected to Internet</string>
-    <string name="champs_obligatoir">Required Fields</string>
+    <string name="champs_obligatoir">Required Field</string>
     <string name="email_invalide">Invalid Email</string>
     <string name="err_pass_caractaire">Your password must contain at least 6 characters</string>
 </resources>
