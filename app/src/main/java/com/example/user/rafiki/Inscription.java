@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +41,7 @@ public class Inscription extends AppCompatActivity {
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     public static int idc=-1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,6 +180,7 @@ public class Inscription extends AppCompatActivity {
 
     public void setage(String age) {
         naisence.setText(age);
+        naisence.setError(null);
         editor.putString("Age", naisence.getText().toString());
     }
 
@@ -206,9 +210,7 @@ public class Inscription extends AppCompatActivity {
         conf_password = confirm_pass.getText().toString().trim();
         phone = mobile.getText().toString().trim();
 
-        if (!valider()) {
-            Toast.makeText(getApplicationContext(), string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
-        } else {
+        if (valider()) {
             String fullphone = prefs.getString("Code_pays", null) + phone;
             remplir_champs();
 
@@ -248,103 +250,58 @@ public class Inscription extends AppCompatActivity {
     @TargetApi(16)
     private boolean valider() {
 
-        Drawable d = getResources().getDrawable(drawable.edittext_error_style);
-        Drawable d1 = getResources().getDrawable(drawable.edittext_style_default);
         boolean valide = true;
         if (name.isEmpty() || name.length() > 25) {
-            nom.setError("");
-            nom.setBackground(d);
+            nom.setError(getString(string.champs_obligatoir));
             valide = false;
-        }
-        else
-        {
-            nom.setBackground(d1);
         }
         if (after_name.isEmpty() || after_name.length() > 25) {
-            prenom.setError("");
-            prenom.setBackground(d);
+            prenom.setError(getString(string.champs_obligatoir));
             valide = false;
         }
-        else
-        {
-            prenom.setBackground(d1);
-        }
-        if(mail.isEmpty() || (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
-            email.setError("");
-            email.setBackground(d);
+        if(mail.isEmpty()) {
+            email.setError(getString(string.champs_obligatoir));
             valide = false;
         }
-        else
-        {
-            email.setBackground(d1);
+        if(!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
+            email.setError(getString(string.email_invalide));
+            valide = false;
         }
         if (ds.verifEmail(mail)) {
             email.setError(getString(string.chekmail));
             valide = false;
         }
         if (password.isEmpty()) {
-            pass.setError("");
-            pass.setBackground(d);
+            pass.setError(getString(string.champs_obligatoir));
             valide = false;
         }
-        else
-        {
-            pass.setBackground(d1);
-        }
         if (!password.isEmpty() && (password.length() < 6)) {
-            pass.setError("");
-            pass.setBackground(d);
+            pass.setError(getString(string.err_pass_caractaire));
             valide = false;
         }
         if (conf_password.isEmpty()) {
-            confirm_pass.setError("");
-            confirm_pass.setBackground(d);
+            confirm_pass.setError(getString(string.champs_obligatoir));
             valide = false;
-        }
-        else
-        {
-            confirm_pass.setBackground(d1);
         }
         if (!conf_password.isEmpty() && (!conf_password.contentEquals(password))) {
             confirm_pass.setError(getString(string.err_pass2));
-            confirm_pass.setBackground(d);
             valide = false;
         }
         if (berthday.isEmpty()) {
-            naisence.setError("");
-            naisence.setBackground(d);
+            naisence.setError(getString(string.champs_obligatoir));
             valide = false;
-        }
-        else
-        {
-            naisence.setBackground(d1);
         }
         if (sexee.isEmpty()) {
-            sexe.setError("");
+            sexe.setError(getString(string.champs_obligatoir));
             valide = false;
-            sexe.setBackground(d);
-        }
-        else
-        {
-            sexe.setBackground(d1);
         }
         if (payers.isEmpty()) {
-            payes.setError("");
+            payes.setError(getString(string.champs_obligatoir));
             valide = false;
-            payes.setBackground(d);
-        }
-        else
-        {
-            payes.setBackground(d1);
         }
         if (phone.isEmpty()) {
-            mobile.setError("");
+            mobile.setError(getString(string.champs_obligatoir));
             valide = false;
-            mobile.setBackground(d);
-        }
-        else
-        {
-            mobile.setBackground(d1);
         }
         if (spinner.getSelectedItemPosition() == -1) {
 

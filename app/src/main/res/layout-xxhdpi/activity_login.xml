@@ -108,6 +108,7 @@
                 android:fontFamily="@font/champagne_limousines"
                 android:gravity="center"
                 android:text="Fr"
+                android:onClick="fr"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
@@ -119,6 +120,7 @@
                 android:fontFamily="@font/champagne_limousines"
                 android:gravity="center"
                 android:text="En"
+                android:onClick="en"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
         </LinearLayout>

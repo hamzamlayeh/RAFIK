@@ -51,7 +51,6 @@
     <string name="couplage2">Couplage de votre T-shirt</string>
     <string name="recherche_gadget">Recherche Gadget</string>
     <string name="cardiaque">CARDIAQUE</string>
-    <string name="VerifierToutleschamps">Verifier Touts les champs</string>
     <string name="EreurdanslLinsertion">Ereur dans l\'insertion</string>
     <string name="InsertionTerminer">Insertion terminer</string>
     <string name="EmailOuMotDePasseInvalide">Email ou mot de passe Invalide</string>
@@ -63,4 +62,7 @@
     <string name="envoi_msg">Envoi message</string>
     <string name="att_msg">Attendez svp...</string>
     <string name="chek_internet">Vous n\'êtes pas connecté à Internet</string>
+    <string name="champs_obligatoir">Champs Obligatoir</string>
+    <string name="email_invalide">Email Invalide</string>
+    <string name="err_pass_caractaire">Votre mot de passe doit contenir 6 caractères au minimum</string>
 </resources>

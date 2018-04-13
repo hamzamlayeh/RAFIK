@@ -44,12 +44,11 @@
     <string name="couplage2">" Coupling your T-shirt"</string>
     <string name="recherche_gadget">" Search Gadget"</string>
     <string name="cardiaque">CARDIAC</string>
-    <string name="VerifierToutleschamps">" Check all fields"</string>
     <string name="EreurdanslLinsertion">Insertion error</string>
     <string name="InsertionTerminer">" Insert finished"</string>
-    <string name="EmailOuMotDePasseInvalide">" E-mail or password Invalid"</string>
-    <string name="MailNexistePas">" E-mail does not exist"</string>
-    <string name="Messageenvoyé">"Message sent "</string>
+    <string name="EmailOuMotDePasseInvalide">E-mail or password Invalid</string>
+    <string name="MailNexistePas">E-mail does not exist</string>
+    <string name="Messageenvoyé">Message sent</string>
     <string name="votre_t_shirt_est_bien_couple">" YOUR T-SHIRT IS WELL COUPLED"</string>
     <string name="ok">OK</string>
     <string name="title_home">Home</string>
@@ -60,4 +59,7 @@
     <string name="envoi_msg">" Sending message"</string>
     <string name="att_msg">Please wait...</string>
     <string name="chek_internet">You are not connected to Internet</string>
+    <string name="champs_obligatoir">Required Fields</string>
+    <string name="email_invalide">Invalid Email</string>
+    <string name="err_pass_caractaire">Your password must contain at least 6 characters</string>
 </resources>

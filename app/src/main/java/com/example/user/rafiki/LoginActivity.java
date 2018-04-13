@@ -32,9 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     String mail, password;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    Drawable d, d1;
-    TextView t1,t2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +51,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_login);
 
-        d = getResources().getDrawable(R.drawable.edittext_error_style_log);
-        d1 = getResources().getDrawable(R.drawable.edittext_style_default_log);
         email = findViewById(R.id.emil);
         pass = findViewById(R.id.password);
 
@@ -74,18 +69,12 @@ public class LoginActivity extends AppCompatActivity {
         password = pass.getText().toString().trim();
 //        ite = new Intent(this, E7.class);
 //        startActivity(ite);
-        if (!valider()) {
-            Toast.makeText(getApplicationContext(), R.string.VerifierToutleschamps, Toast.LENGTH_LONG).show();
-        } else {
+        if (valider()) {
             if (ds.verifUser(mail, password)) {
                 ite = new Intent(this, E7.class);
                 startActivity(ite);
-                pass.setBackground(d1);
-                email.setBackground(d1);
             } else {
                 Toast.makeText(this, R.string.EmailOuMotDePasseInvalide, Toast.LENGTH_LONG).show();
-                pass.setBackground(d);
-                email.setBackground(d);
             }
         }
     }
@@ -93,19 +82,13 @@ public class LoginActivity extends AppCompatActivity {
     @TargetApi(16)
     private boolean valider() {
         boolean valide = true;
-        if (mail.isEmpty() || (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
-            email.setError("");
+        if (mail.isEmpty()) {
+            email.setError(getString(R.string.champs_obligatoir));
             valide = false;
-            email.setBackground(d);
-        } else {
-            email.setBackground(d1);
         }
         if (password.isEmpty()) {
-            pass.setError("");
+            pass.setError(getString(R.string.champs_obligatoir));
             valide = false;
-            pass.setBackground(d);
-        } else {
-            pass.setBackground(d1);
         }
         return valide;
     }
