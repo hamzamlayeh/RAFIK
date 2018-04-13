@@ -45,7 +45,7 @@
     <string name="recherche_gadget">" Search Gadget"</string>
     <string name="cardiaque">CARDIAC</string>
     <string name="EreurdanslLinsertion">Insertion error</string>
-    <string name="InsertionTerminer">" Insert finished"</string>
+    <string name="InsertionTerminer">"Your account has been successfully created "</string>
     <string name="EmailOuMotDePasseInvalide">E-mail or password Invalid</string>
     <string name="MailNexistePas">E-mail does not exist</string>
     <string name="Messageenvoyé">Message sent</string>

@@ -52,7 +52,7 @@
     <string name="recherche_gadget">Recherche Gadget</string>
     <string name="cardiaque">CARDIAQUE</string>
     <string name="EreurdanslLinsertion">Ereur dans l\'insertion</string>
-    <string name="InsertionTerminer">Insertion terminer</string>
+    <string name="InsertionTerminer">Votre compte a été crée avec succès</string>
     <string name="EmailOuMotDePasseInvalide">Email ou mot de passe Invalide</string>
     <string name="MailNexistePas">Email n\'existe pas</string>
     <string name="Messageenvoyé">Message envoyé</string>
