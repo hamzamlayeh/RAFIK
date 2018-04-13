@@ -87,10 +87,10 @@
         android:id="@+id/imageView12"
         android:layout_width="49dp"
         android:layout_height="29dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="105dp"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/couplage"
         app:srcCompat="@drawable/gadget" />
 
     <ImageView
