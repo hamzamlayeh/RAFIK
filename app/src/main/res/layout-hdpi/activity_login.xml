@@ -192,6 +192,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="Raleway Regular"
             android:text="@string/mot_de_passe_oublier"
+            android:onClick="password_lost"
             android:textAllCaps="false"
             android:textColor="#bd024e76" />
 
