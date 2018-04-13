@@ -108,7 +108,7 @@
                 android:gravity="center"
                 android:text="Fr"
                 android:onClick="fr"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <TextView
@@ -120,7 +120,7 @@
                 android:gravity="center"
                 android:text="En"
                 android:onClick="en"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
