@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="124dp"
                 android:orientation="vertical"
@@ -142,9 +142,9 @@
                 <ImageView
                     android:id="@+id/Neutre"
                     android:layout_width="match_parent"
-                    android:onClick="E9"
                     android:layout_height="44dp"
                     android:baselineAligned="false"
+                    android:onClick="E9"
                     android:visibility="visible"
                     app:srcCompat="@drawable/neutre" />
 
@@ -155,9 +155,8 @@
                     android:layout_marginLeft="2dp"
                     android:text="@string/neutre"
                     android:textColor="#00ffdd"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"
-
                     app:layout_constraintHorizontal_bias="0.01"
                     app:layout_constraintTop_toBottomOf="@+id/Neutre" />
             </LinearLayout>

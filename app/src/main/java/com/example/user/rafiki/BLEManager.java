@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.UUID;
@@ -43,14 +44,16 @@ public class BLEManager {
         public void onLeScan(final BluetoothDevice device, final int rssi, final byte[] scanRecord) {
             if (isDeviceFound == false) {
                 String deviceName = device.getName();
-                if (deviceName.equalsIgnoreCase(GADGET_NAME)) {
-                    isDeviceFound = true;
-                    mBluetoothDevice = device;
-                    scanCycle = 0;
-                    try {
-                        mBluetoothAdapter.stopLeScan(leScanCallback);
-                    } catch (Exception ex) {
+                if (deviceName != null) {
+                    if (deviceName.equals(GADGET_NAME)) {
+                        isDeviceFound = true;
+                        mBluetoothDevice = device;
+                        scanCycle = 0;
+                        try {
+                            mBluetoothAdapter.stopLeScan(leScanCallback);
+                        } catch (Exception ex) {
 
+                        }
                     }
                 }
             } else {
@@ -77,6 +80,7 @@ public class BLEManager {
             // this will get called anytime you perform a read or write characteristic operation
             byte[] data = characteristic.getValue();
             Log.d("BLE",new String(data));
+            E7_2.str=new String(data);
         }
 
         @Override

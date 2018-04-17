@@ -13,14 +13,14 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginEnd="137dp"
+        android:layout_marginLeft="119dp"
+        android:layout_marginRight="137dp"
         android:layout_marginStart="119dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rafik"
-        android:layout_marginRight="137dp"
-        android:layout_marginLeft="119dp" />
+        app:srcCompat="@drawable/rafik" />
 
     <TextView
         android:id="@+id/sevill"

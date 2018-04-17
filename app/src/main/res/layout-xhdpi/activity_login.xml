@@ -13,7 +13,7 @@
         android:layout_height="91dp"
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -193,8 +193,8 @@
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:fontFamily="@font/raleway_light"
-            android:text="@string/mot_de_passe_oublier"
             android:onClick="password_lost"
+            android:text="@string/mot_de_passe_oublier"
             android:textAllCaps="false"
             android:textColor="#bd024e76" />
 

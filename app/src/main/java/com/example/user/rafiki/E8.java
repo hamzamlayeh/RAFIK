@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -27,6 +28,7 @@ TextView bpm;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e8);
 
+        Toast.makeText(getApplicationContext(),E7_2.str,Toast.LENGTH_LONG).show();
 
         animation= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
         animation2= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_out);
