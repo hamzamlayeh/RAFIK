@@ -19,7 +19,7 @@
         android:layout_height="114dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -54,17 +54,18 @@
         android:layout_height="276dp"
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="19dp"
         app:cardBackgroundColor="#f2f0f1"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
-       
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,27 +113,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
+                    android:drawableRight="@drawable/flash"
                     android:ems="8"
                     android:focusableInTouchMode="false"
                     android:hint="@string/age"
                     android:inputType="number"
                     android:onClick="get_age"
-                    android:padding="10dp"
-                    android:drawableRight="@drawable/flash"
-                    />
+                    android:padding="10dp" />
 
                 <EditText
                     android:id="@+id/payer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
+                    android:drawableRight="@drawable/flash"
                     android:ems="10"
                     android:focusableInTouchMode="false"
                     android:hint="@string/payer"
                     android:onClick="get_payer"
-                    android:padding="10dp"
-                    android:drawableRight="@drawable/flash"
-                    />
+                    android:padding="10dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -146,15 +145,16 @@
                         android:spinnerMode="dialog">
 
                     </Spinner>
-                        <EditText
-                            android:id="@+id/mobile"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:ems="10"
-                            android:hint="@string/telephone"
-                            android:inputType="phone"
-                            android:padding="10dp" />
+
+                    <EditText
+                        android:id="@+id/mobile"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:ems="10"
+                        android:hint="@string/telephone"
+                        android:inputType="phone"
+                        android:padding="10dp" />
                 </LinearLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -177,13 +177,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
+                    android:drawableRight="@drawable/flash"
                     android:ems="10"
                     android:focusableInTouchMode="false"
                     android:hint="sexe"
                     android:onClick="get_sexe"
-                    android:padding="10dp"
-                    android:drawableRight="@drawable/flash"
-                    />
+                    android:padding="10dp" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -227,7 +226,7 @@
         android:layout_height="46dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_rudus"
         android:onClick="sinscrire"
         android:text="@string/s_inscrire"

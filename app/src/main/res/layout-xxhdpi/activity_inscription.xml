@@ -17,7 +17,7 @@
             android:layout_height="133dp"
             android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="25dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -52,7 +52,6 @@
             android:layout_height="397dp"
             android:layout_marginEnd="64dp"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="8dp"
             app:cardBackgroundColor="#f2f0f1"
             app:cardCornerRadius="7dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -140,8 +139,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
                             android:hint="@string/prenom"
+                            android:inputType="textPersonName"
                             android:padding="10dp" />
                     </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
