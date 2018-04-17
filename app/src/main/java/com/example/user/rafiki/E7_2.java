@@ -36,7 +36,7 @@ public class E7_2 extends AppCompatActivity {
         boolean test = (boolean) b.get("connexion");
         Resources res = getResources();
         if (test) {
-            testcouple.setImageResource(R.drawable.valide);
+           // testcouple.setImageResource(R.drawable.valide);
             textcouple.setText(R.string.votre_t_shirt_est_bien_couple);
         } else {
            // testcouple.setImageResource(R.drawable.couplageerr);
