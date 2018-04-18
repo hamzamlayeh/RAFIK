@@ -191,7 +191,6 @@
                     android:id="@+id/BPM-D"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="86"
                     android:textColor="@android:color/background_light"
                     android:textSize="20sp" />
 
@@ -303,7 +302,7 @@
 
 
             <ImageView
-                android:id="@+id/image-RMP"
+                android:id="@+id/poumon"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="8dp"
@@ -332,10 +331,9 @@
                 app:layout_constraintVertical_bias="1.0">
 
                 <TextView
-                    android:id="@+id/RPM-D"
+                    android:id="@+id/RPM_D"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="23"
                     android:textColor="@android:color/background_light"
                     android:textSize="20sp" />
 
@@ -359,7 +357,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.42"
                 app:layout_constraintStart_toEndOf="@+id/hom"
-                app:layout_constraintTop_toBottomOf="@+id/image-RMP"
+                app:layout_constraintTop_toBottomOf="@+id/poumon"
                 app:layout_constraintVertical_bias="1.0">
 
                 <LinearLayout
@@ -382,7 +380,7 @@
                         app:layout_constraintHorizontal_bias="0.87"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/image-RMP" />
+                        app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
                         android:id="@+id/rpm-text2"
@@ -398,7 +396,7 @@
                         app:layout_constraintHorizontal_bias="0.33"
                         app:layout_constraintLeft_toRightOf="@+id/rpm-text1"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/image-RMP" />
+                        app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
                         android:id="@+id/rpm-text3"
@@ -413,7 +411,7 @@
                         app:layout_constraintHorizontal_bias="0.77"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/image-RMP" />
+                        app:layout_constraintTop_toBottomOf="@+id/poumon" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -502,17 +500,16 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/TEMP-D"
+                    android:id="@+id/TEMP_D"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="38"
                     android:textColor="@android:color/background_light"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textView22"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:text="C°"
                     android:textColor="#c7c4c4"
@@ -552,7 +549,7 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintLeft_toRightOf="@+id/rpm-text1"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/image-RMP" />
+                        app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
                         android:id="@+id/text-temp2"
@@ -567,7 +564,7 @@
                         app:layout_constraintHorizontal_bias="0.76"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/image-RMP" />
+                        app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
                         android:id="@+id/text-temp3"
@@ -582,7 +579,7 @@
                         app:layout_constraintHorizontal_bias="0.848"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/image-RMP" />
+                        app:layout_constraintTop_toBottomOf="@+id/poumon" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -662,7 +659,6 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="418dp"
-                android:text="98%"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"

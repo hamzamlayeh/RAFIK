@@ -80,7 +80,7 @@ public class BLEManager {
             // this will get called anytime you perform a read or write characteristic operation
             byte[] data = characteristic.getValue();
             Log.d("BLE",new String(data));
-            E7_2.str=new String(data);
+            E7_2.str=data;
         }
 
         @Override
