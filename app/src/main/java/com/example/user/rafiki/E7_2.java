@@ -41,7 +41,7 @@ public class E7_2 extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
             public void run() {
-                //byte[] buffer = {0x01,0x02,0x03,0x4,0x05,0x06,0x07};
+                    //byte[] buffer = {0x01,0x02,0x03,0x4,0x05,0x06,0x07};
                     byte[] buffer = {0x02, 0x73, 0x00, 0x74, 0x03, 0x03, 0x0A};
                     BLEManager.writeData(buffer);
                 try {
