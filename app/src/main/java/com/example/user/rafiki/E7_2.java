@@ -30,10 +30,10 @@ public class E7_2 extends AppCompatActivity {
 
         boolean test = (boolean) b.get("connexion");
         if (test) {
-           // testcouple.setImageResource(R.drawable.valide);
+
             textcouple.setText(R.string.votre_t_shirt_est_bien_couple);
         } else {
-           //testcouple.setImageResource(R.drawable.couplageerr);
+            testcouple.setImageResource(R.drawable.couplageerr);
             textcouple.setText("Votre T_shirt n'est pas couplé ");
         }
         Toast.makeText(getApplicationContext(), test + "", Toast.LENGTH_LONG).show();

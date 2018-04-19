@@ -18,7 +18,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rafik" />
+        app:srcCompat="@drawable/rafik"
+        android:layout_marginLeft="119dp"
+        android:layout_marginRight="137dp" />
 
     <TextView
         android:id="@+id/sevill"
@@ -70,7 +72,7 @@
         app:srcCompat="@drawable/gadget1" />
 
     <ImageView
-        android:id="@+id/imageView29"
+        android:id="@+id/test_couple"
         android:layout_width="25dp"
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
@@ -94,5 +96,5 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView29" />
+        app:layout_constraintTop_toBottomOf="@+id/test_couple" />
 </android.support.constraint.ConstraintLayout>

@@ -10,11 +10,16 @@ import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.widget.Toast;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 public class BLEManager {
 
@@ -75,8 +80,7 @@ public class BLEManager {
             // this will get called anytime you perform a read or write characteristic operation
             byte[] data = characteristic.getValue();
             Log.d("BLE",new String(data));
-
-            E7_2.str=new String(data);
+            E7_2.str=data;
         }
 
         @Override
@@ -224,27 +228,4 @@ public class BLEManager {
         }
         return  bResult;
     }
-
-
-    public static void LireTrame(){
-
-        String data="djhs,dsds";
-        String[] splitArray = null;
-        splitArray = data.split(",");
-
-        for(int i = 0; i< splitArray.length;i++){
-            // On affiche chaque élément du tableau
-             System.out.println("élement n° " + i + "=[" + splitArray[i]+"]");
-
-//            élement n°0=[bonjour]
-//
-//            élément n°1=[ ceci est un bon exemple de découpage d'un string avec split]
-//
-//            élément n°2=[ génial]
-//
-//            élément n°3=[ no ?]
-        }
-
-    }
 }
-
