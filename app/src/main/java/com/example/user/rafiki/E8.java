@@ -21,28 +21,24 @@ public class E8 extends AppCompatActivity {
 
     Intent intent;
     Animation animation,animation2;
-    ImageView coeur;
-    TextView bpm;
-    ImageView poumon;
-    TextView rpm;
-    TextView temps;
-    TextView oxy;
-    final Random rand = new Random();
+    ImageView coeur,poumon, batteri;
+    TextView bpm,rpm,temps,oxy,niveaubatt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e8);
 
         //Toast.makeText(getApplicationContext(),E7_2.str,Toast.LENGTH_LONG).show();
-
         animation= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
         animation2= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_out);
         coeur=(ImageView)findViewById(R.id.Coeur);
+        batteri=(ImageView)findViewById(R.id.batterie);
         bpm = (TextView)findViewById(R.id.BPM_D);
         poumon=(ImageView)findViewById(R.id.poumon);
         rpm = (TextView)findViewById(R.id.RPM_D);
         temps = (TextView)findViewById(R.id.TEMP_D);
         oxy = (TextView)findViewById(R.id.oxigen);
+        niveaubatt = (TextView)findViewById(R.id.NiveauBatt);
         coeur.startAnimation(animation2);
         poumon.startAnimation(animation2);
 
@@ -56,13 +52,34 @@ public class E8 extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
 
-                int x = rand.nextInt(120);
                 coeur.startAnimation(animation);
                 bpm.setText(E7_2.str[2]+"");
                 poumon.startAnimation(animation);
                 rpm.setText(E7_2.str[3]+"");
                 temps.setText(E7_2.str[4]+"");
                 oxy.setText(E7_2.str[5]+"%");
+                niveaubatt.setText(E7_2.str[6]+"%");
+                if (E7_2.str[6]==0){
+                    batteri.setImageResource(R.drawable.batt7);
+                }else if (E7_2.str[6]>=1 && E7_2.str[6]<=13){
+                    batteri.setImageResource(R.drawable.batt6);
+
+                }else if (E7_2.str[6]>13 && E7_2.str[6]<=25){
+                    batteri.setImageResource(R.drawable.batt5);
+
+                }else if (E7_2.str[6]>25 && E7_2.str[6]<=38){
+                    batteri.setImageResource(R.drawable.batt4);
+
+                }else if (E7_2.str[6]>38 && E7_2.str[6]<=50){
+                    batteri.setImageResource(R.drawable.batt3);
+
+                }else if (E7_2.str[6]>50 && E7_2.str[6]<=75){
+                    batteri.setImageResource(R.drawable.batt2);
+
+                }else if (E7_2.str[6]>76 && E7_2.str[6]<=100){
+                    batteri.setImageResource(R.drawable.batt1);
+
+                }
             }
 
             @Override
@@ -80,12 +97,33 @@ public class E8 extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 coeur.startAnimation(animation2);
-                int x = rand.nextInt(120);
                 bpm.setText(E7_2.str[2]+"");
                 poumon.startAnimation(animation2);
                 rpm.setText(E7_2.str[3]+"");
                 temps.setText(E7_2.str[4]+"");
                 oxy.setText(E7_2.str[5]+"%");
+                niveaubatt.setText(E7_2.str[6]+"%");
+                if (E7_2.str[6]==0){
+                    batteri.setImageResource(R.drawable.batt7);
+                }else if (E7_2.str[6]>1 && E7_2.str[6]<=12.5){
+                    batteri.setImageResource(R.drawable.batt6);
+
+                }else if (E7_2.str[6]>12.5 && E7_2.str[6]<=25){
+                    batteri.setImageResource(R.drawable.batt5);
+
+                }else if (E7_2.str[6]>25 && E7_2.str[6]<=37.5){
+                    batteri.setImageResource(R.drawable.batt4);
+
+                }else if (E7_2.str[6]>37.5 && E7_2.str[6]<=50){
+                    batteri.setImageResource(R.drawable.batt3);
+
+                }else if (E7_2.str[6]>50 && E7_2.str[6]<=62.5){
+                    batteri.setImageResource(R.drawable.batt2);
+
+                }else if (E7_2.str[6]>62.5 && E7_2.str[6]<=100){
+                    batteri.setImageResource(R.drawable.batt1);
+
+                }
             }
 
             @Override

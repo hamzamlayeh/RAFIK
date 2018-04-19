@@ -62,4 +62,5 @@
     <string name="champs_obligatoir">Required field</string>
     <string name="email_invalide">Invalid email</string>
     <string name="err_pass_caractaire">Your password must contain at least 6 characters</string>
+    <string name="votre_t_shirt_pas_couple">" YOUR T-SHIRT IS NOT COUPLED"</string>
 </resources>

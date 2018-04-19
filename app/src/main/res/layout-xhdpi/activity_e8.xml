@@ -54,8 +54,7 @@
                 app:layout_constraintHorizontal_bias="0.088"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/ic_batt3" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/NiveauBatt"
@@ -63,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.09"
-                android:text="78%"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/batterie"

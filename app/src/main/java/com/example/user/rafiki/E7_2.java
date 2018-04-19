@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class E7_2 extends AppCompatActivity {
 
-    static byte[] str={0,0,0,0,0,0,0,0};
+    static byte[] str={0,0,0,0,0,0,0,0,0};
     ImageView testcouple;
     TextView textcouple;
 
@@ -30,13 +30,12 @@ public class E7_2 extends AppCompatActivity {
 
         boolean test = (boolean) b.get("connexion");
         if (test) {
-
             textcouple.setText(R.string.votre_t_shirt_est_bien_couple);
         } else {
             testcouple.setImageResource(R.drawable.couplageerr);
-            textcouple.setText("Votre T_shirt n'est pas couplé ");
+            textcouple.setText(R.string.votre_t_shirt_pas_couple);
         }
-        Toast.makeText(getApplicationContext(), test + "", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), test + "", Toast.LENGTH_LONG).show();
 
         new Handler().postDelayed(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)

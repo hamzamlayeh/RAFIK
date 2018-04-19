@@ -180,7 +180,7 @@
                     android:drawableRight="@drawable/flash"
                     android:ems="10"
                     android:focusableInTouchMode="false"
-                    android:hint="sexe"
+                    android:hint="@string/sexe"
                     android:onClick="get_sexe"
                     android:padding="10dp" />
 
