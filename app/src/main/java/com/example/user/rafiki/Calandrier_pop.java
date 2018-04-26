@@ -40,7 +40,6 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
         return view;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
         String age;
@@ -50,12 +49,8 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
         }else {
             Calendar cal = Calendar.getInstance();
             int x = cal.get(Calendar.YEAR)- naisence.getYear();
-            int mois = naisence.getMonth()+1;
-            if(mois <6) {
+
                 age = x + " ans";
-            }
-            else
-            {age = (x+1) + "ans";}
 
             Inscription inscr = (Inscription) getActivity();
             inscr.setage(age);

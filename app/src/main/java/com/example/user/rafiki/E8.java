@@ -1,22 +1,13 @@
 package com.example.user.rafiki;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Random;
 public class E8 extends AppCompatActivity {
 
     Intent intent;
@@ -31,14 +22,14 @@ public class E8 extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(),E7_2.str,Toast.LENGTH_LONG).show();
         animation= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
         animation2= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_out);
-        coeur=(ImageView)findViewById(R.id.Coeur);
-        batteri=(ImageView)findViewById(R.id.batterie);
-        bpm = (TextView)findViewById(R.id.BPM_D);
-        poumon=(ImageView)findViewById(R.id.poumon);
-        rpm = (TextView)findViewById(R.id.RPM_D);
-        temps = (TextView)findViewById(R.id.TEMP_D);
-        oxy = (TextView)findViewById(R.id.oxigen);
-        niveaubatt = (TextView)findViewById(R.id.NiveauBatt);
+        coeur= findViewById(R.id.Coeur);
+        batteri= findViewById(R.id.batterie);
+        bpm = findViewById(R.id.BPM_D);
+        poumon= findViewById(R.id.poumon);
+        rpm = findViewById(R.id.RPM_D);
+        temps = findViewById(R.id.TEMP_D);
+        oxy = findViewById(R.id.oxigen);
+        niveaubatt = findViewById(R.id.NiveauBatt);
         coeur.startAnimation(animation2);
         poumon.startAnimation(animation2);
 
@@ -105,22 +96,22 @@ public class E8 extends AppCompatActivity {
                 niveaubatt.setText(E7_2.str[6]+"%");
                 if (E7_2.str[6]==0){
                     batteri.setImageResource(R.drawable.batt7);
-                }else if (E7_2.str[6]>1 && E7_2.str[6]<=12.5){
+                }else if ((E7_2.str[6] > 1) && (E7_2.str[6] <= 12.5)){
                     batteri.setImageResource(R.drawable.batt6);
 
-                }else if (E7_2.str[6]>12.5 && E7_2.str[6]<=25){
+                }else if ((E7_2.str[6] > 12.5) && (E7_2.str[6] <= 25)){
                     batteri.setImageResource(R.drawable.batt5);
 
-                }else if (E7_2.str[6]>25 && E7_2.str[6]<=37.5){
+                }else if ((E7_2.str[6] > 25) && (E7_2.str[6] <= 37.5)){
                     batteri.setImageResource(R.drawable.batt4);
 
-                }else if (E7_2.str[6]>37.5 && E7_2.str[6]<=50){
+                }else if ((E7_2.str[6] > 37.5) && (E7_2.str[6] <= 50)){
                     batteri.setImageResource(R.drawable.batt3);
 
-                }else if (E7_2.str[6]>50 && E7_2.str[6]<=62.5){
+                }else if ((E7_2.str[6] > 50) && (E7_2.str[6] <= 62.5)){
                     batteri.setImageResource(R.drawable.batt2);
 
-                }else if (E7_2.str[6]>62.5 && E7_2.str[6]<=100){
+                }else if ((E7_2.str[6] > 62.5) && (E7_2.str[6] <= 100)){
                     batteri.setImageResource(R.drawable.batt1);
 
                 }

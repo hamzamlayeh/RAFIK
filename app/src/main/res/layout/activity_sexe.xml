@@ -35,7 +35,8 @@
         app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rafik" />
+        app:srcCompat="@drawable/rafik"
+        android:contentDescription="TODO" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView2"
@@ -89,7 +90,8 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:text="@string/f_minin" />
+                        android:text="@string/f_minin"
+                        android:paddingStart="20dp" />
                 </LinearLayout>
 
                 <RadioGroup
@@ -105,10 +107,11 @@
                         android:layout_marginBottom="7dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:buttonTint="#18e2c5"
+                        android:buttonTint="@color/btn_radio"
                         android:checked="false"
                         android:onClick="onRadioButtonClicked"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:layout_marginStart="5dp" />
 
                     <RadioButton
 
@@ -118,15 +121,14 @@
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:buttonTint="#18e2c5"
+                        android:buttonTint="@color/btn_radio"
                         android:onClick="onRadioButtonClicked"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:layout_marginStart="5dp" />
                 </RadioGroup>
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
-
     </android.support.v7.widget.CardView>
-
     <Button
         android:id="@+id/ok"
         android:layout_width="0dp"
@@ -136,12 +138,11 @@
         android:layout_marginStart="32dp"
         android:background="@drawable/button_rudus"
         android:onClick="valide_sexe"
-        android:text="Ok"
+        android:text="@string/ok"
         android:textColor="@android:color/white"
-        android:textSize="15dp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

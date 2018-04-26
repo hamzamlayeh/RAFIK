@@ -31,7 +31,9 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/batt6" />
+                app:srcCompat="@drawable/batt6"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="261dp" />
 
             <TextView
                 android:id="@+id/NiveauBatt"
@@ -40,7 +42,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_weight="0.09"
                 android:text="78%"
-                android:textColor="@android:color/background_light"
+                android:textColor="@android:color/white"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/batterie"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +56,7 @@
                 android:layout_marginTop="55dp"
                 android:text="@string/respiration"
                 android:textAllCaps="false"
-                android:textColor="#02abff"
+                android:textColor="@color/frequence"
                 android:textSize="12sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintHorizontal_bias="0.343"
@@ -75,7 +77,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/rafiki" />
+                app:srcCompat="@drawable/rafiki"
+                android:contentDescription="TODO" />
 
             <ImageView
                 android:id="@+id/barre1"
@@ -88,7 +91,8 @@
                 app:layout_constraintHorizontal_bias="0.31"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bare1" />
+                app:srcCompat="@drawable/bare1"
+                android:contentDescription="TODO" />
 
             <ImageView
                 android:id="@+id/barre2"
@@ -104,7 +108,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.75"
-                app:srcCompat="@drawable/bare2" />
+                app:srcCompat="@drawable/bare2"
+                android:contentDescription="TODO" />
 
             <Button
                 android:id="@+id/btn2"
@@ -112,10 +117,10 @@
                 android:layout_height="21dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="100dp"
-                android:background="#24bf0a"
+                android:background="@color/bg_btn_ok"
                 android:onClick="re"
-                android:text="OK"
-                android:textColor="@android:color/background_light"
+                android:text="@string/ok"
+                android:textColor="@android:color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +139,7 @@
                 android:background="@drawable/notes"
                 android:onClick="alert"
                 android:text="@string/notes_conseils"
-                android:textColor="@android:color/background_light"
+                android:textColor="@android:color/white"
                 android:textSize="8sp"
                 app:layout_constraintBottom_toTopOf="@+id/btn2"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -197,7 +202,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="4dp"
                         android:text="40"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.39"
@@ -229,7 +234,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="10dp"
                         android:text="16"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.392"
@@ -244,7 +249,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="16"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.398"
@@ -259,7 +264,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="max"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.863"
@@ -275,7 +280,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
                         android:text="moy"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.863"
@@ -315,13 +320,13 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/nourmal" />
+                app:srcCompat="@drawable/nourmal"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/etat3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_marginTop="192dp"
                 android:text="@string/superieur"
                 android:textColor="@color/orang"
@@ -446,8 +451,8 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="198dp"
-                android:text="RPM"
-                android:textColor="@android:color/background_light"
+                android:text="@string/rpm"
+                android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.07"
                 app:layout_constraintStart_toStartOf="parent"
@@ -463,7 +468,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/LayoutBaProgress"
                 app:layout_constraintTop_toBottomOf="@+id/barre1"
                 app:srcCompat="@drawable/eclipc"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:contentDescription="TODO" />
 
             <ImageView
                 android:id="@+id/imageView7"
@@ -492,5 +498,4 @@
                 app:layout_constraintTop_toBottomOf="@+id/etat" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
-
 </LinearLayout>

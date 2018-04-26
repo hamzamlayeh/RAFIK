@@ -31,7 +31,7 @@
     <string name="payer">Pays</string>
     <string name="email">Email</string>
     <string name="s_inscrire">S\'INSCRIRE</string>
-    <string name="sexe">Sexe</string>
+    <string name="sexe">Genre</string>
     <string name="un_code_de_verification">Un code de vérification est envoyé à votre numéro par mail</string>
     <string name="entrer_le_code">Entrer le code</string>
     <string name="f_minin">Féminin</string>
@@ -66,4 +66,8 @@
     <string name="email_invalide">Adresse mail invalide</string>
     <string name="err_pass_caractaire">Votre mot de passe doit contenir 6 caractères au minimum</string>
     <string name="votre_t_shirt_pas_couple">VOTRE T-SHIRT N\'EST PAS COUPLÉ</string>
+    <string name="fr">Fr</string>
+    <string name="en">En</string>
+    <string name="bpm">BPM</string>
+    <string name="rpm">RPM</string>
 </resources>

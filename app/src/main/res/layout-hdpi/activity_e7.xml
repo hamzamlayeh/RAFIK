@@ -34,7 +34,7 @@
         android:text="@string/surveillance"
         android:textAllCaps="true"
         android:textColor="@android:color/darker_gray"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:text="@string/couplage"
         android:textAllCaps="false"
         android:textColor="@color/couples"
-        android:textSize="15sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="66dp"
         android:layout_marginStart="66dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="Raleway Medium"
         android:gravity="center"
         android:text="@string/votre_t_shirt"
@@ -120,20 +120,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-    <Button
+    <TextView
         android:id="@+id/ok"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginEnd="62dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:onClick="next"
         android:text="@string/ok"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message_connexion" />
 
@@ -142,7 +139,7 @@
         android:layout_width="14dp"
         android:layout_height="13dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/alerts" />

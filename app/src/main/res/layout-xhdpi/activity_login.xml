@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="91dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="40dp"
@@ -25,10 +25,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/champagne_limousines"
+            tools:fontFamily="@font/champagne_limousines"
             android:text="@string/bienvenue"
             android:textAllCaps="true"
-            android:textColor="#ffffff"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
 
         <ImageView
@@ -36,7 +36,8 @@
             android:layout_width="173dp"
             android:layout_height="49dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/rafik" />
+            app:srcCompat="@drawable/rafik"
+            android:contentDescription="TODO" />
     </LinearLayout>
 
     <TextView
@@ -46,11 +47,11 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="132dp"
-        android:fontFamily="@font/champagne_limousines"
+        tools:fontFamily="@font/champagne_limousines"
         android:gravity="center"
         android:text="@string/surveillance"
         android:textAllCaps="true"
-        android:textColor="#ffffff"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -82,7 +83,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:onClick="fr"
-                app:srcCompat="@drawable/ic_france" />
+                app:srcCompat="@drawable/ic_france"
+                android:contentDescription="TODO" />
 
             <ImageButton
                 android:id="@+id/Anglais"
@@ -91,7 +93,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:onClick="en"
-                app:srcCompat="@drawable/ic_anglais" />
+                app:srcCompat="@drawable/ic_anglais"
+                android:contentDescription="TODO" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,9 +107,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/champagne_limousines"
+                tools:fontFamily="@font/champagne_limousines"
                 android:gravity="center"
-                android:text="Fr"
+                android:text="@string/fr"
                 android:onClick="fr"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
@@ -116,9 +119,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/champagne_limousines"
+                tools:fontFamily="@font/champagne_limousines"
                 android:gravity="center"
-                android:text="En"
+                android:text="@string/en"
                 android:onClick="en"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
@@ -144,7 +147,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
-            android:fontFamily="@font/raleway_light"
+            tools:fontFamily="@font/raleway_light"
             android:hint="@string/adresse_mail"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
@@ -157,7 +160,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
-            android:fontFamily="@font/raleway_light"
+            tools:fontFamily="@font/raleway_light"
             android:hint="@string/mot_de_passe"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
@@ -172,7 +175,6 @@
             android:onClick="identifier"
             android:textColor="@android:color/white" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -192,11 +194,11 @@
             android:layout_height="29dp"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
-            android:fontFamily="@font/raleway_light"
+            tools:fontFamily="@font/raleway_light"
             android:onClick="password_lost"
             android:text="@string/mot_de_passe_oublier"
             android:textAllCaps="false"
-            android:textColor="#bd024e76" />
+            android:textColor="@color/bt_oublier_nouveau" />
 
         <Button
             android:id="@+id/inscrire"
@@ -204,10 +206,10 @@
             android:layout_height="25dp"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
-            android:fontFamily="@font/raleway_light"
+            tools:fontFamily="@font/raleway_light"
             android:onClick="inscrire"
             android:text="@string/cr_e_un_nouveau_compte"
             android:textAllCaps="false"
-            android:textColor="#bd024e76" />
+            android:textColor="@color/bt_oublier_nouveau" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

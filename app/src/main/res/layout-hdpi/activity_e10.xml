@@ -31,7 +31,10 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/batt6" />
+                app:srcCompat="@drawable/batt6"
+                android:contentDescription="TODO"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="261dp" />
 
             <TextView
                 android:id="@+id/NiveauBatt"
@@ -55,7 +58,7 @@
                 android:layout_marginTop="44dp"
                 android:text="@string/frequence"
                 android:textAllCaps="false"
-                android:textColor="#02abff"
+                android:textColor="@color/frequence"
                 android:textSize="12sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/eclipc"
@@ -79,7 +82,9 @@
                 app:layout_constraintHorizontal_bias="0.64"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="5dp" />
 
 
             <ImageView
@@ -93,7 +98,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/rafiki" />
+                app:srcCompat="@drawable/rafiki"
+                android:contentDescription="TODO" />
 
             <ImageView
                 android:id="@+id/barre1"
@@ -119,15 +125,19 @@
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bare2" />
+                app:srcCompat="@drawable/bare2"
+                android:contentDescription="TODO" />
 
             <ImageView
                 android:id="@+id/eclipc"
-                android:layout_width="141dp"
+                android:layout_width="138dp"
                 android:layout_height="97dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="101dp"
+                android:contentDescription="TODO"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.049"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,13 +151,13 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="90dp"
-                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/coeur" />
+                app:srcCompat="@drawable/coeur"
+                android:contentDescription="TODO" />
 
             <Button
                 android:id="@+id/btn"
@@ -155,10 +165,10 @@
                 android:layout_height="21dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="100dp"
-                android:background="#24bf0a"
+                android:background="@color/bg_btn_ok"
                 android:onClick="re"
-                android:text="OK"
-                android:textColor="@android:color/background_light"
+                android:text="@string/ok"
+                android:textColor="@android:color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -176,9 +186,8 @@
                 android:layout_marginTop="100dp"
                 android:background="@drawable/notes"
                 android:onClick="alert"
-
                 android:text="@string/notes_conseils"
-                android:textColor="@android:color/background_light"
+                android:textColor="@android:color/white"
                 android:textSize="8sp"
                 app:layout_constraintBottom_toTopOf="@+id/btn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -218,7 +227,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.01999998"
-                app:srcCompat="@drawable/tirer" />
+                app:srcCompat="@drawable/tirer"
+                android:contentDescription="TODO" />
 
             <ImageView
                 android:id="@+id/barMin"
@@ -231,7 +241,10 @@
                 app:layout_constraintHorizontal_bias="0.84"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/tirer" />
+                app:srcCompat="@drawable/tirer"
+                android:layout_marginRight="9dp"
+                android:layout_marginLeft="8dp"
+                android:contentDescription="TODO" />
 
             <LinearLayout
                 android:id="@+id/LayoutBaProgress"
@@ -257,7 +270,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="2dp"
                         android:text="140"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.45"
@@ -273,7 +286,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
                         android:text="91"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.47"
@@ -304,7 +317,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="63"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.47"
@@ -319,7 +332,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="max"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.88"
@@ -335,7 +348,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
                         android:text="moy"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.89"
@@ -350,14 +363,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="min"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@android:color/white"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0.866"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.68" />
+                        app:layout_constraintVertical_bias="0.68"
+                        tools:ignore="SmallSp" />
 
                     <ImageView
                         android:id="@+id/etat3"
@@ -367,7 +381,8 @@
                         android:layout_marginLeft="52dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:srcCompat="@drawable/nourmal" />
+                        app:srcCompat="@drawable/nourmal"
+                        android:layout_marginStart="52dp" />
 
                     <TextView
                         android:id="@+id/etat2"
@@ -379,7 +394,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/normal"
-                        android:textColor="#00ffdd"
+                        android:textColor="@color/bleu"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -413,7 +428,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="164dp"
                 android:text="96"
-                android:textColor="@android:color/background_light"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.08"
@@ -427,8 +442,8 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="185dp"
-                android:text="BPM"
-                android:textColor="@android:color/background_light"
+                android:text="@string/bpm"
+                android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.06"
                 app:layout_constraintStart_toStartOf="parent"
@@ -495,10 +510,8 @@
                 app:layout_constraintHorizontal_bias="0.78"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirer7" />
-
-
+                app:layout_constraintTop_toBottomOf="@+id/tirer7"
+                tools:ignore="SmallSp" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
-
 </LinearLayout>
