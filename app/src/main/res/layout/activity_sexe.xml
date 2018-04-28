@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
-        android:fontFamily="Raleway Bold"
+        app:fontFamily="@font/champagne_limousines_bold"
         android:gravity="center"
         android:text="@string/sexe"
         android:textAllCaps="true"
@@ -90,8 +91,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:text="@string/f_minin"
-                        android:paddingStart="20dp" />
+                        android:text="@string/f_minin"/>
                 </LinearLayout>
 
                 <RadioGroup
@@ -114,7 +114,6 @@
                         android:layout_marginStart="5dp" />
 
                     <RadioButton
-
                         android:id="@+id/famme"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -138,9 +137,10 @@
         android:layout_marginStart="32dp"
         android:background="@drawable/button_rudus"
         android:onClick="valide_sexe"
+        app:fontFamily="@font/raleway_bold"
         android:text="@string/ok"
         android:textColor="@android:color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.user.rafiki.Inscription">
 
     <LinearLayout
@@ -31,19 +31,20 @@
             android:layout_width="137dp"
             android:layout_height="46dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/rafik" />
+            app:srcCompat="@drawable/rafik"
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/sevill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="Raleway Bold"
+            app:fontFamily="@font/raleway_light"
             android:gravity="center"
             android:text="@string/surveillance"
             android:textAllCaps="true"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="18sp" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <android.support.v7.widget.CardView
@@ -73,7 +74,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="wrap_content"
@@ -85,6 +87,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            app:fontFamily="@font/raleway_regular"
                             android:hint="@string/nom"
                             android:inputType="textPersonName"
                             android:padding="10dp" />
@@ -101,6 +104,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            app:fontFamily="@font/raleway_regular"
                             android:hint="@string/prenom"
                             android:padding="10dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -113,11 +117,12 @@
                     android:cursorVisible="false"
                     android:drawableRight="@drawable/flash"
                     android:ems="8"
+                    app:fontFamily="@font/raleway_regular"
                     android:focusableInTouchMode="false"
                     android:hint="@string/age"
                     android:inputType="number"
                     android:onClick="get_age"
-                    android:padding="10dp" />
+                    android:drawableEnd="@drawable/flash" />
 
                 <EditText
                     android:id="@+id/payer"
@@ -125,11 +130,12 @@
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
                     android:drawableRight="@drawable/flash"
+                    app:fontFamily="@font/raleway_regular"
                     android:ems="10"
                     android:focusableInTouchMode="false"
                     android:hint="@string/payer"
                     android:onClick="get_payer"
-                    android:padding="10dp" />
+                    android:drawableEnd="@drawable/flash" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -149,6 +155,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        app:fontFamily="@font/raleway_regular"
                         android:hint="@string/telephone"
                         android:inputType="phone"
                         android:padding="10dp" />
@@ -164,6 +171,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        app:fontFamily="@font/raleway_regular"
                         android:hint="@string/email"
                         android:inputType="textEmailAddress"
                         android:padding="10dp" />
@@ -176,10 +184,11 @@
                     android:cursorVisible="false"
                     android:drawableRight="@drawable/flash"
                     android:ems="10"
+                    app:fontFamily="@font/raleway_regular"
                     android:focusableInTouchMode="false"
                     android:hint="@string/sexe"
                     android:onClick="get_sexe"
-                    android:padding="10dp" />
+                    android:drawableEnd="@drawable/flash" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -191,6 +200,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        app:fontFamily="@font/raleway_regular"
                         android:hint="@string/mot_de_passe"
                         android:inputType="textPassword"
                         android:padding="10dp" />
@@ -206,15 +216,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        app:fontFamily="@font/raleway_regular"
                         android:hint="@string/confirmer_mot_de_pass"
                         android:inputType="textPassword"
                         android:padding="10dp" />
                 </android.support.design.widget.TextInputLayout>
-
-
             </LinearLayout>
         </ScrollView>
-
     </android.support.v7.widget.CardView>
 
     <Button
@@ -227,8 +235,9 @@
         android:background="@drawable/button_rudus"
         android:onClick="sinscrire"
         android:text="@string/s_inscrire"
+        app:fontFamily="@font/raleway_bold"
         android:textColor="@android:color/white"
-        android:textSize="15dp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

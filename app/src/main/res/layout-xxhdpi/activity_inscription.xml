@@ -31,19 +31,20 @@
                 android:layout_width="157dp"
                 android:layout_height="51dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/rafik" />
+                app:srcCompat="@drawable/rafik"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/sevill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="Raleway Bold"
                 android:gravity="center"
                 android:text="@string/surveillance"
                 android:textAllCaps="true"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="18sp" />
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:fontFamily="@font/raleway_light" />
         </LinearLayout>
 
         <android.support.v7.widget.CardView
@@ -124,6 +125,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="@string/nom"
+                            app:fontFamily="@font/raleway_regular"
                             android:inputType="textPersonName"
                             android:padding="10dp" />
 
@@ -140,6 +142,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="@string/prenom"
+                            app:fontFamily="@font/raleway_regular"
                             android:inputType="textPersonName"
                             android:padding="10dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -153,6 +156,7 @@
                     android:ems="8"
                     android:focusableInTouchMode="false"
                     android:hint="@string/age"
+                    app:fontFamily="@font/raleway_regular"
                     android:inputType="number"
                     android:onClick="get_age"
                     android:padding="10dp" />
@@ -163,6 +167,7 @@
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
                     android:ems="10"
+                    app:fontFamily="@font/raleway_regular"
                     android:focusableInTouchMode="false"
                     android:hint="@string/payer"
                     android:onClick="get_payer"
@@ -177,9 +182,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:spinnerMode="dialog">
-
-                    </Spinner>
+                        app:fontFamily="@font/raleway_regular"
+                        android:spinnerMode="dialog"/>
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="0dp"
@@ -192,6 +196,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="@string/telephone"
+                            app:fontFamily="@font/raleway_regular"
                             android:inputType="phone"
                             android:padding="10dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -211,6 +216,7 @@
                         android:ems="10"
                         android:hint="@string/email"
                         android:inputType="textEmailAddress"
+                        app:fontFamily="@font/raleway_regular"
                         android:padding="10dp" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -220,6 +226,7 @@
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
                     android:ems="10"
+                    app:fontFamily="@font/raleway_regular"
                     android:focusableInTouchMode="false"
                     android:hint="@string/sexe"
                     android:onClick="get_sexe"
@@ -236,6 +243,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="@string/mot_de_passe"
+                        app:fontFamily="@font/raleway_regular"
                         android:inputType="textPassword"
                         android:padding="10dp" />
                 </android.support.design.widget.TextInputLayout>
@@ -250,6 +258,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        app:fontFamily="@font/raleway_regular"
                         android:hint="@string/confirmer_mot_de_pass"
                         android:inputType="textPassword"
                         android:padding="10dp" />
@@ -264,12 +273,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/button_rudus"
+            app:fontFamily="@font/raleway_bold"
             android:onClick="sinscrire"
             android:text="@string/s_inscrire"
             android:textColor="@android:color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

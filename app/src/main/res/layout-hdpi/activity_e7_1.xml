@@ -17,7 +17,8 @@
         android:paddingRight="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound_left" />
+        app:srcCompat="@drawable/sound_left"
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/imageView31"
@@ -30,7 +31,8 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gadget" />
+        app:srcCompat="@drawable/gadget"
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/imageView32"
@@ -42,7 +44,8 @@
         android:paddingLeft="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound_right" />
+        app:srcCompat="@drawable/sound_right"
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -57,7 +60,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rafik" />
+        app:srcCompat="@drawable/rafik"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/sevill"
@@ -66,11 +70,11 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="25dp"
-        android:fontFamily="Raleway Bold"
+        app:fontFamily="@font/raleway_light"
         android:gravity="center"
         android:text="@string/surveillance"
         android:textAllCaps="true"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -84,7 +88,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="Raleway Regular"
+        app:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="@string/couplage2"
         android:textAllCaps="false"
@@ -105,7 +109,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/couplage"
-        app:srcCompat="@drawable/tshert" />
+        app:srcCompat="@drawable/tshert"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/recherche"
@@ -115,7 +120,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
-        android:fontFamily="Raleway Regular"
+        app:fontFamily="@font/raleway_medium"
         android:gravity="center"
         android:text="@string/recherche_gadget"
         android:textAllCaps="true"

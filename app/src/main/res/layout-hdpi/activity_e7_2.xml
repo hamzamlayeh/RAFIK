@@ -20,7 +20,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rafik"
         android:layout_marginLeft="119dp"
-        android:layout_marginRight="137dp" />
+        android:layout_marginRight="137dp"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/sevill"
@@ -29,12 +30,12 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
-        android:fontFamily="Raleway Bold"
+        app:fontFamily="@font/raleway_light"
         android:gravity="center"
         android:text="@string/surveillance"
         android:textAllCaps="true"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="Raleway Regular"
+        app:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="@string/couplage2"
         android:textAllCaps="false"
@@ -69,7 +70,8 @@
         app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gadget1" />
+        app:srcCompat="@drawable/gadget1"
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/test_couple"
@@ -81,7 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView28"
-        app:srcCompat="@drawable/valide" />
+        app:srcCompat="@drawable/valide"
+        android:contentDescription="TODO" />
     <TextView
         android:id="@+id/bienc"
         android:layout_width="wrap_content"
@@ -91,8 +94,9 @@
         android:layout_marginTop="5dp"
         android:onClick="nexte"
         android:text="@string/votre_t_shirt_est_bien_couple"
-        android:textColor="#f2f0f1"
+        android:textColor="@android:color/white"
         android:textSize="15sp"
+        app:fontFamily="@font/raleway_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/test_couple" />

@@ -30,8 +30,8 @@
             android:text="@string/bienvenue"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            tools:fontFamily="@font/champagne_limousines" />
+            android:textSize="18sp"
+            app:fontFamily="@font/raleway_light" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -53,12 +53,12 @@
         android:text="@string/surveillance"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="23sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:fontFamily="@font/champagne_limousines" />
+        app:fontFamily="@font/raleway_light" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -108,7 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                tools:fontFamily="@font/champagne_limousines"
+                app:fontFamily="@font/raleway_light"
                 android:gravity="center"
                 android:text="@string/fr"
                 android:onClick="fr"
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                tools:fontFamily="@font/champagne_limousines"
+                app:fontFamily="@font/raleway_light"
                 android:gravity="center"
                 android:text="@string/en"
                 android:onClick="en"
@@ -148,7 +148,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
-            tools:fontFamily="@font/raleway_light"
+            app:fontFamily="@font/raleway_regular"
             android:hint="@string/adresse_mail"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
@@ -161,7 +161,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
-            tools:fontFamily="@font/raleway_light"
+            app:fontFamily="@font/raleway_regular"
             android:hint="@string/mot_de_passe"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
@@ -172,9 +172,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_rudus"
-            android:text="@string/s_identifier"
             android:onClick="identifier"
-            android:textColor="@android:color/white" />
+            android:text="@string/s_identifier"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:fontFamily="@font/raleway_bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -197,7 +199,7 @@
             android:layout_height="29dp"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
-            tools:fontFamily="@font/raleway_light"
+            app:fontFamily="@font/raleway_regular"
             android:text="@string/mot_de_passe_oublier"
             android:textAllCaps="false"
             android:onClick="password_lost"
@@ -209,7 +211,7 @@
             android:layout_height="25dp"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
-            tools:fontFamily="@font/raleway_light"
+            app:fontFamily="@font/raleway_regular"
             android:onClick="inscrire"
             android:text="@string/cr_e_un_nouveau_compte"
             android:textAllCaps="false"
