@@ -228,4 +228,7 @@ public class BLEManager {
         }
         return  bResult;
     }
+    public static int unsignedToBytes(byte b) {
+        return b & 0xFF;
+    }
 }

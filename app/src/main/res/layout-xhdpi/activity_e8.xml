@@ -221,7 +221,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/bpm-text1"
+                        android:id="@+id/bpm_text1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -231,7 +231,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/bpm-text2"
+                        android:id="@+id/bpm_text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -241,7 +241,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/bpm-text3"
+                        android:id="@+id/bpm_text3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -550,7 +550,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
-                        android:id="@+id/text-temp2"
+                        android:id="@+id/text_temp2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -565,7 +565,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
-                        android:id="@+id/text-temp3"
+                        android:id="@+id/text_temp3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -677,7 +677,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/OXIGEN">
 
                 <TextView
-                    android:id="@+id/text-oxigen1"
+                    android:id="@+id/text_oxigen1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -689,7 +689,7 @@
                     tools:layout_editor_absoluteY="551dp" />
 
                 <TextView
-                    android:id="@+id/text-oxigen2"
+                    android:id="@+id/text_oxigen2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -701,7 +701,7 @@
                     tools:layout_editor_absoluteY="551dp" />
 
                 <TextView
-                    android:id="@+id/text-oxigen3"
+                    android:id="@+id/text_oxigen3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"

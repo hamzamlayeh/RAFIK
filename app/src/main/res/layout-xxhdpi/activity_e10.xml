@@ -175,7 +175,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="228dp"
-                android:text="96"
+                android:text="90"
                 android:textColor="@android:color/white"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
