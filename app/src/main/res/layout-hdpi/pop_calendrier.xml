@@ -36,7 +36,8 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/anuler"
-            android:textColor="#02cdbb" />
+            android:textColor="#02cdbb"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/bt_ok"

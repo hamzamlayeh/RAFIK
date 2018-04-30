@@ -9,43 +9,41 @@
 
     <ImageView
         android:id="@+id/imageView30"
-        android:layout_width="29dp"
-        android:layout_height="31dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="270dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="275dp"
+        android:contentDescription="TODO"
         android:paddingRight="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound_left"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/sound_left" />
 
     <ImageView
         android:id="@+id/imageView31"
-        android:layout_width="45dp"
-        android:layout_height="47dp"
+        android:layout_width="50dp"
+        android:layout_height="57dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="265dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gadget"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/gadget" />
 
     <ImageView
         android:id="@+id/imageView32"
-        android:layout_width="29dp"
-        android:layout_height="31dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginRight="110dp"
-        android:layout_marginTop="270dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginTop="275dp"
+        android:contentDescription="TODO"
         android:paddingLeft="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound_right"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/sound_right" />
 
     <ImageView
         android:id="@+id/imageView"

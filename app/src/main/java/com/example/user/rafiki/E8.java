@@ -123,7 +123,15 @@ public class E8 extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+//    class MyThread extends Thread{
+//    }
+
+
+
     public void E10(View view) {
         intent = new Intent(this, E10.class);
         startActivity(intent);

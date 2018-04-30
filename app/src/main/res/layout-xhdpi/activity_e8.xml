@@ -365,7 +365,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/rpm-text1"
+                        android:id="@+id/rpm_text1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -381,7 +381,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
-                        android:id="@+id/rpm-text2"
+                        android:id="@+id/rpm_text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -392,12 +392,12 @@
                         android:textColor="@android:color/darker_gray"
                         android:textSize="16sp"
                         app:layout_constraintHorizontal_bias="0.33"
-                        app:layout_constraintLeft_toRightOf="@+id/rpm-text1"
+                        app:layout_constraintLeft_toRightOf="@+id/rpm_text1"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
                     <TextView
-                        android:id="@+id/rpm-text3"
+                        android:id="@+id/rpm_text3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -433,7 +433,7 @@
                         app:layout_constraintHorizontal_bias="0.87"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rpm-text1" />
+                        app:layout_constraintTop_toBottomOf="@+id/rpm_text1" />
 
                     <TextView
                         android:id="@+id/textView20"
@@ -447,7 +447,7 @@
                         android:textSize="8sp"
                         android:textStyle="bold"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rpm-text2" />
+                        app:layout_constraintTop_toBottomOf="@+id/rpm_text2" />
 
                     <TextView
                         android:id="@+id/textView18"
@@ -464,7 +464,7 @@
                         app:layout_constraintHorizontal_bias="0.78"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rpm-text3" />
+                        app:layout_constraintTop_toBottomOf="@+id/rpm_text3" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -535,7 +535,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/text-temp1"
+                        android:id="@+id/text_temp1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
@@ -545,7 +545,7 @@
                         android:textColor="#c7c4c4"
                         android:textSize="16sp"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintLeft_toRightOf="@+id/rpm-text1"
+                        app:layout_constraintLeft_toRightOf="@+id/rpm_text1"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/poumon" />
 
@@ -600,7 +600,7 @@
                         app:layout_constraintHorizontal_bias="0.762"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rpm-text3" />
+                        app:layout_constraintTop_toBottomOf="@+id/rpm_text3" />
 
                     <TextView
                         android:id="@+id/textView28"
@@ -616,7 +616,7 @@
                         app:layout_constraintHorizontal_bias="0.39"
                         app:layout_constraintLeft_toRightOf="@+id/textView27"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text-temp1" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_temp1" />
 
                     <TextView
                         android:id="@+id/textView27"
@@ -630,7 +630,7 @@
                         app:layout_constraintHorizontal_bias="0.85"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rpm-text1" />
+                        app:layout_constraintTop_toBottomOf="@+id/rpm_text1" />
 
                 </LinearLayout>
 
