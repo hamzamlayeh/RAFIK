@@ -78,9 +78,18 @@ public class BLEManager {
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, final BluetoothGattCharacteristic characteristic) {
             // this will get called anytime you perform a read or write characteristic operation
-            byte[] data = characteristic.getValue();
-            Log.d("BLE",new String(data));
-            E7_2.str=data;
+            try {
+                byte[] data ={0,0,0,0,0,0,0,0,0};
+                data = characteristic.getValue();
+                E7_2.str=data;
+                System.out.println(data[0]+"//"+data[1]+"//"+data[2]+"//"+data[3]+"//"+data[4]+"//"+data[5]
+                        +"//"+data[6]+"//"+data[7]+"//"+data[8]+"//"+data[9]);
+
+                }catch (Exception e){
+                e.printStackTrace();
+
+            }
+
         }
 
         @Override

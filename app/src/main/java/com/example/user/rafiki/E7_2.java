@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 
 public class E7_2 extends AppCompatActivity {
 
-    static byte[] str={0,0,0,0,0,0,0,0,0};
+    static byte[] str={0,0,0,0,0,0,0,0,0,0};
     ImageView testcouple;
     TextView textcouple;
 
@@ -46,6 +47,7 @@ public class E7_2 extends AppCompatActivity {
                 try {
                     Thread.sleep(1000);
                     BLEManager.readData();
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
