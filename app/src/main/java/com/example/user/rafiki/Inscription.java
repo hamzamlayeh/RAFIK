@@ -40,7 +40,7 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    public static int idc=-1;
+    public static int idc = -1;
 
 
     @Override
@@ -140,10 +140,11 @@ public class Inscription extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 editor.putString("Code_pays", codes[i]);
                 editor.putInt("Id_code", i);
-                idc=i;
+                idc = i;
                 editor.apply();
 
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 spinner.setSelection(-1);
@@ -219,21 +220,15 @@ public class Inscription extends AppCompatActivity {
             if (list.size() > 0) {
                 Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();
             } else {
-//                AlertDialog.Builder alert = new AlertDialog.Builder(Inscription.this);
-//               alert.setMessage(" " + getString(string.alert_msg1) + "\n" + " " + getString(string.alert_msg2))
-//                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialogInterface, int i) {
-                                long ids = ds.addClient(client);
-                                if (ids == -1) {
-                                    Toast.makeText(Inscription.this, string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
-                                    ite = new Intent(Inscription.this, E7.class);
-                                    startActivity(ite);
-                                }
-                            }
-//                        }).show();
+                long ids = ds.addClient(client);
+                if (ids == -1) {
+                    Toast.makeText(Inscription.this, string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
+                    ite = new Intent(Inscription.this, LoginActivity.class);
+                    startActivity(ite);
+                }
+            }
         }
     }
 
@@ -259,11 +254,11 @@ public class Inscription extends AppCompatActivity {
             prenom.setError(getString(string.champs_obligatoir));
             valide = false;
         }
-        if(mail.isEmpty()) {
+        if (mail.isEmpty()) {
             email.setError(getString(string.champs_obligatoir));
             valide = false;
         }
-        if(!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
+        if (!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
             email.setError(getString(string.email_invalide));
             valide = false;
         }

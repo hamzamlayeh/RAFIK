@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUrgence"
+    android:background="@drawable/bg_urgence">
+
+    <ImageView
+        android:id="@+id/rafiki3"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rafik" />
+
+    <TextView
+        android:id="@+id/fiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/urgences_m_dicales"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/asur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/assurances_maladies"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fiche" />
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="104dp"
+        android:background="@android:color/white"
+        android:shrinkColumns="1"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fiche">
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/nom_asur"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/nom"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:paddingTop="10dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:hint="+216"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/tel_asur"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:hint="@string/telephone"
+                android:inputType="number"
+                android:padding="10dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/urgance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/urgence"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="76dp"
+        android:background="@android:color/white"
+        android:shrinkColumns="1"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/nom_urgen"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/nom"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:paddingTop="10dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:hint="+216"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/tel_urgen"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:hint="@string/telephone"
+                android:inputType="number"
+                android:padding="10dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button_rudus"
+        android:text="@string/enregistrer"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:onClick="retoure"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout1" />
+</android.support.constraint.ConstraintLayout>

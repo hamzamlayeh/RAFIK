@@ -29,6 +29,8 @@ public class E8 extends AppCompatActivity {
     int minBat=0,maxBat=0,moyBat=0,minPoum=0,maxPoum=0,moyPoum=0,minTemp=0,maxTemp=0,moyTemp=0;
     int minOxy=0,maxOxy=0,moyOxy=0;
     Activity activity;
+    static boolean StopThread=true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,8 +120,12 @@ public class E8 extends AppCompatActivity {
             }
         }
     }
-    static boolean StopThread=true;
-         class Mythred extends Thread {
+    public void parammetres(View view) {
+        Intent ite=new Intent(this,MenuActivity.class);
+        startActivity(ite);
+    }
+
+    class Mythred extends Thread {
             public void run(){
                 final TextView bpm = findViewById(R.id.BPM_D);
                 final TextView rpm = findViewById(R.id.RPM_D);
@@ -167,7 +173,7 @@ public class E8 extends AppCompatActivity {
 
                                 }
                                 if(E7_2.str[7]==1){
-                                    String num = "53302222";
+                                    String num = "52845265";
                                     String msg = "ATTENTION : Choc détécté!";
                                     SmsManager sms = SmsManager.getDefault();
                                     sms.sendTextMessage(num, null, msg, null, null);
@@ -321,11 +327,13 @@ public class E8 extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void exite(View view) {
         StopThread=false;
         intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
+        //finishAffinity();
     }
 
     @Override

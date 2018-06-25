@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bag10">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.example.user.rafiki.ModifierCompte">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/rafiki"
+                android:layout_width="135dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/rafik"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/sevill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/raleway_light"
+                android:gravity="center"
+                android:text="@string/surveillance"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="287dp"
+            android:layout_height="343dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="19dp"
+            app:cardBackgroundColor="#f2f0f1"
+            app:cardCornerRadius="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadeScrollbars="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/nom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:hint="@string/nom"
+                                android:inputType="textPersonName"
+                                android:paddingBottom="10dp" />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/prenom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:hint="@string/prenom"
+                                android:paddingBottom="10dp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/flash"
+                        android:ems="8"
+                        android:fontFamily="@font/raleway_regular"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/age"
+                        android:inputType="number"
+                        android:onClick="get_age"
+                        android:drawableEnd="@drawable/flash" />
+
+                    <EditText
+                        android:id="@+id/payer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/flash"
+                        android:ems="10"
+                        android:fontFamily="@font/raleway_regular"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/payer"
+                        android:onClick="get_payer"
+                        android:drawableEnd="@drawable/flash" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Spinner
+                            android:id="@+id/code_pays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:spinnerMode="dialog">
+
+                        </Spinner>
+
+                        <EditText
+                            android:id="@+id/mobile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/telephone"
+                            android:inputType="phone"
+                            android:padding="10dp" />
+                    </LinearLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="@string/email"
+                            android:fontFamily="@font/raleway_regular"
+                            android:inputType="textEmailAddress"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <EditText
+                        android:id="@+id/sexe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/flash"
+                        android:ems="10"
+                        android:fontFamily="@font/raleway_regular"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/sexe"
+                        android:onClick="get_sexe"
+                        android:drawableEnd="@drawable/flash" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/mot_de_passe"
+                            android:inputType="textPassword"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/conf_pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/confirmer_mot_de_pass"
+                            android:inputType="textPassword"
+                            android:padding="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+            </ScrollView>
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/inscrire"
+            android:layout_width="266dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_rudus"
+            android:onClick="modifierUser"
+            android:text="@string/modifier"
+            android:fontFamily="@font/raleway_bold"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

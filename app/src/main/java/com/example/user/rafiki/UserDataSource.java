@@ -112,4 +112,16 @@ public class UserDataSource {
         }
         return "";
     }
+    public String getNom(String email) {
+
+        Cursor cursor = db.query(TABLE_NAME,new String[]{"nom","prenom"},"email=?",new String[]{email},
+                null,null,null,null);
+        int cursorcount=cursor.getCount();
+        if(cursorcount>0) {
+            cursor.moveToFirst();
+            String nom= cursor.getString(0)+" "+ cursor.getString(1);
+            return nom;
+        }
+        return "";
+    }
 }

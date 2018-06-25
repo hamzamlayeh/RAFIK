@@ -8,7 +8,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context="com.example.user.rafiki.Inscription">
 
         <LinearLayout
@@ -152,8 +152,8 @@
                     android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:cursorVisible="false"
                     android:ems="8"
+                    android:cursorVisible="false"
                     android:focusableInTouchMode="false"
                     android:hint="@string/age"
                     android:fontFamily="@font/raleway_regular"

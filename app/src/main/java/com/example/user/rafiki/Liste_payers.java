@@ -116,7 +116,7 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
         boolean exist = false;
         int index = 0;
         int i=0;
-        while (exist ==false && i<items.length){
+        while (!exist && i<items.length){
             if(items[i].toLowerCase().equals(countryName))
             {
                 exist=true;

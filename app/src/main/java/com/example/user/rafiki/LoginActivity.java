@@ -5,21 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -51,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_login);
 
-        email = findViewById(R.id.emil);
+        email = findViewById(R.id.nom);
         pass = findViewById(R.id.password);
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 1);
@@ -59,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
         //si vous pouvez supprimer touts les champs de table just lever le commentaire
         //ds.removetable();
         List<clients> list = ds.getAllClient();
-        System.out.println(list.size());
 
     }
 
@@ -67,10 +59,13 @@ public class LoginActivity extends AppCompatActivity {
     public void identifier(View view) {
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-//        ite = new Intent(this, E7.class);
-//        startActivity(ite);
+        ite = new Intent(this, E8.class);
+        startActivity(ite);
         if (valider()) {
+            SharedPreferences.Editor editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
             if (ds.verifUser(mail, password)) {
+                editor.putString("Email", mail);
+                editor.apply();
                 ite = new Intent(this, E7.class);
                 startActivity(ite);
             } else {
@@ -84,6 +79,10 @@ public class LoginActivity extends AppCompatActivity {
         boolean valide = true;
         if (mail.isEmpty()) {
             email.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if(!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
+            email.setError(getString(R.string.email_invalide));
             valide = false;
         }
         if (password.isEmpty()) {
@@ -113,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
         editor.remove("ID_img");
         editor.remove("Id_code");
         editor.remove("Code_pays");
-        editor.commit();
+        editor.apply();
     }
 
 
@@ -135,11 +134,7 @@ public class LoginActivity extends AppCompatActivity {
     protected boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        } else {
-            return false;
-        }
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     public void fr(View view) {
@@ -168,4 +163,6 @@ public class LoginActivity extends AppCompatActivity {
         getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         recreate();
     }
+
+
 }

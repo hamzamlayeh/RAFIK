@@ -64,12 +64,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="125dp"
         android:layout_marginStart="125dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/sevill">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                 android:onClick="fr"
                 android:text="Fr"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/en"
@@ -122,7 +122,7 @@
                 android:onClick="en"
                 android:text="En"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -130,18 +130,19 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/emil"
+            android:id="@+id/nom"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="41dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
@@ -154,7 +155,7 @@
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="41dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
@@ -167,32 +168,33 @@
         <Button
             android:id="@+id/identifier"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="41dp"
             android:background="@drawable/button_rudus"
             android:fontFamily="@font/raleway_bold"
-            android:text="@string/s_identifier"
             android:onClick="identifier"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+            android:text="@string/s_identifier"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/oblier"
             android:layout_width="wrap_content"
-            android:layout_height="29dp"
+            android:layout_height="22dp"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:fontFamily="@font/raleway_regular"
@@ -204,7 +206,7 @@
         <Button
             android:id="@+id/inscrire"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="22dp"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:fontFamily="@font/raleway_regular"

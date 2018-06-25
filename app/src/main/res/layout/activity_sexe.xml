@@ -9,7 +9,7 @@
     tools:context="com.example.user.rafiki.SexeActivity">
 
     <TextView
-        android:id="@+id/sexe2"
+        android:id="@+id/sang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
@@ -62,7 +62,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1px"
                 android:layout_marginTop="38dp"
-                android:background="#000000"
+                android:background="@color/ligne_horizontal"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout

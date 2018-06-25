@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.rafiki.E8"
-    >
+    tools:context="com.example.user.rafiki.E8">
 
     <FrameLayout
         android:id="@+id/content"
@@ -29,7 +28,7 @@
                 android:layout_marginTop="160dp"
                 android:baselineAligned="false"
                 android:onClick="E9"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +71,8 @@
                 android:text="@string/signes"
                 android:textAllCaps="false"
                 android:textColor="#02abff"
-                android:textSize="16sp"
+                android:fontFamily="@font/raleway_semibolditalic"
+                android:textSize="18sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintHorizontal_bias="0.31"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -87,10 +87,12 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="88dp"
                 android:text="@string/biometrique"
+                android:textAllCaps="true"
                 android:textColor="#00ffdd"
-                android:textSize="16sp"
+                android:fontFamily="@font/raleway_semibolditalic"
+                android:textSize="18sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.62"
+                app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -123,6 +125,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="220dp"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@+id/hom"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +175,8 @@
                     android:id="@+id/BPM-D"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:textColor="@android:color/background_light"
+                    android:fontFamily="@font/raleway_light"
+                    android:textColor="#f2f0f1"
                     android:textSize="22dp" />
 
                 <TextView
@@ -180,7 +184,8 @@
                     android:layout_width="35dp"
                     android:layout_height="18dp"
                     android:text="BPM"
-                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/raleway_bold"
+                    android:textColor="@color/chifre"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -207,8 +212,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
+                        android:fontFamily="@font/raleway_light"
                         android:text="00"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="#f2f0f1"
                         android:textSize="18sp" />
 
                     <TextView
@@ -218,7 +224,8 @@
                         android:layout_marginLeft="14dp"
                         android:layout_marginRight="8dp"
                         android:text="00"
-                        android:textColor="@android:color/darker_gray"
+                        android:fontFamily="@font/raleway_light"
+                        android:textColor="#f2f0f1"
                         android:textSize="18sp" />
 
                     <TextView
@@ -228,7 +235,8 @@
                         android:layout_marginLeft="0dp"
                         android:layout_marginRight="8dp"
                         android:text="00"
-                        android:textColor="@android:color/darker_gray"
+                        android:fontFamily="@font/raleway_light"
+                        android:textColor="#f2f0f1"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -246,9 +254,9 @@
                         android:layout_marginRight="8dp"
                         android:paddingRight="8dp"
                         android:text="BPM"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="@color/chifre"
+                        android:fontFamily="@font/raleway_bold"
                         android:textSize="9sp"
-                        android:textStyle="bold"
                         tools:layout_editor_absoluteX="259dp"
                         tools:layout_editor_absoluteY="213dp" />
 
@@ -259,9 +267,9 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:text="BPM"
+                        android:fontFamily="@font/raleway_bold"
                         android:textColor="@android:color/background_light"
                         android:textSize="9sp"
-                        android:textStyle="bold"
                         tools:layout_editor_absoluteX="293dp"
                         tools:layout_editor_absoluteY="216dp" />
 
@@ -272,9 +280,9 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:text="BPM"
+                        android:fontFamily="@font/raleway_bold"
                         android:textColor="@android:color/background_light"
                         android:textSize="9sp"
-                        android:textStyle="bold"
                         tools:layout_editor_absoluteX="333dp"
                         tools:layout_editor_absoluteY="216dp" />
                 </LinearLayout>
@@ -309,14 +317,16 @@
                     android:id="@+id/RPM_D"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:fontFamily="@font/raleway_light"
                     android:textColor="@android:color/background_light"
                     android:textSize="22dp" />
 
                 <TextView
                     android:id="@+id/rpm-s"
-                    android:layout_width="35dp"
-                    android:layout_height="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="RPM"
+                    android:fontFamily="@font/raleway_bold"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
@@ -352,6 +362,7 @@
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:text="00"
+                        android:fontFamily="@font/raleway_light"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.87"
@@ -368,6 +379,7 @@
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:text="00"
+                        android:fontFamily="@font/raleway_light"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.33"
@@ -383,6 +395,7 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:text="00"
+                        android:fontFamily="@font/raleway_light"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.77"
@@ -408,7 +421,7 @@
                         android:text="RPM"
                         android:textColor="@android:color/background_light"
                         android:textSize="9sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.87"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -424,7 +437,7 @@
                         android:text="RPM"
                         android:textColor="@android:color/background_light"
                         android:textSize="9sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rpm_text2" />
 
@@ -439,7 +452,7 @@
                         android:text="RPM"
                         android:textColor="@android:color/background_light"
                         android:textSize="9sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.78"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -481,6 +494,7 @@
                     android:id="@+id/TEMP_D"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_light"
                     android:textColor="@android:color/background_light"
                     android:textSize="22dp" />
 
@@ -490,6 +504,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:text="C°"
+                    android:fontFamily="@font/raleway_bold"
                     android:textColor="#c7c4c4"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -523,6 +538,7 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:text="00"
+                        android:fontFamily="@font/raleway_light"
                         android:textColor="#c7c4c4"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -538,6 +554,7 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:text="00"
+                        android:fontFamily="@font/raleway_light"
                         android:textColor="#c7c4c4"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.76"
@@ -553,6 +570,7 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:text="00"
+                        android:fontFamily="@font/raleway_light"
                         android:textColor="#c7c4c4"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.848"
@@ -577,7 +595,7 @@
                         android:text="C°"
                         android:textColor="@android:color/background_light"
                         android:textSize="12sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.762"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -593,7 +611,7 @@
                         android:text="C°"
                         android:textColor="@android:color/background_light"
                         android:textSize="12sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.39"
                         app:layout_constraintLeft_toRightOf="@+id/textView27"
                         app:layout_constraintRight_toRightOf="parent"
@@ -607,7 +625,7 @@
                         android:text="C°"
                         android:textColor="@android:color/background_light"
                         android:textSize="12sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.85"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -624,6 +642,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="456dp"
+                android:visibility="gone"
                 app:layout_constraintHorizontal_bias="0.785"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -640,6 +659,7 @@
                 android:layout_marginTop="470dp"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/OXIGEN"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.622"
@@ -654,6 +674,7 @@
                 android:layout_height="32dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.895"
                 app:layout_constraintStart_toStartOf="parent"
@@ -715,23 +736,22 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="86dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.44"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bare2"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="100dp" />
+                app:srcCompat="@drawable/bare2" />
 
             <ImageView
                 android:id="@+id/imageView19"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="90dp"
+                android:layout_marginTop="91dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintHorizontal_bias="0.26"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bare1" />
@@ -777,6 +797,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="parammetres"
                 android:background="@drawable/parametre" />
 
             <ImageButton

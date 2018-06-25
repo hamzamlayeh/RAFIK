@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bag10"
+    tools:context=".ContactsActivity">
+
+    <ImageView
+        android:id="@+id/rafiki3"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rafik" />
+
+    <TextView
+        android:id="@+id/sexe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/mes_contacts"
+        android:textAllCaps="true"
+        android:fontFamily="@font/champagne_limousines_bold"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="58dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/pers_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sexe2" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/edittexte_rudus"
+        android:shrinkColumns="1"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sexe2">
+
+        <TableRow android:onClick="contacts1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:padding="15dp"
+                android:fontFamily="@font/raleway_regular"
+                android:text="@string/contacts_parentaux"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="18dp"
+                android:src="@drawable/add" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/edittexte_rudus"
+        android:shrinkColumns="1"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+        <TableRow android:onClick="contacts2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:padding="15dp"
+                android:fontFamily="@font/raleway_regular"
+                android:text="@string/m_decins_traitants"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="18dp"
+                android:src="@drawable/add" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/edittexte_rudus"
+        android:shrinkColumns="1"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3">
+
+        <TableRow android:onClick="contacts3">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:padding="15dp"
+                android:fontFamily="@font/raleway_regular"
+                android:text="@string/urgences_m_dicales"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="18dp"
+                android:src="@drawable/add" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button_rudus"
+        android:text="@string/valider"
+        android:fontFamily="@font/raleway_bold"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+</android.support.constraint.ConstraintLayout>

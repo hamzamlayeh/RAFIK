@@ -13,5 +13,7 @@
     <color name="bt_oublier_nouveau">#bd024e76</color>
     <color name="frequence">#02abff</color>
     <color name="bg_btn_ok">#24bf0a</color>
+    <color name="ligne_horizontal">#d7d6d6</color>
+    <color name="chifre">#f2f0f1</color>
 
 </resources>
