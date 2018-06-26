@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -22,22 +24,26 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     SharedPreferences pref;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
+    String email;
+    Bitmap decodestrim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_medicale);
 
         profile_img = (CircleImageView) findViewById(R.id.profile_image);
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 1);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 2);
         ds = new UserDataSource(helper);
         pref = getApplicationContext().getSharedPreferences("Inscription", MODE_PRIVATE);
 
         NomUtilisateur=findViewById(R.id.nom);
 
-        String email = pref.getString("Email", "");
+        email = pref.getString("Email", "");
 
         NomUtilisateur.setText(ds.getNom(email));
-
+        //byte[] img=ds.getImg( email);
+       // profile_img.setImageBitmap(x);
+       // Toast.makeText(this, img.length+"", Toast.LENGTH_SHORT).show();
     }
 
     public void OpenGallerie(View view) {
@@ -54,13 +60,20 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
             Uri uri = data.getData();
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
-                Bitmap decodestrim = BitmapFactory.decodeStream(inputStream);
+                 decodestrim = BitmapFactory.decodeStream(inputStream);
                 profile_img.setImageBitmap(decodestrim);
+
             } catch (Exception ex) {
                 Log.e("err", ex.getMessage());
             }
-
+            boolean test =ds.addimg(getByte(decodestrim),email);
+            Toast.makeText(this, test+"", Toast.LENGTH_SHORT).show();
         }
+    }
+    public byte[] getByte(Bitmap bitmap){
+        ByteArrayOutputStream stream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,0,stream);
+        return stream.toByteArray();
     }
 
     public void groupe_sang(View view) {

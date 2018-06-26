@@ -15,6 +15,7 @@ public class clients {
     private String sexe;
     private String email;
     private String password;
+    private byte[] image;
 
 
     public clients(String nom, String prenom, String age, String payer, String mobile, String sexe, String email, String password ) {
@@ -28,6 +29,14 @@ public class clients {
         this.password = password;
     }
 
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public int get_id() {
         return _id;

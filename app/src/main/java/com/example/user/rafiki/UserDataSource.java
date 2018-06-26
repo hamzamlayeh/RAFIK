@@ -3,6 +3,7 @@ package com.example.user.rafiki;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,5 +124,28 @@ public class UserDataSource {
             return nom;
         }
         return "";
+    }
+    public boolean addimg(byte[]img,String email) {
+
+//        String sql="INSERT INTO "+TABLE_NAME+" VALUES(image)";
+//        SQLiteStatement statement=db.compileStatement(sql);
+//        statement.clearBindings();
+//        statement.bindBlob(1,img);
+//        statement.executeInsert();
+        ContentValues values = new ContentValues();
+        values.put("image", img);
+       int i=db.update(TABLE_NAME,values,"email=?", new String[]{email});
+       return i>0;
+    }
+    public byte[] getImg(String email) {
+
+        Cursor cursor = db.query(TABLE_NAME,new String[]{"image"},"email=?",new String[]{email},
+                null,null,null,null);
+        int cursorcount=cursor.getCount();
+        if(cursorcount>0) {
+            cursor.moveToFirst();
+            return cursor.getBlob(9);
+        }
+        return null ;
     }
 }
