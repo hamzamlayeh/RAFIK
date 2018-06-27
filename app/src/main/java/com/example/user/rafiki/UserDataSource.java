@@ -4,6 +4,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,7 @@ public class UserDataSource {
         values.put("age", clt.getAge());
         values.put("payer", clt.getPayer());
         values.put("mobile", clt.getMobile());
+        values.put("code", clt.getCode());
         values.put("sexe", clt.getSexe());
         values.put("email", clt.getEmail());
         values.put("password", clt.getPassword());
@@ -60,7 +64,7 @@ public class UserDataSource {
     public List getAllClient() {
 
         ArrayList<clients> list = new ArrayList<clients>();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{"_id", "nom", "prenom", "age", "payer", "mobile", "sexe", "email", "password"}, null,
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"_id", "nom", "prenom", "age", "payer", "mobile","code", "sexe", "email", "password"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -70,11 +74,12 @@ public class UserDataSource {
             String age = cursor.getString(3);
             String payer = cursor.getString(4);
             String mobile = cursor.getString(5);
-            String sexe = cursor.getString(6);
-            String email = cursor.getString(7);
-            String password = cursor.getString(8);
+            String code = cursor.getString(6);
+            String sexe = cursor.getString(7);
+            String email = cursor.getString(8);
+            String password = cursor.getString(9);
 
-            clients clt = new clients(nom, prenom, age, payer, mobile, sexe, email, password);
+            clients clt = new clients(nom, prenom, age, payer, mobile,code, sexe, email, password);
             clt.set_id(id);
             list.add(clt);
             cursor.moveToNext();
@@ -125,27 +130,22 @@ public class UserDataSource {
         }
         return "";
     }
-    public boolean addimg(byte[]img,String email) {
+    public boolean addimg(String img,String email) {
 
-//        String sql="INSERT INTO "+TABLE_NAME+" VALUES(image)";
-//        SQLiteStatement statement=db.compileStatement(sql);
-//        statement.clearBindings();
-//        statement.bindBlob(1,img);
-//        statement.executeInsert();
         ContentValues values = new ContentValues();
         values.put("image", img);
        int i=db.update(TABLE_NAME,values,"email=?", new String[]{email});
        return i>0;
     }
-    public byte[] getImg(String email) {
+    public String getImg(String email) {
 
         Cursor cursor = db.query(TABLE_NAME,new String[]{"image"},"email=?",new String[]{email},
                 null,null,null,null);
         int cursorcount=cursor.getCount();
         if(cursorcount>0) {
             cursor.moveToFirst();
-            return cursor.getBlob(9);
+            return cursor.getString(0);
         }
-        return null ;
+        return null;
     }
 }

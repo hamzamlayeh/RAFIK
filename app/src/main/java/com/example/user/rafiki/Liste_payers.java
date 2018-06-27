@@ -69,10 +69,18 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
                 editor.putString("Nom_Pays", txt.getText().toString());
                 editor.putString("Id_img", id.getText().toString());
                 editor.apply();
-                Inscription.idc=getIndexPays(txt.getText().toString().toLowerCase());
-                ite = new Intent(Liste_payers.this, Inscription.class);
-                startActivity(ite);
-                Liste_payers.this.finish();
+                if(Inscription.NUM_PAGE==1){
+                    Inscription.idc=getIndexPays(txt.getText().toString().toLowerCase());
+                    ite = new Intent(Liste_payers.this, Inscription.class);
+                    startActivity(ite);
+                    Liste_payers.this.finish();
+                }else {
+                    ModifierCompte.Indice_Pays=getIndexPays(txt.getText().toString().toLowerCase());
+                    ite = new Intent(Liste_payers.this, ModifierCompte.class);
+                    startActivity(ite);
+                    Liste_payers.this.finish();
+                }
+
             }
         });
 

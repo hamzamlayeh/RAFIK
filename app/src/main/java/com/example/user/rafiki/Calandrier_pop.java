@@ -21,20 +21,21 @@ import static android.content.ContentValues.TAG;
  * Created by ASUS on 03/02/2018.
  */
 
-public class Calandrier_pop extends DialogFragment implements View.OnClickListener{
+public class Calandrier_pop extends DialogFragment implements View.OnClickListener {
 
     View view;
-    Button ok,anuller;
+    Button ok, anuller;
     DatePicker naisence;
     SharedPreferences.Editor editor;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        view=inflater.inflate(R.layout.pop_calendrier,container,false);
-        ok=(Button)view.findViewById(R.id.bt_ok);
-        anuller=(Button)view.findViewById(R.id.bt_anuler);
-        naisence=(DatePicker)view.findViewById(R.id.datePicker);
+        view = inflater.inflate(R.layout.pop_calendrier, container, false);
+        ok = (Button) view.findViewById(R.id.bt_ok);
+        anuller = (Button) view.findViewById(R.id.bt_anuler);
+        naisence = (DatePicker) view.findViewById(R.id.datePicker);
         ok.setOnClickListener(this);
         anuller.setOnClickListener(this);
         return view;
@@ -43,19 +44,23 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
     @Override
     public void onClick(View view) {
         String age;
-        Button button=(Button)view;
-        if(button.getText().toString().equals(getString(R.string.anuler))){
+        Button button = (Button) view;
+        if (button.getText().toString().equals(getString(R.string.anuler))) {
             this.dismiss();
-        }else {
+        } else {
             Calendar cal = Calendar.getInstance();
-            int x = cal.get(Calendar.YEAR)- naisence.getYear();
+            int x = cal.get(Calendar.YEAR) - naisence.getYear();
 
-                age = x + " ans";
-
-            Inscription inscr = (Inscription) getActivity();
-            inscr.setage(age);
-            this.dismiss();
-
+            age = x + " ans";
+            if (Inscription.NUM_PAGE == 1) {
+                Inscription inscr = (Inscription) getActivity();
+                inscr.setage(age);
+                this.dismiss();
+            } else {
+                ModifierCompte inscr = (ModifierCompte) getActivity();
+                inscr.setage(age);
+                this.dismiss();
+            }
         }
     }
 }

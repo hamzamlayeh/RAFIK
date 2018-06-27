@@ -57,8 +57,14 @@ public class SexeActivity extends AppCompatActivity {
     }
 
     public void valide_sexe(View view) {
-        ite = new Intent(this, Inscription.class);
-        startActivity(ite);
+        if(Inscription.NUM_PAGE==1){
+            ite = new Intent(this, Inscription.class);
+            startActivity(ite);
+        }else {
+            ite = new Intent(this, ModifierCompte.class);
+            startActivity(ite);
+        }
+
         this.finish();
     }
 

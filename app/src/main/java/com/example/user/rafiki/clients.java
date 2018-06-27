@@ -12,18 +12,20 @@ public class clients {
     private String age;
     private String payer;
     private String mobile;
+    private String code;
     private String sexe;
     private String email;
     private String password;
     private byte[] image;
 
 
-    public clients(String nom, String prenom, String age, String payer, String mobile, String sexe, String email, String password ) {
+    public clients(String nom, String prenom, String age, String payer, String mobile,String code, String sexe, String email, String password ) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.payer = payer;
         this.mobile = mobile;
+        this.code = code;
         this.sexe = sexe;
         this.email = email;
         this.password = password;
@@ -36,6 +38,14 @@ public class clients {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public int get_id() {

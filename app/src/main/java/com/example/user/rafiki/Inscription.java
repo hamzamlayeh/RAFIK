@@ -40,7 +40,7 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    public static int idc = -1;
+    public static int idc = -1,NUM_PAGE=1;
 
 
     @Override
@@ -59,7 +59,7 @@ public class Inscription extends AppCompatActivity {
         confirm_pass = (EditText) findViewById(id.conf_pass);
         spinner = (Spinner) findViewById(id.code_pays);
 
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 1);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null,1);
         ds = new UserDataSource(helper);
 
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
@@ -212,10 +212,10 @@ public class Inscription extends AppCompatActivity {
         phone = mobile.getText().toString().trim();
 
         if (valider()) {
-            String fullphone = prefs.getString("Code_pays", null) + phone;
+            String codephone = prefs.getString("Code_pays", null);
             remplir_champs();
 
-            client = new clients(name, after_name, berthday, payers, fullphone, sexee, mail, password);
+            client = new clients(name, after_name, berthday, payers,phone,codephone, sexee, mail, password);
             List<clients> list = ds.getAllClient();
             if (list.size() > 0) {
                 Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();
