@@ -5,11 +5,13 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -18,6 +20,7 @@ import java.io.InputStream;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Fiche_MedicaleActivity extends AppCompatActivity {
+    private static int RESULT_LOAD_IMAGE = 1;
 
     CircleImageView profile_img;
     EditText NomUtilisateur;
@@ -41,40 +44,26 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         email = pref.getString("Email", "");
 
         NomUtilisateur.setText(ds.getNom(email));
-        //byte[] img=ds.getImg( email);
-       // profile_img.setImageBitmap(x);
-       // Toast.makeText(this, img.length+"", Toast.LENGTH_SHORT).show();
+
     }
 
     public void OpenGallerie(View view) {
-        Intent itimg = new Intent(Intent.ACTION_GET_CONTENT);
-        itimg.setType("image/*");
-        startActivityForResult(itimg, 100);
-    }
 
-    @Override
+        Intent intent =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+
+        startActivityForResult(intent,100);
+    }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK && requestCode == 100) {
+        if (requestCode==100 && resultCode==RESULT_OK)
+        {
             Uri uri = data.getData();
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(uri);
-                 decodestrim = BitmapFactory.decodeStream(inputStream);
-                profile_img.setImageBitmap(decodestrim);
-
-            } catch (Exception ex) {
-                Log.e("err", ex.getMessage());
-            }
-            boolean test =ds.addimg(getByte(decodestrim),email);
-            Toast.makeText(this, test+"", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+uri, Toast.LENGTH_SHORT).show();
+            profile_img.setImageURI(uri);
         }
     }
-    public byte[] getByte(Bitmap bitmap){
-        ByteArrayOutputStream stream=new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,0,stream);
-        return stream.toByteArray();
-    }
+
 
     public void groupe_sang(View view) {
 //        Intent ite = new Intent(this, Groupe_SangActivity.class);
