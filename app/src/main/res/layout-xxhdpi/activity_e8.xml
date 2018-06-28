@@ -37,8 +37,8 @@
 
             <ImageView
                 android:id="@+id/batterie"
-                android:layout_width="76dp"
-                android:layout_height="49dp"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="261dp"
                 android:layout_marginTop="16dp"
@@ -52,12 +52,12 @@
                 android:id="@+id/NiveauBatt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="72dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="24dp"
                 android:layout_weight="0.09"
                 android:text="0%"
-                android:textColor="@android:color/background_light"
-                android:textSize="20sp"
+                android:textColor="#f2f0f1"
+                android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,13 +68,12 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="70dp"
+                android:fontFamily="@font/raleway_semibolditalic"
                 android:text="@string/signes"
                 android:textAllCaps="false"
                 android:textColor="#02abff"
-                android:fontFamily="@font/raleway_semibolditalic"
-                android:textSize="18sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.31"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="0.28"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -86,13 +85,13 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="88dp"
+                android:fontFamily="@font/raleway_semibolditalic"
                 android:text="@string/biometrique"
                 android:textAllCaps="true"
                 android:textColor="#00ffdd"
-                android:fontFamily="@font/raleway_semibolditalic"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.66"
+                app:layout_constraintHorizontal_bias="0.72"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -177,7 +176,7 @@
                     android:layout_height="30dp"
                     android:fontFamily="@font/raleway_light"
                     android:textColor="#f2f0f1"
-                    android:textSize="22dp" />
+                    android:textSize="24dp" />
 
                 <TextView
                     android:id="@+id/BPM-S"
@@ -185,7 +184,7 @@
                     android:layout_height="18dp"
                     android:text="BPM"
                     android:fontFamily="@font/raleway_bold"
-                    android:textColor="@color/chifre"
+                    android:textColor="#9bb2ca"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -212,31 +211,34 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
+                        android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
                         android:text="00"
-                        android:textColor="#f2f0f1"
+                        android:textColor="#869bbf"
                         android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/bpm_text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="14dp"
+                        android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:text="00"
+                        android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="#f2f0f1"
+                        android:text="00"
+                        android:textColor="#869bbf"
                         android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/bpm_text3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
+                        android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:text="00"
+                        android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="#f2f0f1"
+                        android:text="00"
+                        android:textColor="#869bbf"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -254,9 +256,9 @@
                         android:layout_marginRight="8dp"
                         android:paddingRight="8dp"
                         android:text="BPM"
-                        android:textColor="@color/chifre"
+                        android:textColor="#e2e3e8"
                         android:fontFamily="@font/raleway_bold"
-                        android:textSize="9sp"
+                        android:textSize="10sp"
                         tools:layout_editor_absoluteX="259dp"
                         tools:layout_editor_absoluteY="213dp" />
 
@@ -268,8 +270,8 @@
                         android:layout_marginRight="8dp"
                         android:text="BPM"
                         android:fontFamily="@font/raleway_bold"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="9sp"
+                        android:textColor="#e2e3e8"
+                        android:textSize="10sp"
                         tools:layout_editor_absoluteX="293dp"
                         tools:layout_editor_absoluteY="216dp" />
 
@@ -281,8 +283,8 @@
                         android:layout_marginRight="8dp"
                         android:text="BPM"
                         android:fontFamily="@font/raleway_bold"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="9sp"
+                        android:textColor="#e2e3e8"
+                        android:textSize="10sp"
                         tools:layout_editor_absoluteX="333dp"
                         tools:layout_editor_absoluteY="216dp" />
                 </LinearLayout>
@@ -319,7 +321,7 @@
                     android:layout_height="30dp"
                     android:fontFamily="@font/raleway_light"
                     android:textColor="@android:color/background_light"
-                    android:textSize="22dp" />
+                    android:textSize="24dp" />
 
                 <TextView
                     android:id="@+id/rpm-s"
@@ -327,7 +329,7 @@
                     android:layout_height="wrap_content"
                     android:text="RPM"
                     android:fontFamily="@font/raleway_bold"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="#9bb2ca"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -363,7 +365,7 @@
                         android:layout_weight="1"
                         android:text="00"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="#869bbf"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.87"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -380,7 +382,7 @@
                         android:layout_weight="1"
                         android:text="00"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="#869bbf"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.33"
                         app:layout_constraintLeft_toRightOf="@+id/rpm_text1"
@@ -396,7 +398,7 @@
                         android:layout_weight="1"
                         android:text="00"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="#869bbf"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.77"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -419,8 +421,8 @@
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:text="RPM"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="9sp"
+                        android:textColor="#9bb2ca"
+                        android:textSize="10sp"
                         android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.87"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -435,8 +437,8 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:text="RPM"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="9sp"
+                        android:textColor="#9bb2ca"
+                        android:textSize="10sp"
                         android:fontFamily="@font/raleway_bold"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rpm_text2" />
@@ -450,8 +452,8 @@
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:text="RPM"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="9sp"
+                        android:textColor="#9bb2ca"
+                        android:textSize="10sp"
                         android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.78"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -496,7 +498,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_light"
                     android:textColor="@android:color/background_light"
-                    android:textSize="22dp" />
+                    android:textSize="24dp" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -505,8 +507,8 @@
                     android:layout_marginLeft="6dp"
                     android:text="C°"
                     android:fontFamily="@font/raleway_bold"
-                    android:textColor="#c7c4c4"
-                    android:textSize="18sp" />
+                    android:textColor="#9bb2ca"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -539,7 +541,7 @@
                         android:layout_weight="1"
                         android:text="00"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="#c7c4c4"
+                        android:textColor="#dde4e8"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintLeft_toRightOf="@+id/rpm_text1"
@@ -555,7 +557,7 @@
                         android:layout_weight="1"
                         android:text="00"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="#c7c4c4"
+                        android:textColor="#dde4e8"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.76"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -571,7 +573,7 @@
                         android:layout_weight="1"
                         android:text="00"
                         android:fontFamily="@font/raleway_light"
-                        android:textColor="#c7c4c4"
+                        android:textColor="#dde4e8"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.848"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -593,7 +595,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:text="C°"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#f2f0f1"
                         android:textSize="12sp"
                         android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.762"
@@ -609,7 +611,7 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:text="C°"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#f2f0f1"
                         android:textSize="12sp"
                         android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.39"
@@ -623,7 +625,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="C°"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#f2f0f1"
                         android:textSize="12sp"
                         android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.85"
@@ -749,7 +751,7 @@
                 android:id="@+id/imageView19"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="91dp"
+                android:layout_marginTop="93dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.26"
                 app:layout_constraintStart_toStartOf="parent"

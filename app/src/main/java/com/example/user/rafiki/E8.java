@@ -322,9 +322,9 @@ public class E8 extends AppCompatActivity {
     }
 
     public void E9(View view) {
-        StopThread=false;
-        intent = new Intent(this, E9.class);
-        startActivity(intent);
+//        StopThread=false;
+//        intent = new Intent(this, E9.class);
+//        startActivity(intent);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -333,7 +333,12 @@ public class E8 extends AppCompatActivity {
         intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
-        //finishAffinity();
+        finishAffinity();
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
     }
 
     @Override

@@ -54,6 +54,8 @@ public class ModifierCompte extends AppCompatActivity {
         remplirspinir();
         restoredUser();
         restoredvalue();
+        String restoredage = prefs.getString("Age", null);
+        Toast.makeText(this, restoredage+"", Toast.LENGTH_SHORT).show();
     }
 
     public void restoredUser() {
@@ -64,7 +66,6 @@ public class ModifierCompte extends AppCompatActivity {
             prenom.setText(list.get(0).getPrenom());
             naisence.setText(list.get(0).getAge());
             payes.setText(" "+list.get(0).getPayer());
-            //editor.putString("Nom_Pays", list.get(0).getPayer());
             payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Indice_Pays], 0, 0, 0);
             mobile.setText(list.get(0).getMobile());
             email.setText(list.get(0).getEmail());
@@ -93,7 +94,10 @@ public class ModifierCompte extends AppCompatActivity {
         if (restoredage != null) {
             naisence.setText(restoredage);
         }
-
+        if (restoredage != null) {
+            Toast.makeText(this, restoredage+"55", Toast.LENGTH_SHORT).show();
+            naisence.setText(restoredage);
+        }
     }
     public void remplirspinir() {
 
@@ -144,13 +148,15 @@ public class ModifierCompte extends AppCompatActivity {
         FragmentTransaction manager = getSupportFragmentManager().beginTransaction();
         Calandrier_pop pop = new Calandrier_pop();
         pop.show(manager, null);
-
     }
 
     public void setage(String age) {
         naisence.setText(age);
         naisence.setError(null);
+        editor.putString("Age", age);
+        editor.apply();
     }
+
 
     public void get_payer(View view) {
         Intent ite = new Intent(this, Liste_payers.class);
@@ -158,7 +164,7 @@ public class ModifierCompte extends AppCompatActivity {
     }
 
     public void get_sexe(View view) {
-        Intent ite = new Intent(this, SexeActivity.class);
+                Intent ite = new Intent(this, SexeActivity.class);
         startActivity(ite);
     }
 
