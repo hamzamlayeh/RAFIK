@@ -40,11 +40,9 @@
 
     <TableLayout
         android:id="@+id/tableLayout2"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="70dp"
         android:background="@drawable/edittexte_rudus"
@@ -59,17 +57,32 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/acte"
                 android:layout_width="338dp"
                 android:layout_height="match_parent"
+                android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
                 android:hint="Acte chirurgicale"
-                android:paddingBottom="20dp"
+                android:paddingBottom="10dp"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ligne_horizontal" />
         </TableRow>
 
         <TableRow
@@ -81,12 +94,14 @@
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
                 android:hint="Date"
                 android:inputType="date"
-                android:paddingBottom="20dp"
+                android:paddingBottom="15dp"
+
                 android:paddingLeft="15dp"
-                android:paddingTop="5dp"
+                android:paddingTop="10dp"
                 android:textSize="18sp" />
         </TableRow>
     </TableLayout>
@@ -94,12 +109,10 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="48dp"
         android:src="@drawable/plus"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+        tools:layout_editor_absoluteY="338dp" />
 
     <Button
         android:id="@+id/ok"
@@ -121,5 +134,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:layout_width="280dp"
+        android:layout_height="160dp"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="178dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -334,6 +334,7 @@ public class E8 extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
         finishAffinity();
+
     }
 
     @Override
