@@ -77,8 +77,8 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     }
 
     public void antecedents(View view) {
-//        Intent ite = new Intent(this, AntecedentsActivity.class);
-//        startActivity(ite);
+        Intent ite = new Intent(this, AntecedentsActivity.class);
+        startActivity(ite);
     }
 
     public void allergies(View view) {
