@@ -54,7 +54,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="90dp"
         android:src="@drawable/male"
-        app:civ_border_color="#06448f"
+        android:onClick="modifImg"
+        app:civ_border_color="#3a83b7"
         app:civ_border_width="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

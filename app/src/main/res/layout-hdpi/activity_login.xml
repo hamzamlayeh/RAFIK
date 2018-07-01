@@ -181,7 +181,7 @@
         android:id="@+id/linearLayout7"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
         android:orientation="vertical"
@@ -199,6 +199,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="@font/raleway_regular"
             android:onClick="password_lost"
+            android:padding="3dp"
             android:text="@string/mot_de_passe_oublier"
             android:textAllCaps="false"
             android:textColor="#bd024e76" />
@@ -211,6 +212,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="@font/raleway_regular"
             android:onClick="inscrire"
+            android:padding="3dp"
             android:text="@string/cr_e_un_nouveau_compte"
             android:textAllCaps="false"
             android:textColor="#bd024e76" />

@@ -71,8 +71,8 @@
     <string name="bpm">BPM</string>
     <string name="rpm">RPM</string>
     <string name="enregistrer">Enregistrer</string>
-    <string name="taille">Taille</string>
-    <string name="poids">Poids</string>
+    <string name="taille">Taille(cm)</string>
+    <string name="poids">Poids(kg)</string>
     <string name="n_de_s_curit_sociale">N° de sécurité sociale</string>
     <string name="adresse">Adresse</string>
     <string name="code_postale">Code Postale</string>
@@ -115,4 +115,13 @@
     <string name="hopital">Hopital</string>
     <string name="assurances_maladies">Assurances maladies</string>
     <string name="urgence">Urgence</string>
+    <string name="marche">Marche</string>
+    <string name="course">Course</string>
+    <string name="cyclisme">Cyclisme</string>
+    <string name="activit_journali_res">Activité journaliéres</string>
+    <string name="sommeil">Sommeil</string>
+    <string name="activit">Activité</string>
+    <string name="min">Min</string>
+    <string name="max">Max</string>
+    <string name="c">C°</string>
 </resources>

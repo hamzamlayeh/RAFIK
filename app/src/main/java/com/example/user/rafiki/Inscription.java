@@ -1,24 +1,18 @@
 package com.example.user.rafiki;
 
-import android.annotation.TargetApi;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.user.rafiki.ItemData.Constante;
+import com.example.user.rafiki.ItemData.clients;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,7 +20,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import static com.example.user.rafiki.R.*;
+import static com.example.user.rafiki.R.id;
+import static com.example.user.rafiki.R.layout;
+import static com.example.user.rafiki.R.string;
 
 public class Inscription extends AppCompatActivity {
     EditText naisence, nom, prenom, sexe, email, pass, confirm_pass, payes, mobile;
@@ -242,7 +238,6 @@ public class Inscription extends AppCompatActivity {
         editor.apply();
     }
 
-    @TargetApi(16)
     private boolean valider() {
 
         boolean valide = true;

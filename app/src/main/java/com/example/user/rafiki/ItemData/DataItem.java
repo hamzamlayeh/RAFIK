@@ -1,13 +1,13 @@
-package com.example.user.rafiki;
+package com.example.user.rafiki.ItemData;
 
 /**
  * Created by ASUS on 10/02/2018.
  */
 
 public class DataItem {
-    String id;
-    int img_payer;
-    String nom_payer;
+    public String id;
+    public int img_payer;
+    public String nom_payer;
 
     public DataItem(String id, int img_payer, String nom_payer) {
         this.id = id;

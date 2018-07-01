@@ -14,5 +14,6 @@
     <color name="frequence">#02abff</color>
     <color name="bg_btn_ok">#24bf0a</color>
     <color name="ligne_horizontal">#d7d6d6</color>
+    <color name="color_fc">#3a3a3a</color>
 
 </resources>

@@ -3,10 +3,8 @@ package com.example.user.rafiki;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.Toast;
+
+import com.example.user.rafiki.ItemData.clients;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,9 +55,20 @@ public class UserDataSource {
         removeClientById(clt.get_id());
     }
 
-    public void updateClient(int id, clients clt) {
-
+    public boolean  updateClient(int id, clients clt) {
+        ContentValues values = new ContentValues();
+        values.put("nom", clt.getNom());
+        values.put("prenom", clt.getPrenom());
+        values.put("age", clt.getAge());
+        values.put("payer", clt.getPayer());
+        values.put("mobile", clt.getMobile());
+        values.put("code", clt.getCode());
+        values.put("sexe", clt.getSexe());
+        values.put("email", clt.getEmail());
+        values.put("password", clt.getPassword());
+        return db.update(TABLE_NAME, values, "_id=" + id, null)>0;
     }
+
 
     public List getAllClient() {
 

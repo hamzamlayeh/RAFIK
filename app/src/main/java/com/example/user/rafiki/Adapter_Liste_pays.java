@@ -10,6 +10,8 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.user.rafiki.ItemData.DataItem;
+
 import java.util.ArrayList;
 
 public class Adapter_Liste_pays extends BaseAdapter implements Filterable {

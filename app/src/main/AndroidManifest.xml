@@ -53,9 +53,6 @@
             android:name=".Liste_payers"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PasswordLostMailSender"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>

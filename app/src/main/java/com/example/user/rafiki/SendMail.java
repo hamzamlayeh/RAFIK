@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.user.rafiki.ItemData.Config;
+
 import java.util.Properties;
 
 import javax.mail.Message;

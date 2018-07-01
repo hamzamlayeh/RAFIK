@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.user.rafiki.ItemData.Constante;
+import com.example.user.rafiki.ItemData.clients;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,12 +23,14 @@ import java.util.List;
 
 public class ModifierCompte extends AppCompatActivity {
 
-    EditText naisence, nom, prenom, sexe, email, pass, payes, mobile;
+    EditText naisence, nom, prenom, sexe, email, pass, payes, mobile,confirm_pass;
+    String name, password, after_name, berthday, mail, sexee, payers, phone,conf_password;
     Spinner spinner;
     static  int Indice_Pays;
     Liste_code_payes adapter;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
+    clients client;
     List<clients> list = new ArrayList<clients>();
     String[] codes = new String[199];
     SharedPreferences prefs;
@@ -44,6 +49,7 @@ public class ModifierCompte extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         sexe = (EditText) findViewById(R.id.sexe);
         pass = (EditText) findViewById(R.id.pass);
+        confirm_pass = (EditText) findViewById(R.id.conf_pass);
         spinner = (Spinner) findViewById(R.id.code_pays);
 
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
@@ -54,8 +60,6 @@ public class ModifierCompte extends AppCompatActivity {
         remplirspinir();
         restoredUser();
         restoredvalue();
-        String restoredage = prefs.getString("Age", null);
-        Toast.makeText(this, restoredage+"", Toast.LENGTH_SHORT).show();
     }
 
     public void restoredUser() {
@@ -71,6 +75,7 @@ public class ModifierCompte extends AppCompatActivity {
             email.setText(list.get(0).getEmail());
             sexe.setText(list.get(0).getSexe());
             pass.setText(list.get(0).getPassword());
+            confirm_pass.setText(list.get(0).getPassword());
             spinner.setSelection(Indice_Pays);
             editor.apply();
         }
@@ -95,7 +100,6 @@ public class ModifierCompte extends AppCompatActivity {
             naisence.setText(restoredage);
         }
         if (restoredage != null) {
-            Toast.makeText(this, restoredage+"55", Toast.LENGTH_SHORT).show();
             naisence.setText(restoredage);
         }
     }
@@ -107,10 +111,9 @@ public class ModifierCompte extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                editor.putString("Code_pays", codes[i]);
-//                editor.putInt("Id_code", i);
-//                idc = i;
-//                editor.apply();
+                editor.putString("Code_pays", codes[i]);
+                editor.putInt("Id_code", i);
+                editor.apply();
 
             }
 
@@ -164,63 +167,91 @@ public class ModifierCompte extends AppCompatActivity {
     }
 
     public void get_sexe(View view) {
-                Intent ite = new Intent(this, SexeActivity.class);
+        Intent ite = new Intent(this, SexeActivity.class);
         startActivity(ite);
     }
 
     public void modifierUser(View view) {
+        berthday = naisence.getText().toString().trim();
+        sexee = sexe.getText().toString().trim();
+        payers = payes.getText().toString().trim();
+        name = nom.getText().toString().trim();
+        after_name = prenom.getText().toString().trim();
+        mail = email.getText().toString().trim();
+        password = pass.getText().toString().trim();
+        conf_password = confirm_pass.getText().toString().trim();
+        phone = mobile.getText().toString().trim();
+
+        if (valider()) {
+            String codephone = prefs.getString("Code_pays", null);
+            client = new clients(name, after_name, berthday, payers,phone,codephone, sexee, mail, password);
+            if(ds.updateClient(list.get(0).get_id(),client)){
+                Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
+                editor.putString("Email", mail);
+                editor.apply();
+                Intent ite = new Intent(this, MenuActivity.class);
+                startActivity(ite);
+            }else {
+                Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
+            }
+
+        }
     }
-//    private boolean valider() {
-//
-//        boolean valide = true;
-//        if (name.isEmpty() || name.length() > 25) {
-//            nom.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (after_name.isEmpty() || after_name.length() > 25) {
-//            prenom.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (mail.isEmpty()) {
-//            email.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
-//            email.setError(getString(R.string.email_invalide));
-//            valide = false;
-//        }
-//        if (ds.verifEmail(mail)) {
-//            email.setError(getString(R.string.chekmail));
-//            valide = false;
-//        }
-//        if (password.isEmpty()) {
-//            pass.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (!password.isEmpty() && (password.length() < 6)) {
-//            pass.setError(getString(R.string.err_pass_caractaire));
-//            valide = false;
-//        }
-//        if (berthday.isEmpty()) {
-//            naisence.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (sexee.isEmpty()) {
-//            sexe.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (payers.isEmpty()) {
-//            payes.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (phone.isEmpty()) {
-//            mobile.setError(getString(R.string.champs_obligatoir));
-//            valide = false;
-//        }
-//        if (spinner.getSelectedItemPosition() == -1) {
-//
-//            valide = false;
-//        }
-//        return valide;
-//    }
+    private boolean valider() {
+
+        boolean valide = true;
+        if (name.isEmpty() || name.length() > 25) {
+            nom.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (after_name.isEmpty() || after_name.length() > 25) {
+            prenom.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (mail.isEmpty()) {
+            email.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
+            email.setError(getString(R.string.email_invalide));
+            valide = false;
+        }
+        if (password.isEmpty()) {
+            pass.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (!password.isEmpty() && (password.length() < 6)) {
+            pass.setError(getString(R.string.err_pass_caractaire));
+            valide = false;
+        }
+        if (conf_password.isEmpty()) {
+            confirm_pass.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (!conf_password.isEmpty() && (!conf_password.contentEquals(password))) {
+            confirm_pass.setError(getString(R.string.err_pass2));
+            valide = false;
+        }
+        if (berthday.isEmpty()) {
+            naisence.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (sexee.isEmpty()) {
+            sexe.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (payers.isEmpty()) {
+            payes.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (phone.isEmpty()) {
+            mobile.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (spinner.getSelectedItemPosition() == -1) {
+
+            valide = false;
+        }
+        return valide;
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.user.rafiki;
+package com.example.user.rafiki.ItemData;
 
 /**
  * Created by ASUS on 20/03/2018.

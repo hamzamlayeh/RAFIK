@@ -1,6 +1,8 @@
-package com.example.user.rafiki;
+package com.example.user.rafiki.ItemData;
 
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.user.rafiki.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
