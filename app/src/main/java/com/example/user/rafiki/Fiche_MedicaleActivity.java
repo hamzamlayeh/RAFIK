@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.Fiche;
 
 import java.util.ArrayList;
@@ -25,6 +24,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     EditText NomUtilisateur, Sang, Poid, Taille, Num_secrt, Adresse, Code_post, Ville;
     String email, poid, taille, num_secrt, adresse, code_post, ville;
     SharedPreferences pref, pref2;
+    SharedPreferences.Editor editor;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     Fiche fiches;
@@ -39,6 +39,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         ds = new UserDataSource(helper);
         pref = getApplicationContext().getSharedPreferences("Inscription", MODE_PRIVATE);
         pref2 = getApplicationContext().getSharedPreferences("Fiche_Medicale", MODE_PRIVATE);
+        editor = pref2.edit();
         email = pref.getString("Email", "");
 
         profile_img = findViewById(R.id.profile_image);
@@ -62,21 +63,47 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     }
 
     public void restoredFiche() {
-        if (list.size() >=1) {
+        if (list.size() >= 1) {
             if (list.get(0).getEmail().equals(email)) {
-                Poid.setText(list.get(0).getPoid());
-                Taille.setText(list.get(0).getTaille());
-                Num_secrt.setText(list.get(0).getNum_scret());
-                Adresse.setText(list.get(0).getAdresse());
-                Code_post.setText(list.get(0).getCode_postal());
-                Ville.setText(list.get(0).getVille());
-                Sang.setText(list.get(0).getSang());
+                editor.putString("Poid", list.get(0).getPoid());
+                editor.putString("Taille", list.get(0).getTaille());
+                editor.putString("Num_Secrt", list.get(0).getNum_scret());
+                editor.putString("Code_Postal", list.get(0).getCode_postal());
+                editor.putString("Adresse", list.get(0).getAdresse());
+                editor.putString("Ville", list.get(0).getVille());
+                editor.putString("G_Sang", list.get(0).getSang());
+                editor.apply();
             }
         }
     }
 
     public void restoredvalue() {
+        String restoredpoid = pref2.getString("Poid", null);
+        String restoredtaile = pref2.getString("Taille", null);
+        String restorednumscret = pref2.getString("Num_Secrt", null);
+        String restoredcodeP = pref2.getString("Code_Postal", null);
+        String restoredadress = pref2.getString("Adresse", null);
+        String restoredville = pref2.getString("Ville", null);
         String restoredsang = pref2.getString("G_Sang", null);
+
+        if (restoredpoid != null) {
+            Poid.setText(restoredpoid);
+        }
+        if (restoredtaile != null) {
+            Taille.setText(restoredtaile);
+        }
+        if (restorednumscret != null) {
+            Num_secrt.setText(restorednumscret);
+        }
+        if (restoredcodeP != null) {
+            Code_post.setText(restoredcodeP);
+        }
+        if (restoredadress != null) {
+            Adresse.setText(restoredadress);
+        }
+        if (restoredville != null) {
+            Ville.setText(restoredville);
+        }
         if (restoredsang != null) {
             Sang.setText(restoredsang);
         }
@@ -94,12 +121,13 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         if (requestCode == 100 && resultCode == RESULT_OK) {
             Uri uri = data.getData();
             profile_img.setImageURI(uri);
-            ds.addimg(String.valueOf(uri), email);
+            ds.UpdateImg(String.valueOf(uri), email);
         }
     }
 
 
     public void groupe_sang(View view) {
+        remplir_champs();
         Intent ite = new Intent(this, Groupe_SangActivity.class);
         startActivity(ite);
     }
@@ -128,7 +156,15 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         Intent ite = new Intent(this, MedicamentsActivity.class);
         startActivity(ite);
     }
-
+    public void remplir_champs() {
+        editor.putString("Poid", Poid.getText().toString().trim());
+        editor.putString("Taille", Taille.getText().toString().trim());
+        editor.putString("Num_Secrt", Num_secrt.getText().toString().trim());
+        editor.putString("Adresse", Adresse.getText().toString().trim());
+        editor.putString("Code_Postal", Code_post.getText().toString().trim());
+        editor.putString("Ville", Ville.getText().toString().trim());
+        editor.apply();
+    }
     public void enregestrer(View view) {
         poid = Poid.getText().toString().trim();
         taille = Taille.getText().toString().trim();
@@ -140,14 +176,28 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
             String Sang = pref2.getString("G_Sang", "");
 
             fiches = new Fiche(email, poid, taille, num_secrt, adresse, code_post, ville, Sang);
-            long ids = ds.addFiche(fiches);
-            if (ids == -1) {
-                Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, R.string.fiche_enregistre, Toast.LENGTH_LONG).show();
-                Intent ite = new Intent(this, MenuActivity.class);
-                startActivity(ite);
+            if (list.size()<1){
+                long ids = ds.addFiche(fiches);
+                if (ids == -1) {
+                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                } else {
+                    System.out.println(list.size());
+                    Toast.makeText(this, R.string.fiche_enregistre, Toast.LENGTH_LONG).show();
+                    Intent ite = new Intent(this, MenuActivity.class);
+                    startActivity(ite);
+                }
+            }else {
+                long ids=ds.UpdateFiche(email,fiches);
+                if (ids == -1) {
+                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                } else {
+                    System.out.println(list.size());
+                    Toast.makeText(this, R.string.fiche_enregistre, Toast.LENGTH_LONG).show();
+                    Intent ite = new Intent(this, MenuActivity.class);
+                    startActivity(ite);
+                }
             }
+
         }
 
     }

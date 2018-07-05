@@ -142,7 +142,7 @@ public class UserDataSource {
         }
         return "";
     }
-    public boolean addimg(String img,String email) {
+    public boolean UpdateImg(String img, String email) {
 
         ContentValues values = new ContentValues();
         values.put("image", img);
@@ -198,5 +198,18 @@ public class UserDataSource {
             cursor.moveToNext();
         }
         return list;
+    }
+    public long UpdateFiche(String email,Fiche fich) {
+
+        ContentValues values = new ContentValues();
+        values.put("poid", fich.getPoid());
+        values.put("taille", fich.getTaille());
+        values.put("num_scret", fich.getNum_scret());
+        values.put("adresse", fich.getAdresse());
+        values.put("code_postal", fich.getCode_postal());
+        values.put("ville", fich.getVille());
+        values.put("sang", fich.getSang());
+        long i=db.update(TABLE_NAME2,values,"email=?", new String[]{email});
+        return i;
     }
 }

@@ -69,10 +69,21 @@ public class MenuActivity extends AppCompatActivity {
         editor.apply();
     }
     public void fiche(View view) {
+        resetvalueFiche();
         Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
         startActivity(ite);
     }
-
+    public void resetvalueFiche() {
+        SharedPreferences.Editor editor = getSharedPreferences("Fiche_Medicale", MODE_PRIVATE).edit();
+        editor.remove("Poid");
+        editor.remove("Taille");
+        editor.remove("Num_Secrt");
+        editor.remove("Code_Postal");
+        editor.remove("Adresse");
+        editor.remove("Ville");
+        editor.remove("G_Sang");
+        editor.apply();
+    }
     public void contacts(View view) {
         Intent ite = new Intent(this, ContactsActivity.class);
         startActivity(ite);
@@ -102,7 +113,7 @@ public class MenuActivity extends AppCompatActivity {
         {
             Uri uri = data.getData();
             profile_img.setImageURI(uri);
-            ds.addimg(String.valueOf(uri), email);
+            ds.UpdateImg(String.valueOf(uri), email);
         }
     }
 }
