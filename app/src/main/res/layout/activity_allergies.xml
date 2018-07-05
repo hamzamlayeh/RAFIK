@@ -33,7 +33,7 @@
         android:text="@string/allergies"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,8 +42,8 @@
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="45dp"
         app:cardBackgroundColor="#f2f0f1"
         app:cardCornerRadius="7dp"
@@ -63,205 +63,280 @@
                 android:layout_weight="5"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/ab_plus"
+                <LinearLayout
+                    android:id="@+id/L1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:hint="@string/allergie_aux_insectes"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="5dp">
+
+                    <TextView
+                        android:id="@+id/T1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="11"
+                        android:drawableRight="@drawable/flash"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/allergie_aux_insectes"
+                        android:onClick="insectes"
+                        android:padding="14dp"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/rd_abplus2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_weight="1.7"
+                        android:buttonTint="@color/btn_radio"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:scaleX="0.90"
+                        android:scaleY="0.90"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/ligne_horizontal" />
 
-                <TextView
-                    android:id="@+id/ab_moin"
+                <LinearLayout
+                    android:id="@+id/L2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:hint="@string/allergie_aux_m_dicaments"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/T2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="11"
+                        android:drawableRight="@drawable/flash"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/allergie_aux_m_dicaments"
+                        android:padding="14dp"
+                        android:onClick="medicaments"
+                        android:paddingLeft="5dp"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/rd_abplus3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_weight="1.7"
+                        android:buttonTint="@color/btn_radio"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:scaleX="0.90"
+                        android:scaleY="0.90"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/ligne_horizontal" />
 
-                <TextView
-                    android:id="@+id/a_plus"
+                <LinearLayout
+                    android:id="@+id/L3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:hint="@string/allergie_aux_animaux"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/T3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="11"
+                        android:drawableRight="@drawable/flash"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/allergie_aux_animaux"
+                        android:padding="14dp"
+                        android:onClick="animaux"
+                        android:paddingLeft="5dp"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/rd_abplus4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_weight="1.7"
+                        android:buttonTint="@color/btn_radio"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:scaleX="0.90"
+                        android:scaleY="0.90"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/ligne_horizontal" />
 
-                <TextView
-                    android:id="@+id/a_moin"
+                <LinearLayout
+                    android:id="@+id/L4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:hint="@string/allergie_aux_aliments"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/T4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="11"
+                        android:drawableRight="@drawable/flash"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/allergie_aux_aliments"
+                        android:padding="14dp"
+                        android:onClick="aliments"
+                        android:paddingLeft="5dp"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/rd_abplus5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_weight="1.7"
+                        android:buttonTint="@color/btn_radio"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:scaleX="0.90"
+                        android:scaleY="0.90"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/ligne_horizontal" />
 
-                <TextView
-                    android:id="@+id/b_plus"
+                <LinearLayout
+                    android:id="@+id/L5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:hint="@string/allergie_respiratoire"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/T5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="11"
+                        android:drawableRight="@drawable/flash"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/allergie_respiratoire"
+                        android:padding="14dp"
+                        android:onClick="respiratoire"
+                        android:paddingLeft="5dp"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/rd_abplus6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_weight="1.7"
+                        android:buttonTint="@color/btn_radio"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:scaleX="0.90"
+                        android:scaleY="0.90"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/ligne_horizontal" />
 
-                <TextView
-                    android:id="@+id/b_moin"
+                <LinearLayout
+                    android:id="@+id/L6"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:hint="@string/allergie_au_pollen"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/T6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="11"
+                        android:drawableRight="@drawable/flash"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/allergie_au_pollen"
+                        android:padding="14dp"
+                        android:paddingLeft="5dp"
+                        android:onClick="pollen"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/rd_abplus7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_weight="1.7"
+                        android:buttonTint="@color/btn_radio"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:scaleX="0.90"
+                        android:scaleY="0.90"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/ligne_horizontal" />
 
-                <TextView
-                    android:id="@+id/autre"
+                <LinearLayout
+                    android:id="@+id/L7"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_regular"
-                    android:hint="@string/autre"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/T7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="11"
+                        android:drawableRight="@drawable/flash"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/autre"
+                        android:padding="14dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/rd_abplus8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_weight="1.7"
+                        android:onClick="autre"
+                        android:buttonTint="@color/btn_radio"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:scaleX="0.90"
+                        android:scaleY="0.90"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
-            <RadioGroup
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <RadioButton
-                    android:id="@+id/rd_abplus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/btn_radio"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/ligne_horizontal" />
-
-                <RadioButton
-                    android:id="@+id/rd_abmoin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/btn_radio"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/ligne_horizontal" />
-
-                <RadioButton
-                    android:id="@+id/rd_aplus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/btn_radio"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/ligne_horizontal" />
-
-                <RadioButton
-                    android:id="@+id/rd_amoin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/btn_radio"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/ligne_horizontal" />
-
-                <RadioButton
-                    android:id="@+id/rd_bplus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/btn_radio"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/ligne_horizontal" />
-
-                <RadioButton
-                    android:id="@+id/rd_bmoin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/btn_radio"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/ligne_horizontal" />
-
-                <RadioButton
-                    android:id="@+id/rd_oplus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/btn_radio"
-                    android:fontFamily="@font/raleway_regular"
-                    android:padding="14dp"
-                    android:textSize="14sp" />
-            </RadioGroup>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -271,7 +346,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/button_rudus"
         android:fontFamily="@font/raleway_bold"
         android:onClick="retoure_fiche"

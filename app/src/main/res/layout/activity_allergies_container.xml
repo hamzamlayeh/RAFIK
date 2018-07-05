@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bag10"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.rafiki.AllergiesActivityContainer">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="800dp">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:cardCornerRadius="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/allergies">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:id="@+id/acte"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+
+
+                            android:background="@android:color/transparent"
+                            android:paddingBottom="15dp"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="10dp"
+                            android:textSize="18sp" />
+
+                        <CheckBox
+                            android:id="@+id/rd_abplus9"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical|center"
+                            android:layout_weight="1"
+                            android:buttonTint="@color/btn_radio"
+                            android:checked="true"
+                            android:fontFamily="@font/raleway_regular"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:scaleX="0.90"
+                            android:scaleY="0.90"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="6dp"
+                        android:background="@color/ligne_horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="10dp"
+                            android:text="Allergie a"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:id="@+id/view36"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0"
+                            android:background="#9f9d9e" />
+
+                        <EditText
+                            android:id="@+id/donne"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+
+                            android:background="@android:color/transparent"
+                            android:hint="Renseiger ..."
+                            android:inputType="date"
+
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="10dp"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:id="@+id/rafiki3"
+                android:layout_width="60dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="TODO"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.898"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rafik" />
+
+            <TextView
+                android:id="@+id/allergies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/champagne_limousines_bold"
+                android:gravity="center"
+                android:text="ALLERGIS"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ajout"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="360dp"
+                android:onClick="ajout_linge"
+                android:src="@drawable/plus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/allergies" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/r"
+                android:layout_width="0dp"
+                android:layout_height="310dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView7"
+                app:layout_constraintVertical_chainStyle="spread" />
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="157dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="12dp"
+
+                android:background="@drawable/button_rudus"
+                android:fontFamily="@font/raleway_bold"
+                android:onClick="retoure_fiche"
+                android:padding="15dp"
+                android:text="@string/valider"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/r" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
