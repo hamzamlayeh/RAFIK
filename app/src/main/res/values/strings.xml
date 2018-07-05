@@ -124,4 +124,5 @@
     <string name="min">Min</string>
     <string name="max">Max</string>
     <string name="c">C°</string>
+    <string name="fiche_enregistre">Votre fiche a été enregistré avec succès</string>
 </resources>

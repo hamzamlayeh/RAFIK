@@ -23,10 +23,10 @@ import java.util.List;
 
 public class ModifierCompte extends AppCompatActivity {
 
-    EditText naisence, nom, prenom, sexe, email, pass, payes, mobile,confirm_pass;
-    String name, password, after_name, berthday, mail, sexee, payers, phone,conf_password;
+    EditText naisence, nom, prenom, sexe, email, pass, payes, mobile, confirm_pass;
+    String name, password, after_name, berthday, mail, sexee, payers, phone, conf_password;
     Spinner spinner;
-    static  int Indice_Pays;
+    static int Indice_Pays;
     Liste_code_payes adapter;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
@@ -40,7 +40,7 @@ public class ModifierCompte extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifier_compte);
-        Inscription.NUM_PAGE=2;
+        Inscription.NUM_PAGE = 2;
         nom = (EditText) findViewById(R.id.nom);
         prenom = (EditText) findViewById(R.id.prenom);
         naisence = (EditText) findViewById(R.id.age);
@@ -64,22 +64,23 @@ public class ModifierCompte extends AppCompatActivity {
 
     public void restoredUser() {
         String restoredemail = prefs.getString("Email", "");
-
-        if (list.get(0).getEmail().equals(restoredemail)) {
-            nom.setText(list.get(0).getNom());
-            prenom.setText(list.get(0).getPrenom());
-            naisence.setText(list.get(0).getAge());
-            payes.setText(" "+list.get(0).getPayer());
-            payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Indice_Pays], 0, 0, 0);
-            mobile.setText(list.get(0).getMobile());
-            email.setText(list.get(0).getEmail());
-            sexe.setText(list.get(0).getSexe());
-            pass.setText(list.get(0).getPassword());
-            confirm_pass.setText(list.get(0).getPassword());
-            spinner.setSelection(Indice_Pays);
-            editor.apply();
+        if (list.size() >= 1) {
+            if (list.get(0).getEmail().equals(restoredemail)) {
+                nom.setText(list.get(0).getNom());
+                prenom.setText(list.get(0).getPrenom());
+                naisence.setText(list.get(0).getAge());
+                payes.setText(" " + list.get(0).getPayer());
+                payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Indice_Pays], 0, 0, 0);
+                mobile.setText(list.get(0).getMobile());
+                email.setText(list.get(0).getEmail());
+                sexe.setText(list.get(0).getSexe());
+                pass.setText(list.get(0).getPassword());
+                confirm_pass.setText(list.get(0).getPassword());
+                spinner.setSelection(Indice_Pays);
+            }
         }
     }
+
     public void restoredvalue() {
         String restoredsexe = prefs.getString("sexe", null);
         String restoredpays = prefs.getString("Nom_Pays", null);
@@ -103,6 +104,7 @@ public class ModifierCompte extends AppCompatActivity {
             naisence.setText(restoredage);
         }
     }
+
     public void remplirspinir() {
 
         rempli_code_pays();
@@ -136,8 +138,8 @@ public class ModifierCompte extends AppCompatActivity {
 
                 ligne = bufferedReader.readLine();
                 codes[x] = ligne;
-                if(ligne.equals(list.get(0).getCode())){
-                    Indice_Pays=x;
+                if (ligne.equals(list.get(0).getCode())) {
+                    Indice_Pays = x;
                 }
                 x++;
             }
@@ -184,19 +186,20 @@ public class ModifierCompte extends AppCompatActivity {
 
         if (valider()) {
             String codephone = prefs.getString("Code_pays", null);
-            client = new clients(name, after_name, berthday, payers,phone,codephone, sexee, mail, password);
-            if(ds.updateClient(list.get(0).get_id(),client)){
+            client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail, password);
+            if (ds.updateClient(list.get(0).get_id(), client)) {
                 Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
                 editor.putString("Email", mail);
                 editor.apply();
                 Intent ite = new Intent(this, MenuActivity.class);
                 startActivity(ite);
-            }else {
+            } else {
                 Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
             }
 
         }
     }
+
     private boolean valider() {
 
         boolean valide = true;

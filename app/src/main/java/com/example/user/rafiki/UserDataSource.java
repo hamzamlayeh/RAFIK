@@ -3,7 +3,9 @@ package com.example.user.rafiki;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
+import com.example.user.rafiki.ItemData.Fiche;
 import com.example.user.rafiki.ItemData.clients;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class UserDataSource {
     private MySQLiteOpenHelper helper;
     private SQLiteDatabase db;
     private final String TABLE_NAME = "clients";
+    private final String TABLE_NAME2 = "ficheMedicale";
 
     public UserDataSource(MySQLiteOpenHelper helper) {
         this.helper = helper;
@@ -156,5 +159,44 @@ public class UserDataSource {
             return cursor.getString(0);
         }
         return null;
+    }
+    public long addFiche(Fiche fich) {
+
+        ContentValues values = new ContentValues();
+        values.put("email",fich.getEmail() );
+        values.put("poid", fich.getPoid());
+        values.put("taille", fich.getTaille());
+        values.put("num_scret", fich.getNum_scret());
+        values.put("adresse", fich.getAdresse());
+        values.put("code_postal", fich.getCode_postal());
+        values.put("ville", fich.getVille());
+        values.put("sang", fich.getSang());
+        long id = db.insert(TABLE_NAME2, null, values);
+        return id;
+    }
+    public List getFiche() {
+
+        ArrayList<Fiche> list = new ArrayList<Fiche>();
+        Cursor cursor = db.query(TABLE_NAME2, new String[]{"_id", "email", "poid", "taille", "num_scret", "adresse","code_postal", "ville", "sang"}, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            int id = cursor.getInt(0);
+            String email = cursor.getString(1);
+            String poid = cursor.getString(2);
+            String taille = cursor.getString(3);
+            String num_scret = cursor.getString(4);
+            String adresse = cursor.getString(5);
+            String code_postal = cursor.getString(6);
+            String ville = cursor.getString(7);
+            String sang = cursor.getString(8);
+
+            Fiche clt = new Fiche(email, poid, taille, num_scret, adresse,code_postal, ville, sang);
+            clt.set_id(id);
+            System.out.println(id);
+            list.add(clt);
+            cursor.moveToNext();
+        }
+        return list;
     }
 }
