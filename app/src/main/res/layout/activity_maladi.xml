@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="45dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="#f2f0f1"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,60 +77,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Maladie 1"
                 android:fontFamily="@font/raleway_regular"
-                android:inputType="textPersonName"
-                android:padding="20dp" />
+                android:hint="Maladie 1"
+                android:inputType="textShortMessage"
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/malade2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Maladie 2"
                 android:fontFamily="@font/raleway_regular"
-                android:inputType="textPersonName"
-                android:padding="20dp" />
+                android:hint="Maladie 2"
+                android:inputType="textShortMessage"
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/malade3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Maladie 3"
                 android:fontFamily="@font/raleway_regular"
-                android:inputType="textPersonName"
-                android:padding="20dp" />
+                android:hint="Maladie 3"
+                android:inputType="textShortMessage"
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/malade4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Maladie 4"
                 android:fontFamily="@font/raleway_regular"
-                android:inputType="textPersonName"
-                android:padding="20dp" />
+                android:hint="Maladie 4"
+                android:inputType="textShortMessage"
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/malade5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Maladie 5"
                 android:fontFamily="@font/raleway_regular"
-                android:inputType="textPersonName"
-                android:padding="20dp" />
+                android:hint="Maladie 5"
+                android:inputType="textShortMessage"
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/malade6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Maladie 6"
                 android:fontFamily="@font/raleway_regular"
-                android:inputType="textPersonName"
-                android:padding="20dp" />
+                android:hint="Maladie 6"
+                android:inputType="textShortMessage"
+                android:padding="15dp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -140,13 +140,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="45dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/button_rudus"
-        android:text="@string/ok"
         android:fontFamily="@font/raleway_bold"
+        android:onClick="retoure_fiche"
+        android:text="@string/ok"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:onClick="retoure_fiche"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

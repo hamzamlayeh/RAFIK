@@ -21,6 +21,7 @@ public class UserDataSource {
     private SQLiteDatabase db;
     private final String TABLE_NAME = "clients";
     private final String TABLE_NAME2 = "ficheMedicale";
+    private final String TABLE_NAME3 = "Maladis";
 
     public UserDataSource(MySQLiteOpenHelper helper) {
         this.helper = helper;
@@ -58,7 +59,7 @@ public class UserDataSource {
         removeClientById(clt.get_id());
     }
 
-    public boolean  updateClient(int id, clients clt) {
+    public boolean updateClient(int id, clients clt) {
         ContentValues values = new ContentValues();
         values.put("nom", clt.getNom());
         values.put("prenom", clt.getPrenom());
@@ -69,14 +70,14 @@ public class UserDataSource {
         values.put("sexe", clt.getSexe());
         values.put("email", clt.getEmail());
         values.put("password", clt.getPassword());
-        return db.update(TABLE_NAME, values, "_id=" + id, null)>0;
+        return db.update(TABLE_NAME, values, "_id=" + id, null) > 0;
     }
 
 
     public List getAllClient() {
 
         ArrayList<clients> list = new ArrayList<clients>();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{"_id", "nom", "prenom", "age", "payer", "mobile","code", "sexe", "email", "password"}, null,
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"_id", "nom", "prenom", "age", "payer", "mobile", "code", "sexe", "email", "password"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -91,7 +92,7 @@ public class UserDataSource {
             String email = cursor.getString(8);
             String password = cursor.getString(9);
 
-            clients clt = new clients(nom, prenom, age, payer, mobile,code, sexe, email, password);
+            clients clt = new clients(nom, prenom, age, payer, mobile, code, sexe, email, password);
             clt.set_id(id);
             list.add(clt);
             cursor.moveToNext();
@@ -101,69 +102,75 @@ public class UserDataSource {
 
     public boolean verifEmail(String email) {
 
-        Cursor cursor = db.query(TABLE_NAME,new String[]{"email"},"email=?",new String[]{email},
-                null,null,null,null);
-        int cursorcount=cursor.getCount();
-        if(cursorcount>0) {
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"email"}, "email=?", new String[]{email},
+                null, null, null, null);
+        int cursorcount = cursor.getCount();
+        if (cursorcount > 0) {
             return true;
         }
         return false;
     }
-    public boolean verifUser(String email,String password) {
 
-        Cursor cursor = db.query(TABLE_NAME,new String[]{"email,password"},"email=? AND password=?",new String[]{email,password},
-                null,null,null,null);
-        int cursorcount=cursor.getCount();
-        if(cursorcount>0) {
+    public boolean verifUser(String email, String password) {
+
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"email,password"}, "email=? AND password=?", new String[]{email, password},
+                null, null, null, null);
+        int cursorcount = cursor.getCount();
+        if (cursorcount > 0) {
             return true;
         }
         return false;
     }
+
     public String getPassword(String email) {
 
-        Cursor cursor = db.query(TABLE_NAME,new String[]{"password"},"email=?",new String[]{email},
-                null,null,null,null);
-        int cursorcount=cursor.getCount();
-        if(cursorcount>0) {
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"password"}, "email=?", new String[]{email},
+                null, null, null, null);
+        int cursorcount = cursor.getCount();
+        if (cursorcount > 0) {
             cursor.moveToFirst();
             return cursor.getString(0);
         }
         return "";
     }
+
     public String getNom(String email) {
 
-        Cursor cursor = db.query(TABLE_NAME,new String[]{"nom","prenom"},"email=?",new String[]{email},
-                null,null,null,null);
-        int cursorcount=cursor.getCount();
-        if(cursorcount>0) {
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"nom", "prenom"}, "email=?", new String[]{email},
+                null, null, null, null);
+        int cursorcount = cursor.getCount();
+        if (cursorcount > 0) {
             cursor.moveToFirst();
-            String nom= cursor.getString(0)+" "+ cursor.getString(1);
+            String nom = cursor.getString(0) + " " + cursor.getString(1);
             return nom;
         }
         return "";
     }
+
     public boolean UpdateImg(String img, String email) {
 
         ContentValues values = new ContentValues();
         values.put("image", img);
-       int i=db.update(TABLE_NAME,values,"email=?", new String[]{email});
-       return i>0;
+        int i = db.update(TABLE_NAME, values, "email=?", new String[]{email});
+        return i > 0;
     }
+
     public String getImg(String email) {
 
-        Cursor cursor = db.query(TABLE_NAME,new String[]{"image"},"email=?",new String[]{email},
-                null,null,null,null);
-        int cursorcount=cursor.getCount();
-        if(cursorcount>0) {
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"image"}, "email=?", new String[]{email},
+                null, null, null, null);
+        int cursorcount = cursor.getCount();
+        if (cursorcount > 0) {
             cursor.moveToFirst();
             return cursor.getString(0);
         }
         return null;
     }
+
     public long addFiche(Fiche fich) {
 
         ContentValues values = new ContentValues();
-        values.put("email",fich.getEmail() );
+        values.put("email", fich.getEmail());
         values.put("poid", fich.getPoid());
         values.put("taille", fich.getTaille());
         values.put("num_scret", fich.getNum_scret());
@@ -174,10 +181,11 @@ public class UserDataSource {
         long id = db.insert(TABLE_NAME2, null, values);
         return id;
     }
+
     public List getFiche() {
 
         ArrayList<Fiche> list = new ArrayList<Fiche>();
-        Cursor cursor = db.query(TABLE_NAME2, new String[]{"_id", "email", "poid", "taille", "num_scret", "adresse","code_postal", "ville", "sang"}, null,
+        Cursor cursor = db.query(TABLE_NAME2, new String[]{"_id", "email", "poid", "taille", "num_scret", "adresse", "code_postal", "ville", "sang"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -191,7 +199,7 @@ public class UserDataSource {
             String ville = cursor.getString(7);
             String sang = cursor.getString(8);
 
-            Fiche clt = new Fiche(email, poid, taille, num_scret, adresse,code_postal, ville, sang);
+            Fiche clt = new Fiche(email, poid, taille, num_scret, adresse, code_postal, ville, sang);
             clt.set_id(id);
             System.out.println(id);
             list.add(clt);
@@ -199,7 +207,8 @@ public class UserDataSource {
         }
         return list;
     }
-    public long UpdateFiche(String email,Fiche fich) {
+
+    public long UpdateFiche(String email, Fiche fich) {
 
         ContentValues values = new ContentValues();
         values.put("poid", fich.getPoid());
@@ -209,7 +218,41 @@ public class UserDataSource {
         values.put("code_postal", fich.getCode_postal());
         values.put("ville", fich.getVille());
         values.put("sang", fich.getSang());
-        long i=db.update(TABLE_NAME2,values,"email=?", new String[]{email});
+        long i = db.update(TABLE_NAME2, values, "email=?", new String[]{email});
         return i;
     }
+    public int getCountMaladi(){
+        Cursor cursor = db.query(TABLE_NAME3,null, null, null,
+                null, null, null, null);
+        return  cursor.getCount();
+    }
+    public long addmaladi(String item1) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("NomMaladi", item1);
+
+        return db.insert(TABLE_NAME3, null, contentValues);
+    }
+    public long UpdateMaladi(String item1, int id) {
+
+        ContentValues values = new ContentValues();
+        values.put("NomMaladi", item1);
+        long i = db.update(TABLE_NAME3, values, "_id= "+id,null);
+        return i ;
+    }
+    public List getListMaladi(){
+        ArrayList<String> list = new ArrayList<String>();
+        Cursor cursor = db.query(TABLE_NAME3, new String[]{"NomMaladi"}, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        int i=0;
+        while (!cursor.isAfterLast()) {
+
+            list.add(i,cursor.getString(0));
+            i++;
+            cursor.moveToNext();
+        }
+        return list;
+    }
+
 }
