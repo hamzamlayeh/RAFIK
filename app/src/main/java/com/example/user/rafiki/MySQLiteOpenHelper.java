@@ -12,7 +12,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
 
     public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, 6);
+        super(context, name, factory, 7);
     }
 
     @Override
@@ -28,10 +28,13 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         //Table Maladie
         String sql3="CREATE TABLE Maladis (_id integer PRIMARY KEY autoincrement not null,"+
                 "NomMaladi text)";
-
+        //Table Antecedents
+        String sql4="CREATE TABLE Antecedents (_id integer PRIMARY KEY autoincrement not null,"+
+                "acte text not null,date text not null,position integer)";
         db.execSQL(sql);
         db.execSQL(sql2);
         db.execSQL(sql3);
+        db.execSQL(sql4);
     }
 
     @Override
@@ -39,10 +42,12 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
         String delet_sql="DROP Table clients ";
         String delet_sql2="DROP Table ficheMedicale ";
-        //String delet_sql3="DROP Table Maladis ";
+        String delet_sql3="DROP Table Antecedents ";
+        String delet_sql4="DROP Table Maladis ";
         sqLiteDatabase.execSQL(delet_sql);
         sqLiteDatabase.execSQL(delet_sql2);
-        //sqLiteDatabase.execSQL(delet_sql3);
+        sqLiteDatabase.execSQL(delet_sql3);
+        sqLiteDatabase.execSQL(delet_sql4);
 
         onCreate(sqLiteDatabase);
     }

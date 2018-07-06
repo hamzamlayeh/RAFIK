@@ -227,4 +227,5 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         }
         return valide;
     }
+
 }

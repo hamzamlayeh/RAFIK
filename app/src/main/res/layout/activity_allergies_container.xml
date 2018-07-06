@@ -45,6 +45,7 @@
 
 
                             android:background="@android:color/transparent"
+                            android:fontFamily="@font/raleway_regular"
                             android:paddingBottom="15dp"
                             android:paddingLeft="15dp"
                             android:paddingTop="10dp"
@@ -84,10 +85,11 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
+                            android:fontFamily="@font/raleway_regular"
                             android:paddingBottom="10dp"
                             android:paddingLeft="15dp"
                             android:paddingTop="10dp"
-                            android:text="Allergie a"
+                            android:text="@string/allergie_a"
                             android:textSize="18sp" />
 
                         <View
@@ -104,9 +106,10 @@
                             android:layout_weight="4"
 
                             android:background="@android:color/transparent"
-                            android:hint="Renseiger ..."
-                            android:inputType="date"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/renseiger"
 
+                            android:inputType="date"
                             android:paddingBottom="10dp"
                             android:paddingLeft="15dp"
                             android:paddingTop="10dp"

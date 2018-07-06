@@ -25,9 +25,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:focusableInTouchMode="false"
 
-
-                android:hint="Acte chirurgicale"
+                android:focusedByDefault="false"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="@string/acte_chirurgicale"
                 android:paddingBottom="10dp"
                 android:paddingLeft="15dp"
                 android:paddingTop="10dp"
@@ -44,11 +46,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-
-                android:hint="Date"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="@string/date"
                 android:inputType="date"
-                android:paddingBottom="10dp"
 
+                android:paddingBottom="10dp"
                 android:paddingLeft="15dp"
                 android:paddingTop="10dp"
                 android:textSize="18sp" />
