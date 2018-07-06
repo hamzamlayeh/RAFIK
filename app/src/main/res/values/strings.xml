@@ -129,4 +129,10 @@
     <string name="date">Date</string>
     <string name="allergie_a">Allergie a</string>
     <string name="renseiger">Renseiger ...</string>
+    <string name="maladie_1">Maladie 1</string>
+    <string name="maladie_2">Maladie 2</string>
+    <string name="maladie_3">Maladie 3</string>
+    <string name="maladie_4">Maladie 4</string>
+    <string name="maladie_5">Maladie 5</string>
+    <string name="maladie_6">Maladie 6</string>
 </resources>

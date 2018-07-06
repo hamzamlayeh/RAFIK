@@ -3,26 +3,15 @@ package com.example.user.rafiki;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.annotation.RequiresApi;
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.api.client.json.Json;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class MaladiActivity extends AppCompatActivity {
 
@@ -30,12 +19,9 @@ public class MaladiActivity extends AppCompatActivity {
     String M1, M2, M3, M4, M5, M6;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    SharedPreferences pref;
     SharedPreferences.Editor editor;
     List<String> listMaladi = new ArrayList<String>();
-    Set set;
 
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +36,7 @@ public class MaladiActivity extends AppCompatActivity {
         Maladi5 = findViewById(R.id.malade5);
         Maladi6 = findViewById(R.id.malade6);
 
-        Toast.makeText(this, ds.getCountMaladi() + "", Toast.LENGTH_SHORT).show();
-        if (ds.getCountMaladi()> 0){
+        if (ds.getCountMaladi() > 0) {
             listMaladi = ds.getListMaladi();
             Maladi1.setText(listMaladi.get(0));
             Maladi2.setText(listMaladi.get(1));
@@ -60,6 +45,66 @@ public class MaladiActivity extends AppCompatActivity {
             Maladi5.setText(listMaladi.get(4));
             Maladi6.setText(listMaladi.get(5));
         }
+        Maladi1.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Maladi1.setText("");
+                long x = ds.UpdateMaladi("", 1);
+                Toast.makeText(MaladiActivity.this, "Maladie Supprimer", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        Maladi2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Maladi2.setText("");
+                long x = ds.UpdateMaladi("", 2);
+                Toast.makeText(MaladiActivity.this, "Maladie Supprimer", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        Maladi3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Maladi3.setText("");
+                long x = ds.UpdateMaladi("", 3);
+                Toast.makeText(MaladiActivity.this, "Maladie Supprimer", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        Maladi4.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Maladi4.setText("");
+                long x = ds.UpdateMaladi("", 4);
+                Toast.makeText(MaladiActivity.this, "Maladie Supprimer", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        Maladi5.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Maladi5.setText("");
+                long x = ds.UpdateMaladi("", 5);
+                Toast.makeText(MaladiActivity.this, "Maladie Supprimer", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        Maladi6.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Maladi6.setText("");
+                long x = ds.UpdateMaladi("", 6);
+                Toast.makeText(MaladiActivity.this, "Maladie Supprimer", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
     }
 
     public void retoure_fiche(View view) {
@@ -85,16 +130,18 @@ public class MaladiActivity extends AppCompatActivity {
             }
             Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
             startActivity(ite);
-        }else {
+            Toast.makeText(this, "Liste Maladies enregistré avec succès", Toast.LENGTH_SHORT).show();
+
+        } else {
             int i = 0;
             while (i < listMaladi.size()) {
 
-                long x = ds.UpdateMaladi(listMaladi.get(i),i+1);
+                long x = ds.UpdateMaladi(listMaladi.get(i), i + 1);
                 i++;
             }
             Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
             startActivity(ite);
-            Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Liste Maladies enregistré avec succès", Toast.LENGTH_SHORT).show();
         }
     }
 

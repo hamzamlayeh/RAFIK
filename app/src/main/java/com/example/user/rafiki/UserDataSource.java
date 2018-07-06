@@ -256,11 +256,6 @@ public class UserDataSource {
         }
         return list;
     }
-    public int getCountAntecedents(){
-        Cursor cursor = db.query(TABLE_NAME4,null, null, null,
-                null, null, null, null);
-        return  cursor.getCount();
-    }
     public long addAnte(Antecedents_ItemData itemData, int pos) {
 
         ContentValues contentValues = new ContentValues();
@@ -298,7 +293,6 @@ public class UserDataSource {
     public void deleteAnti(int pos) {
 
         db.delete(TABLE_NAME4, "position= "+ pos , null);
-
     }
 
 }

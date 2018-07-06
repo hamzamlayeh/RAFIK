@@ -1,32 +1,24 @@
 package com.example.user.rafiki;
 
-import android.annotation.TargetApi;
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.user.rafiki.Adapter.Antecedents_Adapter;
-import com.example.user.rafiki.ItemData.Antecedents_ItemData;
 import com.example.user.rafiki.Helper.RecyclerViewClickListener;
 import com.example.user.rafiki.Helper.RecyclerViewTouchListener;
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+import com.example.user.rafiki.ItemData.Antecedents_ItemData;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
-
-import static com.example.user.rafiki.Adapter.Antecedents_Adapter.ViewHolder.TEST_VIDE;
 
 public class AntecedentsActivity extends AppCompatActivity {
     RecyclerView r;
@@ -34,7 +26,6 @@ public class AntecedentsActivity extends AppCompatActivity {
     Antecedents_Adapter myAdapter;
     ArrayList<Antecedents_ItemData> list = new ArrayList<Antecedents_ItemData>();
     SharedPreferences.Editor editor;
-    SharedPreferences pref;
     ImageView ajout;
     int i = 0;
     String TestDate, TestActe;
@@ -56,26 +47,19 @@ public class AntecedentsActivity extends AppCompatActivity {
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 2);
         ds = new UserDataSource(helper);
-        if (list!=null) {
+        if (list != null) {
             list = (ArrayList<Antecedents_ItemData>) ds.getListAnte();
         }
-        if (list.size() ==5) {
+        if (list.size() == 5) {
             ajout.setVisibility(View.GONE);
             conteneur.setVisibility(View.GONE);
-
-
-        }else {
+        } else {
             ajout.setVisibility(View.VISIBLE);
             conteneur.setVisibility(View.VISIBLE);
-
         }
         myAdapter = new Antecedents_Adapter(this, list);
         r.setLayoutManager(new LinearLayoutManager(this));
         r.setAdapter(myAdapter);
-
-
-
-
 
         r.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), r, new RecyclerViewClickListener() {
             @Override
@@ -83,11 +67,10 @@ public class AntecedentsActivity extends AppCompatActivity {
 
                 EditText acte1 = view.findViewById(R.id.acte);
                 EditText date1 = view.findViewById(R.id.date);
-                if (list.size() ==5) {
+                if (list.size() == 5) {
                     ajout.setVisibility(View.VISIBLE);
                     conteneur.setVisibility(View.VISIBLE);
                 }
-
                 date.setText(date1.getText().toString());
                 acte.setText(acte1.getText().toString());
 
@@ -100,9 +83,9 @@ public class AntecedentsActivity extends AppCompatActivity {
                 try {
 
                     list.remove(position);
-                    ds.deleteAnti(position+1);
+                    ds.deleteAnti(position + 1);
                     myAdapter.notifyDataSetChanged();
-                    if (list.size() <5) {
+                    if (list.size() < 5) {
                         ajout.setVisibility(View.VISIBLE);
                         conteneur.setVisibility(View.VISIBLE);
                     }
@@ -126,16 +109,18 @@ public class AntecedentsActivity extends AppCompatActivity {
             acte.setText("");
             pos = -1;
 
-            if (list.size() ==5) {
+            if (list.size() == 5) {
                 ajout.setVisibility(View.GONE);
                 conteneur.setVisibility(View.GONE);
             }
+            Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
+            startActivity(ite);
         }
-
+        Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
+        startActivity(ite);
     }
 
     public void ajout_linge(View view) {
-
 
         TestDate = date.getText().toString();
         TestActe = acte.getText().toString();
@@ -152,16 +137,12 @@ public class AntecedentsActivity extends AppCompatActivity {
                 if (list.size() >= 5) {
                     ajout.setVisibility(View.GONE);
                     conteneur.setVisibility(View.GONE);
-
                 }
             }
 
         }
-
-
     }
 
-    @TargetApi(16)
     private boolean valider() {
         boolean valide = true;
         if (TestDate.isEmpty()) {
@@ -174,7 +155,17 @@ public class AntecedentsActivity extends AppCompatActivity {
         }
         return valide;
     }
-
-
+    public void alert(View view) {
+        AlertDialog.Builder alt = new AlertDialog.Builder(this);
+        alt.setTitle(" ").setIcon(R.drawable.alert)
+                .setMessage("\n" + getString(R.string.ajouter) + "         " + getString(R.string.cliquer_sur_maladie) + "\n" +
+                        getString(R.string.modifier) + "       " + getString(R.string.cliquer_sur_maladie) + "\n" +
+                        getString(R.string.supprimer) + "   " + getString(R.string.appui_long_sur_maladie)
+                )
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                }).show();
+    }
 }
-
