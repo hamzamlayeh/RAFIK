@@ -43,7 +43,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String delet_sql="DROP Table clients ";
         String delet_sql2="DROP Table ficheMedicale ";
         String delet_sql3="DROP Table Antecedents ";
-        String delet_sql4="DROP Table Maladis ";
+       String delet_sql4="DROP Table Maladis ";
 
         sqLiteDatabase.execSQL(delet_sql);
         sqLiteDatabase.execSQL(delet_sql2);

@@ -26,7 +26,7 @@ public class MaladiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maladi);
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 2);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 8);
         ds = new UserDataSource(helper);
 
         Maladi1 = findViewById(R.id.malade1);

@@ -45,7 +45,7 @@ public class AntecedentsActivity extends AppCompatActivity {
         conteneur = findViewById(R.id.conteneur);
         r = (RecyclerView) findViewById(R.id.r);
 
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 2);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 8);
         ds = new UserDataSource(helper);
         if (list != null) {
             list = (ArrayList<Antecedents_ItemData>) ds.getListAnte();
