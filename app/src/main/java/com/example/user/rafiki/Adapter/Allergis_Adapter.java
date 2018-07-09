@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.user.rafiki.ItemData.Allergis_ItemData;
 import com.example.user.rafiki.ItemData.Antecedents_ItemData;
@@ -21,7 +22,7 @@ import java.util.List;
 public class Allergis_Adapter extends RecyclerView.Adapter<Allergis_Adapter.ViewHolder> {
 
 public static class ViewHolder extends RecyclerView.ViewHolder{
-    EditText e1;
+    TextView e1;
 
 
     public ViewHolder(View itemView) {

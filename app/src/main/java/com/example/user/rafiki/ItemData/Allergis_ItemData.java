@@ -10,7 +10,7 @@ package com.example.user.rafiki.ItemData;
 
 
 
-        public Allergis_ItemData(String edite1, String edite2) {
+        public Allergis_ItemData(String edite1) {
             this.edite1 = edite1;
 
 

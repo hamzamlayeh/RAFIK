@@ -68,12 +68,12 @@ public class AntecedentsActivity extends AppCompatActivity {
                 EditText acte1 = view.findViewById(R.id.acte);
                 EditText date1 = view.findViewById(R.id.date);
                 if (list.size() == 5) {
-                    ajout.setVisibility(View.VISIBLE);
+                  //  ajout.setVisibility(View.VISIBLE);
                     conteneur.setVisibility(View.VISIBLE);
                 }
                 date.setText(date1.getText().toString());
                 acte.setText(acte1.getText().toString());
-
+                ajout.setVisibility(View.GONE);
                 pos = position;
 
             }
@@ -108,7 +108,7 @@ public class AntecedentsActivity extends AppCompatActivity {
             date.setText("");
             acte.setText("");
             pos = -1;
-
+            ajout.setVisibility(View.VISIBLE);
             if (list.size() == 5) {
                 ajout.setVisibility(View.GONE);
                 conteneur.setVisibility(View.GONE);

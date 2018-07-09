@@ -27,6 +27,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/allergies">
 
                 <LinearLayout
+                    android:id="@+id/conteneur"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -38,7 +39,7 @@
 
                         <TextView
 
-                            android:id="@+id/acte"
+                            android:id="@+id/NonAllergies"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="7"
@@ -109,7 +110,7 @@
                             android:fontFamily="@font/raleway_regular"
                             android:hint="@string/renseiger"
 
-                            android:inputType="date"
+                            android:inputType="text|date"
                             android:paddingBottom="10dp"
                             android:paddingLeft="15dp"
                             android:paddingTop="10dp"
@@ -154,13 +155,10 @@
                 android:id="@+id/ajout"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="360dp"
                 android:onClick="ajout_linge"
                 android:src="@drawable/plus"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/allergies" />
+                app:layout_constraintTop_toBottomOf="@+id/cardView7" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/r"
@@ -182,7 +180,6 @@
                 android:layout_marginBottom="157dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="12dp"
 
                 android:background="@drawable/button_rudus"
                 android:fontFamily="@font/raleway_bold"
@@ -193,9 +190,8 @@
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/r" />
+                app:layout_constraintHorizontal_bias="0.18"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 

@@ -12,7 +12,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardBackgroundColor="#eceaea"
         app:cardCornerRadius="7dp">
 
         <LinearLayout
@@ -90,17 +90,15 @@
                     android:layout_weight="0"
                     android:background="#9f9d9e" />
 
-                <EditText
+                <TextView
                     android:id="@+id/donne"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/raleway_regular"
                     android:hint="@string/renseiger"
-
-                    android:inputType="date"
+                    android:inputType="text"
                     android:paddingBottom="10dp"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"

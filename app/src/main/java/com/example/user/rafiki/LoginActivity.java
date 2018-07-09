@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.nom);
         pass = findViewById(R.id.password);
 
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 4);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 8);
         ds = new UserDataSource(helper);
         //si vous pouvez supprimer touts les champs de table just lever le commentaire
         //ds.removetable();
