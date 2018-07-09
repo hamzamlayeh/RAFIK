@@ -29,7 +29,7 @@ public class MenuActivity extends AppCompatActivity {
         profile_img = (CircleImageView) findViewById(R.id.profile_image);
         NomUtilisateur=findViewById(R.id.nom);
 
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 1);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
         pref = getApplicationContext().getSharedPreferences("Inscription", MODE_PRIVATE);
 

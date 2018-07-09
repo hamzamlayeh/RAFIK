@@ -55,7 +55,7 @@ public class Inscription extends AppCompatActivity {
         confirm_pass = (EditText) findViewById(id.conf_pass);
         spinner = (Spinner) findViewById(id.code_pays);
 
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null,1);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
 
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);

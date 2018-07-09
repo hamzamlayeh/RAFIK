@@ -54,7 +54,7 @@ public class ModifierCompte extends AppCompatActivity {
 
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
         editor = prefs.edit();
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 1);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
         list = ds.getAllClient();
         remplirspinir();

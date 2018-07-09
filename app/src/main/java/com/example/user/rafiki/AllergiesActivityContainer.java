@@ -48,7 +48,7 @@ public class AllergiesActivityContainer extends AppCompatActivity {
         String nomAllergies= getIntent().getExtras().getString("allergies");
         NonAllergies.setText(nomAllergies);
 
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 2);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
 
         if (list != null) {

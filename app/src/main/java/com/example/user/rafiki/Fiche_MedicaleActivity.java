@@ -35,7 +35,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_medicale);
 
-        helper = new MySQLiteOpenHelper(this, "Utilisateur", null, 2);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
         pref = getApplicationContext().getSharedPreferences("Inscription", MODE_PRIVATE);
         pref2 = getApplicationContext().getSharedPreferences("Fiche_Medicale", MODE_PRIVATE);
