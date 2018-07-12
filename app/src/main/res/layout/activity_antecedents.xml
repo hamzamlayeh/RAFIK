@@ -17,12 +17,12 @@
             android:id="@+id/bt_info"
             android:layout_width="40dp"
             android:layout_height="23dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="8dp"
             android:onClick="alert"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rafiki3"
             app:srcCompat="@drawable/alert" />
 
         <android.support.v7.widget.CardView
@@ -49,8 +49,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-
-
                     android:fontFamily="@font/raleway_regular"
                     android:hint="@string/acte_chirurgicale"
                     android:paddingBottom="10dp"
@@ -117,23 +115,24 @@
 
         <ImageView
             android:id="@+id/ajout"
-            android:layout_width="58dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="18dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="8dp"
             android:onClick="ajout_linge"
             android:src="@drawable/plus"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView7" />
 
         <Button
             android:id="@+id/ok"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:layout_marginBottom="157dp"
+            android:layout_marginBottom="170dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="12dp"
 
+            android:layout_marginStart="50dp"
             android:background="@drawable/button_rudus"
             android:fontFamily="@font/raleway_bold"
             android:onClick="retoure_fiche"
@@ -144,20 +143,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/r" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/r"
             android:layout_width="0dp"
-            android:layout_height="310dp"
+            android:layout_height="280dp"
             android:layout_marginEnd="50dp"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView7"
+            app:layout_constraintTop_toBottomOf="@+id/ajout"
             app:layout_constraintVertical_chainStyle="spread" />
 
     </android.support.constraint.ConstraintLayout>

@@ -83,7 +83,7 @@ public class AntecedentsActivity extends AppCompatActivity {
                 try {
 
                     list.remove(position);
-                    ds.deleteAnti(position + 1);
+                    ds.deleteAnti(position );
                     myAdapter.notifyDataSetChanged();
                     if (list.size() < 5) {
                         ajout.setVisibility(View.VISIBLE);
@@ -102,7 +102,7 @@ public class AntecedentsActivity extends AppCompatActivity {
             String T2 = acte.getText().toString();
 
             Antecedents_ItemData Data = new Antecedents_ItemData(T2, T1);
-            list.set(pos, Data);
+            list.set(pos+1, Data);
             long x = ds.UpdateAnti(T2, T1, pos + 1);
             myAdapter.notifyDataSetChanged();
             date.setText("");

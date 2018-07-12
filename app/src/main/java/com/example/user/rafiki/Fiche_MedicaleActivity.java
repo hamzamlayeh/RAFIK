@@ -22,7 +22,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
 
     CircleImageView profile_img;
     EditText NomUtilisateur, Sang, Poid, Taille, Num_secrt, Adresse, Code_post, Ville;
-    String email, poid, taille, num_secrt, adresse, code_post, ville;
+    String email, poid, taille, num_secrt, adresse, code_post, ville,sang;
     SharedPreferences pref, pref2;
     SharedPreferences.Editor editor;
     MySQLiteOpenHelper helper;
@@ -71,7 +71,8 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
                 editor.putString("Code_Postal", list.get(0).getCode_postal());
                 editor.putString("Adresse", list.get(0).getAdresse());
                 editor.putString("Ville", list.get(0).getVille());
-                editor.putString("G_Sang", list.get(0).getSang());
+                //editor.putString("G_Sang", list.get(0).getSang());
+                Sang.setText(list.get(0).getSang());
                 editor.apply();
             }
         }
@@ -172,10 +173,11 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         adresse = Adresse.getText().toString().trim();
         code_post = Code_post.getText().toString().trim();
         ville = Ville.getText().toString().trim();
+        sang = Sang.getText().toString().trim();
         if (valider()) {
-            String Sang = pref2.getString("G_Sang", "");
+            //String Sang = pref2.getString("G_Sang", "");
 
-            fiches = new Fiche(email, poid, taille, num_secrt, adresse, code_post, ville, Sang);
+            fiches = new Fiche(email, poid, taille, num_secrt, adresse, code_post, ville, sang);
             if (list.size()<1){
                 long ids = ds.addFiche(fiches);
                 if (ids == -1) {

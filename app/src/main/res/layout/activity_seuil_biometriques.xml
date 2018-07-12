@@ -216,11 +216,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:background="@android:color/transparent"
-                                android:ems="10"
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
+                                android:focusableInTouchMode="true"
                                 android:hint="@string/bpm"
-                                android:inputType="textPersonName"
+                                android:inputType="number"
                                 android:padding="9dp"
                                 android:textSize="14sp"
                                 tools:layout_editor_absoluteX="55dp"
@@ -243,8 +243,7 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
-                                android:inputType="textPersonName"
-                                android:padding="9dp"
+                                android:inputType="number"                                android:padding="9dp"
                                 android:textSize="14sp"
                                 tools:layout_editor_absoluteX="160dp"
                                 tools:layout_editor_absoluteY="0dp" />
@@ -324,8 +323,7 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
-                                android:inputType="textPersonName"
-                                android:padding="9dp"
+                                android:inputType="number"                                android:padding="9dp"
                                 android:textSize="14sp" />
 
                             <View
@@ -344,8 +342,7 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
-                                android:inputType="textPersonName"
-                                android:padding="9dp"
+                                android:inputType="number"                                android:padding="9dp"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
@@ -400,8 +397,7 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
-                                android:inputType="textPersonName"
-                                android:padding="9dp"
+                                android:inputType="number"                                android:padding="9dp"
                                 android:textSize="14sp" />
 
                             <View
@@ -421,8 +417,7 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
-                                android:inputType="textPersonName"
-                                android:padding="9dp"
+                                android:inputType="number"                                android:padding="9dp"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
@@ -476,8 +471,7 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
-                                android:inputType="numberDecimal"
-                                android:padding="9dp"
+                                android:inputType="number"                                android:padding="9dp"
                                 android:textSize="14sp" />
 
                             <View
@@ -497,8 +491,7 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
-                                android:inputType="numberDecimal"
-                                android:padding="9dp"
+                                android:inputType="number"                                android:padding="9dp"
                                 android:textSize="14sp" />
                         </LinearLayout>
 

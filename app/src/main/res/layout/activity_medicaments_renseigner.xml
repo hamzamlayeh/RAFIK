@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MedicamentsRenseignerActivity"
-    android:background="@drawable/bag10">
+    android:background="@drawable/bag10"
+    tools:context=".MedicamentsRenseignerActivity">
 
     <ImageView
         android:id="@+id/rafiki3"
@@ -28,10 +28,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:layout_weight="1"
+        android:fontFamily="@font/champagne_limousines_bold"
         android:gravity="center"
         android:text="@string/m_dicaments"
         android:textAllCaps="true"
-        android:fontFamily="@font/champagne_limousines_bold"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,8 +46,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittexte_rudus"
-        android:shrinkColumns="1"
-        android:stretchColumns="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sexe2">
@@ -56,111 +54,206 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
+                android:fontFamily="@font/raleway_regular"
                 android:padding="10dp"
-                android:text="Nom"
-                android:textSize="18sp" />
+                android:text="@string/nom"
+                android:textSize="16sp" />
 
-            <TextView
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
+
+            <EditText
+                android:id="@+id/nom_medicament"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="left"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="Panadol"
+                android:inputType="textShortMessage"
                 android:padding="10dp"
-                android:text="Panadol"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </TableRow>
 
         <View
             android:layout_height="1dp"
-            android:background="#FF909090" />
+            android:background="@color/ligne_horizontal" />
+
+        <TableRow android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:fontFamily="@font/raleway_regular"
+                android:padding="10dp"
+                android:text="@string/nombre_de_prise_jour"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
+
+            <EditText
+                android:id="@+id/nb_jour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="2"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <View
+            android:layout_height="1dp"
+            android:background="@color/ligne_horizontal" />
+
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:fontFamily="@font/raleway_regular"
+                android:padding="10dp"
+                android:text="@string/nombre_de_prise_midi"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
+
+            <EditText
+                android:id="@+id/nb_midi"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/raleway_regular"
+                android:hint="1"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <View
+            android:layout_height="1dp"
+            android:background="@color/ligne_horizontal" />
 
         <TableRow>
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:padding="10dp"
-                android:text="Dose par prise"
-                android:textSize="18sp" />
+                android:fontFamily="@font/raleway_regular"
+                android:text="@string/nombre_de_prise_soire"
+                android:textSize="16sp" />
 
-            <TextView
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
+
+            <EditText
+                android:id="@+id/nb_soire"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="left"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:hint="3"
+                android:fontFamily="@font/raleway_regular"
+                android:inputType="number"
                 android:padding="10dp"
-                android:text="2"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </TableRow>
 
         <View
             android:layout_height="1dp"
-            android:background="#FF909090" />
+            android:background="@color/ligne_horizontal" />
 
         <TableRow>
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:padding="10dp"
-                android:text="Début traitement"
-                android:textSize="18sp" />
+                android:fontFamily="@font/raleway_regular"
+                android:text="@string/d_but_traitement"
+                android:textSize="16sp" />
 
-            <TextView
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
+
+            <EditText
+                android:id="@+id/debut_traitment"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="left"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:hint="3 oct 2017"
+                android:fontFamily="@font/raleway_regular"
+                android:inputType="date"
                 android:padding="10dp"
-                android:text="3 oct 2017"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </TableRow>
 
         <View
             android:layout_height="1dp"
-            android:background="#FF909090" />
+            android:background="@color/ligne_horizontal" />
 
         <TableRow>
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:padding="10dp"
-                android:text="Fin traitement"
-                android:textSize="18sp" />
+                android:fontFamily="@font/raleway_regular"
+                android:text="@string/fin_traitement"
+                android:textSize="16sp" />
 
-            <TextView
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
+
+            <EditText
+                android:id="@+id/fin_traitment"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="left"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:hint="3 oct 2018"
+                android:fontFamily="@font/raleway_regular"
+                android:inputType="date"
                 android:padding="10dp"
-                android:text="3 oct 2018"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </TableRow>
 
         <View
             android:layout_height="1dp"
-            android:background="#FF909090" />
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="4"
-                android:padding="10dp"
-                android:text="Nombre de prises par jour"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:padding="10dp"
-                android:text="3"
-                android:textSize="18sp" />
-        </TableRow>
-
-        <View
-            android:layout_height="1dp"
-            android:background="#FF909090" />
+            android:background="@color/ligne_horizontal" />
 
         <TableRow>
 
@@ -168,34 +261,62 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:padding="10dp"
-                android:text="Heure de prise"
+                android:fontFamily="@font/raleway_regular"
+                android:text="@string/heure_de_prise"
                 android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:gravity="left"
+                android:hint="09:20"
+                android:fontFamily="@font/raleway_regular"
                 android:padding="10dp"
-                android:text="19:20"
-                android:textColor="#18e2c5"
+                android:gravity="center"
+                android:textColor="@color/btn_radio"
+                android:textColorHint="@color/btn_radio"
                 android:textSize="14sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:gravity="left"
+                android:hint="13:20"
+                android:fontFamily="@font/raleway_regular"
                 android:padding="10dp"
-                android:text="19:20"
-                android:textColor="#18e2c5"
+                android:gravity="center"
+                android:textColor="@color/btn_radio"
+                android:textColorHint="@color/btn_radio"
                 android:textSize="14sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:gravity="left"
+                android:hint="20:20"
+                android:fontFamily="@font/raleway_regular"
                 android:padding="10dp"
-                android:text="19:20"
-                android:textColor="#18e2c5"
+                android:gravity="center"
+                android:textColor="@color/btn_radio"
+                android:textColorHint="@color/btn_radio"
                 android:textSize="14sp" />
         </TableRow>
     </TableLayout>
@@ -206,6 +327,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/edittexte_rudus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout">
@@ -213,101 +335,145 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/cardview_light_background"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
+                android:fontFamily="@font/raleway_regular"
                 android:gravity="left"
-                android:padding="8dp"
-                android:text="Récurrnce"
+                android:padding="10dp"
+                android:text="@string/r_currnce"
                 android:textSize="14sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="L"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/l"
                 android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="M"
-                android:textColor="#18e2c5"
-                android:textSize="18sp" />
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/m"
+                android:textColor="@color/btn_radio"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="M"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/m"
                 android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView120"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="M"
-                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="J"
-                android:textColor="#18e2c5"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/j"
+                android:textColor="@color/btn_radio"
                 android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="V"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/v"
                 android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="S"
-                android:textColor="#18e2c5"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/s"
+                android:textColor="@color/btn_radio"
                 android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:background="@color/ligne_horizontal" />
 
             <TextView
                 android:id="@+id/textView30"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:padding="8dp"
-                android:text="D"
-                android:textSize="18sp" />
-
-
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/d"
+                android:textSize="16sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -319,10 +485,10 @@
         android:layout_marginEnd="45dp"
         android:layout_marginStart="45dp"
         android:background="@drawable/button_rudus"
+        android:fontFamily="@font/raleway_bold"
         android:text="@string/ok"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:fontFamily="@font/raleway_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
