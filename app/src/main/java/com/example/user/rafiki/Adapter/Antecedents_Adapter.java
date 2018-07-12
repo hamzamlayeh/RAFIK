@@ -46,6 +46,7 @@ public Antecedents_Adapter(Context context, ArrayList<Antecedents_ItemData> list
     this.list=list;
 
 }
+
     @Override
     public Antecedents_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -61,72 +62,7 @@ public Antecedents_Adapter(Context context, ArrayList<Antecedents_ItemData> list
             holder.e1.setText(itemData.getEdite1());
             holder.e2.setText(itemData.getEdite2());
 
-        //        if (!itemData.getEdite1().equals("")&& itemData.getEdite2().equals("")){
 
-//        holder.e1.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                if (holder.e2.getText().length()==0){
-//                    TEST_VIDE=1;
-//                }else {
-//                    TEST_VIDE=0;
-//                }
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                if (holder.e2.getText().length()==0){
-//                    TEST_VIDE=1;
-//                }else {
-//                    TEST_VIDE=0;
-//                }
-//
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                if (holder.e2.getText().length()==0){
-//                    TEST_VIDE=1;
-//                }else {
-//                    TEST_VIDE=0;
-//                }
-//            }
-//
-//        });
-//        holder.e1.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                if (holder.e1.getText().length()==0){
-//                    TEST_VIDE=1;
-//                }else {
-//                    TEST_VIDE=0;
-//                }
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                if (holder.e1.getText().length()==0){
-//                    TEST_VIDE=1;
-//                }else {
-//                    TEST_VIDE=0;
-//                }
-//
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                if (holder.e1.getText().length()==0){
-//                    TEST_VIDE=1;
-//                }else {
-//                    TEST_VIDE=0;
-//                }
-//            }
-//
-//        });
-
-//
 
 
     }

@@ -1,0 +1,1368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bag10"
+    tools:context=".SeuilBiometriques">
+
+    <ImageView
+        android:id="@+id/rafiki3"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rafik" />
+
+    <TextView
+        android:id="@+id/fiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/champagne_limousines_bold"
+        android:gravity="center"
+        android:text="@string/seuils_biom_triques"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            style="@style/scrollbar_shape_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="18dp"
+            android:fadeScrollbars="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="24dp">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="#f2f0f1"
+                    app:cardCornerRadius="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/activite1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="8"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/activit"
+                                android:textColor="@color/color_fc"
+                                android:textSize="20sp" />
+
+                            <View
+                                android:id="@+id/view19"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/txt_fc"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/raleway_regular"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text="FC"
+                                    android:textColor="@color/color_fc"
+                                    android:textSize="16sp" />
+
+                                <View
+                                    android:id="@+id/view21"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="0"
+                                    android:background="@color/ligne_horizontal" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/min"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:fontFamily="@font/raleway_regular"
+                                        android:gravity="center"
+                                        android:text="@string/min"
+                                        android:textSize="13sp" />
+
+                                    <View
+                                        android:id="@+id/view22"
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0"
+                                        android:background="@color/ligne_horizontal" />
+
+                                    <TextView
+                                        android:id="@+id/max"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:fontFamily="@font/raleway_regular"
+                                        android:gravity="center"
+                                        android:text="@string/max"
+                                        android:textSize="13sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view23"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/marche1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="3dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_marche"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/txt_mar1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/marche"
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="98dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+                            <View
+                                android:id="@+id/view25"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCmarche_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="textPersonName"
+                                android:padding="9dp"
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="55dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+                            <View
+                                android:id="@+id/view26"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCmarche_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="textPersonName"
+                                android:padding="9dp"
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="160dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view24"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/course1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="1dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_course"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/txt_cour1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="5dp"
+                                android:text="@string/course"
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:id="@+id/cycle1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_cycle"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/txt_cyc1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/raleway_regular"
+                                android:paddingBottom="9dp"
+                                android:paddingTop="9dp"
+                                android:text="@string/cyclisme"
+                                android:textSize="12sp" />
+
+                            <View
+                                android:id="@+id/view28"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCcourse_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="textPersonName"
+                                android:padding="9dp"
+                                android:textSize="13sp" />
+
+                            <View
+                                android:id="@+id/view29"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCcourse_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="textPersonName"
+                                android:padding="9dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view27"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/home1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="3dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_home"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/txt_act1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/activit_journali_res" />
+
+                            <View
+                                android:id="@+id/view32"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCactivit_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="textPersonName"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:id="@+id/view33"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCactivit_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="textPersonName"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view31"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/sommeil1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_lit"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/txt_som1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/sommeil" />
+
+                            <View
+                                android:id="@+id/view34"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCsommeil_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:id="@+id/view35"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FCsommeil_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardView1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="27dp"
+                    app:cardBackgroundColor="#f2f0f1"
+                    app:cardCornerRadius="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/activite2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="8"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/activit"
+                                android:textColor="@color/color_fc"
+                                android:textSize="24sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/txt_fr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/raleway_regular"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text="FR"
+                                    android:textColor="@color/color_fc"
+                                    android:textSize="18sp" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="0"
+                                    android:background="@color/ligne_horizontal" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/min1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:fontFamily="@font/raleway_regular"
+                                        android:gravity="center"
+                                        android:text="@string/min" />
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0"
+                                        android:background="@color/ligne_horizontal" />
+
+                                    <TextView
+                                        android:id="@+id/max1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:fontFamily="@font/raleway_regular"
+                                        android:gravity="center"
+                                        android:text="@string/max" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/marche2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="3dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_marche"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView33"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/marche"
+                                tools:layout_editor_absoluteX="98dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRmarche_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/rpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp"
+                                tools:layout_editor_absoluteX="55dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRmarche_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/rpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp"
+                                tools:layout_editor_absoluteX="160dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/course2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="1dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_course"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView34"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="5dp"
+                                android:text="@string/course" />
+
+                            <ImageView
+                                android:id="@+id/cycle2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_cycle"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView35"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/raleway_regular"
+                                android:paddingBottom="9dp"
+                                android:paddingTop="9dp"
+                                android:text="@string/cyclisme" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRcourse_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/rpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRcourse_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/bpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/homme2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="3dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_home"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView36"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/activit_journali_res" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRactivit_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/rpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRactivit_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/rpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/sommeil2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_lit"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/txt_som2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/sommeil" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRsommeil_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/rpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/FRsommeil_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/rpm"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="27dp"
+                    app:cardBackgroundColor="#f2f0f1"
+                    app:cardCornerRadius="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/activite3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="8"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/activit"
+                                android:textColor="@color/color_fc"
+                                android:textSize="24sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/txt_t"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/raleway_regular"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text="T°"
+                                    android:textColor="@color/color_fc"
+                                    android:textSize="18sp" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="0"
+                                    android:background="@color/ligne_horizontal" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/min2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:fontFamily="@font/raleway_regular"
+                                        android:gravity="center"
+                                        android:text="@string/min" />
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0"
+                                        android:background="@color/ligne_horizontal" />
+
+                                    <TextView
+                                        android:id="@+id/max2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:fontFamily="@font/raleway_regular"
+                                        android:gravity="center"
+                                        android:text="@string/max" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/marche3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="3dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_marche"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView330"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/marche"
+                                tools:layout_editor_absoluteX="98dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tmarche_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp"
+                                tools:layout_editor_absoluteX="55dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tmarche_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp"
+                                tools:layout_editor_absoluteX="160dp"
+                                tools:layout_editor_absoluteY="0dp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/course3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="1dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_course"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView340"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="5dp"
+                                android:text="@string/course" />
+
+                            <ImageView
+                                android:id="@+id/cycle3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_cycle"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView350"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/raleway_regular"
+                                android:paddingBottom="9dp"
+                                android:paddingTop="9dp"
+                                android:text="@string/cyclisme" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tcourse_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tcourse_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/homme3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:padding="3dp"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_home"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView360"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/activit_journali_res" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tactivit_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tactivit_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/sommeil3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:textSize="18sp"
+                                app:srcCompat="@drawable/icone_lit"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/txt_som3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:fontFamily="@font/raleway_regular"
+                                android:padding="9dp"
+                                android:text="@string/sommeil" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tsommeil_min"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
+                            <EditText
+                                android:id="@+id/Tsommeil_max"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:hint="@string/c"
+                                android:inputType="numberDecimal"
+                                android:padding="9dp"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <Button
+                    android:id="@+id/enregistre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/button_rudus"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="@string/enregistrer"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
