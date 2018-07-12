@@ -403,7 +403,7 @@
         android:background="@drawable/button_rudus"
         android:text="@string/enregistrer"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:onClick="enregestrer"
         android:fontFamily="@font/raleway_bold"
         app:layout_constraintEnd_toEndOf="parent"

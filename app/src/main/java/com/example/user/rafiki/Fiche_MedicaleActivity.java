@@ -175,7 +175,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         ville = Ville.getText().toString().trim();
         sang = Sang.getText().toString().trim();
         if (valider()) {
-            //String Sang = pref2.getString("G_Sang", "");
 
             fiches = new Fiche(email, poid, taille, num_secrt, adresse, code_post, ville, sang);
             if (list.size()<1){
@@ -183,8 +182,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
                 if (ids == -1) {
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
-                    System.out.println(list.size());
-                    Toast.makeText(this, R.string.fiche_enregistre, Toast.LENGTH_LONG).show();
                     Intent ite = new Intent(this, MenuActivity.class);
                     startActivity(ite);
                 }
@@ -193,8 +190,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
                 if (ids == -1) {
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
-                    System.out.println(list.size());
-                    Toast.makeText(this, R.string.fiche_enregistre, Toast.LENGTH_LONG).show();
                     Intent ite = new Intent(this, MenuActivity.class);
                     startActivity(ite);
                 }

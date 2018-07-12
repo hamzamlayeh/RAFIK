@@ -124,7 +124,6 @@
     <string name="min">Min</string>
     <string name="max">Max</string>
     <string name="c">C°</string>
-    <string name="fiche_enregistre">Votre fiche a été enregistré avec succès</string>
     <string name="acte_chirurgicale">Acte chirurgicale</string>
     <string name="date">Date</string>
     <string name="allergie_a">Allergie a</string>
@@ -149,4 +148,5 @@
     <string name="s">S</string>
     <string name="d">D</string>
     <string name="pr_c_dent">précédent</string>
+    <string name="exp_2">exp:2</string>
 </resources>

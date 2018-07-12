@@ -43,22 +43,31 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        String age;
+        String age, date;
         Button button = (Button) view;
         if (button.getText().toString().equals(getString(R.string.anuler))) {
             this.dismiss();
         } else {
             Calendar cal = Calendar.getInstance();
             int x = cal.get(Calendar.YEAR) - naisence.getYear();
-
+            int month = naisence.getMonth() + 1;
+            date = naisence.getDayOfMonth() + "-" + month + "-" + naisence.getYear();
             age = x + " ans";
             if (Inscription.NUM_PAGE == 1) {
                 Inscription inscr = (Inscription) getActivity();
                 inscr.setage(age);
                 this.dismiss();
-            } else {
+            } else if (Inscription.NUM_PAGE == 2) {
                 ModifierCompte inscr = (ModifierCompte) getActivity();
                 inscr.setage(age);
+                this.dismiss();
+            } else if (Inscription.NUM_PAGE == 3) {
+                MedicamentsRenseignerActivity inscr = (MedicamentsRenseignerActivity) getActivity();
+                if (MedicamentsRenseignerActivity.P == 1) {
+                    inscr.setage(date);
+                } else {
+                    inscr.setage2(date);
+                }
                 this.dismiss();
             }
         }

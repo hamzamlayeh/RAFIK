@@ -74,7 +74,7 @@
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
-                android:hint="Panadol"
+                android:hint=""
                 android:inputType="textShortMessage"
                 android:padding="10dp"
                 android:textSize="16sp" />
@@ -110,7 +110,7 @@
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
-                android:hint="2"
+                android:hint="@string/exp_2"
                 android:inputType="number"
                 android:padding="10dp"
                 android:textSize="16sp" />
@@ -143,7 +143,7 @@
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
-                android:hint="1"
+                android:hint="@string/exp_2"
                 android:inputType="number"
                 android:padding="10dp"
                 android:textSize="16sp" />
@@ -176,7 +176,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
-                android:hint="3"
+                android:hint="@string/exp_2"
                 android:fontFamily="@font/raleway_regular"
                 android:inputType="number"
                 android:padding="10dp"
@@ -210,7 +210,10 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
-                android:hint="3 oct 2017"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:onClick="get_age"
+                android:hint="exp:3 oct 2017"
                 android:fontFamily="@font/raleway_regular"
                 android:inputType="date"
                 android:padding="10dp"
@@ -244,7 +247,10 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:background="@android:color/transparent"
-                android:hint="3 oct 2018"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:onClick="get_age2"
+                android:hint="exp:3 oct 2018"
                 android:fontFamily="@font/raleway_regular"
                 android:inputType="date"
                 android:padding="10dp"
@@ -275,12 +281,11 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:hint="09:20"
+                android:hint="00:00"
                 android:fontFamily="@font/raleway_regular"
                 android:padding="10dp"
                 android:gravity="center"
                 android:textColor="@color/btn_radio"
-                android:textColorHint="@color/btn_radio"
                 android:textSize="14sp" />
             <View
                 android:layout_width="1dp"
@@ -293,12 +298,11 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:hint="13:20"
+                android:hint="00:00"
                 android:fontFamily="@font/raleway_regular"
                 android:padding="10dp"
                 android:gravity="center"
                 android:textColor="@color/btn_radio"
-                android:textColorHint="@color/btn_radio"
                 android:textSize="14sp" />
             <View
                 android:layout_width="1dp"
@@ -311,12 +315,11 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:hint="20:20"
+                android:hint="00:00"
                 android:fontFamily="@font/raleway_regular"
                 android:padding="10dp"
                 android:gravity="center"
                 android:textColor="@color/btn_radio"
-                android:textColorHint="@color/btn_radio"
                 android:textSize="14sp" />
         </TableRow>
     </TableLayout>
@@ -487,6 +490,7 @@
         android:background="@drawable/button_rudus"
         android:fontFamily="@font/raleway_bold"
         android:text="@string/ok"
+        android:onClick="retoure_fiche"
         android:textColor="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

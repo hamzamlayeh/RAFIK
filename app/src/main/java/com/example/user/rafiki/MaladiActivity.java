@@ -130,8 +130,6 @@ public class MaladiActivity extends AppCompatActivity {
             }
             Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
             startActivity(ite);
-            Toast.makeText(this, "Liste Maladies enregistré avec succès", Toast.LENGTH_SHORT).show();
-
         } else {
             int i = 0;
             while (i < listMaladi.size()) {
@@ -141,7 +139,6 @@ public class MaladiActivity extends AppCompatActivity {
             }
             Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
             startActivity(ite);
-            Toast.makeText(this, "Liste Maladies enregistré avec succès", Toast.LENGTH_SHORT).show();
         }
     }
 
