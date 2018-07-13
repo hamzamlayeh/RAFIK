@@ -20,16 +20,7 @@ public class Medicament_Item {
     private int color_sa;
     private int color_di;
 
-    public Medicament_Item(String nom_medica, String nb_matin, String nb_midi, String nb_soire, String date_fin) {
-        this.nom_medica = nom_medica;
-        this.nb_matin = nb_matin;
-        this.nb_midi = nb_midi;
-        this.nb_soire = nb_soire;
-        this.date_fin = date_fin;
-    }
-
-    public Medicament_Item(int _id, String nom_medica, String nb_matin, String nb_midi, String nb_soire, String date_debut, String date_fin, String heure_matin, String heure_midi, String heur_soire, int color_lu, int color_ma, int color_me, int color_ju, int color_ve, int color_sa, int color_di) {
-        this._id = _id;
+    public Medicament_Item(String nom_medica, String nb_matin, String nb_midi, String nb_soire, String date_debut, String date_fin, String heure_matin, String heure_midi, String heur_soire, int color_lu, int color_ma, int color_me, int color_ju, int color_ve, int color_sa, int color_di) {
         this.nom_medica = nom_medica;
         this.nb_matin = nb_matin;
         this.nb_midi = nb_midi;
@@ -183,4 +174,5 @@ public class Medicament_Item {
     public void setColor_di(int color_di) {
         this.color_di = color_di;
     }
+
 }

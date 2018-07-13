@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.user.rafiki.ItemData.Medicament_Item;
 import com.example.user.rafiki.R;
@@ -64,6 +65,13 @@ public class Medicament_Adapter extends RecyclerView.Adapter<Medicament_Adapter.
         holder.nb_matin.setText(itemData.getNb_matin());
         holder.nb_midi.setText(itemData.getNb_midi());
         holder.nb_soire.setText(itemData.getNb_soire());
+        holder.lundi.setTextColor(itemData.getColor_lu());
+        holder.mardi.setTextColor(itemData.getColor_ma());
+        holder.mercredi.setTextColor(itemData.getColor_me());
+        holder.jeudi.setTextColor(itemData.getColor_ju());
+        holder.vendredi.setTextColor(itemData.getColor_ve());
+        holder.samedi.setTextColor(itemData.getColor_sa());
+        holder.dimanche.setTextColor(itemData.getColor_di());
     }
 
     @Override

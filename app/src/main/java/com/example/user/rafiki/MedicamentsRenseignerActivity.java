@@ -16,6 +16,10 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.user.rafiki.ItemData.Fiche;
+import com.example.user.rafiki.ItemData.Medicament_Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MedicamentsRenseignerActivity extends AppCompatActivity {
 
@@ -26,14 +30,18 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
     int Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche;
     ToggleButton btn_Lu, btn_M, btn_Me, btn_J, btn_V, btn_S, btn_D;
     static int P;
+    Medicament_Item medica_Item;
+    MySQLiteOpenHelper helper;
+    UserDataSource ds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicaments_renseigner);
-        Nom_medica = findViewById(R.id.nom_medicament);
         Inscription.NUM_PAGE = 3;
-
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
+        ds = new UserDataSource(helper);
+        Nom_medica = findViewById(R.id.nom_medicament);
         Nb_prise_Ma = findViewById(R.id.nb_jour);
         Nb_prise_Mi = findViewById(R.id.nb_midi);
         Nb_prise_S = findViewById(R.id.nb_soire);
@@ -168,27 +176,15 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
         heur_midi = Heur_Mi.getText().toString().trim();
         heur_soire = Heur_S.getText().toString().trim();
         if (valider()) {
-
-            Toast.makeText(this, Lundi + "//" + Mardi + "//" + Mercredi+
-                    "//"+Jeudi+"//"+Vendredi+"//"+Samedi+"//"+Dimanche, Toast.LENGTH_SHORT).show();
-//            if (list.size()<1){
-//                long ids = ds.addFiche(fiches);
-//                if (ids == -1) {
-//                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
-//                } else {
-//                    Intent ite = new Intent(this, MenuActivity.class);
-//                    startActivity(ite);
-//                }
-//            }else {
-//                long ids=ds.UpdateFiche(email,fiches);
-//                if (ids == -1) {
-//                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
-//                } else {
-//                    Intent ite = new Intent(this, MenuActivity.class);
-//                    startActivity(ite);
-//                }
-//            }
-
+            medica_Item = new Medicament_Item(nom_medica, nb_prise_ma, nb_prise_mi, nb_prise_s, date_debut,
+                    date_fin, heur_matin, heur_midi,heur_soire,Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi,Dimanche);
+            long ids = ds.addMidica(medica_Item);
+            if (ids == -1) {
+                Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+            } else {
+                Intent ite = new Intent(this, MedicamentsActivity.class);
+                startActivity(ite);
+            }
         }
     }
 

@@ -8,34 +8,60 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.user.rafiki.Adapter.Medicament_Adapter;
+import com.example.user.rafiki.Helper.RecyclerViewClickListener;
+import com.example.user.rafiki.Helper.RecyclerViewTouchListener;
 import com.example.user.rafiki.ItemData.Medicament_Item;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MedicamentsActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Medicament_Adapter myAdapter;
+    MySQLiteOpenHelper helper;
+    UserDataSource ds;
     ArrayList<Medicament_Item> list = new ArrayList<Medicament_Item>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicaments);
+
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
+        ds = new UserDataSource(helper);
         recyclerView = (RecyclerView) findViewById(R.id.recycle);
 
-        list.add(new Medicament_Item("Panadol","2","0","1","13-5-2018"));
-        list.add(new Medicament_Item("Doliprane","2","2","2","36"));
+        list = (ArrayList<Medicament_Item>) ds.getMedicament();
 
         myAdapter = new Medicament_Adapter(this, list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(myAdapter);
 
+        recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), recyclerView, new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                try {
+                    ds.deleteMedica(list.get(position).get_id());
+                    list.remove(position);
+                    myAdapter.notifyDataSetChanged();
+
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+            }
+        }));
     }
-
-
-
 
 
     public void alert(View view) {
@@ -51,12 +77,14 @@ public class MedicamentsActivity extends AppCompatActivity {
                     }
                 }).show();
     }
+
     public void retoure_fiche(View view) {
-        Intent ite=new Intent(this,Fiche_MedicaleActivity.class);
+        Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
         startActivity(ite);
     }
+
     public void medica_resin(View view) {
-        Intent ite=new Intent(this,MedicamentsRenseignerActivity.class);
+        Intent ite = new Intent(this, MedicamentsRenseignerActivity.class);
         startActivity(ite);
     }
 }
