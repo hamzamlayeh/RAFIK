@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.user.rafiki.ItemData.Allergies_Item;
 import com.example.user.rafiki.ItemData.Fiche;
 import com.example.user.rafiki.ItemData.clients;
 
@@ -22,6 +23,7 @@ public class UserDataSource {
     private final String TABLE_NAME2 = "ficheMedicale";
     private final String TABLE_NAME3 = "Maladis";
     private final String TABLE_NAME4 = "Antecedents";
+    private final String TABLE_NAME5 = "Allergies";
 
     public UserDataSource(MySQLiteOpenHelper helper) {
         this.helper = helper;
@@ -293,4 +295,50 @@ public class UserDataSource {
 //        db.delete(TABLE_NAME4, "position= "+ pos , null);
 //    }
 
+public long addallergie(int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id_allergie", id);
+
+    return db.insert(TABLE_NAME5, null, contentValues);
+}
+
+    public boolean verifId_allergie(int id) {
+
+        Cursor cursor = db.query(TABLE_NAME5, new String[]{"id_allergie"}, "id_allergie= "+id,null,
+                null, null, null, null);
+        int cursorcount = cursor.getCount();
+        if (cursorcount > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public long Updateallergie(String M1,String M2,String M3, int id) {
+
+        ContentValues values = new ContentValues();
+        values.put("nom_allergie1",  M1);
+        values.put("nom_allergie2",  M2);
+        values.put("nom_allergie3",  M3);
+
+        long i = db.update(TABLE_NAME5, values, "id_allergie= "+id,null);
+        return i ;
+    }
+
+    public List getListAllergies(int id){
+        ArrayList<String> list = new ArrayList<String>();
+        Cursor cursor = db.query(TABLE_NAME5, new String[]{"nom_allergie1,nom_allergie2,nom_allergie3"}, "id_allergie= "+id,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        int i=0;
+        while (!cursor.isAfterLast()) {
+
+            list.add(i,cursor.getString(0));
+            list.add(i,cursor.getString(1));
+            list.add(i,cursor.getString(2));
+            i++;
+            cursor.moveToNext();
+        }
+        return list;
+    }
 }
