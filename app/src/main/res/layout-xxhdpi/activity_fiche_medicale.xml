@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bag10"
+    tools:context=".Fiche_MedicaleActivity">
+
+    <ImageView
+        android:id="@+id/rafiki3"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rafik" />
+
+    <TextView
+        android:id="@+id/fiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/fiche_m_dicale"
+        android:textAllCaps="true"
+        android:fontFamily="@font/champagne_limousines_bold"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/nom"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/edittexte_rudus"
+        android:ems="10"
+        android:focusable="false"
+        android:fontFamily="@font/raleway_semibold"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textColor="#024472"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fiche" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="92dp"
+        android:src="@drawable/male"
+        app:civ_border_color="#3a83b7"
+        app:civ_border_width="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="44dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="130dp"
+        android:onClick="OpenGallerie"
+        android:src="@drawable/plus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#f2f0f1"
+        app:cardCornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nom">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/poid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/poids"
+                    android:inputType="numberDecimal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/taille"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/taille"
+                    android:inputType="numberDecimal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/num_scret"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/n_de_s_curit_sociale"
+                    android:inputType="text"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/adresse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/adresse"
+                    android:inputType="text"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/code_p"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/code_postale"
+                    android:inputType="number"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view9"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/ville"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/ville"
+                    android:inputType="textPersonName"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/txt_sang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/flash"
+                    android:drawableRight="@drawable/flash"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/groupe_sanguin"
+                    android:inputType="textPersonName"
+                    android:onClick="groupe_sang"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view11"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/txt_seuils"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/flash"
+                    android:drawableRight="@drawable/flash"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/seuils_biom_triques"
+                    android:inputType="textPersonName"
+                    android:onClick="seuils_biometrique"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view12"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/txt_anticedent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/flash"
+                    android:drawableRight="@drawable/flash"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/ant_c_dents_chirurgicaux"
+                    android:inputType="textPersonName"
+                    android:onClick="antecedents"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view13"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/txt_allergie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/flash"
+                    android:drawableRight="@drawable/flash"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/allergies"
+                    android:inputType="textPersonName"
+                    android:onClick="allergies"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view14"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/txt_maladie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/flash"
+                    android:drawableRight="@drawable/flash"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/maladies"
+                    android:inputType="textPersonName"
+                    android:onClick="maladies"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view15"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ligne_horizontal" />
+
+                <EditText
+                    android:id="@+id/txt_medica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/flash"
+                    android:drawableRight="@drawable/flash"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/raleway_regular"
+                    android:hint="@string/m_dicaments"
+                    android:inputType="textPersonName"
+                    android:onClick="medicament"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="160dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/button_rudus"
+        android:fontFamily="@font/raleway_bold"
+        android:onClick="enregestrer"
+        android:text="@string/enregistrer"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+</android.support.constraint.ConstraintLayout>

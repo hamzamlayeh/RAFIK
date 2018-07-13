@@ -32,7 +32,7 @@
         android:text="@string/seuils_biom_triques"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="26sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,11 +50,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ScrollView
-            style="@style/scrollbar_shape_style"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="18dp"
             android:fadeScrollbars="false"
+            style="@style/scrollbar_shape_style"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 

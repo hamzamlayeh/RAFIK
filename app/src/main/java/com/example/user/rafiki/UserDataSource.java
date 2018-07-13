@@ -3,9 +3,7 @@ package com.example.user.rafiki;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
-import com.example.user.rafiki.ItemData.Antecedents_ItemData;
 import com.example.user.rafiki.ItemData.Fiche;
 import com.example.user.rafiki.ItemData.clients;
 
@@ -256,43 +254,43 @@ public class UserDataSource {
         }
         return list;
     }
-    public long addAnte(Antecedents_ItemData itemData, int pos) {
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("acte", itemData.getEdite1());
-        contentValues.put("date", itemData.getEdite2());
-        contentValues.put("position", pos);
-
-        return db.insert(TABLE_NAME4, null, contentValues);
-    }
-    public long UpdateAnti(String item1,String item2, int pos) {
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("acte", item1);
-        contentValues.put("date", item2);
-        contentValues.put("position", pos);
-
-        long i = db.update(TABLE_NAME4, contentValues, "position= "+pos,null);
-        return i ;
-    }
-    public List getListAnte(){
-        ArrayList<Antecedents_ItemData> list = new ArrayList<Antecedents_ItemData>();
-        Cursor cursor = db.query(TABLE_NAME4, new String[]{"acte,date"}, null,
-                null, null, null, null, null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-
-            String acte=cursor.getString(0);
-            String date=cursor.getString(1);
-
-            list.add(new Antecedents_ItemData(acte,date));
-            cursor.moveToNext();
-        }
-        return list;
-    }
-    public void deleteAnti(int pos) {
-
-        db.delete(TABLE_NAME4, "position= "+ pos , null);
-    }
+//    public long addAnte(Antecedents_ItemData itemData, int pos) {
+//
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put("acte", itemData.getEdite1());
+//        contentValues.put("date", itemData.getEdite2());
+//        contentValues.put("position", pos);
+//
+//        return db.insert(TABLE_NAME4, null, contentValues);
+//    }
+//    public long UpdateAnti(String item1,String item2, int pos) {
+//
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put("acte", item1);
+//        contentValues.put("date", item2);
+//        contentValues.put("position", pos);
+//
+//        long i = db.update(TABLE_NAME4, contentValues, "position= "+pos,null);
+//        return i ;
+//    }
+//    public List getListAnte(){
+//        ArrayList<Antecedents_ItemData> list = new ArrayList<Antecedents_ItemData>();
+//        Cursor cursor = db.query(TABLE_NAME4, new String[]{"acte,date"}, null,
+//                null, null, null, null, null);
+//        cursor.moveToFirst();
+//        while (!cursor.isAfterLast()) {
+//
+//            String acte=cursor.getString(0);
+//            String date=cursor.getString(1);
+//
+//            list.add(new Antecedents_ItemData(acte,date));
+//            cursor.moveToNext();
+//        }
+//        return list;
+//    }
+//    public void deleteAnti(int pos) {
+//
+//        db.delete(TABLE_NAME4, "position= "+ pos , null);
+//    }
 
 }

@@ -9,9 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.user.rafiki.Adapter.Antecedents_Adapter;
 import com.example.user.rafiki.Adapter.Medicament_Adapter;
-import com.example.user.rafiki.ItemData.Antecedents_ItemData;
 import com.example.user.rafiki.ItemData.Medicament_Item;
 
 import java.util.ArrayList;

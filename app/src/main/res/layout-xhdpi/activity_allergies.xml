@@ -351,7 +351,7 @@
     <Button
         android:id="@+id/ok"
         android:layout_width="0dp"
-        android:layout_height="45"
+        android:layout_height="45dp"
         android:layout_marginBottom="40dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
