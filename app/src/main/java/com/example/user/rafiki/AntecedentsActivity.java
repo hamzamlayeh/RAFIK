@@ -36,4 +36,10 @@ public class AntecedentsActivity extends AppCompatActivity {
 
 
 }
+
+    public void retoure_fiche(View view) {
+        Intent ite=new Intent(this,Fiche_MedicaleActivity.class);
+
+        startActivity(ite);
+    }
 }
