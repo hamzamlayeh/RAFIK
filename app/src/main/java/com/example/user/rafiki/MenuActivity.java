@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -36,6 +37,7 @@ public class MenuActivity extends AppCompatActivity {
         email = pref.getString("Email", "");
         NomUtilisateur.setText(ds.getNom(email));
         if (ds.getImg(email)!=null) {
+            Toast.makeText(this, "gg", Toast.LENGTH_SHORT).show();
             Uri uri = Uri.parse(ds.getImg(email));
             profile_img.setImageURI(uri);
 
@@ -103,7 +105,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void modifImg(View view) {
-        Intent intent =new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        Intent intent =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(intent,100);
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

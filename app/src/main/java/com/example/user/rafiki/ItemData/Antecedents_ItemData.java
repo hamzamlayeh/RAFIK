@@ -4,7 +4,7 @@ package com.example.user.rafiki.ItemData;
  * Created by user on 01/07/2018.
  */
 
-    public class Antecedents_ItemData extends Allergis_ItemData {
+    public class Antecedents_ItemData  {
         public String edite1;
         public String edite2;
 

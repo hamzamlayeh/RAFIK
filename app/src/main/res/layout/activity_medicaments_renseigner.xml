@@ -279,6 +279,7 @@
                 android:background="@color/ligne_horizontal" />
 
             <TextView
+                android:id="@+id/heur_matin"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:hint="00:00"
@@ -296,6 +297,7 @@
                 android:background="@color/ligne_horizontal" />
 
             <TextView
+                android:id="@+id/heur_midi"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:hint="00:00"
@@ -313,6 +315,7 @@
                 android:background="@color/ligne_horizontal" />
 
             <TextView
+                android:id="@+id/heur_soire"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:hint="00:00"
@@ -357,14 +360,18 @@
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
-            <TextView
+            <ToggleButton
+                android:id="@+id/btn_l"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/l"
+                android:onClick="getL"
+                android:textOn="@string/l"
+                android:textOff="@string/l"
                 android:textSize="16sp" />
             <View
                 android:layout_width="1dp"
@@ -374,16 +381,18 @@
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
-            <TextView
-                android:id="@+id/textView14"
+            <ToggleButton
+                android:id="@+id/btn_Ma"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/m"
-                android:textColor="@color/btn_radio"
+                android:onClick="getM"
+                android:background="@android:color/transparent"
+                android:textOn="@string/m"
+                android:textOff="@string/m"
                 android:textSize="16sp" />
             <View
                 android:layout_width="1dp"
@@ -393,15 +402,18 @@
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
-            <TextView
-                android:id="@+id/textView13"
+            <ToggleButton
+                android:id="@+id/btn_Me"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/m"
+                android:onClick="getMe"
+                android:background="@android:color/transparent"
+                android:textOn="@string/m"
+                android:textOff="@string/m"
                 android:textSize="16sp" />
             <View
                 android:layout_width="1dp"
@@ -411,16 +423,18 @@
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
-            <TextView
-                android:id="@+id/textView12"
+            <ToggleButton
+                android:id="@+id/btn_J"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/j"
-                android:textColor="@color/btn_radio"
+                android:onClick="getJ"
+                android:background="@android:color/transparent"
+                android:textOn="@string/j"
+                android:textOff="@string/j"
                 android:textSize="16sp" />
             <View
                 android:layout_width="1dp"
@@ -430,15 +444,18 @@
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
-            <TextView
-                android:id="@+id/textView10"
+            <ToggleButton
+                android:id="@+id/btn_V"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/v"
+                android:onClick="getV"
+                android:background="@android:color/transparent"
+                android:textOn="@string/v"
+                android:textOff="@string/v"
                 android:textSize="16sp" />
             <View
                 android:layout_width="1dp"
@@ -448,16 +465,18 @@
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
-            <TextView
-                android:id="@+id/text"
+            <ToggleButton
+                android:id="@+id/btn_S"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/s"
-                android:textColor="@color/btn_radio"
+                android:onClick="getS"
+                android:background="@android:color/transparent"
+                android:textOn="@string/s"
+                android:textOff="@string/s"
                 android:textSize="16sp" />
             <View
                 android:layout_width="1dp"
@@ -467,15 +486,18 @@
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
-            <TextView
-                android:id="@+id/textView30"
+            <ToggleButton
+                android:id="@+id/btn_D"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/d"
+                android:onClick="getD"
+                android:background="@android:color/transparent"
+                android:textOn="@string/d"
+                android:textOff="@string/d"
                 android:textSize="16sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -496,4 +518,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

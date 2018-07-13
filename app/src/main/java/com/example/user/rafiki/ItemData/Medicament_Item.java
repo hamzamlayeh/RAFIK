@@ -12,8 +12,23 @@ public class Medicament_Item {
     private String heure_matin;
     private String heure_midi;
     private String heur_soire;
+    private int color_lu;
+    private int color_ma;
+    private int color_me;
+    private int color_ju;
+    private int color_ve;
+    private int color_sa;
+    private int color_di;
 
-    public Medicament_Item(int _id, String nom_medica, String nb_matin, String nb_midi, String nb_soire, String date_debut, String date_fin, String heure_matin, String heure_midi, String heur_soire) {
+    public Medicament_Item(String nom_medica, String nb_matin, String nb_midi, String nb_soire, String date_fin) {
+        this.nom_medica = nom_medica;
+        this.nb_matin = nb_matin;
+        this.nb_midi = nb_midi;
+        this.nb_soire = nb_soire;
+        this.date_fin = date_fin;
+    }
+
+    public Medicament_Item(int _id, String nom_medica, String nb_matin, String nb_midi, String nb_soire, String date_debut, String date_fin, String heure_matin, String heure_midi, String heur_soire, int color_lu, int color_ma, int color_me, int color_ju, int color_ve, int color_sa, int color_di) {
         this._id = _id;
         this.nom_medica = nom_medica;
         this.nb_matin = nb_matin;
@@ -24,6 +39,13 @@ public class Medicament_Item {
         this.heure_matin = heure_matin;
         this.heure_midi = heure_midi;
         this.heur_soire = heur_soire;
+        this.color_lu = color_lu;
+        this.color_ma = color_ma;
+        this.color_me = color_me;
+        this.color_ju = color_ju;
+        this.color_ve = color_ve;
+        this.color_sa = color_sa;
+        this.color_di = color_di;
     }
 
     public int get_id() {
@@ -104,5 +126,61 @@ public class Medicament_Item {
 
     public void setHeur_soire(String heur_soire) {
         this.heur_soire = heur_soire;
+    }
+
+    public int getColor_lu() {
+        return color_lu;
+    }
+
+    public void setColor_lu(int color_lu) {
+        this.color_lu = color_lu;
+    }
+
+    public int getColor_ma() {
+        return color_ma;
+    }
+
+    public void setColor_ma(int color_ma) {
+        this.color_ma = color_ma;
+    }
+
+    public int getColor_me() {
+        return color_me;
+    }
+
+    public void setColor_me(int color_me) {
+        this.color_me = color_me;
+    }
+
+    public int getColor_ju() {
+        return color_ju;
+    }
+
+    public void setColor_ju(int color_ju) {
+        this.color_ju = color_ju;
+    }
+
+    public int getColor_ve() {
+        return color_ve;
+    }
+
+    public void setColor_ve(int color_ve) {
+        this.color_ve = color_ve;
+    }
+
+    public int getColor_sa() {
+        return color_sa;
+    }
+
+    public void setColor_sa(int color_sa) {
+        this.color_sa = color_sa;
+    }
+
+    public int getColor_di() {
+        return color_di;
+    }
+
+    public void setColor_di(int color_di) {
+        this.color_di = color_di;
     }
 }
