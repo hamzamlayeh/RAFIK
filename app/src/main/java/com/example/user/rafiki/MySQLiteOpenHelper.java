@@ -45,7 +45,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql3);
         db.execSQL(sql4);
         db.execSQL(sql5);
-        db.execSQL(sql6);
+    //    db.execSQL(sql6);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(delet_sql3);
         sqLiteDatabase.execSQL(delet_sql4);
         sqLiteDatabase.execSQL(delet_sql5);
-        sqLiteDatabase.execSQL(delet_sql6);
+//        sqLiteDatabase.execSQL(delet_sql6);
 
         onCreate(sqLiteDatabase);
     }

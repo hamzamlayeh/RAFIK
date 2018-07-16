@@ -99,6 +99,7 @@
                                 android:layout_weight="8"
                                 android:fontFamily="@font/raleway_regular"
                                 android:padding="9dp"
+                                android:paddingLeft="10dp"
                                 android:text="@string/activit"
                                 android:textColor="@color/color_fc"
                                 android:textSize="24sp" />
@@ -107,6 +108,7 @@
                                 android:id="@+id/view19"
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="3dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -499,7 +501,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/cardView1"
+                    android:id="@+id/cardView4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -923,7 +925,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/cardView2"
+                    android:id="@+id/cardView4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -936,7 +938,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView1">
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1362,7 +1364,7 @@
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
