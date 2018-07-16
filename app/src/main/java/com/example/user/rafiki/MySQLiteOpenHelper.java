@@ -12,7 +12,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
 
     public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
-        super(context, name, factory, 11);
+        super(context, name, factory, 1);
     }
 
     @Override
@@ -55,15 +55,15 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String delet_sql2="DROP Table ficheMedicale ";
         String delet_sql3="DROP Table Antecedents ";
         String delet_sql4="DROP Table Maladis ";
-//        String delet_sql5="DROP Table Allergies ";
-//        String delet_sql6="DROP Table Medicament ";
+        String delet_sql5="DROP Table Allergies ";
+        String delet_sql6="DROP Table Medicament ";
 
         sqLiteDatabase.execSQL(delet_sql);
         sqLiteDatabase.execSQL(delet_sql2);
         sqLiteDatabase.execSQL(delet_sql3);
         sqLiteDatabase.execSQL(delet_sql4);
-        //sqLiteDatabase.execSQL(delet_sql5);
-        //sqLiteDatabase.execSQL(delet_sql6);
+        sqLiteDatabase.execSQL(delet_sql5);
+        sqLiteDatabase.execSQL(delet_sql6);
 
         onCreate(sqLiteDatabase);
     }
