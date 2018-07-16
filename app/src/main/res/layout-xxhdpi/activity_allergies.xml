@@ -93,6 +93,7 @@
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:onClick="r1"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
@@ -135,6 +136,7 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:scaleX="0.90"
+                        android:onClick="r2"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -174,6 +176,7 @@
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:onClick="r3"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
@@ -214,6 +217,7 @@
                         android:buttonTint="@color/btn_radio"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
+                        android:onClick="r4"
                         android:padding="10dp"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
@@ -256,6 +260,7 @@
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:onClick="r5"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
@@ -297,6 +302,7 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:scaleX="0.90"
+                        android:onClick="r6"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
 
@@ -337,6 +343,7 @@
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:onClick="r7"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
                         android:textSize="14sp" />

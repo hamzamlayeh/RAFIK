@@ -1,9 +1,12 @@
 package com.example.user.rafiki;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,12 +15,36 @@ public class AllergiesActivity extends AppCompatActivity {
     String data;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
+    CheckBox rd_1,rd_2,rd_3,rd_4,rd_5,rd_6,rd_7;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor ;
+    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allergies);
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
+        pref = getApplicationContext().getSharedPreferences("allergies", MODE_PRIVATE);
+        editor=pref.edit();
+
+
+
+        rd_1=findViewById(R.id.rd_1);
+        rd_2=findViewById(R.id.rd_2);
+        rd_3=findViewById(R.id.rd_3);
+        rd_4=findViewById(R.id.rd_4);
+        rd_5=findViewById(R.id.rd_5);
+        rd_6=findViewById(R.id.rd_6);
+        rd_7=findViewById(R.id.rd_7);
+
+        rd_1.setChecked(pref.getBoolean("ch1",false));
+        rd_2.setChecked(pref.getBoolean("ch2",false));
+        rd_3.setChecked(pref.getBoolean("ch3",false));
+        rd_4.setChecked(pref.getBoolean("ch4",false));
+        rd_5.setChecked(pref.getBoolean("ch5",false));
+        rd_6.setChecked(pref.getBoolean("ch6",false));
+        rd_7.setChecked(pref.getBoolean("ch7",false));
 
         insectes=  findViewById(R.id.T1);
         medicaments=  findViewById(R.id.T2);
@@ -109,5 +136,39 @@ public class AllergiesActivity extends AppCompatActivity {
         ite.putExtra("allergies",data);
         ite.putExtra("Id",7);
         startActivity(ite);
+    }
+
+    public void r1(View view) {
+        editor.putBoolean("ch1",rd_1.isChecked());
+        editor.apply();
+
+    }
+
+    public void r2(View view) {
+        editor.putBoolean("ch2",rd_2.isChecked());
+        editor.apply();
+    }
+
+    public void r3(View view) {
+        editor.putBoolean("ch3",rd_3.isChecked());
+        editor.apply();
+    }
+
+    public void r4(View view) {
+        editor.putBoolean("ch4",rd_4.isChecked());
+        editor.apply();
+    }
+
+    public void r7(View view) {
+        editor.putBoolean("ch7",rd_7.isChecked());
+        editor.apply();
+    }
+    public void r5(View view) {
+        editor.putBoolean("ch5",rd_5.isChecked());
+        editor.apply();
+    }
+    public void r6(View view) {
+        editor.putBoolean("ch6",rd_6.isChecked());
+        editor.apply();
     }
 }
