@@ -40,7 +40,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bare2" />
+                app:srcCompat="@drawable/bare2"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="8dp" />
 
             <ImageView
                 android:id="@+id/batterie"
@@ -62,7 +64,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.09"
                 android:text="0%"
-                android:fontFamily="@font/raleway_semibolditalic"
+                android:fontFamily="@font/bebasneue_regular"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/batterie"
@@ -175,7 +177,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/g1" />
+                app:srcCompat="@drawable/g1"
+                android:layout_marginLeft="200dp" />
 
             <LinearLayout
                 android:id="@+id/BPM-Layout"
@@ -218,7 +221,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.06999999">
+                app:layout_constraintVertical_bias="0.06999999"
+                android:layout_marginRight="60dp">
 
                 <LinearLayout
                     android:id="@+id/bpm-Layout-D"
@@ -317,7 +321,7 @@
                 android:layout_marginTop="200dp"
                 android:onClick="E11"
 
-                app:layout_constraintHorizontal_bias="0.84"
+                app:layout_constraintHorizontal_bias="0.87"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -490,7 +494,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="310dp"
                 android:onClick="E12"
-                app:layout_constraintHorizontal_bias="0.87"
+                app:layout_constraintHorizontal_bias="0.83"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -501,14 +505,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="315dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintHorizontal_bias="0.68"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="8dp">
 
                 <TextView
                     android:id="@+id/TEMP_D"
@@ -522,8 +527,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="C°"
                     android:fontFamily="@font/raleway_bold"
+                    android:text="C°"
                     android:textColor="#9bb2ca"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -540,7 +545,8 @@
                 app:layout_constraintHorizontal_bias="0.93"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="8dp">
 
                 <LinearLayout
                     android:id="@+id/temp-D"
@@ -681,7 +687,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.48"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="100dp" />
 
             <LinearLayout
                 android:id="@+id/Layot-Oxigen"
@@ -694,7 +701,8 @@
                 app:layout_constraintHorizontal_bias="0.93"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/OXIGEN">
+                app:layout_constraintTop_toBottomOf="@+id/OXIGEN"
+                android:layout_marginLeft="8dp">
 
                 <TextView
                     android:id="@+id/text_oxigen1"
@@ -757,7 +765,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux" />
+                app:srcCompat="@drawable/resaux"
+                android:layout_marginRight="16dp" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 

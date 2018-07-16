@@ -9,14 +9,16 @@
 
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/cardView1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
         app:cardBackgroundColor="@color/cardview_light_background"
         app:cardCornerRadius="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,18 +94,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
         app:cardBackgroundColor="@color/cardview_light_background"
         app:cardCornerRadius="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView4">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/conteneur3"
@@ -175,13 +177,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
         app:cardBackgroundColor="@color/cardview_light_background"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allergies2">
+        tools:layout_editor_absoluteY="114dp">
 
         <LinearLayout
             android:id="@+id/conteneur0"
@@ -242,18 +243,18 @@
         app:srcCompat="@drawable/rafik" />
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/cardView5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
         app:cardBackgroundColor="@color/cardview_light_background"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView4">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="386dp">
 
         <LinearLayout
             android:id="@+id/conteneur2"

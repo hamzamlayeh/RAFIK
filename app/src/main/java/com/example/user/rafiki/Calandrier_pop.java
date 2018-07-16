@@ -62,6 +62,7 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
                 inscr.setage(age);
                 this.dismiss();
             } else if (Inscription.NUM_PAGE == 3) {
+
                 MedicamentsRenseignerActivity inscr = (MedicamentsRenseignerActivity) getActivity();
                 if (MedicamentsRenseignerActivity.P == 1) {
                     inscr.setage(date);

@@ -32,7 +32,7 @@
         android:text="@string/seuils_biom_triques"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -1365,6 +1365,7 @@
                     android:background="@drawable/button_rudus"
                     android:fontFamily="@font/raleway_bold"
                     android:text="@string/enregistrer"
+                    android:onClick="retoure_fiche"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
