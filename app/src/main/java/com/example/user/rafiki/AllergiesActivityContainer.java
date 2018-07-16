@@ -82,6 +82,7 @@ public class AllergiesActivityContainer extends AppCompatActivity {
         Testdonne3=donne3.getText().toString();
         ds.Updateallergie(Testdonne1,Testdonne2,Testdonne3,Id);
         startActivity(new Intent(this,Fiche_MedicaleActivity.class));
+        AllergiesActivityContainer.this.finish();
 }
 
 }

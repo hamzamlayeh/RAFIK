@@ -62,6 +62,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.09"
                 android:text="0%"
+                android:fontFamily="@font/raleway_semibolditalic"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/batterie"

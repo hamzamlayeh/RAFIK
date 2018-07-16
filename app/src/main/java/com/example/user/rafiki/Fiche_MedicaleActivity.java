@@ -1,11 +1,16 @@
 package com.example.user.rafiki;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -31,12 +36,15 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     UserDataSource ds;
     Fiche fiches;
     List<Fiche> list = new ArrayList<Fiche>();
+    final static int MY_PERMISSIONS_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_medicale);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            checkSmsPermission();
+        }
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
         pref = getApplicationContext().getSharedPreferences("Inscription", MODE_PRIVATE);
@@ -186,6 +194,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
                 } else {
                     Intent ite = new Intent(this, MenuActivity.class);
                     startActivity(ite);
+                    Fiche_MedicaleActivity.this.finish();
                 }
             }else {
                 long ids=ds.UpdateFiche(email,fiches);
@@ -194,6 +203,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
                 } else {
                     Intent ite = new Intent(this, MenuActivity.class);
                     startActivity(ite);
+                    Fiche_MedicaleActivity.this.finish();
                 }
             }
 
@@ -226,5 +236,37 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         }
         return valide;
     }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void checkSmsPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST);
+            }
+        } else {
+        }
 
+    }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                            PackageManager.PERMISSION_GRANTED) {
+
+                    }
+                } else {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                            MY_PERMISSIONS_REQUEST);
+                }
+                return;
+            }
+        }
+    }
 }

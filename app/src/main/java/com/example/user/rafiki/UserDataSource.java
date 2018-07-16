@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.user.rafiki.ItemData.Allergies_Item;
+import com.example.user.rafiki.ItemData.Antecedents_Item;
 import com.example.user.rafiki.ItemData.Fiche;
 import com.example.user.rafiki.ItemData.Medicament_Item;
 import com.example.user.rafiki.ItemData.clients;
@@ -262,44 +263,47 @@ public class UserDataSource {
         }
         return list;
     }
-//    public long addAnte(Antecedents_ItemData itemData, int pos) {
-//
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("acte", itemData.getEdite1());
-//        contentValues.put("date", itemData.getEdite2());
-//        contentValues.put("position", pos);
-//
-//        return db.insert(TABLE_NAME4, null, contentValues);
-//    }
-//    public long UpdateAnti(String item1,String item2, int pos) {
-//
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("acte", item1);
-//        contentValues.put("date", item2);
-//        contentValues.put("position", pos);
-//
-//        long i = db.update(TABLE_NAME4, contentValues, "position= "+pos,null);
-//        return i ;
-//    }
-//    public List getListAnte(){
-//        ArrayList<Antecedents_ItemData> list = new ArrayList<Antecedents_ItemData>();
-//        Cursor cursor = db.query(TABLE_NAME4, new String[]{"acte,date"}, null,
-//                null, null, null, null, null);
-//        cursor.moveToFirst();
-//        while (!cursor.isAfterLast()) {
-//
-//            String acte=cursor.getString(0);
-//            String date=cursor.getString(1);
-//
-//            list.add(new Antecedents_ItemData(acte,date));
-//            cursor.moveToNext();
-//        }
-//        return list;
-//    }
-//    public void deleteAnti(int pos) {
-//
-//        db.delete(TABLE_NAME4, "position= "+ pos , null);
-//    }
+
+    //ANTECEDENTS
+    public int getCountAntece() {
+        Cursor cursor = db.query(TABLE_NAME4, null, null, null,
+                null, null, null, null);
+        return cursor.getCount();
+    }
+
+    public long addAnte(Antecedents_Item itemData) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("acte", itemData.getActe());
+        contentValues.put("date", itemData.getDate());
+
+        return db.insert(TABLE_NAME4, null, contentValues);
+    }
+
+    public long UpdateAnti(Antecedents_Item itemData, int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("acte", itemData.getActe());
+        contentValues.put("date", itemData.getDate());
+
+        return (long) db.update(TABLE_NAME4, contentValues, "_id= " + id, null);
+    }
+
+    public List getListAnte() {
+        ArrayList<Antecedents_Item> list = new ArrayList<Antecedents_Item>();
+        Cursor cursor = db.query(TABLE_NAME4, new String[]{"acte,date"}, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            String acte = cursor.getString(0);
+            String date = cursor.getString(1);
+
+            list.add(new Antecedents_Item(acte, date));
+            cursor.moveToNext();
+        }
+        return list;
+    }
 
     public long addallergie(int id) {
 
@@ -406,29 +410,29 @@ public class UserDataSource {
         }
         return list;
     }
+    public long UpdateMedicament(Medicament_Item medica, int id) {
 
-    //    public long addMidica(Medicament_Item medica) {
-//
-//        ContentValues values = new ContentValues();
-//        values.put("nom_medica", medica.getNom_medica());
-//        values.put("nb_matin", medica.getNb_matin());
-//        values.put("nb_midi", medica.getNb_midi());
-//        values.put("nb_soire", medica.getNb_soire());
-//        values.put("date_debut", medica.getDate_debut());
-//        values.put("date_fin", medica.getDate_fin());
-//        values.put("heure_matin", medica.getHeure_matin());
-//        values.put("heure_midi", medica.getHeure_midi());
-//        values.put("heure_soire", medica.getHeur_soire());
-//        values.put("color_lu", medica.getColor_lu());
-//        values.put("color_ma", medica.getColor_ma());
-//        values.put("color_me", medica.getColor_me());
-//        values.put("color_ju", medica.getColor_ju());
-//        values.put("color_ve", medica.getColor_ve());
-//        values.put("color_sa", medica.getColor_sa());
-//        values.put("color_di", medica.getColor_di());
-//        long id = db.insert(TABLE_NAME6, null, values);
-//        return id;
-//    }
+        ContentValues values = new ContentValues();
+        values.put("nom_medica", medica.getNom_medica());
+        values.put("nb_matin", medica.getNb_matin());
+        values.put("nb_midi", medica.getNb_midi());
+        values.put("nb_soire", medica.getNb_soire());
+        values.put("date_debut", medica.getDate_debut());
+        values.put("date_fin", medica.getDate_fin());
+        values.put("heure_matin", medica.getHeure_matin());
+        values.put("heure_midi", medica.getHeure_midi());
+        values.put("heure_soire", medica.getHeur_soire());
+        values.put("color_lu", medica.getColor_lu());
+        values.put("color_ma", medica.getColor_ma());
+        values.put("color_me", medica.getColor_me());
+        values.put("color_ju", medica.getColor_ju());
+        values.put("color_ve", medica.getColor_ve());
+        values.put("color_sa", medica.getColor_sa());
+        values.put("color_di", medica.getColor_di());
+
+        long i = db.update(TABLE_NAME6, values, "_id= " + id, null);
+        return i;
+    }
     public void deleteMedica(int id) {
 
         db.delete(TABLE_NAME6, "_id= " + id, null);

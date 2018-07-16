@@ -30,6 +30,7 @@ public class AllergiesActivity extends AppCompatActivity {
     public void retoure_fiche(View view) {
         Intent ite=new Intent(this,Fiche_MedicaleActivity.class);
         startActivity(ite);
+        AllergiesActivity.this.finish();
     }
 
     public void insectes(View view) {

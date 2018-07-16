@@ -125,7 +125,7 @@
     <string name="max">Max</string>
     <string name="c">C°</string>
     <string name="acte_chirurgicale">Acte chirurgicale</string>
-    <string name="date">Date</string>
+    <string name="date">Date (Ex: 16–07-2018)</string>
     <string name="allergie_a">Allergie a</string>
     <string name="renseiger">Renseiger …</string>
     <string name="maladie_1">Maladie 1</string>

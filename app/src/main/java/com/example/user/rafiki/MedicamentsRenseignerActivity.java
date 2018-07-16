@@ -2,37 +2,35 @@ package com.example.user.rafiki;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.example.user.rafiki.ItemData.Fiche;
 import com.example.user.rafiki.ItemData.Medicament_Item;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MedicamentsRenseignerActivity extends AppCompatActivity {
 
     EditText Nom_medica, Nb_prise_Ma, Nb_prise_Mi, Nb_prise_S, Date_debut, Date_fin;
-    TextView Heur_Ma,Heur_Mi,Heur_S;
+    TextView Heur_Ma, Heur_Mi, Heur_S;
     String nom_medica, nb_prise_ma, nb_prise_mi, nb_prise_s, date_debut, date_fin;
-    String Prise_Matin, Prise_Midi, Prise_Soire,heur_matin,heur_midi,heur_soire;
+    String Prise_Matin, Prise_Midi, Prise_Soire, heur_matin, heur_midi, heur_soire;
     int Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche;
     ToggleButton btn_Lu, btn_M, btn_Me, btn_J, btn_V, btn_S, btn_D;
     static int P;
     Medicament_Item medica_Item;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
+    ArrayList<Medicament_Item> list = new ArrayList<Medicament_Item>();
+    int Id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +64,41 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
         Vendredi = ContextCompat.getColor(this, R.color.left);
         Samedi = ContextCompat.getColor(this, R.color.left);
         Dimanche = ContextCompat.getColor(this, R.color.left);
-
+        if (MedicamentsActivity.Id != 0) {
+            Id = getIntent().getExtras().getInt("Id");
+            list = (ArrayList<Medicament_Item>) ds.getMedicament();
+            int i = 0;
+            while (i < list.size()) {
+                if (list.get(i).get_id() == Id) {
+                    Nom_medica.setText(list.get(i).getNom_medica());
+                    Nb_prise_Ma.setText(list.get(i).getNb_matin());
+                    Nb_prise_Mi.setText(list.get(i).getNb_midi());
+                    Nb_prise_S.setText(list.get(i).getNb_soire());
+                    Date_debut.setText(list.get(i).getDate_debut());
+                    Date_fin.setText(list.get(i).getDate_fin());
+                    Heur_Ma.setText(list.get(i).getHeure_matin());
+                    Heur_Mi.setText(list.get(i).getHeure_midi());
+                    Heur_S.setText(list.get(i).getHeur_soire());
+                    btn_Lu.setTextColor(list.get(i).getColor_lu());
+                    btn_M.setTextColor(list.get(i).getColor_ma());
+                    btn_Me.setTextColor(list.get(i).getColor_me());
+                    btn_J.setTextColor(list.get(i).getColor_ju());
+                    btn_V.setTextColor(list.get(i).getColor_ve());
+                    btn_S.setTextColor(list.get(i).getColor_sa());
+                    btn_D.setTextColor(list.get(i).getColor_di());
+                    // inistalisation des couleur
+                    Lundi = list.get(i).getColor_lu();
+                    Mardi = list.get(i).getColor_ma();
+                    Mercredi = list.get(i).getColor_me();
+                    Jeudi = list.get(i).getColor_ju();
+                    Vendredi = list.get(i).getColor_ve();
+                    Samedi = list.get(i).getColor_sa();
+                    Dimanche = list.get(i).getColor_di();
+                    break;
+                }
+                i++;
+            }
+        }
     }
 
     public void getD(View view) {
@@ -177,13 +209,25 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
         heur_soire = Heur_S.getText().toString().trim();
         if (valider()) {
             medica_Item = new Medicament_Item(nom_medica, nb_prise_ma, nb_prise_mi, nb_prise_s, date_debut,
-                    date_fin, heur_matin, heur_midi,heur_soire,Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi,Dimanche);
-            long ids = ds.addMidica(medica_Item);
-            if (ids == -1) {
-                Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                    date_fin, heur_matin, heur_midi, heur_soire, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche);
+            if (MedicamentsActivity.Id == 0) {
+                long ids = ds.addMidica(medica_Item);
+                if (ids == -1) {
+                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                } else {
+                    Intent ite = new Intent(this, MedicamentsActivity.class);
+                    startActivity(ite);
+                    MedicamentsRenseignerActivity.this.finish();
+                }
             } else {
-                Intent ite = new Intent(this, MedicamentsActivity.class);
-                startActivity(ite);
+                long ids = ds.UpdateMedicament(medica_Item, Id);
+                if (ids == -1) {
+                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                } else {
+                    Intent ite = new Intent(this, MedicamentsActivity.class);
+                    startActivity(ite);
+                    MedicamentsRenseignerActivity.this.finish();
+                }
             }
         }
     }

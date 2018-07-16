@@ -15,5 +15,6 @@ public class SeuilBiometriques extends AppCompatActivity {
     public void retoure_fiche(View view) {
         Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
         startActivity(ite);
+        SeuilBiometriques.this.finish();
     }
 }

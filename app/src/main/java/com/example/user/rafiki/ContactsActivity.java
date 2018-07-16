@@ -13,17 +13,17 @@ public class ContactsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contacts);
     }
     public void contacts1(View view) {
-//        Intent ite=new Intent(this,ContactParentaux.class);
-//        startActivity(ite);
+        Intent ite=new Intent(this,ContactParentaux.class);
+        startActivity(ite);
     }
 
     public void contacts2(View view) {
-//        Intent ite=new Intent(this,ContactMedcin.class);
-//        startActivity(ite);
+        Intent ite=new Intent(this,ContactMedcin.class);
+        startActivity(ite);
     }
 
     public void contacts3(View view) {
-//        Intent ite=new Intent(this,ContactUrgence.class);
-//        startActivity(ite);
+        Intent ite=new Intent(this,ContactUrgence.class);
+        startActivity(ite);
     }
 }

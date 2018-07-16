@@ -26,6 +26,7 @@ public class MedicamentsActivity extends AppCompatActivity {
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     ArrayList<Medicament_Item> list = new ArrayList<Medicament_Item>();
+    static int Id=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,10 @@ public class MedicamentsActivity extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), recyclerView, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-
+                Intent ite = new Intent(MedicamentsActivity.this, MedicamentsRenseignerActivity.class);
+               Id=list.get(position).get_id();
+                ite.putExtra("Id",Id);
+                startActivity(ite);
 
             }
 
@@ -81,6 +85,8 @@ public class MedicamentsActivity extends AppCompatActivity {
     public void retoure_fiche(View view) {
         Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
         startActivity(ite);
+        MedicamentsActivity.this.finish();
+
     }
 
     public void medica_resin(View view) {

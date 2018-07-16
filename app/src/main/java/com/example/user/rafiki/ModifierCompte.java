@@ -188,15 +188,12 @@ public class ModifierCompte extends AppCompatActivity {
             String codephone = prefs.getString("Code_pays", null);
             client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail, password);
             if (ds.updateClient(list.get(0).get_id(), client)) {
-                Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
                 editor.putString("Email", mail);
                 editor.apply();
                 Intent ite = new Intent(this, MenuActivity.class);
                 startActivity(ite);
-            } else {
-                Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
+                ModifierCompte.this.finish();
             }
-
         }
     }
 
