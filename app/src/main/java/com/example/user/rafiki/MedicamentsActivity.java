@@ -50,6 +50,7 @@ public class MedicamentsActivity extends AppCompatActivity {
                Id=list.get(position).get_id();
                 ite.putExtra("Id",Id);
                 startActivity(ite);
+                MedicamentsActivity.this.finish();
 
             }
 
