@@ -47,7 +47,7 @@ public class MedicamentsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Intent ite = new Intent(MedicamentsActivity.this, MedicamentsRenseignerActivity.class);
-               Id=list.get(position).get_id();
+                Id=list.get(position).get_id();
                 ite.putExtra("Id",Id);
                 startActivity(ite);
                 MedicamentsActivity.this.finish();
@@ -91,6 +91,7 @@ public class MedicamentsActivity extends AppCompatActivity {
     }
 
     public void medica_resin(View view) {
+        Id=-1;
         Intent ite = new Intent(this, MedicamentsRenseignerActivity.class);
         startActivity(ite);
     }

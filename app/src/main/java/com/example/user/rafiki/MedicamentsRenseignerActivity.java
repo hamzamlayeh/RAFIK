@@ -64,7 +64,7 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
         Vendredi = ContextCompat.getColor(this, R.color.left);
         Samedi = ContextCompat.getColor(this, R.color.left);
         Dimanche = ContextCompat.getColor(this, R.color.left);
-        if (MedicamentsActivity.Id != 0) {
+        if (MedicamentsActivity.Id > 0) {
             Id = getIntent().getExtras().getInt("Id");
             list = (ArrayList<Medicament_Item>) ds.getMedicament();
             int i = 0;
@@ -210,7 +210,7 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
         if (valider()) {
             medica_Item = new Medicament_Item(nom_medica, nb_prise_ma, nb_prise_mi, nb_prise_s, date_debut,
                     date_fin, heur_matin, heur_midi, heur_soire, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche);
-            if (MedicamentsActivity.Id == 0) {
+            if (MedicamentsActivity.Id == -1) {
                 long ids = ds.addMidica(medica_Item);
                 if (ids == -1) {
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
