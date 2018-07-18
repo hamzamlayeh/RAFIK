@@ -141,34 +141,57 @@ public class AllergiesActivity extends AppCompatActivity {
     public void r1(View view) {
         editor.putBoolean("ch1",rd_1.isChecked());
         editor.apply();
-
+        if (!rd_1.isChecked()){
+            ds.Updateallergie("","","",1);
+        }
     }
 
     public void r2(View view) {
         editor.putBoolean("ch2",rd_2.isChecked());
         editor.apply();
+
+        if (!rd_2.isChecked()){
+            ds.Updateallergie("","","",2);
+        }
+
+
     }
 
     public void r3(View view) {
         editor.putBoolean("ch3",rd_3.isChecked());
         editor.apply();
+        if (!rd_3.isChecked()){
+            ds.Updateallergie("","","",3);
+        }
     }
 
     public void r4(View view) {
         editor.putBoolean("ch4",rd_4.isChecked());
         editor.apply();
+        if (!rd_4.isChecked()){
+            ds.Updateallergie("","","",4);
+        }
     }
 
     public void r7(View view) {
         editor.putBoolean("ch7",rd_7.isChecked());
         editor.apply();
+        if (!rd_7.isChecked()){
+            ds.Updateallergie("","","",7);
+        }
     }
     public void r5(View view) {
         editor.putBoolean("ch5",rd_5.isChecked());
         editor.apply();
+        if (!rd_5.isChecked()){
+            ds.Updateallergie("","","",5);
+        }
     }
     public void r6(View view) {
         editor.putBoolean("ch6",rd_6.isChecked());
         editor.apply();
+        if (!rd_6.isChecked()){
+            ds.Updateallergie("","","",6);
+        }
     }
 }
