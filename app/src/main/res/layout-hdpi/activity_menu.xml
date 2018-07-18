@@ -41,7 +41,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="90dp"
+        tools:ignore="LabelFor" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
@@ -56,7 +59,8 @@
         app:civ_border_color="#3a83b7"
         app:civ_border_width="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="24dp" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -71,7 +75,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nom">
+        app:layout_constraintTop_toBottomOf="@+id/nom"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="50dp">
 
         <TableRow>
 

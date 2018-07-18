@@ -71,23 +71,57 @@
         <activity
             android:name=".E7_2"
             android:screenOrientation="portrait" />
-        <activity android:name=".Fiche_MedicaleActivity" />
-        <activity android:name=".Groupe_SangActivity" />
-        <activity android:name=".MaladiActivity" />
-        <activity android:name=".AntecedentsActivity" />
-        <activity android:name=".AllergiesActivity" />
-        <activity android:name=".ContactsActivity" />
-        <activity android:name=".ContactParentaux" />
-        <activity android:name=".ContactMedcin" />
-        <activity android:name=".ContactUrgence" />
-        <activity android:name=".MedicamentsActivity" />
-        <activity android:name=".MedicamentsRenseignerActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".SeuilBiometriques" />
-        <activity android:name=".ParametreAlertes" />
-        <activity android:name=".ModifierCompte" />
-        <activity android:name=".EnregistrementVocal" />
-        <activity android:name=".AllergiesActivityContainer"></activity>
+        <activity
+            android:name=".Fiche_MedicaleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Groupe_SangActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MaladiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AntecedentsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AllergiesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContactsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContactParentaux"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContactMedcin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContactUrgence"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MedicamentsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MedicamentsRenseignerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SeuilBiometriques"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ParametreAlertes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ModifierCompte"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EnregistrementVocal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AllergiesActivityContainer"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

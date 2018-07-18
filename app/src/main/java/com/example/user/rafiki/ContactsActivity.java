@@ -15,15 +15,18 @@ public class ContactsActivity extends AppCompatActivity {
     public void contacts1(View view) {
         Intent ite=new Intent(this,ContactParentaux.class);
         startActivity(ite);
+        ContactsActivity.this.finish();
     }
 
     public void contacts2(View view) {
         Intent ite=new Intent(this,ContactMedcin.class);
         startActivity(ite);
+        ContactsActivity.this.finish();
     }
 
     public void contacts3(View view) {
         Intent ite=new Intent(this,ContactUrgence.class);
         startActivity(ite);
+        ContactsActivity.this.finish();
     }
 }

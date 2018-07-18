@@ -28,12 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_weight="1"
+        android:fontFamily="@font/champagne_limousines_bold"
         android:gravity="center"
         android:text="@string/urgences_m_dicales"
         android:textAllCaps="true"
-        android:fontFamily="@font/champagne_limousines_bold"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,30 +42,31 @@
         android:id="@+id/asur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="55dp"
         android:layout_weight="1"
         android:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="@string/assurances_maladies"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fiche" />
+
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edittexte_rudus"
         app:layout_constraintCircleRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fiche">
+        app:layout_constraintTop_toBottomOf="@+id/asur">
 
         <TableRow>
 
@@ -78,8 +79,10 @@
                 android:fontFamily="@font/raleway_regular"
                 android:hint="@string/nom"
                 android:inputType="textPersonName"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textSize="16sp" />
         </TableRow>
+
         <View
             android:id="@+id/view43"
             android:layout_width="match_parent"
@@ -116,7 +119,8 @@
                 android:fontFamily="@font/raleway_regular"
                 android:hint="@string/telephone"
                 android:inputType="phone"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textSize="16sp" />
         </TableRow>
 
     </TableLayout>
@@ -127,29 +131,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
         android:layout_weight="1"
+        android:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="@string/urgence"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:fontFamily="@font/raleway_regular"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
     <TableLayout
         android:id="@+id/tableLayout1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edittexte_rudus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+        app:layout_constraintTop_toBottomOf="@+id/urgance">
 
         <TableRow>
+
             <EditText
                 android:id="@+id/nom_urgen"
                 android:layout_width="match_parent"
@@ -159,8 +165,10 @@
                 android:fontFamily="@font/raleway_regular"
                 android:hint="@string/nom"
                 android:inputType="textPersonName"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textSize="16sp" />
         </TableRow>
+
         <View
             android:id="@+id/view44"
             android:layout_width="match_parent"
@@ -196,7 +204,8 @@
                 android:fontFamily="@font/raleway_regular"
                 android:hint="@string/telephone"
                 android:inputType="phone"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textSize="16sp" />
         </TableRow>
 
     </TableLayout>
