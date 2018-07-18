@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="15dp">
@@ -65,7 +66,7 @@
                 android:orientation="horizontal">
 
                 <android.support.constraint.ConstraintLayout
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
@@ -73,8 +74,7 @@
                         android:id="@+id/nb_matin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginRight="30dp"
+                        android:layout_marginEnd="38dp"
                         android:fontFamily="@font/raleway_regular"
                         android:text="2"
                         android:textSize="14sp"
@@ -109,10 +109,9 @@
 
                     <TextView
                         android:id="@+id/nb_midi"
-                        android:layout_width="wrap_content"
+                        android:layout_width="11dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginRight="30dp"
+                        android:layout_marginEnd="56dp"
                         android:fontFamily="@font/raleway_regular"
                         android:text="2"
                         android:textSize="14sp"
@@ -124,9 +123,8 @@
                         android:id="@+id/imageView53"
                         android:layout_width="35dp"
                         android:layout_height="26dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="4dp"
                         android:layout_weight="1"
                         app:layout_constraintStart_toEndOf="@+id/view2"
                         app:layout_constraintTop_toBottomOf="@+id/nb_midi"
@@ -137,25 +135,27 @@
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="3dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="44dp"
                         android:layout_marginTop="3dp"
                         android:layout_weight="0"
                         android:background="@color/ligne_horizontal"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView53"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
                         android:id="@+id/nb_soire"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_marginStart="30dp"
                         android:fontFamily="@font/raleway_regular"
                         android:text="2"
                         android:textSize="14sp"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.41"
                         app:layout_constraintStart_toEndOf="@+id/view3"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -163,10 +163,11 @@
                         android:id="@+id/imageView50"
                         android:layout_width="35dp"
                         android:layout_height="26dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/view3"
                         app:layout_constraintTop_toBottomOf="@+id/nb_soire"
                         app:srcCompat="@drawable/lune1" />

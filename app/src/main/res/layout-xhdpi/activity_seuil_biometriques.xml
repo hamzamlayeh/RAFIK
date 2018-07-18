@@ -103,6 +103,7 @@
                                 android:id="@+id/view19"
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="2dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -208,8 +209,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
+
                             <EditText
-                                android:id="@+id/FCmarch_min"
+                                android:id="@+id/FCcourse_min"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
@@ -220,7 +222,11 @@
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
-                                android:textSize="13sp" />
+                                android:textSize="13sp"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                tools:layout_editor_absoluteX="55dp"
+                                tools:layout_editor_absoluteY="0dp" />
 
                             <View
                                 android:id="@+id/view26"
@@ -313,20 +319,20 @@
                                 android:background="@color/ligne_horizontal" />
 
                             <EditText
-                                android:id="@+id/FCcourse_min"
+
+                                android:id="@+id/FCMarech_min"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:background="@android:color/transparent"
                                 android:ems="10"
+
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
-                                android:textSize="13sp"
-                                tools:layout_editor_absoluteX="55dp"
-                                tools:layout_editor_absoluteY="0dp" />
+                                android:textSize="13sp" />
 
                             <View
                                 android:id="@+id/view29"
@@ -936,7 +942,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/cardView2"
+                    android:id="@+id/cardView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -1374,7 +1380,7 @@
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardView1" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </LinearLayout>

@@ -103,6 +103,7 @@
                                 android:id="@+id/view19"
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="3dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -210,12 +211,14 @@
                                 android:background="@color/ligne_horizontal" />
 
                             <EditText
-                                android:id="@+id/FCmarch_min"
+                                android:id="@+id/FCMarech_min"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:background="@android:color/transparent"
                                 android:ems="10"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
@@ -547,6 +550,7 @@
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="3dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -937,7 +941,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/cardView2"
+                    android:id="@+id/cardView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -975,6 +979,7 @@
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="3dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -998,6 +1003,7 @@
                                 <View
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
+                                    android:layout_marginLeft="3dp"
                                     android:layout_weight="0"
                                     android:background="@color/ligne_horizontal" />
 
@@ -1380,7 +1386,7 @@
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardView1" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
