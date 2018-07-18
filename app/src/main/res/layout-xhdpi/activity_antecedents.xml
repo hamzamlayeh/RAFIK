@@ -87,7 +87,7 @@
                                     android:layout_height="wrap_content"
                                     android:background="@android:color/transparent"
                                     android:fontFamily="@font/raleway_regular"
-                                    android:hint="@string/date"
+                                        android:hint="@string/date"
                                     android:inputType="date"
                                     android:padding="13dp"
                                     android:textSize="14sp" />

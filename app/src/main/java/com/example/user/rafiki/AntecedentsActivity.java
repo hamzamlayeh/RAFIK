@@ -180,33 +180,70 @@ public class AntecedentsActivity extends AppCompatActivity {
         actes5 = Acte5.getText().toString();
         dates5 = Date5.getText().toString();
 
+
+
         listAntes.add(0, new Antecedents_Item(actes1, dates1));
         listAntes.add(1, new Antecedents_Item(actes2, dates2));
         listAntes.add(2, new Antecedents_Item(actes3, dates3));
         listAntes.add(3, new Antecedents_Item(actes4, dates4));
         listAntes.add(4, new Antecedents_Item(actes5, dates5));
 
-        if (ds.getCountAntece() <= 0) {
-            int i = 0;
-            while (i < listAntes.size()) {
+        String exrégulière="\\d{2}-\\d{2}-\\d{4}";
 
-                long x = ds.addAnte(listAntes.get(i));
-                i++;
-            }
-            Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
-            startActivity(ite);
-            AntecedentsActivity.this.finish();
-        } else {
-            int i = 0;
-            while (i < listAntes.size()) {
+//        if (dates1.matches(exrégulière) && dates2.matches(exrégulière) && dates3.matches(exrégulière) &&
+//            dates4.matches(exrégulière) && dates5.matches(exrégulière)  ) {
 
-                long x = ds.UpdateAnti(listAntes.get(i), i + 1);
-                i++;
+            if (ds.getCountAntece() <= 0) {
+                int i = 0;
+                while (i < listAntes.size()) {
+
+                    long x = ds.addAnte(listAntes.get(i));
+                    i++;
+                }
+                Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
+                startActivity(ite);
+                AntecedentsActivity.this.finish();
+            } else {
+                int i = 0;
+                while (i < listAntes.size()) {
+
+                    long x = ds.UpdateAnti(listAntes.get(i), i + 1);
+                    i++;
+                }
+                Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
+                startActivity(ite);
+                AntecedentsActivity.this.finish();
             }
-            Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
-            startActivity(ite);
-            AntecedentsActivity.this.finish();
-        }
+//        }  else {
+//            if (!dates1.matches(exrégulière)){
+//            Date1.setError(getString(R.string.date));
+//            Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
+//
+//        }if (!dates2.matches(exrégulière)){
+//                Date2.setError(getString(R.string.date));
+//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
+//
+//            }
+//            if (!dates3.matches(exrégulière)){
+//                Date3.setError(getString(R.string.date));
+//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
+//
+//            }
+//            if (!dates4.matches(exrégulière)){
+//                Date4.setError(getString(R.string.date));
+//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
+//
+//            }
+//            if (!dates5.matches(exrégulière)){
+//                Date5.setError(getString(R.string.date));
+//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
+//
+//            }
+//
+//        }
+
+
+
     }
     public void alert(View view) {
         AlertDialog.Builder alt = new AlertDialog.Builder(this);

@@ -274,7 +274,7 @@ public class Inscription extends AppCompatActivity {
             valide = false;
         }
         if (!conf_password.isEmpty() && (!conf_password.contentEquals(password))) {
-            confirm_pass.setError(getString(string.err_pass2));
+            confirm_pass.setError( getString(string.err_pass2));
             valide = false;
         }
         if (berthday.isEmpty()) {
