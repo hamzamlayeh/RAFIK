@@ -180,18 +180,12 @@ public class AntecedentsActivity extends AppCompatActivity {
         actes5 = Acte5.getText().toString();
         dates5 = Date5.getText().toString();
 
-
-
-        listAntes.add(0, new Antecedents_Item(actes1, dates1));
-        listAntes.add(1, new Antecedents_Item(actes2, dates2));
-        listAntes.add(2, new Antecedents_Item(actes3, dates3));
-        listAntes.add(3, new Antecedents_Item(actes4, dates4));
-        listAntes.add(4, new Antecedents_Item(actes5, dates5));
-
-        String exrégulière="\\d{2}-\\d{2}-\\d{4}";
-
-//        if (dates1.matches(exrégulière) && dates2.matches(exrégulière) && dates3.matches(exrégulière) &&
-//            dates4.matches(exrégulière) && dates5.matches(exrégulière)  ) {
+        if (valider()) {
+            listAntes.add(0, new Antecedents_Item(actes1, dates1));
+            listAntes.add(1, new Antecedents_Item(actes2, dates2));
+            listAntes.add(2, new Antecedents_Item(actes3, dates3));
+            listAntes.add(3, new Antecedents_Item(actes4, dates4));
+            listAntes.add(4, new Antecedents_Item(actes5, dates5));
 
             if (ds.getCountAntece() <= 0) {
                 int i = 0;
@@ -214,37 +208,36 @@ public class AntecedentsActivity extends AppCompatActivity {
                 startActivity(ite);
                 AntecedentsActivity.this.finish();
             }
-//        }  else {
-//            if (!dates1.matches(exrégulière)){
-//            Date1.setError(getString(R.string.date));
-//            Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
-//
-//        }if (!dates2.matches(exrégulière)){
-//                Date2.setError(getString(R.string.date));
-//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
-//
-//            }
-//            if (!dates3.matches(exrégulière)){
-//                Date3.setError(getString(R.string.date));
-//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
-//
-//            }
-//            if (!dates4.matches(exrégulière)){
-//                Date4.setError(getString(R.string.date));
-//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
-//
-//            }
-//            if (!dates5.matches(exrégulière)){
-//                Date5.setError(getString(R.string.date));
-//                Toast.makeText(this, "NO", Toast.LENGTH_SHORT).show();
-//
-//            }
-//
-//        }
-
-
-
+        }
     }
+
+    private boolean valider() {
+        boolean valide = true;
+        String exreguliere = "\\d{2}-\\d{2}-\\d{4}";
+
+        if (!dates1.matches(exreguliere) && !dates1.isEmpty()) {
+            Date1.setError(getString(R.string.date));
+            valide = false;
+        }
+        if (!dates2.matches(exreguliere) && !dates2.isEmpty()) {
+            Date2.setError(getString(R.string.date));
+            valide = false;
+        }
+        if (!dates3.matches(exreguliere) && !dates3.isEmpty()) {
+            Date3.setError(getString(R.string.date));
+            valide = false;
+        }
+        if (!dates4.matches(exreguliere) && !dates4.isEmpty()) {
+            Date4.setError(getString(R.string.date));
+            valide = false;
+        }
+        if (!dates5.matches(exreguliere) && !dates5.isEmpty()) {
+            Date5.setError(getString(R.string.date));
+            valide = false;
+        }
+        return valide;
+    }
+
     public void alert(View view) {
         AlertDialog.Builder alt = new AlertDialog.Builder(this);
         alt.setTitle(" ").setIcon(R.drawable.alert)

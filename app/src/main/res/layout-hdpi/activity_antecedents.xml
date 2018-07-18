@@ -84,7 +84,7 @@
                                     android:background="@android:color/transparent"
                                     android:fontFamily="@font/raleway_regular"
                                     android:hint="@string/date"
-                                    android:inputType="date"
+                                    android:inputType="text"
                                     android:padding="13dp"
                                     android:textSize="14sp" />
                             </LinearLayout>
@@ -132,7 +132,7 @@
                                     android:background="@android:color/transparent"
                                     android:fontFamily="@font/raleway_regular"
                                     android:hint="@string/date"
-                                    android:inputType="date"
+                                    android:inputType="text"
                                     android:padding="13dp"
                                     android:textSize="14sp" />
                             </LinearLayout>
@@ -180,7 +180,7 @@
                                     android:background="@android:color/transparent"
                                     android:fontFamily="@font/raleway_regular"
                                     android:hint="@string/date"
-                                    android:inputType="date"
+                                    android:inputType="text"
                                     android:padding="13dp"
                                     android:textSize="14sp" />
                             </LinearLayout>
@@ -228,7 +228,7 @@
                                     android:background="@android:color/transparent"
                                     android:fontFamily="@font/raleway_regular"
                                     android:hint="@string/date"
-                                    android:inputType="date"
+                                    android:inputType="text"
                                     android:padding="13dp"
                                     android:paddingTop="1dp"
                                     android:textSize="14sp" />
@@ -278,7 +278,7 @@
                                     android:background="@android:color/transparent"
                                     android:fontFamily="@font/raleway_regular"
                                     android:hint="@string/date"
-                                    android:inputType="date"
+                                    android:inputType="text"
                                     android:padding="13dp"
                                     android:textSize="14sp" />
                             </LinearLayout>
