@@ -60,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
     public void identifier(View view) {
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-//        ite = new Intent(this, E8.class);
-//        startActivity(ite);
+        ite = new Intent(this, E8.class);
+        startActivity(ite);
         if (valider()) {
             SharedPreferences.Editor editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
             if (ds.verifUser(mail, password)) {

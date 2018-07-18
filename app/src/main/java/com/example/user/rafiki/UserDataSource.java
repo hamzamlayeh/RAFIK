@@ -1,17 +1,20 @@
 package com.example.user.rafiki;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+        import android.content.ContentValues;
+        import android.database.Cursor;
+        import android.database.sqlite.SQLiteDatabase;
 
-import com.example.user.rafiki.ItemData.Allergies_Item;
-import com.example.user.rafiki.ItemData.Antecedents_Item;
-import com.example.user.rafiki.ItemData.Fiche;
-import com.example.user.rafiki.ItemData.Medicament_Item;
-import com.example.user.rafiki.ItemData.clients;
+        import com.example.user.rafiki.ItemData.Allergies_Item;
+        import com.example.user.rafiki.ItemData.Antecedents_Item;
+        import com.example.user.rafiki.ItemData.Contacts_Medecins;
+        import com.example.user.rafiki.ItemData.Contacts_Parentaux;
+        import com.example.user.rafiki.ItemData.Contacts_Urgences;
+        import com.example.user.rafiki.ItemData.Fiche;
+        import com.example.user.rafiki.ItemData.Medicament_Item;
+        import com.example.user.rafiki.ItemData.clients;
 
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
 /**
  * Created by ASUS on 30/03/2018.
@@ -27,6 +30,9 @@ public class UserDataSource {
     private final String TABLE_NAME4 = "Antecedents";
     private final String TABLE_NAME5 = "Allergies";
     private final String TABLE_NAME6 = "Medicament";
+    private final String TABLE_NAME7 = "Contacts_Parentaux";
+    private final String TABLE_NAME8 = "Contacts_Medecins";
+    private final String TABLE_NAME9 = "Contacts_Urgences";
 
     public UserDataSource(MySQLiteOpenHelper helper) {
         this.helper = helper;
@@ -410,6 +416,7 @@ public class UserDataSource {
         }
         return list;
     }
+
     public long UpdateMedicament(Medicament_Item medica, int id) {
 
         ContentValues values = new ContentValues();
@@ -433,8 +440,164 @@ public class UserDataSource {
         long i = db.update(TABLE_NAME6, values, "_id= " + id, null);
         return i;
     }
+
     public void deleteMedica(int id) {
 
         db.delete(TABLE_NAME6, "_id= " + id, null);
+    }
+
+    //Contacts Parentaux
+    public int getCountParentaux() {
+        Cursor cursor = db.query(TABLE_NAME7, null, null, null,
+                null, null, null, null);
+        return cursor.getCount();
+    }
+
+    public long addParentaux(Contacts_Parentaux itemData) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nom", itemData.getNom());
+        contentValues.put("prenom", itemData.getPrenom());
+        contentValues.put("mobile", itemData.getMobile());
+        contentValues.put("code", itemData.getCode());
+        contentValues.put("email", itemData.getEmail());
+
+        return db.insert(TABLE_NAME7, null, contentValues);
+    }
+
+    public long UpdateParentaux(Contacts_Parentaux itemData, int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nom", itemData.getNom());
+        contentValues.put("prenom", itemData.getPrenom());
+        contentValues.put("mobile", itemData.getMobile());
+        contentValues.put("code", itemData.getCode());
+        contentValues.put("email", itemData.getEmail());
+
+        return (long) db.update(TABLE_NAME7, contentValues, "_id= " + id, null);
+    }
+
+    public List getListParentaux() {
+        ArrayList<Contacts_Parentaux> list = new ArrayList<Contacts_Parentaux>();
+        Cursor cursor = db.query(TABLE_NAME7, new String[]{"nom,prenom,mobile,code,email"}, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            String nom = cursor.getString(0);
+            String prenom = cursor.getString(1);
+            String mobile = cursor.getString(2);
+            String code = cursor.getString(3);
+            String email = cursor.getString(4);
+
+            list.add(new Contacts_Parentaux(nom, prenom, mobile, code, email));
+            cursor.moveToNext();
+        }
+        return list;
+    }
+
+    //Contacts Medecins
+    public int getCountMedecins() {
+        Cursor cursor = db.query(TABLE_NAME8, null, null, null,
+                null, null, null, null);
+        return cursor.getCount();
+    }
+
+    public long addMedecins(Contacts_Medecins itemData) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nom", itemData.getNom());
+        contentValues.put("prenom", itemData.getPrenom());
+        contentValues.put("mobile", itemData.getMobile());
+        contentValues.put("code", itemData.getCode());
+        contentValues.put("email", itemData.getEmail());
+        contentValues.put("hopital", itemData.getHopital());
+
+        return db.insert(TABLE_NAME8, null, contentValues);
+    }
+
+    public long UpdateMedecins(Contacts_Medecins itemData, int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nom", itemData.getNom());
+        contentValues.put("prenom", itemData.getPrenom());
+        contentValues.put("mobile", itemData.getMobile());
+        contentValues.put("code", itemData.getCode());
+        contentValues.put("email", itemData.getEmail());
+        contentValues.put("hopital", itemData.getHopital());
+
+        return (long) db.update(TABLE_NAME8, contentValues, "_id= " + id, null);
+    }
+
+    public List getListMedecins() {
+        ArrayList<Contacts_Medecins> list = new ArrayList<Contacts_Medecins>();
+        Cursor cursor = db.query(TABLE_NAME8, new String[]{"nom,prenom,mobile,code,email,hopital"}, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            String nom = cursor.getString(0);
+            String prenom = cursor.getString(1);
+            String mobile = cursor.getString(2);
+            String code = cursor.getString(3);
+            String email = cursor.getString(4);
+            String hopital = cursor.getString(5);
+
+            list.add(new Contacts_Medecins(nom, prenom, mobile, code, email, hopital));
+            cursor.moveToNext();
+        }
+        return list;
+    }
+    //Contacts_Urgences
+    public int getCountUrgences() {
+        Cursor cursor = db.query(TABLE_NAME9, null, null, null,
+                null, null, null, null);
+        return cursor.getCount();
+    }
+
+    public long addUrgences(Contacts_Urgences itemData) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nom_asur", itemData.getNom_asur());
+        contentValues.put("tel_asur", itemData.getTel_asur());
+        contentValues.put("code_asur", itemData.getCode_asur());
+        contentValues.put("nom_urg", itemData.getNom_urg());
+        contentValues.put("tel_urg", itemData.getTel_urg());
+        contentValues.put("code_urg", itemData.getCode_urg());
+
+        return db.insert(TABLE_NAME9, null, contentValues);
+    }
+
+    public long UpdateUrgences(Contacts_Urgences itemData, int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nom_asur", itemData.getNom_asur());
+        contentValues.put("tel_asur", itemData.getTel_asur());
+        contentValues.put("code_asur", itemData.getCode_asur());
+        contentValues.put("nom_urg", itemData.getNom_urg());
+        contentValues.put("tel_urg", itemData.getTel_urg());
+        contentValues.put("code_urg", itemData.getCode_urg());
+
+        return (long) db.update(TABLE_NAME9, contentValues, "_id= " + id, null);
+    }
+
+    public List getListUrgences() {
+        ArrayList<Contacts_Urgences> list = new ArrayList<Contacts_Urgences>();
+        Cursor cursor = db.query(TABLE_NAME9, new String[]{"nom_asur,tel_asur,code_asur,nom_urg,tel_urg,code_urg"}, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            String nom_asur = cursor.getString(0);
+            String tel_asur = cursor.getString(1);
+            String code_asur = cursor.getString(2);
+            String nom_urg = cursor.getString(3);
+            String tel_urg = cursor.getString(4);
+            String code_urg = cursor.getString(5);
+
+            list.add(new Contacts_Urgences(nom_asur, tel_asur, code_asur, nom_urg, tel_urg, code_urg));
+            cursor.moveToNext();
+        }
+        return list;
     }
 }

@@ -26,22 +26,23 @@
         android:id="@+id/sexe2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
         android:layout_weight="1"
+        android:fontFamily="@font/champagne_limousines_bold"
         android:gravity="center"
         android:text="@string/mes_contacts"
         android:textAllCaps="true"
-        android:fontFamily="@font/champagne_limousines_bold"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="58dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="19dp"
+        android:id="@+id/imageView55"
+        android:layout_width="44dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/pers_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,30 +54,30 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="45dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/edittexte_rudus"
         android:shrinkColumns="1"
         android:stretchColumns="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sexe2">
+        app:layout_constraintTop_toBottomOf="@+id/imageView55">
 
         <TableRow android:onClick="contacts1">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="3"
-                android:padding="15dp"
                 android:fontFamily="@font/raleway_regular"
+                android:padding="10dp"
                 android:text="@string/contacts_parentaux"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="18dp"
+                android:padding="10dp"
                 android:src="@drawable/add" />
         </TableRow>
     </TableLayout>
@@ -87,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="45dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="43dp"
         android:background="@drawable/edittexte_rudus"
         android:shrinkColumns="1"
         android:stretchColumns="1"
@@ -101,16 +102,16 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="3"
-                android:padding="15dp"
                 android:fontFamily="@font/raleway_regular"
+                android:padding="10dp"
                 android:text="@string/m_decins_traitants"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="18dp"
+                android:padding="10dp"
                 android:src="@drawable/add" />
         </TableRow>
     </TableLayout>
@@ -121,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="45dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="43dp"
         android:background="@drawable/edittexte_rudus"
         android:shrinkColumns="1"
         android:stretchColumns="1"
@@ -135,33 +136,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="3"
-                android:padding="15dp"
                 android:fontFamily="@font/raleway_regular"
+                android:padding="10dp"
                 android:text="@string/urgences_m_dicales"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="18dp"
+                android:padding="10dp"
                 android:src="@drawable/add" />
         </TableRow>
     </TableLayout>
 
-    <Button
-        android:id="@+id/ok"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/button_rudus"
-        android:text="@string/valider"
-        android:fontFamily="@font/raleway_bold"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 </android.support.constraint.ConstraintLayout>

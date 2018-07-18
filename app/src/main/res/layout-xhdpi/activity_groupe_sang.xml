@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="#f2f0f1"
         app:cardCornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,9 +197,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
 
@@ -213,9 +213,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
 
@@ -229,9 +229,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
 
@@ -245,9 +245,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
 
@@ -261,9 +261,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
 
@@ -277,9 +277,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
 
@@ -293,9 +293,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
 
@@ -309,9 +309,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="getSang"
                     android:buttonTint="@color/btn_radio"
                     android:fontFamily="@font/raleway_regular"
+                    android:onClick="getSang"
                     android:padding="10dp"
                     android:textSize="14sp" />
             </RadioGroup>
@@ -325,7 +325,6 @@
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="12dp"
         android:background="@drawable/button_rudus"
         android:fontFamily="@font/raleway_bold"
         android:onClick="retoure_fiche"
@@ -335,6 +334,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

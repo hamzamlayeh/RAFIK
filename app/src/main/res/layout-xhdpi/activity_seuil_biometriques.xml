@@ -81,7 +81,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingLeft="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -103,7 +104,7 @@
                                 android:id="@+id/view19"
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -182,7 +183,6 @@
                                 android:id="@+id/marche1"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
@@ -211,7 +211,7 @@
                                 android:background="@color/ligne_horizontal" />
 
                             <EditText
-                                android:id="@+id/FCcourse_min"
+                                android:id="@+id/FCmarch_min"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
@@ -222,11 +222,7 @@
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
-                                android:textSize="13sp"
-                                android:focusable="true"
-                                android:focusableInTouchMode="true"
-                                tools:layout_editor_absoluteX="55dp"
-                                tools:layout_editor_absoluteY="0dp" />
+                                android:textSize="13sp" />
 
                             <View
                                 android:id="@+id/view26"
@@ -270,7 +266,6 @@
                                 android:id="@+id/course1"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="1dp"
                                 android:scaleType="fitCenter"
@@ -319,20 +314,20 @@
                                 android:background="@color/ligne_horizontal" />
 
                             <EditText
-
-                                android:id="@+id/FCMarech_min"
+                                android:id="@+id/FCcourse_min"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:background="@android:color/transparent"
                                 android:ems="10"
-
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
-                                android:textSize="13sp" />
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="55dp"
+                                tools:layout_editor_absoluteY="0dp" />
 
                             <View
                                 android:id="@+id/view29"
@@ -371,7 +366,6 @@
                                 android:id="@+id/home1"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
@@ -449,7 +443,6 @@
                                 android:id="@+id/sommeil1"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
@@ -531,7 +524,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingLeft="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -552,6 +546,7 @@
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginRight="2dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -625,7 +620,6 @@
                                 android:id="@+id/marche2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
@@ -708,7 +702,6 @@
                                 android:id="@+id/course2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="1dp"
                                 android:scaleType="fitCenter"
@@ -804,7 +797,6 @@
                                 android:id="@+id/homme2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
@@ -879,7 +871,6 @@
                                 android:id="@+id/sommeil2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
@@ -942,7 +933,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/cardView1"
+                    android:id="@+id/cardView2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -959,7 +950,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingLeft="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -980,6 +972,7 @@
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginRight="2dp"
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
@@ -1053,7 +1046,6 @@
                                 android:id="@+id/marche3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
@@ -1134,7 +1126,6 @@
                                 android:id="@+id/course3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="1dp"
                                 android:scaleType="fitCenter"
@@ -1228,7 +1219,6 @@
                                 android:id="@+id/homme3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
@@ -1302,7 +1292,6 @@
                                 android:id="@+id/sommeil3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
@@ -1380,7 +1369,7 @@
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView1" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </LinearLayout>

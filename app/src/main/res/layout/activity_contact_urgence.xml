@@ -89,11 +89,12 @@
         <TableRow>
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="2"
                 android:fontFamily="@font/raleway_regular"
                 android:spinnerMode="dialog" />
 
@@ -110,7 +111,7 @@
                 android:id="@+id/tel_asur"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
                 android:hint="@string/telephone"
@@ -169,11 +170,12 @@
         <TableRow>
 
             <Spinner
-                android:id="@+id/spinner3"
+                android:id="@+id/spinner1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="2"
                 android:fontFamily="@font/raleway_regular"
                 android:spinnerMode="dialog" />
 
@@ -189,7 +191,7 @@
             <EditText
                 android:id="@+id/tel_urgen"
                 android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/raleway_regular"
                 android:hint="@string/telephone"

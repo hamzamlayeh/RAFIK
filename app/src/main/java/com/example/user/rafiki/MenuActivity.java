@@ -55,14 +55,12 @@ public class MenuActivity extends AppCompatActivity {
     public void E8(View view) {
         Intent ite = new Intent(this, E8.class);
         startActivity(ite);
-        MenuActivity.this.finish();
     }
 
     public void donnees_pers(View view) {
         Intent ite = new Intent(this, ModifierCompte.class);
         resetvalue();
         startActivity(ite);
-        MenuActivity.this.finish();
     }
 
     public void resetvalue() {
@@ -85,7 +83,6 @@ public class MenuActivity extends AppCompatActivity {
         resetvalueFiche();
         Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
         startActivity(ite);
-        MenuActivity.this.finish();
     }
 
     public void resetvalueFiche() {
@@ -103,13 +100,11 @@ public class MenuActivity extends AppCompatActivity {
     public void contacts(View view) {
         Intent ite = new Intent(this, ContactsActivity.class);
         startActivity(ite);
-        MenuActivity.this.finish();
     }
 
     public void alertes(View view) {
         Intent ite = new Intent(this, ParametreAlertes.class);
         startActivity(ite);
-        MenuActivity.this.finish();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)

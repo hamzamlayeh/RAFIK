@@ -40,12 +40,24 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 "date_fin text not null,heure_matin text,heure_midi text,heure_soire text,color_lu integer not null,"+
                 "color_ma integer not null,color_me integer not null,color_ju integer not null,"+
                 "color_ve integer not null,color_sa integer not null,color_di integer not null)";
+        //Table Contacts Parentaux
+        String sql7="CREATE TABLE Contacts_Parentaux (_id integer PRIMARY KEY autoincrement not null,"+
+                "nom text,prenom text,mobile text,code text,email text)";
+        //Table Contacts Medecins
+        String sql8="CREATE TABLE Contacts_Medecins (_id integer PRIMARY KEY autoincrement not null,"+
+                "nom text,prenom text,mobile text,code text,email text,hopital text)";
+        //Table Contacts Urgences
+        String sql9="CREATE TABLE Contacts_Urgences (_id integer PRIMARY KEY autoincrement not null,"+
+                "nom_asur text,tel_asur text,code_asur text,nom_urg text,tel_urg text,code_urg text)";
         db.execSQL(sql);
         db.execSQL(sql2);
         db.execSQL(sql3);
         db.execSQL(sql4);
         db.execSQL(sql5);
         db.execSQL(sql6);
+        db.execSQL(sql7);
+        db.execSQL(sql8);
+        db.execSQL(sql9);
     }
 
     @Override
@@ -57,6 +69,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String delet_sql4="DROP Table Maladis ";
         String delet_sql5="DROP Table Allergies ";
         String delet_sql6="DROP Table Medicament ";
+        String delet_sql7="DROP Table Contacts_Parentaux ";
+        String delet_sql8="DROP Table Contacts_Medecins ";
+        String delet_sql9="DROP Table Contacts_Urgences ";
 
         sqLiteDatabase.execSQL(delet_sql);
         sqLiteDatabase.execSQL(delet_sql2);
@@ -64,6 +79,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(delet_sql4);
         sqLiteDatabase.execSQL(delet_sql5);
         sqLiteDatabase.execSQL(delet_sql6);
+        sqLiteDatabase.execSQL(delet_sql7);
+        sqLiteDatabase.execSQL(delet_sql8);
+        sqLiteDatabase.execSQL(delet_sql9);
 
         onCreate(sqLiteDatabase);
     }

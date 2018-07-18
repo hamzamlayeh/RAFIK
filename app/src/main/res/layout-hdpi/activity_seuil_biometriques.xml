@@ -941,7 +941,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/cardView1"
+                    android:id="@+id/cardView2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -1003,7 +1003,6 @@
                                 <View
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
-                                    android:layout_marginLeft="3dp"
                                     android:layout_weight="0"
                                     android:background="@color/ligne_horizontal" />
 
@@ -1377,16 +1376,16 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="24dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="24dp"
                     android:background="@drawable/button_rudus"
                     android:fontFamily="@font/raleway_bold"
-                    android:text="@string/enregistrer"
                     android:onClick="retoure_fiche"
+                    android:text="@string/enregistrer"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView1" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
