@@ -207,6 +207,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/bt_info"
+        android:layout_width="40dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="60dp"
+        android:onClick="alert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/alert" />
+    <ImageView
         android:id="@+id/rafiki4"
         android:layout_width="60dp"
         android:layout_height="22dp"

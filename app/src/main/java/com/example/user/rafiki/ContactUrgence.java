@@ -155,4 +155,7 @@ public class ContactUrgence extends AppCompatActivity {
             ContactUrgence.this.finish();
         }
     }
+
+    public void alert(View view) {
+    }
 }
