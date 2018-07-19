@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 
 import com.example.user.rafiki.ItemData.Constante;
+import com.example.user.rafiki.ItemData.Contacts_Medecins;
 import com.example.user.rafiki.ItemData.Contacts_Parentaux;
 import com.example.user.rafiki.ItemData.Contacts_Urgences;
 
@@ -70,7 +71,90 @@ public class ContactUrgence extends AppCompatActivity {
                 return false;
             }
         });
+        suppTable1();
+        suppTable2();
     }
+
+    private void suppTable1() {
+        T1.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom_asur.setText("");
+                Tel_asur.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateUrgences(new Contacts_Urgences("", "", "", Nom_urg.getText().toString()
+                        , Tel_asur.getText().toString(), Code1), 1);
+                return false;
+            }
+        });
+        Nom_asur.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom_asur.setText("");
+                Tel_asur.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateUrgences(new Contacts_Urgences("", "", "", Nom_urg.getText().toString()
+                        , Tel_asur.getText().toString(), Code1), 1);
+                return false;
+            }
+        });
+        Tel_asur.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom_asur.setText("");
+                Tel_asur.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateUrgences(new Contacts_Urgences("", "", "", Nom_urg.getText().toString()
+                        , Tel_asur.getText().toString(), Code1), 1);
+                return false;
+            }
+        });
+
+    }
+
+    private void suppTable2() {
+        T2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom_urg.setText("");
+                Tel_urg.setText("");
+                Spinner1.setSelection(0);
+                long x = ds.UpdateUrgences(new Contacts_Urgences(Nom_asur.getText().toString(), Tel_asur.getText().toString(), Code
+                        , "", "", ""), 1);
+                return false;
+            }
+        });
+        Nom_urg.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom_urg.setText("");
+                Tel_urg.setText("");
+                Spinner1.setSelection(0);
+                long x = ds.UpdateUrgences(new Contacts_Urgences(Nom_asur.getText().toString(), Tel_asur.getText().toString(), Code
+                        , "", "", ""), 1);
+                return false;
+            }
+        });
+        Tel_urg.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom_urg.setText("");
+                Tel_urg.setText("");
+                Spinner1.setSelection(0);
+                long x = ds.UpdateUrgences(new Contacts_Urgences(Nom_asur.getText().toString(), Tel_asur.getText().toString(), Code
+                        , "", "", ""), 1);
+                return false;
+            }
+        });
+
+    }
+
     public void remplirspinir() {
 
         rempli_code_pays();
@@ -128,7 +212,7 @@ public class ContactUrgence extends AppCompatActivity {
             }
             i++;
         }
-        return i;
+        return 0;
     }
     public void retoure(View view) {
 

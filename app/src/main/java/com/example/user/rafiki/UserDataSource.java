@@ -526,7 +526,8 @@ public class UserDataSource {
         contentValues.put("email", itemData.getEmail());
         contentValues.put("hopital", itemData.getHopital());
 
-        return (long) db.update(TABLE_NAME8, contentValues, "_id= " + id, null);
+         long ids=db.update(TABLE_NAME8, contentValues, "_id= "+id, null);
+        return ids;
     }
 
     public List getListMedecins() {
