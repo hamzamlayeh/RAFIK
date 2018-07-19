@@ -95,10 +95,43 @@ public class ContactMedcin extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Nom.setText("");
                 Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Hopital.setText("");
+                Spinner.setSelection(0);
                 //long x = ds.UpdateAnti(new Contacts_Medecins("", ""), 1);
                 return false;
             }
         });
+        L2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Hopital2.setText("");
+                Spinner2.setSelection(0);
+                //long x = ds.UpdateAnti(new Contacts_Medecins("", ""), 1);
+                return false;
+            }
+        });
+        L3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Hopital3.setText("");
+                Spinner3.setSelection(0);
+                //long x = ds.UpdateAnti(new Contacts_Medecins("", ""), 1);
+                return false;
+            }
+        });
+
     }
     public void remplirspinir() {
 
