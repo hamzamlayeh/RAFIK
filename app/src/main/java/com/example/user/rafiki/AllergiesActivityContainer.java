@@ -1,7 +1,9 @@
 package com.example.user.rafiki;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -84,5 +86,19 @@ public class AllergiesActivityContainer extends AppCompatActivity {
         startActivity(new Intent(this,AllergiesActivity.class));
         AllergiesActivityContainer.this.finish();
 }
+
+    public void alert(View view) {
+        AlertDialog.Builder alt = new AlertDialog.Builder(this);
+        alt.setTitle(" ").setIcon(R.drawable.alert)
+                .setMessage("\n" + getString(R.string.ajouter) + "         " + getString(R.string.cliquer_sur_maladie) + "\n" +
+                        getString(R.string.modifier) + "       " + getString(R.string.cliquer_sur_maladie) + "\n" +
+                        getString(R.string.supprimer) + "   " + getString(R.string.appui_long_sur_maladie)
+                )
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                }).show();
+    }
 
 }
