@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Antecedents_Item;
 import com.example.user.rafiki.ItemData.Constante;
+import com.example.user.rafiki.ItemData.Contacts_Medecins;
 import com.example.user.rafiki.ItemData.Contacts_Parentaux;
 
 import java.io.BufferedReader;
@@ -86,13 +87,209 @@ public class ContactParentaux extends AppCompatActivity {
             Email3.setText(listContacts_P.get(2).getEmail());
             Spinner3.setSelection(TrouverIndice(listContacts_P.get(2).getCode()));
         }
+        suppCarde1();
+        suppCarde2();
+        suppCarde3();
+    }
+    public void suppCarde1() {
         L1.setOnLongClickListener(new View.OnLongClickListener() {
 
             @Override
             public boolean onLongClick(View v) {
                 Nom.setText("");
                 Prenom.setText("");
-                //long x = ds.UpdateAnti(new Contacts_Parentaux("", ""), 1);
+                Mobile.setText("");
+                Email.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 1);
+                return false;
+            }
+        });
+        L2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        L3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Nom.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 1);
+                return false;
+            }
+        });
+        Prenom.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 1);
+                return false;
+            }
+        });
+        Email.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 1);
+                return false;
+            }
+        });
+        Mobile.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 1);
+                return false;
+            }
+        });
+    }
+
+    public void suppCarde2() {
+        Nom2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        Prenom2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        Email2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        Mobile2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 2);
+                return false;
+            }
+        });
+    }
+
+    public void suppCarde3() {
+        Nom3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Prenom3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Email3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Mobile3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateParentaux(new Contacts_Parentaux("", "", "", "", ""), 3);
                 return false;
             }
         });
@@ -167,7 +364,7 @@ public class ContactParentaux extends AppCompatActivity {
             }
             i++;
         }
-        return i;
+        return 0;
     }
 
     public void retoure(View view) {

@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.Contacts_Medecins;
@@ -24,17 +25,18 @@ import java.util.List;
 
 public class ContactMedcin extends AppCompatActivity {
 
-    EditText Nom, Prenom, Mobile, Email,Hopital;
-    EditText Nom2, Prenom2, Mobile2, Email2,Hopital2;
-    EditText Nom3, Prenom3, Mobile3, Email3,Hopital3;
+    EditText Nom, Prenom, Mobile, Email, Hopital;
+    EditText Nom2, Prenom2, Mobile2, Email2, Hopital2;
+    EditText Nom3, Prenom3, Mobile3, Email3, Hopital3;
     Spinner Spinner, Spinner2, Spinner3;
     String Code, Code2, Code3;
-    LinearLayout L1,L2,L3;
+    LinearLayout L1, L2, L3;
     String[] codes = new String[199];
     Liste_code_payes adapter;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     List<Contacts_Medecins> listContacts_M = new ArrayList<Contacts_Medecins>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +91,12 @@ public class ContactMedcin extends AppCompatActivity {
             Hopital3.setText(listContacts_M.get(2).getHopital());
             Spinner3.setSelection(TrouverIndice(listContacts_M.get(2).getCode()));
         }
+        suppCarde1();
+        suppCarde2();
+        suppCarde3();
+    }
+
+    public void suppCarde1() {
         L1.setOnLongClickListener(new View.OnLongClickListener() {
 
             @Override
@@ -99,7 +107,7 @@ public class ContactMedcin extends AppCompatActivity {
                 Email.setText("");
                 Hopital.setText("");
                 Spinner.setSelection(0);
-                //long x = ds.UpdateAnti(new Contacts_Medecins("", ""), 1);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 1);
                 return false;
             }
         });
@@ -113,7 +121,7 @@ public class ContactMedcin extends AppCompatActivity {
                 Email2.setText("");
                 Hopital2.setText("");
                 Spinner2.setSelection(0);
-                //long x = ds.UpdateAnti(new Contacts_Medecins("", ""), 1);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 2);
                 return false;
             }
         });
@@ -127,12 +135,228 @@ public class ContactMedcin extends AppCompatActivity {
                 Email3.setText("");
                 Hopital3.setText("");
                 Spinner3.setSelection(0);
-                //long x = ds.UpdateAnti(new Contacts_Medecins("", ""), 1);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 3);
                 return false;
             }
         });
+        Nom.setOnLongClickListener(new View.OnLongClickListener() {
 
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Hopital.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 1);
+                return false;
+            }
+        });
+        Prenom.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Hopital.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", codes[0], "", ""), 1);
+                return false;
+            }
+        });
+        Email.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Hopital.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 1);
+                return false;
+            }
+        });
+        Mobile.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Hopital.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 1);
+                return false;
+            }
+        });
+        Hopital.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom.setText("");
+                Prenom.setText("");
+                Mobile.setText("");
+                Email.setText("");
+                Hopital.setText("");
+                Spinner.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 1);
+                return false;
+            }
+        });
     }
+
+    public void suppCarde2() {
+        Nom2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Hopital2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        Prenom2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Hopital2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        Email2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Hopital2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        Mobile2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Hopital2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 2);
+                return false;
+            }
+        });
+        Hopital2.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom2.setText("");
+                Prenom2.setText("");
+                Mobile2.setText("");
+                Email2.setText("");
+                Hopital2.setText("");
+                Spinner2.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 2);
+                return false;
+            }
+        });
+    }
+
+    public void suppCarde3() {
+        Nom3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Hopital3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Prenom3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Hopital3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Email3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Hopital3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Mobile3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Hopital3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 3);
+                return false;
+            }
+        });
+        Hopital3.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Nom3.setText("");
+                Prenom3.setText("");
+                Mobile3.setText("");
+                Email3.setText("");
+                Hopital3.setText("");
+                Spinner3.setSelection(0);
+                long x = ds.UpdateMedecins(new Contacts_Medecins("", "", "", "", "", ""), 3);
+                return false;
+            }
+        });
+    }
+
     public void remplirspinir() {
 
         rempli_code_pays();
@@ -202,16 +426,17 @@ public class ContactMedcin extends AppCompatActivity {
             }
             i++;
         }
-        return i;
+        return 0;
     }
+
     public void retoure(View view) {
 
-        listContacts_M.add(0, new Contacts_Medecins(Nom.getText().toString(),Prenom.getText().toString(),
-                Mobile.getText().toString(),Code,Email.getText().toString(),Hopital.getText().toString()));
-        listContacts_M.add(1, new Contacts_Medecins(Nom2.getText().toString(),Prenom2.getText().toString(),
-                Mobile2.getText().toString(),Code2,Email2.getText().toString(),Hopital2.getText().toString()));
-        listContacts_M.add(2, new Contacts_Medecins(Nom3.getText().toString(),Prenom3.getText().toString(),
-                Mobile3.getText().toString(),Code3,Email3.getText().toString(),Hopital3.getText().toString()));
+        listContacts_M.add(0, new Contacts_Medecins(Nom.getText().toString(), Prenom.getText().toString(),
+                Mobile.getText().toString(), Code, Email.getText().toString(), Hopital.getText().toString()));
+        listContacts_M.add(1, new Contacts_Medecins(Nom2.getText().toString(), Prenom2.getText().toString(),
+                Mobile2.getText().toString(), Code2, Email2.getText().toString(), Hopital2.getText().toString()));
+        listContacts_M.add(2, new Contacts_Medecins(Nom3.getText().toString(), Prenom3.getText().toString(),
+                Mobile3.getText().toString(), Code3, Email3.getText().toString(), Hopital3.getText().toString()));
 
         if (ds.getCountMedecins() <= 0) {
             int i = 0;
@@ -220,7 +445,7 @@ public class ContactMedcin extends AppCompatActivity {
                 long x = ds.addMedecins(listContacts_M.get(i));
                 i++;
             }
-            Intent ite=new Intent(this,ContactsActivity.class);
+            Intent ite = new Intent(this, ContactsActivity.class);
             startActivity(ite);
             ContactMedcin.this.finish();
         } else {
@@ -230,11 +455,12 @@ public class ContactMedcin extends AppCompatActivity {
                 long x = ds.UpdateMedecins(listContacts_M.get(i), i + 1);
                 i++;
             }
-            Intent ite=new Intent(this,ContactsActivity.class);
+            Intent ite = new Intent(this, ContactsActivity.class);
             startActivity(ite);
             ContactMedcin.this.finish();
         }
     }
+
     public void alert(View view) {
         AlertDialog.Builder alt = new AlertDialog.Builder(this);
         alt.setTitle(" ").setIcon(R.drawable.alert)
