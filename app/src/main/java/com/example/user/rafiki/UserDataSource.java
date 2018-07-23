@@ -3,14 +3,13 @@ package com.example.user.rafiki;
         import android.content.ContentValues;
         import android.database.Cursor;
         import android.database.sqlite.SQLiteDatabase;
-
-        import com.example.user.rafiki.ItemData.Allergies_Item;
         import com.example.user.rafiki.ItemData.Antecedents_Item;
         import com.example.user.rafiki.ItemData.Contacts_Medecins;
         import com.example.user.rafiki.ItemData.Contacts_Parentaux;
         import com.example.user.rafiki.ItemData.Contacts_Urgences;
         import com.example.user.rafiki.ItemData.Fiche;
         import com.example.user.rafiki.ItemData.Medicament_Item;
+        import com.example.user.rafiki.ItemData.Seuils_Item;
         import com.example.user.rafiki.ItemData.clients;
 
         import java.util.ArrayList;
@@ -33,6 +32,7 @@ public class UserDataSource {
     private final String TABLE_NAME7 = "Contacts_Parentaux";
     private final String TABLE_NAME8 = "Contacts_Medecins";
     private final String TABLE_NAME9 = "Contacts_Urgences";
+    private final String TABLE_NAME10 = "Seuils_Bio";
 
     public UserDataSource(MySQLiteOpenHelper helper) {
         this.helper = helper;
@@ -526,7 +526,7 @@ public class UserDataSource {
         contentValues.put("email", itemData.getEmail());
         contentValues.put("hopital", itemData.getHopital());
 
-         long ids=db.update(TABLE_NAME8, contentValues, "_id= "+id, null);
+        long ids = db.update(TABLE_NAME8, contentValues, "_id= " + id, null);
         return ids;
     }
 
@@ -549,6 +549,7 @@ public class UserDataSource {
         }
         return list;
     }
+
     //Contacts_Urgences
     public int getCountUrgences() {
         Cursor cursor = db.query(TABLE_NAME9, null, null, null,
@@ -597,6 +598,116 @@ public class UserDataSource {
             String code_urg = cursor.getString(5);
 
             list.add(new Contacts_Urgences(nom_asur, tel_asur, code_asur, nom_urg, tel_urg, code_urg));
+            cursor.moveToNext();
+        }
+        return list;
+    }
+
+    //Seuil biometrique
+    public int getCountSeuils() {
+        Cursor cursor = db.query(TABLE_NAME10, null, null, null,
+                null, null, null, null);
+        return cursor.getCount();
+    }
+
+    public long addSeuils(Seuils_Item itemData) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("FCmarche_M", itemData.getFCmarche_M());
+        contentValues.put("FCmarche_X", itemData.getFCmarche_X());
+        contentValues.put("FCcourse_M", itemData.getFCcourse_M());
+        contentValues.put("FCcourse_X", itemData.getFCcourse_X());
+        contentValues.put("FCactivite_M", itemData.getFCactivite_M());
+        contentValues.put("FCactivite_X", itemData.getFCactivite_X());
+        contentValues.put("FCsommeil_M", itemData.getFCsommeil_M());
+        contentValues.put("FCsommeil_X", itemData.getFCsommeil_X());
+        contentValues.put("FRmarche_M", itemData.getFRmarche_M());
+        contentValues.put("FRmarche_X", itemData.getFRmarche_X());
+        contentValues.put("FRcourse_M", itemData.getFRcourse_M());
+        contentValues.put("FRcourse_X", itemData.getFRcourse_X());
+        contentValues.put("FRactivite_M", itemData.getFRactivite_M());
+        contentValues.put("FRactivite_X", itemData.getFRactivite_X());
+        contentValues.put("FRsommeil_M", itemData.getFRsommeil_M());
+        contentValues.put("FRsommeil_X", itemData.getFRsommeil_X());
+        contentValues.put("Tmarche_M", itemData.getTmarche_M());
+        contentValues.put("Tmarche_X", itemData.getTmarche_X());
+        contentValues.put("Tcourse_M", itemData.getTcourse_M());
+        contentValues.put("Tcourse_X", itemData.getTcourse_X());
+        contentValues.put("Tactivite_M", itemData.getTactivite_M());
+        contentValues.put("Tactivite_X", itemData.getTactivite_X());
+        contentValues.put("Tsommeil_M", itemData.getTsommeil_M());
+        contentValues.put("Tsommeil_X", itemData.getTsommeil_X());
+
+        return db.insert(TABLE_NAME10, null, contentValues);
+    }
+
+    public long UpdateSeuils(Seuils_Item itemData, int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("FCmarche_M", itemData.getFCmarche_M());
+        contentValues.put("FCmarche_X", itemData.getFCmarche_X());
+        contentValues.put("FCcourse_M", itemData.getFCcourse_M());
+        contentValues.put("FCcourse_X", itemData.getFCcourse_X());
+        contentValues.put("FCactivite_M", itemData.getFCactivite_M());
+        contentValues.put("FCactivite_X", itemData.getFCactivite_X());
+        contentValues.put("FCsommeil_M", itemData.getFCsommeil_M());
+        contentValues.put("FCsommeil_X", itemData.getFCsommeil_X());
+        contentValues.put("FRmarche_M", itemData.getFRmarche_M());
+        contentValues.put("FRmarche_X", itemData.getFRmarche_X());
+        contentValues.put("FRcourse_M", itemData.getFRcourse_M());
+        contentValues.put("FRcourse_X", itemData.getFRcourse_X());
+        contentValues.put("FRactivite_M", itemData.getFRactivite_M());
+        contentValues.put("FRactivite_X", itemData.getFRactivite_X());
+        contentValues.put("FRsommeil_M", itemData.getFRsommeil_M());
+        contentValues.put("FRsommeil_X", itemData.getFRsommeil_X());
+        contentValues.put("Tmarche_M", itemData.getTmarche_M());
+        contentValues.put("Tmarche_X", itemData.getTmarche_X());
+        contentValues.put("Tcourse_M", itemData.getTcourse_M());
+        contentValues.put("Tcourse_X", itemData.getTcourse_X());
+        contentValues.put("Tactivite_M", itemData.getTactivite_M());
+        contentValues.put("Tactivite_X", itemData.getTactivite_X());
+        contentValues.put("Tsommeil_M", itemData.getTsommeil_M());
+        contentValues.put("Tsommeil_X", itemData.getTsommeil_X());
+
+        return (long) db.update(TABLE_NAME10, contentValues, "_id= " + id, null);
+    }
+
+    public List getListSeuils() {
+        ArrayList<Seuils_Item> list = new ArrayList<Seuils_Item>();
+        Cursor cursor = db.query(TABLE_NAME10, new String[]{"FCmarche_M,FCmarche_X,FCcourse_M,FCcourse_X," +
+                        "FCactivite_M,FCactivite_X,FCsommeil_M,FCsommeil_X,FRmarche_M,FRmarche_X,FRcourse_M," +
+                        "FRcourse_X,FRactivite_M,FRactivite_X,FRsommeil_M,FRsommeil_X,Tmarche_M,Tmarche_X,Tcourse_M," +
+                        "Tcourse_X,Tactivite_M,Tactivite_X,Tsommeil_M,Tsommeil_X"}, null, null,
+                null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            String F1 = cursor.getString(0);
+            String F2 = cursor.getString(1);
+            String F3 = cursor.getString(2);
+            String F4 = cursor.getString(3);
+            String F5 = cursor.getString(4);
+            String F6 = cursor.getString(5);
+            String F7 = cursor.getString(6);
+            String F8 = cursor.getString(7);
+            String F9 = cursor.getString(8);
+            String F10 = cursor.getString(9);
+            String F11 = cursor.getString(10);
+            String F12 = cursor.getString(11);
+            String F13 = cursor.getString(12);
+            String F14 = cursor.getString(13);
+            String F15 = cursor.getString(14);
+            String F16 = cursor.getString(15);
+            String F17 = cursor.getString(16);
+            String F18 = cursor.getString(17);
+            String F19 = cursor.getString(18);
+            String F20 = cursor.getString(19);
+            String F21 = cursor.getString(20);
+            String F22 = cursor.getString(21);
+            String F23 = cursor.getString(22);
+            String F24 = cursor.getString(23);
+
+            list.add(new Seuils_Item(F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24));
             cursor.moveToNext();
         }
         return list;

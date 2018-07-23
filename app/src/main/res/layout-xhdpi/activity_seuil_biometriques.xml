@@ -211,7 +211,7 @@
                                 android:background="@color/ligne_horizontal" />
 
                             <EditText
-                                android:id="@+id/FCmarch_min"
+                                android:id="@+id/FCmarche_min"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
@@ -232,7 +232,7 @@
                                 android:background="@color/ligne_horizontal" />
 
                             <EditText
-                                android:id="@+id/FCmarch_max"
+                                android:id="@+id/FCmarche_max"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
@@ -243,9 +243,7 @@
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
-                                android:textSize="13sp"
-                                tools:layout_editor_absoluteX="160dp"
-                                tools:layout_editor_absoluteY="0dp" />
+                                android:textSize="13sp" />
 
 
                         </LinearLayout>
@@ -325,9 +323,7 @@
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
-                                android:textSize="13sp"
-                                tools:layout_editor_absoluteX="55dp"
-                                tools:layout_editor_absoluteY="0dp" />
+                                android:textSize="13sp" />
 
                             <View
                                 android:id="@+id/view29"

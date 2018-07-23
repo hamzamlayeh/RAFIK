@@ -63,4 +63,23 @@
     <string name="email_invalide">Invalid email</string>
     <string name="err_pass_caractaire">Your password must contain at least 6 characters</string>
     <string name="votre_t_shirt_pas_couple">" YOUR T-SHIRT IS NOT COUPLED"</string>
+    <string name="pr_c_dent">previous</string>
+    <string name="l">M</string>
+    <string name="m">T</string>
+    <string name="j">T</string>
+    <string name="v">F</string>
+    <string name="s">S</string>
+    <string name="d">S</string>
+    <string name="heure_de_prise">Take time</string>
+    <string name="nombre_de_prise_jour">Number of shots (morning)</string>
+    <string name="nombre_de_prise_soire">" Number of shots (evening)"</string>
+    <string name="nombre_de_prise_midi">" Number of shots (noon)"</string>
+    <string name="d_but_traitement">" Start treatment"</string>
+    <string name="fin_traitement">" Start treatment"</string>
+    <string name="maladie_6">Disease 6</string>
+    <string name="maladie_5">Disease 5</string>
+    <string name="maladie_4">Disease 4</string>
+    <string name="maladie_3">Disease 3</string>
+    <string name="maladie_2">Disease 2</string>
+    <string name="maladie_1">Disease 1</string>
 </resources>

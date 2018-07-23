@@ -49,6 +49,13 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         //Table Contacts Urgences
         String sql9="CREATE TABLE Contacts_Urgences (_id integer PRIMARY KEY autoincrement not null,"+
                 "nom_asur text,tel_asur text,code_asur text,nom_urg text,tel_urg text,code_urg text)";
+        //Table Seuils Biométrique
+        String sql10="CREATE TABLE Seuils_Bio (_id integer PRIMARY KEY autoincrement not null,"+
+                "FCmarche_M text,FCmarche_X text,FCcourse_M text,FCcourse_X text,FCactivite_M text," +
+                "FCactivite_X text,FCsommeil_M text,FCsommeil_X text,FRmarche_M text,FRmarche_X text," +
+                "FRcourse_M text,FRcourse_X text,FRactivite_M text,FRactivite_X text,FRsommeil_M text," +
+                "FRsommeil_X text,Tmarche_M text,Tmarche_X text,Tcourse_M text,Tcourse_X text,Tactivite_M text," +
+                "Tactivite_X text,Tsommeil_M text,Tsommeil_X text)";
         db.execSQL(sql);
         db.execSQL(sql2);
         db.execSQL(sql3);
@@ -58,6 +65,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql7);
         db.execSQL(sql8);
         db.execSQL(sql9);
+        db.execSQL(sql10);
     }
 
     @Override
@@ -72,6 +80,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String delet_sql7="DROP Table Contacts_Parentaux ";
         String delet_sql8="DROP Table Contacts_Medecins ";
         String delet_sql9="DROP Table Contacts_Urgences ";
+        String delet_sql10="DROP Table Seuils_Bio ";
 
         sqLiteDatabase.execSQL(delet_sql);
         sqLiteDatabase.execSQL(delet_sql2);
@@ -82,6 +91,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(delet_sql7);
         sqLiteDatabase.execSQL(delet_sql8);
         sqLiteDatabase.execSQL(delet_sql9);
+        sqLiteDatabase.execSQL(delet_sql10);
 
         onCreate(sqLiteDatabase);
     }

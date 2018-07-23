@@ -138,8 +138,7 @@ public class MaladiActivity extends AppCompatActivity {
     public void alert(View view) {
         AlertDialog.Builder alt = new AlertDialog.Builder(this);
         alt.setTitle(" ").setIcon(R.drawable.alert)
-                .setMessage("\n" + getString(R.string.ajouter) + "         " + getString(R.string.cliquer_sur_maladie) + "\n" +
-                        getString(R.string.modifier) + "       " + getString(R.string.cliquer_sur_maladie) + "\n" +
+                .setMessage(getString(R.string.modifier) + "       " + getString(R.string.cliquer_sur_maladie) + "\n" +
                         getString(R.string.supprimer) + "   " + getString(R.string.appui_long_sur_maladie)
                 )
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
