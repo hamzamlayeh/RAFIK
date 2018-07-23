@@ -210,8 +210,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="7"
-
-
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/raleway_regular"
                     android:padding="13dp"
@@ -228,6 +226,7 @@
                     android:fontFamily="@font/raleway_regular"
                     android:gravity="center"
                     android:padding="10dp"
+                    android:clickable="false"
                     android:scaleX="0.90"
                     android:scaleY="0.90"
                     android:textSize="14sp" />

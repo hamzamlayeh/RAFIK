@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
@@ -13,13 +14,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.user.rafiki.ItemData.Fiche;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +69,18 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         list = ds.getFiche();
         restoredFiche();
         restoredvalue();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
+            Intent ite = new Intent(this, MenuActivity.class);
+            startActivity(ite);
+        }
+
+        return false;
     }
 
     public void restoredFiche() {
@@ -136,7 +147,14 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         }
     }
 
-
+    public String getPath(Uri uri) {
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        int column_index = cursor
+                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
     public void groupe_sang(View view) {
         remplir_champs();
         Intent ite = new Intent(this, Groupe_SangActivity.class);
@@ -251,6 +269,11 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         }
 
     }
+
+
+
+
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -269,4 +292,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
 }
