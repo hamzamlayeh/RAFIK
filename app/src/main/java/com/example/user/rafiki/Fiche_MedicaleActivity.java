@@ -75,11 +75,9 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event){
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
             Intent ite = new Intent(this, MenuActivity.class);
             startActivity(ite);
         }
-
         return false;
     }
 

@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMessage;
  */
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
-public class SendMail extends AsyncTask<Void,Void,Void> {
+public class SendMail extends AsyncTask<Void, Void, Void> {
 
     //Declaring Variables
     public Context context;
@@ -37,7 +37,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
     private ProgressDialog progressDialog;
 
     //Class Constructor
-    public SendMail(Context context, String email, String subject, String message){
+    public SendMail(Context context, String email, String subject, String message) {
         //Initializing variables
         this.context = context;
         this.email = email;
@@ -49,7 +49,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
     protected void onPreExecute() {
         super.onPreExecute();
         //Showing progress dialog while sending email
-        progressDialog = ProgressDialog.show(context,context.getString(R.string.envoi_msg),context.getString(R.string.att_msg),false,false);
+        progressDialog = ProgressDialog.show(context, context.getString(R.string.envoi_msg), context.getString(R.string.att_msg), false, false);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
         //Dismissing the progress dialog
         progressDialog.dismiss();
         //Showing a success message
-        Toast.makeText(context, R.string.Messageenvoyé,Toast.LENGTH_LONG).show();
+        Toast.makeText(context, R.string.Messageenvoyé, Toast.LENGTH_LONG).show();
     }
 
 
@@ -95,8 +95,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
             //Adding subject
             mm.setSubject(subject);
             //Adding message
-            mm.setText(message);
-
+            mm.setContent(message, "text/html;charset=UTF-8");
             //Sending email
             Transport.send(mm);
 

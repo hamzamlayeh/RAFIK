@@ -9,10 +9,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.user.rafiki.ItemData.MailBody;
 import com.example.user.rafiki.ItemData.clients;
 
 import java.util.List;
@@ -32,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editors = pref.edit();
-
         String lang = pref.getString("lang", null);
         if (lang != null) {
 
@@ -118,11 +119,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void password_lost(View view) {
-        //Intent intent = new Intent(LoginActivity.this,PasswordLostMailSender.class);
-        //startActivity(intent);
         if (isOnline()) {
             if (ds.verifEmail(email.getText().toString())) {
-                SendMail sm = new SendMail(this, email.getText().toString(), getString(R.string.mot_de_passe_oublie), ds.getPassword(email.getText().toString()));
+                SendMail sm = new SendMail(this, email.getText().toString(), getString(R.string.mot_de_passe_oublie),
+                        MailBody.getBody(ds.getPassword(email.getText().toString())));
                 sm.execute();
             } else {
                 Toast.makeText(LoginActivity.this, R.string.MailNexistePas, Toast.LENGTH_LONG).show();

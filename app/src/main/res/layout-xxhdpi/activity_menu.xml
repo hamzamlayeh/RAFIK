@@ -92,7 +92,7 @@
                 android:fontFamily="@font/raleway_regular"
                 android:onClick="E8"
                 android:padding="10dp"
-                android:text="Accueil"
+                android:text="@string/accueil"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -117,7 +117,7 @@
                 android:fontFamily="@font/raleway_regular"
                 android:onClick="donnees_pers"
                 android:padding="10dp"
-                android:text="Données personnelles"
+                android:text="@string/donn_es_personnelles"
                 android:textSize="18sp" />
 
         </TableRow>
@@ -143,7 +143,7 @@
                 android:fontFamily="@font/raleway_regular"
                 android:onClick="fiche"
                 android:padding="10dp"
-                android:text="Fiche médicale"
+                android:text="@string/fiche_m_dicale"
                 android:textSize="18sp" />
 
         </TableRow>
@@ -195,7 +195,7 @@
                 android:fontFamily="@font/raleway_regular"
                 android:onClick="alertes"
                 android:padding="10dp"
-                android:text="Alertes"
+                android:text="@string/alertes"
                 android:textSize="18sp" />
 
         </TableRow>
@@ -221,7 +221,7 @@
                 android:fontFamily="@font/raleway_regular"
                 android:onClick="deconnecter"
                 android:padding="10dp"
-                android:text="Déconnecter"
+                android:text="@string/d_connecter"
                 android:textSize="18sp" />
 
         </TableRow>

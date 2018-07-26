@@ -214,7 +214,7 @@
                 android:cursorVisible="false"
                 android:focusableInTouchMode="false"
                 android:fontFamily="@font/raleway_regular"
-                android:hint="exp:3 oct 2017"
+                android:hint="@string/date"
                 android:inputType="date"
                 android:onClick="get_age"
                 android:padding="10dp"
@@ -251,7 +251,7 @@
                 android:cursorVisible="false"
                 android:focusableInTouchMode="false"
                 android:fontFamily="@font/raleway_regular"
-                android:hint="exp:3 oct 2018"
+                android:hint="@string/date"
                 android:inputType="date"
                 android:onClick="get_age2"
                 android:padding="10dp"
@@ -416,8 +416,8 @@
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
                 android:onClick="getMe"
-                android:textOff="@string/m"
-                android:textOn="@string/m"
+                android:textOff="@string/m1"
+                android:textOn="@string/m1"
                 android:textSize="12sp" />
 
             <View

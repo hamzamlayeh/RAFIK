@@ -39,7 +39,7 @@
     <string name="ok">OK</string>
     <string name="alert_msg1">Consulter votre mail pour</string>
     <string name="alert_msg2">Valider votre inscription</string>
-    <string name="recherche">   Recherche…</string>
+    <string name="recherche">Recherche…</string>
     <string name="pays">PAYS</string>
     <string name="telephone">Mobile</string>
     <string name="confirmer_mot_de_pass">Confirmer mot de passe</string>
@@ -57,7 +57,7 @@
     <string name="Messageenvoyé">Message envoyé</string>
     <string name="votre_t_shirt_est_bien_couple">VOTRE T-SHIRT EST BIEN COUPLÉ</string>
     <string name="nbCompt">Vous avez dépassé le nombre de comptes autorisés</string>
-    <string name="mot_de_passe_oublie">Mot de passe oublié</string>
+    <string name="mot_de_passe_oublie">Rafiki - Mot de passe oublié </string>
     <string name="envoi_msg">Envoi message</string>
     <string name="att_msg">Veuillez patienter…</string>
     <string name="chek_internet">Vous n\'êtes pas connectés à Internet</string>
@@ -82,7 +82,7 @@
     <string name="allergies">Allergies</string>
     <string name="maladies">Maladies</string>
     <string name="m_dicaments">Médicaments</string>
-    <string name="fiche_m_dicale">fiche médicale</string>
+    <string name="fiche_m_dicale">Fiche médicale</string>
     <string name="ab" translatable="false">AB+</string>
     <string name="ab2" translatable="false">AB-</string>
     <string name="a" translatable="false">A+</string>
@@ -117,16 +117,16 @@
     <string name="marche">Marche</string>
     <string name="course">Course</string>
     <string name="cyclisme">Cyclisme</string>
-    <string name="activit_journali_res">Activité journaliéres</string>
+    <string name="activit_journali_res">Activités journaliéres</string>
     <string name="sommeil">Sommeil</string>
     <string name="activit">Activité</string>
     <string name="min">Min</string>
-    <string name="max">Max</string>
+    <string name="max" translatable="false">Max</string>
     <string name="c" translatable="false">C°</string>
     <string name="acte_chirurgicale">Acte chirurgicale</string>
     <string name="date">Date</string>
-    <string name="allergie_a">Allergie a</string>
-    <string name="renseiger">Renseiger …</string>
+    <string name="allergie_a">Allergie à</string>
+    <string name="renseiger">Renseigner …</string>
     <string name="maladie_1">Maladie 1</string>
     <string name="maladie_2">Maladie 2</string>
     <string name="maladie_3">Maladie 3</string>
@@ -139,19 +139,20 @@
     <string name="nombre_de_prise_midi">Nombre de prise (midi)</string>
     <string name="nombre_de_prise_soire">Nombre de prise (soire)</string>
     <string name="heure_de_prise">Heure de prise</string>
-    <string name="r_currnce">Récurrnce</string>
+    <string name="r_currnce">Récurrence</string>
     <string name="l">L</string>
     <string name="m">M</string>
+    <string name="m1">M</string>
     <string name="j">J</string>
     <string name="v">V</string>
     <string name="s">S</string>
     <string name="d">D</string>
     <string name="pr_c_dent">précédent</string>
-    <string name="exp_2">2</string>
+    <string name="exp_2" translatable="false">2</string>
     <string name="cliquer_sur_antecedents">Cliquer sur Antécédents.</string>
     <string name="appui_long_sur_antecedents">Appui long sur la Antécédents.</string>
-    <string name="cliquer_sur_allergis">Cliquer sur Allergis.</string>
-    <string name="appui_long_sur_allergis">Appui long sur la Allergis.</string>
+    <string name="cliquer_sur_allergis">Cliquer sur Allergies.</string>
+    <string name="appui_long_sur_allergis">Appui long sur la Allergies.</string>
     <string name="cliquer_sur_medicaments">Cliquer sur Médicaments.</string>
     <string name="appui_long_sur_medicaments">Appui long sur la Médicaments.</string>
     <string name="appui_long_sur_parentaux">Appui long sur les Contacts Parentaux.</string>
@@ -160,4 +161,8 @@
     <string name="appui_long_sur_medecins">Appui long sur les médecins.</string>
     <string name="cliquer_sur_urgence">Cliquer sur Assurances/Urgence.</string>
     <string name="appui_long_sur_urgence">Appui long sur Assurances/Urgence.</string>
+    <string name="accueil">Accueil</string>
+    <string name="donn_es_personnelles">Données personnelles</string>
+    <string name="alertes">Alertes</string>
+    <string name="d_connecter">Déconnecter</string>
 </resources>

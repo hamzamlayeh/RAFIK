@@ -13,6 +13,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -51,7 +52,15 @@ public class MenuActivity extends AppCompatActivity {
 
         }
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
 
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent ite = new Intent(this, E8.class);
+            startActivity(ite);
+        }
+        return false;
+    }
     public void E8(View view) {
         Intent ite = new Intent(this, E8.class);
         startActivity(ite);

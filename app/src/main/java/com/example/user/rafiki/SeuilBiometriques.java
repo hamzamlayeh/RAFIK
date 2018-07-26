@@ -63,30 +63,30 @@ public class SeuilBiometriques extends AppCompatActivity {
             list = ds.getListSeuils();
             FCmarche_M.setText(list.get(0).getFCmarche_M());
             FCmarche_X.setText(list.get(0).getFCmarche_X());
-            FCcourse_M.setText(list.get(1).getFCcourse_M());
-            FCcourse_X.setText(list.get(1).getFCcourse_X());
-            FCactivite_M.setText(list.get(2).getFCactivite_M());
-            FCactivite_X.setText(list.get(2).getFCactivite_X());
-            FCsommeil_M.setText(list.get(3).getFCsommeil_M());
-            FCsommeil_X.setText(list.get(3).getFCsommeil_X());
+            FCcourse_M.setText(list.get(0).getFCcourse_M());
+            FCcourse_X.setText(list.get(0).getFCcourse_X());
+            FCactivite_M.setText(list.get(0).getFCactivite_M());
+            FCactivite_X.setText(list.get(0).getFCactivite_X());
+            FCsommeil_M.setText(list.get(0).getFCsommeil_M());
+            FCsommeil_X.setText(list.get(0).getFCsommeil_X());
 
             FRmarche_M.setText(list.get(0).getFRmarche_M());
             FRmarche_X.setText(list.get(0).getFRmarche_X());
-            FRcourse_M.setText(list.get(1).getFRcourse_M());
-            FRcourse_X.setText(list.get(1).getFRcourse_X());
-            FRactivite_M.setText(list.get(2).getFRactivite_M());
-            FRactivite_X.setText(list.get(2).getFRactivite_X());
-            FRsommeil_M.setText(list.get(3).getFRsommeil_M());
-            FRsommeil_X.setText(list.get(3).getFRsommeil_X());
+            FRcourse_M.setText(list.get(0).getFRcourse_M());
+            FRcourse_X.setText(list.get(0).getFRcourse_X());
+            FRactivite_M.setText(list.get(0).getFRactivite_M());
+            FRactivite_X.setText(list.get(0).getFRactivite_X());
+            FRsommeil_M.setText(list.get(0).getFRsommeil_M());
+            FRsommeil_X.setText(list.get(0).getFRsommeil_X());
 
             Tmarche_M.setText(list.get(0).getTmarche_M());
             Tmarche_X.setText(list.get(0).getTmarche_X());
-            Tcourse_M.setText(list.get(1).getTcourse_M());
-            Tcourse_X.setText(list.get(1).getTcourse_X());
-            Tactivite_M.setText(list.get(2).getTactivite_M());
-            Tactivite_X.setText(list.get(2).getTactivite_X());
-            Tsommeil_M.setText(list.get(3).getTsommeil_M());
-            Tsommeil_X.setText(list.get(3).getTsommeil_X());
+            Tcourse_M.setText(list.get(0).getTcourse_M());
+            Tcourse_X.setText(list.get(0).getTcourse_X());
+            Tactivite_M.setText(list.get(0).getTactivite_M());
+            Tactivite_X.setText(list.get(0).getTactivite_X());
+            Tsommeil_M.setText(list.get(0).getTsommeil_M());
+            Tsommeil_X.setText(list.get(0).getTsommeil_X());
         }
     }
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -18,7 +19,6 @@ public class AllergiesActivity extends AppCompatActivity {
     CheckBox rd_1,rd_2,rd_3,rd_4,rd_5,rd_6,rd_7;
     SharedPreferences pref;
     SharedPreferences.Editor editor ;
-    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,5 +193,14 @@ public class AllergiesActivity extends AppCompatActivity {
         if (!rd_6.isChecked()){
             ds.Updateallergie("","","",6);
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
+            startActivity(ite);
+        }
+        return false;
     }
 }
