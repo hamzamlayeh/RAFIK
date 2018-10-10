@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.Contacts_Medecins;
 import com.example.user.rafiki.ItemData.Contacts_Parentaux;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,14 +31,14 @@ public class ContactMedcin extends AppCompatActivity {
     EditText Nom2, Prenom2, Mobile2, Email2, Hopital2;
     EditText Nom3, Prenom3, Mobile3, Email3, Hopital3;
     Spinner Spinner, Spinner2, Spinner3;
-    String Code, Code2, Code3;
+    String Code, Code2, Code3, mail, mail2, mail3;
     LinearLayout L1, L2, L3;
     String[] codes = new String[199];
     Liste_code_payes adapter;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     List<Contacts_Medecins> listContacts_M = new ArrayList<Contacts_Medecins>();
-
+    MKLoader mkLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +68,10 @@ public class ContactMedcin extends AppCompatActivity {
         L1 = findViewById(R.id.l1);
         L2 = findViewById(R.id.l2);
         L3 = findViewById(R.id.l3);
-
+        mkLoader = findViewById(R.id.alerr);
         remplirspinir();
-        if (ds.getCountParentaux() > 0) {
+
+        if (ds.getCountMedecins() > 0) {
             listContacts_M = ds.getListMedecins();
             Nom.setText(listContacts_M.get(0).getNom());
             Prenom.setText(listContacts_M.get(0).getPrenom());
@@ -431,35 +433,58 @@ public class ContactMedcin extends AppCompatActivity {
     }
 
     public void retoure(View view) {
+        mail = Email.getText().toString();
+        mail2 = Email2.getText().toString();
+        mail3 = Email3.getText().toString();
+        if (valider()) {
+            listContacts_M.add(0, new Contacts_Medecins(Nom.getText().toString(), Prenom.getText().toString(),
+                    Mobile.getText().toString(), Code, mail, Hopital.getText().toString()));
+            listContacts_M.add(1, new Contacts_Medecins(Nom2.getText().toString(), Prenom2.getText().toString(),
+                    Mobile2.getText().toString(), Code2, mail2, Hopital2.getText().toString()));
+            listContacts_M.add(2, new Contacts_Medecins(Nom3.getText().toString(), Prenom3.getText().toString(),
+                    Mobile3.getText().toString(), Code3, mail3, Hopital3.getText().toString()));
 
-        listContacts_M.add(0, new Contacts_Medecins(Nom.getText().toString(), Prenom.getText().toString(),
-                Mobile.getText().toString(), Code, Email.getText().toString(), Hopital.getText().toString()));
-        listContacts_M.add(1, new Contacts_Medecins(Nom2.getText().toString(), Prenom2.getText().toString(),
-                Mobile2.getText().toString(), Code2, Email2.getText().toString(), Hopital2.getText().toString()));
-        listContacts_M.add(2, new Contacts_Medecins(Nom3.getText().toString(), Prenom3.getText().toString(),
-                Mobile3.getText().toString(), Code3, Email3.getText().toString(), Hopital3.getText().toString()));
+            if (ds.getCountMedecins() <= 0) {
+                mkLoader.setVisibility(View.VISIBLE);
+                int i = 0;
+                while (i < listContacts_M.size()) {
 
-        if (ds.getCountMedecins() <= 0) {
-            int i = 0;
-            while (i < listContacts_M.size()) {
+                    long x = ds.addMedecins(listContacts_M.get(i));
+                    i++;
+                }
+                Intent ite = new Intent(this, ContactsActivity.class);
+                startActivity(ite);
+                ContactMedcin.this.finish();
+            } else {
+                mkLoader.setVisibility(View.VISIBLE);
+                int i = 0;
+                while (i < listContacts_M.size()) {
 
-                long x = ds.addMedecins(listContacts_M.get(i));
-                i++;
+                    long x = ds.UpdateMedecins(listContacts_M.get(i), i + 1);
+                    i++;
+                }
+                Intent ite = new Intent(this, ContactsActivity.class);
+                startActivity(ite);
+                ContactMedcin.this.finish();
             }
-            Intent ite = new Intent(this, ContactsActivity.class);
-            startActivity(ite);
-            ContactMedcin.this.finish();
-        } else {
-            int i = 0;
-            while (i < listContacts_M.size()) {
-
-                long x = ds.UpdateMedecins(listContacts_M.get(i), i + 1);
-                i++;
-            }
-            Intent ite = new Intent(this, ContactsActivity.class);
-            startActivity(ite);
-            ContactMedcin.this.finish();
         }
+    }
+
+    private boolean valider() {
+        boolean valide = true;
+        if (!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
+            Email.setError(getString(R.string.email_invalide));
+            valide = false;
+        }
+        if (!mail2.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail2).matches())) {
+            Email2.setError(getString(R.string.email_invalide));
+            valide = false;
+        }
+        if (!mail3.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail3).matches())) {
+            Email3.setError(getString(R.string.email_invalide));
+            valide = false;
+        }
+        return valide;
     }
 
     public void alert(View view) {
@@ -474,8 +499,9 @@ public class ContactMedcin extends AppCompatActivity {
                     }
                 }).show();
     }
+
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent ite = new Intent(this, ContactsActivity.class);

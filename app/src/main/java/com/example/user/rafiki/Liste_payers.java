@@ -26,6 +26,7 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
     String[] items = new String[199];
     ArrayList<DataItem> listA;
     Adapter_Liste_pays myAdapter;
+    DataItem dataItem;
     ListView listView;
     EditText recherch;
     Intent ite;
@@ -43,7 +44,7 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
 
         recherch.addTextChangedListener(this);
         listA=new ArrayList<DataItem>();
-        DataItem dataItem;
+
         int id = 0;
         for(int i=0;i<items.length;i++){
 

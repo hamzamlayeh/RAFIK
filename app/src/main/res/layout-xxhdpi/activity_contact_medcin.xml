@@ -142,10 +142,9 @@
 
                         <Spinner
                             android:id="@+id/spinner"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
                             android:fontFamily="@font/raleway_regular"
                             android:spinnerMode="dialog" />
 
@@ -160,14 +159,12 @@
 
                         <EditText
                             android:id="@+id/mobile"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
                             android:background="@android:color/transparent"
                             android:fontFamily="@font/raleway_regular"
                             android:hint="@string/telephone"
-                            android:inputType="phone"
-
+                            android:inputType="number"
                             android:padding="10dp" />
                     </LinearLayout>
 
@@ -275,10 +272,9 @@
 
                         <Spinner
                             android:id="@+id/spinner1"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
                             android:fontFamily="@font/raleway_regular"
                             android:spinnerMode="dialog" />
 
@@ -292,13 +288,12 @@
 
                         <EditText
                             android:id="@+id/mobile1"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
                             android:background="@android:color/transparent"
                             android:fontFamily="@font/raleway_regular"
                             android:hint="@string/telephone"
-                            android:inputType="phone"
+                            android:inputType="number"
 
                             android:padding="10dp" />
                     </LinearLayout>
@@ -405,10 +400,9 @@
 
                         <Spinner
                             android:id="@+id/spinner2"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
                             android:fontFamily="@font/raleway_regular"
                             android:spinnerMode="dialog" />
 
@@ -422,14 +416,12 @@
 
                         <EditText
                             android:id="@+id/mobile2"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
                             android:background="@android:color/transparent"
                             android:fontFamily="@font/raleway_regular"
                             android:hint="@string/telephone"
-                            android:inputType="phone"
-
+                            android:inputType="number"
                             android:padding="10dp" />
                     </LinearLayout>
 
@@ -480,4 +472,22 @@
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
+    <com.tuyenmonkey.mkloader.MKLoader
+        android:id="@+id/alerr"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        app:mk_color="@color/color_loader"
+        app:mk_type="TwinFishesSpinner" />
     </android.support.constraint.ConstraintLayout>

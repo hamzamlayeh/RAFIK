@@ -1,5 +1,6 @@
 package com.example.user.rafiki;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Fiche;
 import com.example.user.rafiki.ItemData.Seuils_Item;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ public class SeuilBiometriques extends AppCompatActivity {
     String Tmarch_M, Tmarch_X, Tcours_M, Tcours_X, Tactivit_M, Tactivit_X, Tsomeil_M, Tsomeil_X;
     List<Seuils_Item> list = new ArrayList<Seuils_Item>();
     Seuils_Item Seuils;
+    MKLoader mkLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,8 @@ public class SeuilBiometriques extends AppCompatActivity {
         Tactivite_X = findViewById(R.id.Tactivit_max);
         Tsommeil_M = findViewById(R.id.Tsommeil_min);
         Tsommeil_X = findViewById(R.id.Tsommeil_max);
+        mkLoader = findViewById(R.id.alerr);
+
         if (ds.getCountSeuils() > 0) {
             list = ds.getListSeuils();
             FCmarche_M.setText(list.get(0).getFCmarche_M());
@@ -115,7 +120,6 @@ public class SeuilBiometriques extends AppCompatActivity {
         Tactivit_X = Tactivite_X.getText().toString().trim();
         Tsomeil_M = Tsommeil_M.getText().toString().trim();
         Tsomeil_X = Tsommeil_X.getText().toString().trim();
-
         if (valider()) {
 
             Seuils = new Seuils_Item(Cmarche_M, Cmarche_X, Ccourse_M, Ccourse_X, Cactivite_M, Cactivite_X, Csommeil_M,
@@ -126,6 +130,7 @@ public class SeuilBiometriques extends AppCompatActivity {
                 if (ids == -1) {
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
+                    mkLoader.setVisibility(View.VISIBLE);
                     Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
                     startActivity(ite);
                     SeuilBiometriques.this.finish();
@@ -135,13 +140,13 @@ public class SeuilBiometriques extends AppCompatActivity {
                 if (ids == -1) {
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
+                    mkLoader.setVisibility(View.VISIBLE);
                     Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
                     startActivity(ite);
                     SeuilBiometriques.this.finish();
                 }
             }
         }
-
     }
 
     private boolean valider() {

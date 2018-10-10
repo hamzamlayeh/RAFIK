@@ -87,7 +87,7 @@ public class UserDataSource {
 
     public List getAllClient() {
 
-        ArrayList<clients> list = new ArrayList<clients>();
+        ArrayList<clients> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME, new String[]{"_id", "nom", "prenom", "age", "payer", "mobile", "code", "sexe", "email", "password"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -108,6 +108,7 @@ public class UserDataSource {
             list.add(clt);
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -116,10 +117,8 @@ public class UserDataSource {
         Cursor cursor = db.query(TABLE_NAME, new String[]{"email"}, "email=?", new String[]{email},
                 null, null, null, null);
         int cursorcount = cursor.getCount();
-        if (cursorcount > 0) {
-            return true;
-        }
-        return false;
+        cursor.close();
+        return cursorcount > 0;
     }
 
     public boolean verifUser(String email, String password) {
@@ -127,10 +126,8 @@ public class UserDataSource {
         Cursor cursor = db.query(TABLE_NAME, new String[]{"email,password"}, "email=? AND password=?", new String[]{email, password},
                 null, null, null, null);
         int cursorcount = cursor.getCount();
-        if (cursorcount > 0) {
-            return true;
-        }
-        return false;
+        cursor.close();
+        return cursorcount > 0;
     }
 
     public String getPassword(String email) {
@@ -142,6 +139,7 @@ public class UserDataSource {
             cursor.moveToFirst();
             return cursor.getString(0);
         }
+        cursor.close();
         return "";
     }
 
@@ -152,18 +150,18 @@ public class UserDataSource {
         int cursorcount = cursor.getCount();
         if (cursorcount > 0) {
             cursor.moveToFirst();
-            String nom = cursor.getString(0) + " " + cursor.getString(1);
-            return nom;
+            return cursor.getString(0) + " " + cursor.getString(1);
         }
+        cursor.close();
         return "";
     }
 
-    public boolean UpdateImg(String img, String email) {
+    public void UpdateImg(String img, String email) {
 
         ContentValues values = new ContentValues();
         values.put("image", img);
-        int i = db.update(TABLE_NAME, values, "email=?", new String[]{email});
-        return i > 0;
+         db.update(TABLE_NAME, values, "email=?", new String[]{email});
+
     }
 
     public String getImg(String email) {
@@ -175,6 +173,7 @@ public class UserDataSource {
             cursor.moveToFirst();
             return cursor.getString(0);
         }
+        cursor.close();
         return null;
     }
 
@@ -195,7 +194,7 @@ public class UserDataSource {
 
     public List getFiche() {
 
-        ArrayList<Fiche> list = new ArrayList<Fiche>();
+        ArrayList<Fiche> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME2, new String[]{"_id", "email", "poid", "taille", "num_scret", "adresse", "code_postal", "ville", "sang"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -216,6 +215,7 @@ public class UserDataSource {
             list.add(clt);
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -236,7 +236,10 @@ public class UserDataSource {
     public int getCountMaladi() {
         Cursor cursor = db.query(TABLE_NAME3, null, null, null,
                 null, null, null, null);
-        return cursor.getCount();
+        int count=cursor.getCount();
+        cursor.close();
+        return count;
+
     }
 
     public long addmaladi(String item1) {
@@ -256,7 +259,7 @@ public class UserDataSource {
     }
 
     public List getListMaladi() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME3, new String[]{"NomMaladi"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -267,6 +270,7 @@ public class UserDataSource {
             i++;
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -274,7 +278,9 @@ public class UserDataSource {
     public int getCountAntece() {
         Cursor cursor = db.query(TABLE_NAME4, null, null, null,
                 null, null, null, null);
-        return cursor.getCount();
+        int count=cursor.getCount();
+        cursor.close();
+        return count;
     }
 
     public long addAnte(Antecedents_Item itemData) {
@@ -296,7 +302,7 @@ public class UserDataSource {
     }
 
     public List getListAnte() {
-        ArrayList<Antecedents_Item> list = new ArrayList<Antecedents_Item>();
+        ArrayList<Antecedents_Item> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME4, new String[]{"acte,date"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -308,15 +314,16 @@ public class UserDataSource {
             list.add(new Antecedents_Item(acte, date));
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
-    public long addallergie(int id) {
+    public void addallergie(int id) {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("id_allergie", id);
 
-        return db.insert(TABLE_NAME5, null, contentValues);
+        db.insert(TABLE_NAME5, null, contentValues);
     }
 
     public boolean verifId_allergie(int id) {
@@ -327,6 +334,7 @@ public class UserDataSource {
         if (cursorcount > 0) {
             return true;
         }
+        cursor.close();
         return false;
     }
 
@@ -342,7 +350,7 @@ public class UserDataSource {
     }
 
     public List getListAllergies(int id) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME5, new String[]{"nom_allergie1,nom_allergie2,nom_allergie3"}, "id_allergie= " + id,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -355,6 +363,7 @@ public class UserDataSource {
             i++;
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -384,7 +393,7 @@ public class UserDataSource {
 
     public List getMedicament() {
 
-        ArrayList<Medicament_Item> list = new ArrayList<Medicament_Item>();
+        ArrayList<Medicament_Item> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME6, new String[]{"_id", "nom_medica", "nb_matin", "nb_midi", "nb_soire", "date_debut", "date_fin", "heure_matin",
                         "heure_midi", "heure_soire", "color_lu", "color_ma", "color_me", "color_ju", "color_ve", "color_sa", "color_di"}, null,
                 null, null, null, null, null);
@@ -414,6 +423,7 @@ public class UserDataSource {
             list.add(clt);
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -450,7 +460,9 @@ public class UserDataSource {
     public int getCountParentaux() {
         Cursor cursor = db.query(TABLE_NAME7, null, null, null,
                 null, null, null, null);
-        return cursor.getCount();
+        int count=cursor.getCount();
+        cursor.close();
+        return count;
     }
 
     public long addParentaux(Contacts_Parentaux itemData) {
@@ -478,7 +490,7 @@ public class UserDataSource {
     }
 
     public List getListParentaux() {
-        ArrayList<Contacts_Parentaux> list = new ArrayList<Contacts_Parentaux>();
+        ArrayList<Contacts_Parentaux> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME7, new String[]{"nom,prenom,mobile,code,email"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -493,6 +505,7 @@ public class UserDataSource {
             list.add(new Contacts_Parentaux(nom, prenom, mobile, code, email));
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -500,7 +513,9 @@ public class UserDataSource {
     public int getCountMedecins() {
         Cursor cursor = db.query(TABLE_NAME8, null, null, null,
                 null, null, null, null);
-        return cursor.getCount();
+        int count=cursor.getCount();
+        cursor.close();
+        return count;
     }
 
     public long addMedecins(Contacts_Medecins itemData) {
@@ -531,7 +546,7 @@ public class UserDataSource {
     }
 
     public List getListMedecins() {
-        ArrayList<Contacts_Medecins> list = new ArrayList<Contacts_Medecins>();
+        ArrayList<Contacts_Medecins> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME8, new String[]{"nom,prenom,mobile,code,email,hopital"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -547,6 +562,7 @@ public class UserDataSource {
             list.add(new Contacts_Medecins(nom, prenom, mobile, code, email, hopital));
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -554,7 +570,9 @@ public class UserDataSource {
     public int getCountUrgences() {
         Cursor cursor = db.query(TABLE_NAME9, null, null, null,
                 null, null, null, null);
-        return cursor.getCount();
+        int count=cursor.getCount();
+        cursor.close();
+        return count;
     }
 
     public long addUrgences(Contacts_Urgences itemData) {
@@ -584,7 +602,7 @@ public class UserDataSource {
     }
 
     public List getListUrgences() {
-        ArrayList<Contacts_Urgences> list = new ArrayList<Contacts_Urgences>();
+        ArrayList<Contacts_Urgences> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME9, new String[]{"nom_asur,tel_asur,code_asur,nom_urg,tel_urg,code_urg"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
@@ -600,6 +618,7 @@ public class UserDataSource {
             list.add(new Contacts_Urgences(nom_asur, tel_asur, code_asur, nom_urg, tel_urg, code_urg));
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 
@@ -607,7 +626,9 @@ public class UserDataSource {
     public int getCountSeuils() {
         Cursor cursor = db.query(TABLE_NAME10, null, null, null,
                 null, null, null, null);
-        return cursor.getCount();
+        int count=cursor.getCount();
+        cursor.close();
+        return count;
     }
 
     public long addSeuils(Seuils_Item itemData) {
@@ -673,7 +694,7 @@ public class UserDataSource {
     }
 
     public List getListSeuils() {
-        ArrayList<Seuils_Item> list = new ArrayList<Seuils_Item>();
+        ArrayList<Seuils_Item> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME10, new String[]{"FCmarche_M,FCmarche_X,FCcourse_M,FCcourse_X," +
                         "FCactivite_M,FCactivite_X,FCsommeil_M,FCsommeil_X,FRmarche_M,FRmarche_X,FRcourse_M," +
                         "FRcourse_X,FRactivite_M,FRactivite_X,FRsommeil_M,FRsommeil_X,Tmarche_M,Tmarche_X,Tcourse_M," +
@@ -710,6 +731,7 @@ public class UserDataSource {
             list.add(new Seuils_Item(F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24));
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 }

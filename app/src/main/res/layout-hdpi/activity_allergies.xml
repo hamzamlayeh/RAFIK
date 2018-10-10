@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllergiesActivity"
-    android:background="@drawable/bag10">
+    android:background="@drawable/bag10"
+    tools:context=".AllergiesActivity">
 
     <ImageView
         android:id="@+id/rafiki3"
@@ -77,8 +77,6 @@
                         android:layout_weight="11"
                         android:drawableRight="@drawable/flash"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/allergie_aux_insectes"
-                        android:onClick="insectes"
                         android:padding="10dp"
                         android:text="@string/allergie_aux_insectes"
                         android:textSize="14sp" />
@@ -118,8 +116,6 @@
                         android:layout_weight="11"
                         android:drawableRight="@drawable/flash"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/allergie_aux_m_dicaments"
-                        android:onClick="medicaments"
                         android:padding="10dp"
                         android:paddingLeft="5dp"
                         android:text="@string/allergie_aux_m_dicaments"
@@ -134,8 +130,8 @@
                         android:buttonTint="@color/btn_radio"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
-                        android:padding="10dp"
                         android:onClick="r2"
+                        android:padding="10dp"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
@@ -159,8 +155,6 @@
                         android:layout_weight="11"
                         android:drawableRight="@drawable/flash"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/allergie_aux_animaux"
-                        android:onClick="animaux"
                         android:padding="10dp"
                         android:paddingLeft="5dp"
                         android:text="@string/allergie_aux_animaux"
@@ -201,8 +195,6 @@
                         android:layout_weight="11"
                         android:drawableRight="@drawable/flash"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/allergie_aux_aliments"
-                        android:onClick="aliments"
                         android:padding="10dp"
                         android:paddingLeft="5dp"
                         android:text="@string/allergie_aux_aliments"
@@ -217,8 +209,8 @@
                         android:buttonTint="@color/btn_radio"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
-                        android:padding="10dp"
                         android:onClick="r4"
+                        android:padding="10dp"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
@@ -243,8 +235,6 @@
                         android:layout_weight="11"
                         android:drawableRight="@drawable/flash"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/allergie_respiratoire"
-                        android:onClick="respiratoire"
                         android:padding="10dp"
                         android:paddingLeft="5dp"
                         android:text="@string/allergie_respiratoire"
@@ -259,9 +249,9 @@
                         android:buttonTint="@color/btn_radio"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
+                        android:onClick="r5"
                         android:padding="10dp"
                         android:scaleX="0.90"
-                        android:onClick="r5"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -284,8 +274,6 @@
                         android:layout_weight="11"
                         android:drawableRight="@drawable/flash"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/allergie_au_pollen"
-                        android:onClick="pollen"
                         android:padding="10dp"
                         android:paddingLeft="5dp"
                         android:text="@string/allergie_au_pollen"
@@ -300,8 +288,8 @@
                         android:buttonTint="@color/btn_radio"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
-                        android:padding="10dp"
                         android:onClick="r6"
+                        android:padding="10dp"
                         android:scaleX="0.90"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
@@ -326,8 +314,6 @@
                         android:layout_weight="11"
                         android:drawableRight="@drawable/flash"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/autre"
-                        android:onClick="autre"
                         android:padding="10dp"
                         android:paddingLeft="5dp"
                         android:text="@string/autre"
@@ -342,9 +328,9 @@
                         android:buttonTint="@color/btn_radio"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
+                        android:onClick="r7"
                         android:padding="10dp"
                         android:scaleX="0.90"
-                        android:onClick="r7"
                         android:scaleY="0.90"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -352,6 +338,30 @@
             </LinearLayout>
 
         </LinearLayout>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.tuyenmonkey.mkloader.MKLoader
+                android:id="@+id/alerr"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.499"
+                app:mk_color="@color/color_loader"
+                app:mk_type="TwinFishesSpinner" />
+        </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
     <Button

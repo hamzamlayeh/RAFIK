@@ -4,6 +4,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +21,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -39,7 +45,6 @@ public class MenuActivity extends AppCompatActivity {
         }
         profile_img = (CircleImageView) findViewById(R.id.profile_image);
         NomUtilisateur = findViewById(R.id.nom);
-
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
         pref = getApplicationContext().getSharedPreferences("Inscription", MODE_PRIVATE);
@@ -48,12 +53,19 @@ public class MenuActivity extends AppCompatActivity {
         NomUtilisateur.setText(ds.getNom(email));
         if (ds.getImg(email) != null) {
             Uri uri = Uri.parse(ds.getImg(email));
-            profile_img.setImageURI(uri);
-
+            try {
+                Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Bitmap bitmap = rotationImage(thumbnail, getRealPathFromURI(uri));
+                profile_img.setImageBitmap(bitmap);
+//                profile_img.setImageURI(uri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
+
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent ite = new Intent(this, E8.class);
@@ -61,6 +73,7 @@ public class MenuActivity extends AppCompatActivity {
         }
         return false;
     }
+
     public void E8(View view) {
         Intent ite = new Intent(this, E8.class);
         startActivity(ite);
@@ -134,9 +147,60 @@ public class MenuActivity extends AppCompatActivity {
 
         if (requestCode == 100 && resultCode == RESULT_OK) {
             Uri uri = data.getData();
-            profile_img.setImageURI(uri);
-            ds.UpdateImg(String.valueOf(uri), email);
+            try {
+                Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Bitmap bitmap = rotationImage(thumbnail, getRealPathFromURI(uri));
+                profile_img.setImageBitmap(bitmap);
+//                profile_img.setImageURI(uri);
+                ds.UpdateImg(String.valueOf(uri), email);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
+    }
+
+    public String getRealPathFromURI(Uri contentUri) {
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
+
+    public Bitmap rotationImage(Bitmap bitmap, String imageUri) throws IOException {
+        ExifInterface exifInterface = new ExifInterface(imageUri);
+        int oreintation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+        switch (oreintation) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                return rotate(bitmap, 90);
+
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                return rotate(bitmap, 180);
+
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                return rotate(bitmap, 270);
+
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                return flip(bitmap, true, false);
+
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                return flip(bitmap, false, true);
+            default:
+                return bitmap;
+        }
+    }
+
+    private Bitmap flip(Bitmap bitmap, boolean horizontal, boolean verticale) {
+        Matrix matrix = new Matrix();
+        matrix.postScale(horizontal ? -1 : 1, verticale ? -1 : 1);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    private Bitmap rotate(Bitmap bitmap, float degrees) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degrees);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)

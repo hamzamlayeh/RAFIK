@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.clients;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class Inscription extends AppCompatActivity {
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     public static int idc = -1,NUM_PAGE=1;
-
+    MKLoader mkLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class Inscription extends AppCompatActivity {
         pass = (EditText) findViewById(id.pass);
         confirm_pass = (EditText) findViewById(id.conf_pass);
         spinner = (Spinner) findViewById(id.code_pays);
+        mkLoader = findViewById(R.id.alerr);
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
@@ -83,7 +85,7 @@ public class Inscription extends AppCompatActivity {
             String payss = prefs.getString("Nom_Pays", "");//"No name defined" is the default value.
             String imgp = prefs.getString("Id_img", "");//"No name defined" is the default value.
             payes.setText(" " + payss);
-            payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Integer.parseInt(imgp)], 0, 0, 0);
+            payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Integer.parseInt(imgp)], 0, R.drawable.flash, 0);
         }
         if (idc != -1) {
             spinner.setSelection(idc);
@@ -212,7 +214,7 @@ public class Inscription extends AppCompatActivity {
             remplir_champs();
 
             client = new clients(name, after_name, berthday, payers,phone,codephone, sexee, mail, password);
-            List<clients> list = ds.getAllClient();
+            List list = ds.getAllClient();
             if (list.size() > 0) {
                 Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();
             } else {
@@ -220,6 +222,7 @@ public class Inscription extends AppCompatActivity {
                 if (ids == -1) {
                     Toast.makeText(Inscription.this, string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
+                    mkLoader.setVisibility(View.VISIBLE);
                     Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
                     ite = new Intent(Inscription.this, LoginActivity.class);
                     startActivity(ite);

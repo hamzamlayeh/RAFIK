@@ -1,5 +1,6 @@
 package com.example.user.rafiki;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 
@@ -207,14 +208,17 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
         heur_matin = Heur_Ma.getText().toString().trim();
         heur_midi = Heur_Mi.getText().toString().trim();
         heur_soire = Heur_S.getText().toString().trim();
+        final ProgressDialog loading = ProgressDialog.show(this, "Uploading...", "Please wait...", false, false);
         if (valider()) {
             medica_Item = new Medicament_Item(nom_medica, nb_prise_ma, nb_prise_mi, nb_prise_s, date_debut,
                     date_fin, heur_matin, heur_midi, heur_soire, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche);
             if (MedicamentsActivity.Id == -1) {
                 long ids = ds.addMidica(medica_Item);
                 if (ids == -1) {
+                    loading.dismiss();
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
+                    loading.dismiss();
                     Intent ite = new Intent(this, MedicamentsActivity.class);
                     startActivity(ite);
                     MedicamentsRenseignerActivity.this.finish();
@@ -222,13 +226,17 @@ public class MedicamentsRenseignerActivity extends AppCompatActivity {
             } else {
                 long ids = ds.UpdateMedicament(medica_Item, Id);
                 if (ids == -1) {
+                    loading.dismiss();
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
+                    loading.dismiss();
                     Intent ite = new Intent(this, MedicamentsActivity.class);
                     startActivity(ite);
                     MedicamentsRenseignerActivity.this.finish();
                 }
             }
+        } else {
+            loading.dismiss();
         }
     }
 

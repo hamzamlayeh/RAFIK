@@ -1,10 +1,10 @@
 <resources xmlns:android="http://schemas.android.com/tools">
 
     <string name="app_name">RAFIKI</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Acueil</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="signes">SIGENES</string>
+    <string name="signes">SIGNES</string>
     <string name="neutre">NEUTRE</string>
     <string name="biometrique">biométriques</string>
     <string name="frequence">FREQUENCE</string>
@@ -92,10 +92,10 @@
     <string name="o" translatable="false">O+</string>
     <string name="o2" translatable="false">O-</string>
     <string name="ajouter">Ajouter</string>
-    <string name="modifier">Modifier</string>
-    <string name="supprimer">Supprimer</string>
-    <string name="cliquer_sur_maladie">Cliquer sur Maladie.</string>
-    <string name="appui_long_sur_maladie">Appui long sur la Maladie.</string>
+    <string name="modifier">Modifier:</string>
+    <string name="supprimer">Supprimer:</string>
+    <string name="cliquer_sur_maladie">Cliquer sur une Maladie.</string>
+    <string name="appui_long_sur_maladie">Appui long sur une Maladie.</string>
     <string name="valider">valider</string>
     <string name="mes_contacts">Mes contacts</string>
     <string name="contacts_parentaux">Contacts parentaux</string>
@@ -114,7 +114,6 @@
     <string name="hopital">Hopital</string>
     <string name="assurances_maladies">Assurances maladies</string>
     <string name="urgence">Urgence</string>
-    <string name="marche">Marche</string>
     <string name="course">Course</string>
     <string name="cyclisme">Cyclisme</string>
     <string name="activit_journali_res">Activités journaliéres</string>
@@ -124,7 +123,7 @@
     <string name="max" translatable="false">Max</string>
     <string name="c" translatable="false">C°</string>
     <string name="acte_chirurgicale">Acte chirurgicale</string>
-    <string name="date">Date</string>
+    <string name="date">Date (JJ/MM/AAAA)</string>
     <string name="allergie_a">Allergie à</string>
     <string name="renseiger">Renseigner …</string>
     <string name="maladie_1">Maladie 1</string>
@@ -149,20 +148,51 @@
     <string name="d">D</string>
     <string name="pr_c_dent">précédent</string>
     <string name="exp_2" translatable="false">2</string>
-    <string name="cliquer_sur_antecedents">Cliquer sur Antécédents.</string>
-    <string name="appui_long_sur_antecedents">Appui long sur la Antécédents.</string>
-    <string name="cliquer_sur_allergis">Cliquer sur Allergies.</string>
-    <string name="appui_long_sur_allergis">Appui long sur la Allergies.</string>
-    <string name="cliquer_sur_medicaments">Cliquer sur Médicaments.</string>
-    <string name="appui_long_sur_medicaments">Appui long sur la Médicaments.</string>
-    <string name="appui_long_sur_parentaux">Appui long sur les Contacts Parentaux.</string>
-    <string name="cliquer_sur_parentaux">Cliquer sur les Contacts Parentaux.</string>
-    <string name="cliquer_sur_medecins">Cliquer sur les médecins.</string>
-    <string name="appui_long_sur_medecins">Appui long sur les médecins.</string>
-    <string name="cliquer_sur_urgence">Cliquer sur Assurances/Urgence.</string>
-    <string name="appui_long_sur_urgence">Appui long sur Assurances/Urgence.</string>
+    <string name="cliquer_sur_antecedents">Cliquer sur un antécédent.</string>
+    <string name="appui_long_sur_antecedents">Appui long sur un antécédent.</string>
+    <string name="cliquer_sur_allergis">Cliquer sur une allergie.</string>
+    <string name="appui_long_sur_allergis">Appui long sur une allergie.</string>
+    <string name="cliquer_sur_medicaments">Cliquer sur un médicament.</string>
+    <string name="appui_long_sur_medicaments">Appui long sur un médicament.</string>
+    <string name="appui_long_sur_parentaux">Appui long sur un contact.</string>
+    <string name="cliquer_sur_parentaux">Cliquer sur un contact.</string>
+    <string name="cliquer_sur_medecins">Cliquer sur un médecin.</string>
+    <string name="appui_long_sur_medecins">Appui long sur un médecin.</string>
+    <string name="cliquer_sur_urgence">Cliquer sur un item.</string>
+    <string name="appui_long_sur_urgence">Click long sur un item.</string>
     <string name="accueil">Accueil</string>
     <string name="donn_es_personnelles">Données personnelles</string>
     <string name="alertes">Alertes</string>
     <string name="d_connecter">Déconnecter</string>
+    <string name="cycle_d_activit">cycle d\'activité</string>
+    <string name="quotidien">Quotidien</string>
+    <string name="marche">Marche</string>
+    <string name="course_pied">Course à pied</string>
+    <string name="reprendre">Reprendre</string>
+    <string name="stop">Stop</string>
+    <string name="fc">FC</string>
+    <string name="t">T°</string>
+    <string name="temp_rateur">Températeure</string>
+    <string name="distance">Distance</string>
+    <string name="d_clencher">Déclencher</string>
+    <string name="km">Kh</string>
+    <string name="activer_gps_t_l_phone">Activer GPS Téléphone   </string>
+    <string name="exit">Exit</string>
+    <string name="cycle">Cycle</string>
+    <string name="param_tre">Paramètre</string>
+    <string name="historique">Historique</string>
+    <string name="a_pied">à pied</string>
+    <string name="maladie_sup">Maladie Supprimer!</string>
+    <string name="date_simple">Date</string>
+    <string name="modifier_2">Modifier</string>
+    <string name="max_300">Max 300cm</string>
+    <string name="pause">Pause</string>
+    <string name="ecg">Ecg</string>
+    <string name="vitesse">Vitesse</string>
+    <string name="total_pas">Total pas</string>
+    <string name="cadance">Cadance</string>
+    <string name="pas_min">pas/min</string>
+    <string name="km_h">km/h</string>
+    <string name="calorie">Calories</string>
+    <string name="cal">cal</string>
 </resources>

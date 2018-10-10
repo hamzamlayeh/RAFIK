@@ -122,6 +122,15 @@
         <activity
             android:name=".AllergiesActivityContainer"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".CycleActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ParametresMesures" />
+        <activity android:name=".DetaileCardiaque" />
+        <activity android:name=".DetaileCardiogramme" />
+        <activity android:name=".DetaileTemperature" />
+        <activity android:name=".DetaileActivity" />
+        <activity android:name=".DetaileRespiration"></activity>
     </application>
 
 </manifest>

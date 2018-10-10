@@ -16,6 +16,7 @@ import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.Contacts_Medecins;
 import com.example.user.rafiki.ItemData.Contacts_Parentaux;
 import com.example.user.rafiki.ItemData.Contacts_Urgences;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class ContactUrgence extends AppCompatActivity {
     EditText Nom_asur, Tel_asur, Nom_urg, Tel_urg;
     List<Contacts_Urgences> listContacts_U= new ArrayList<Contacts_Urgences>();
     TableLayout T1,T2;
+    MKLoader mkLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +52,9 @@ public class ContactUrgence extends AppCompatActivity {
         Spinner1 = findViewById(R.id.spinner1);
         T1 = findViewById(R.id.tableLayout);
         T2 = findViewById(R.id.tableLayout1);
-
+        mkLoader = findViewById(R.id.alerr);
         remplirspinir();
+
         if (ds.getCountUrgences() > 0) {
             listContacts_U = ds.getListUrgences();
             Nom_asur.setText(listContacts_U.get(0).getNom_asur());
@@ -227,6 +230,7 @@ public class ContactUrgence extends AppCompatActivity {
                 long x = ds.addUrgences(listContacts_U.get(i));
                 i++;
             }
+            mkLoader.setVisibility(View.VISIBLE);
             Intent ite=new Intent(this,ContactsActivity.class);
             startActivity(ite);
             ContactUrgence.this.finish();
@@ -237,6 +241,7 @@ public class ContactUrgence extends AppCompatActivity {
                 long x = ds.UpdateUrgences(listContacts_U.get(i), i + 1);
                 i++;
             }
+            mkLoader.setVisibility(View.VISIBLE);
             Intent ite=new Intent(this,ContactsActivity.class);
             startActivity(ite);
             ContactUrgence.this.finish();

@@ -3,19 +3,19 @@ package com.example.user.rafiki;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Antecedents_Item;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AntecedentsActivity extends AppCompatActivity {
 
@@ -25,8 +25,8 @@ public class AntecedentsActivity extends AppCompatActivity {
     EditText Acte1, Acte2, Acte3, Acte4, Acte5;
     EditText Date1, Date2, Date3, Date4, Date5;
     String actes1, actes2, actes3, actes4, actes5, dates1, dates2, dates3, dates4, dates5;
-    static int A;
     List<Antecedents_Item> listAntes = new ArrayList<Antecedents_Item>();
+    MKLoader mkLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class AntecedentsActivity extends AppCompatActivity {
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
 
+        mkLoader = findViewById(R.id.alerr);
         L1 = findViewById(R.id.linear1);
         L2 = findViewById(R.id.linear2);
         L3 = findViewById(R.id.linear3);
@@ -188,6 +189,7 @@ public class AntecedentsActivity extends AppCompatActivity {
             listAntes.add(4, new Antecedents_Item(actes5, dates5));
 
             if (ds.getCountAntece() <= 0) {
+                mkLoader.setVisibility(View.VISIBLE);
                 int i = 0;
                 while (i < listAntes.size()) {
 
@@ -198,6 +200,7 @@ public class AntecedentsActivity extends AppCompatActivity {
                 startActivity(ite);
                 AntecedentsActivity.this.finish();
             } else {
+                mkLoader.setVisibility(View.VISIBLE);
                 int i = 0;
                 while (i < listAntes.size()) {
 
@@ -213,29 +216,62 @@ public class AntecedentsActivity extends AppCompatActivity {
 
     private boolean valider() {
         boolean valide = true;
-        String exreguliere = "\\d{2}-\\d{2}-\\d{4}";
 
-        if (!dates1.matches(exreguliere) && !dates1.isEmpty()) {
+        if (!validate(dates1) && !dates1.isEmpty()) {
             Date1.setError(getString(R.string.date));
             valide = false;
         }
-        if (!dates2.matches(exreguliere) && !dates2.isEmpty()) {
+        if (!validate(dates2) && !dates2.isEmpty()) {
             Date2.setError(getString(R.string.date));
             valide = false;
         }
-        if (!dates3.matches(exreguliere) && !dates3.isEmpty()) {
+        if (!validate(dates3) && !dates3.isEmpty()) {
             Date3.setError(getString(R.string.date));
             valide = false;
         }
-        if (!dates4.matches(exreguliere) && !dates4.isEmpty()) {
+        if (!validate(dates4) && !dates4.isEmpty()) {
             Date4.setError(getString(R.string.date));
             valide = false;
         }
-        if (!dates5.matches(exreguliere) && !dates5.isEmpty()) {
+        if (!validate(dates5) && !dates5.isEmpty()) {
             Date5.setError(getString(R.string.date));
             valide = false;
         }
         return valide;
+    }
+
+    public boolean validate(final String date) {
+        String DATE_PATTERN = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
+        Pattern pattern = Pattern.compile(DATE_PATTERN);
+        Matcher matcher = pattern.matcher(date);
+
+        if (matcher.matches()) {
+            matcher.reset();
+            if (matcher.find()) {
+
+                String day = matcher.group(1);
+                String month = matcher.group(2);
+                int year = Integer.parseInt(matcher.group(3));
+
+                if (day.equals("31") && (month.equals("4") || month.equals("6") || month.equals("9") ||
+                        month.equals("11") || month.equals("04") || month.equals("06") || month.equals("09"))) {
+                    return false; // only 1,3,5,7,8,10,12 has 31 days
+                } else if (month.equals("2") || month.equals("02")) {
+                    //leap year
+                    if (year % 4 == 0) {
+                        return !day.equals("30") && !day.equals("31");
+                    } else {
+                        return !day.equals("29") && !day.equals("30") && !day.equals("31");
+                    }
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public void alert(View view) {

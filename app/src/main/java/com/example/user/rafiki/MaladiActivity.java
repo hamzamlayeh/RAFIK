@@ -48,6 +48,7 @@ public class MaladiActivity extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Maladi1.setText("");
                 long x = ds.UpdateMaladi("", 1);
+                Toast.makeText(MaladiActivity.this, R.string.maladie_sup, Toast.LENGTH_LONG).show();
                 return false;
             }
         });
@@ -57,6 +58,7 @@ public class MaladiActivity extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Maladi2.setText("");
                 long x = ds.UpdateMaladi("", 2);
+                Toast.makeText(MaladiActivity.this, R.string.maladie_sup, Toast.LENGTH_LONG).show();
                 return false;
             }
         });
@@ -66,6 +68,8 @@ public class MaladiActivity extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Maladi3.setText("");
                 long x = ds.UpdateMaladi("", 3);
+                Toast.makeText(MaladiActivity.this, R.string.maladie_sup, Toast.LENGTH_LONG).show();
+
                 return false;
             }
         });
@@ -75,6 +79,7 @@ public class MaladiActivity extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Maladi4.setText("");
                 long x = ds.UpdateMaladi("", 4);
+                Toast.makeText(MaladiActivity.this, R.string.maladie_sup, Toast.LENGTH_LONG).show();
                 return false;
             }
         });
@@ -84,6 +89,7 @@ public class MaladiActivity extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Maladi5.setText("");
                 long x = ds.UpdateMaladi("", 5);
+                Toast.makeText(MaladiActivity.this, R.string.maladie_sup, Toast.LENGTH_LONG).show();
                 return false;
             }
         });
@@ -93,6 +99,7 @@ public class MaladiActivity extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Maladi6.setText("");
                 long x = ds.UpdateMaladi("", 6);
+                Toast.makeText(MaladiActivity.this, R.string.maladie_sup, Toast.LENGTH_LONG).show();
                 return false;
             }
         });

@@ -54,15 +54,15 @@ public class LoginActivity extends AppCompatActivity {
         ds = new UserDataSource(helper);
         //si vous pouvez supprimer touts les champs de table just lever le commentaire
         //ds.removetable();
-        List<clients> list = ds.getAllClient();
+       // List list = ds.getAllClient();
 
     }
 
     public void identifier(View view) {
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-        ite = new Intent(this, E8.class);
-        startActivity(ite);
+//        ite = new Intent(this, E8.class);
+//        startActivity(ite);
         if (valider()) {
             SharedPreferences.Editor editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
             if (ds.verifUser(mail, password)) {
@@ -76,7 +76,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @TargetApi(16)
     private boolean valider() {
         boolean valide = true;
         if (mail.isEmpty()) {

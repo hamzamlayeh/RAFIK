@@ -1,10 +1,14 @@
 package com.example.user.rafiki;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
@@ -18,7 +22,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.user.rafiki.ItemData.Fiche;
+import com.tuyenmonkey.mkloader.MKLoader;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +36,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
 
     CircleImageView profile_img;
     EditText NomUtilisateur, Sang, Poid, Taille, Num_secrt, Adresse, Code_post, Ville;
-    String email, poid, taille, num_secrt, adresse, code_post, ville,sang;
+    String email, poid, taille, num_secrt, adresse, code_post, ville, sang;
     SharedPreferences pref, pref2;
     SharedPreferences.Editor editor;
     MySQLiteOpenHelper helper;
@@ -36,7 +44,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     Fiche fiches;
     List<Fiche> list = new ArrayList<Fiche>();
     final static int MY_PERMISSIONS_REQUEST = 1;
-
+    MKLoader mkLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +68,20 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         Adresse = findViewById(R.id.adresse);
         Code_post = findViewById(R.id.code_p);
         Ville = findViewById(R.id.ville);
+        mkLoader = findViewById(R.id.alerr);
 
         NomUtilisateur.setText(ds.getNom(email));
         if (ds.getImg(email) != null) {
             Uri uri = Uri.parse(ds.getImg(email));
-            profile_img.setImageURI(uri);
+            try {
+                Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Bitmap bitmap = rotationImage(thumbnail, getRealPathFromURI(uri));
+                profile_img.setImageBitmap(bitmap);
+//                profile_img.setImageURI(uri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
         list = ds.getFiche();
         restoredFiche();
@@ -72,7 +89,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent ite = new Intent(this, MenuActivity.class);
@@ -140,19 +157,70 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
 
         if (requestCode == 100 && resultCode == RESULT_OK) {
             Uri uri = data.getData();
-            profile_img.setImageURI(uri);
-            ds.UpdateImg(String.valueOf(uri), email);
+            try {
+                Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Bitmap bitmap = rotationImage(thumbnail, getPath(uri));
+                profile_img.setImageBitmap(bitmap);
+                //profile_img.setImageURI(uri);
+                ds.UpdateImg(String.valueOf(uri), email);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
-    public String getPath(Uri uri) {
-        String[] projection = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-        int column_index = cursor
-                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    public String getRealPathFromURI(Uri contentUri) {
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
         return cursor.getString(column_index);
     }
+
+    public Bitmap rotationImage(Bitmap bitmap, String imageUri) throws IOException {
+        ExifInterface exifInterface = new ExifInterface(imageUri);
+        int oreintation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+        switch (oreintation) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                return rotate(bitmap, 90);
+
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                return rotate(bitmap, 180);
+
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                return rotate(bitmap, 270);
+
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                return flip(bitmap, true, false);
+
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                return flip(bitmap, false, true);
+            default:
+                return bitmap;
+        }
+    }
+
+    private Bitmap flip(Bitmap bitmap, boolean horizontal, boolean verticale) {
+        Matrix matrix = new Matrix();
+        matrix.postScale(horizontal ? -1 : 1, verticale ? -1 : 1);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    private Bitmap rotate(Bitmap bitmap, float degrees) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degrees);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    public String getPath(Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
+
     public void groupe_sang(View view) {
         remplir_champs();
         Intent ite = new Intent(this, Groupe_SangActivity.class);
@@ -183,6 +251,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         Intent ite = new Intent(this, MedicamentsActivity.class);
         startActivity(ite);
     }
+
     public void remplir_champs() {
         editor.putString("Poid", Poid.getText().toString().trim());
         editor.putString("Taille", Taille.getText().toString().trim());
@@ -192,6 +261,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         editor.putString("Ville", Ville.getText().toString().trim());
         editor.apply();
     }
+
     public void enregestrer(View view) {
         poid = Poid.getText().toString().trim();
         taille = Taille.getText().toString().trim();
@@ -201,34 +271,33 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         ville = Ville.getText().toString().trim();
         sang = Sang.getText().toString().trim();
         if (valider()) {
-
             fiches = new Fiche(email, poid, taille, num_secrt, adresse, code_post, ville, sang);
-            if (list.size()<1){
+            if (list.size() < 1) {
                 long ids = ds.addFiche(fiches);
                 if (ids == -1) {
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
+                    mkLoader.setVisibility(View.VISIBLE);
                     Intent ite = new Intent(this, MenuActivity.class);
                     startActivity(ite);
                     Fiche_MedicaleActivity.this.finish();
                 }
-            }else {
-                long ids=ds.UpdateFiche(email,fiches);
+            } else {
+                long ids = ds.UpdateFiche(email, fiches);
                 if (ids == -1) {
                     Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
+                    mkLoader.setVisibility(View.VISIBLE);
                     Intent ite = new Intent(this, MenuActivity.class);
                     startActivity(ite);
                     Fiche_MedicaleActivity.this.finish();
                 }
             }
-
         }
-
     }
 
     private boolean valider() {
-
+        int taile = Integer.parseInt(taille);
         boolean valide = true;
         if (poid.isEmpty()) {
             Poid.setError(getString(R.string.champs_obligatoir));
@@ -236,6 +305,10 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         }
         if (taille.isEmpty()) {
             Taille.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
+        if (!taille.isEmpty() && taile > 300) {
+            Taille.setError(getString(R.string.max_300));
             valide = false;
         }
         if (adresse.isEmpty()) {
@@ -252,6 +325,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         }
         return valide;
     }
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void checkSmsPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
@@ -267,9 +341,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         }
 
     }
-
-
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -290,7 +361,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
 }

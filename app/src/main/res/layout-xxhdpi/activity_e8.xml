@@ -92,7 +92,7 @@
                 android:textColor="#00ffdd"
                 android:textSize="20sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.72"
+                app:layout_constraintHorizontal_bias="0.74"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -299,7 +299,6 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="236dp"
-
                 android:onClick="E11"
                 app:layout_constraintHorizontal_bias="0.916"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -755,22 +754,23 @@
                 android:layout_marginRight="65dp"
                 android:layout_marginTop="93dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.26"
+                app:layout_constraintHorizontal_bias="0.22"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bare1" />
 
             <ImageView
-                android:id="@+id/imageView29"
+                android:id="@+id/icone_resaux"
                 android:layout_width="31dp"
                 android:layout_height="36dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginTop="18dp"
+                android:padding="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux"
-                android:layout_marginRight="16dp" />
+                app:srcCompat="@drawable/resaux" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 
@@ -779,8 +779,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_gravity="bottom"
-        android:layout_weight="0.02"
-        android:background="#024372">
+        android:layout_weight="0.02">
 
         <LinearLayout
             android:id="@+id/Layout-Munu"
@@ -789,43 +788,144 @@
             android:background="#024372"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/historique"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/historique" />
+                android:background="#024372"
+                android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/parametre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/historique"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/clocke" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_bold"
+                    android:gravity="center"
+                    android:text="@string/historique"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="parammetres"
-                android:background="@drawable/parametre" />
+                android:background="#024372"
+                android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/parametre"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/reglage" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:textColor="@android:color/white"
+                    android:text="@string/param_tre" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home" />
+                android:background="@android:color/white"
+                android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/cycle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/home"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/mison" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:textColor="#024372"
+                    android:text="@string/title_home" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/cycle" />
+                android:onClick="Cycles"
+                android:background="#024372"
+                android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/exit"
-        android:onClick="exite"/>
-</LinearLayout>
+                <ImageView
+                    android:id="@+id/cycle"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/horloge" />
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:textColor="@android:color/white"
+                    android:text="@string/cycle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="exite"
+                android:background="#024372"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/exit"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/exite" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:textColor="@android:color/white"
+                    android:text="@string/exit" />
+            </LinearLayout>
+        </LinearLayout>
     </android.support.design.widget.BottomNavigationView>
 
 </LinearLayout>

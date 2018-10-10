@@ -18,6 +18,7 @@ import com.example.user.rafiki.ItemData.Antecedents_Item;
 import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.Contacts_Medecins;
 import com.example.user.rafiki.ItemData.Contacts_Parentaux;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,14 +33,14 @@ public class ContactParentaux extends AppCompatActivity {
     EditText Nom2, Prenom2, Mobile2, Email2;
     EditText Nom3, Prenom3, Mobile3, Email3;
     Spinner Spinner, Spinner2, Spinner3;
-    LinearLayout L1,L2,L3;
-    String Code, Code2, Code3;
+    LinearLayout L1, L2, L3;
+    String Code, Code2, Code3,mail, mail2, mail3;
     String[] codes = new String[199];
     Liste_code_payes adapter;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     List<Contacts_Parentaux> listContacts_P = new ArrayList<Contacts_Parentaux>();
-
+    MKLoader mkLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +66,7 @@ public class ContactParentaux extends AppCompatActivity {
         L1 = findViewById(R.id.l1);
         L2 = findViewById(R.id.l2);
         L3 = findViewById(R.id.l3);
-
+        mkLoader = findViewById(R.id.alerr);
         remplirspinir();
 
         if (ds.getCountParentaux() > 0) {
@@ -92,6 +93,7 @@ public class ContactParentaux extends AppCompatActivity {
         suppCarde2();
         suppCarde3();
     }
+
     public void suppCarde1() {
         L1.setOnLongClickListener(new View.OnLongClickListener() {
 
@@ -369,35 +371,58 @@ public class ContactParentaux extends AppCompatActivity {
     }
 
     public void retoure(View view) {
+        mail = Email.getText().toString();
+        mail2 = Email2.getText().toString();
+        mail3 = Email3.getText().toString();
+        if (valider()) {
+            listContacts_P.add(0, new Contacts_Parentaux(Nom.getText().toString(),
+                    Prenom.getText().toString(), Mobile.getText().toString(), Code, mail));
+            listContacts_P.add(1, new Contacts_Parentaux(Nom2.getText().toString(),
+                    Prenom2.getText().toString(), Mobile2.getText().toString(), Code2, mail2));
+            listContacts_P.add(2, new Contacts_Parentaux(Nom3.getText().toString(),
+                    Prenom3.getText().toString(), Mobile3.getText().toString(), Code3, mail3));
 
-        listContacts_P.add(0, new Contacts_Parentaux(Nom.getText().toString(),
-                Prenom.getText().toString(), Mobile.getText().toString(), Code, Email.getText().toString()));
-        listContacts_P.add(1, new Contacts_Parentaux(Nom2.getText().toString(),
-                Prenom2.getText().toString(), Mobile2.getText().toString(), Code2, Email2.getText().toString()));
-        listContacts_P.add(2, new Contacts_Parentaux(Nom3.getText().toString(),
-                Prenom3.getText().toString(), Mobile3.getText().toString(), Code3, Email3.getText().toString()));
+            if (ds.getCountParentaux() <= 0) {
+                int i = 0;
+                while (i < listContacts_P.size()) {
 
-        if (ds.getCountParentaux() <= 0) {
-            int i = 0;
-            while (i < listContacts_P.size()) {
+                    long x = ds.addParentaux(listContacts_P.get(i));
+                    i++;
+                }
+                mkLoader.setVisibility(View.VISIBLE);
+                Intent ite = new Intent(this, ContactsActivity.class);
+                startActivity(ite);
+                ContactParentaux.this.finish();
+            } else {
+                int i = 0;
+                while (i < listContacts_P.size()) {
 
-                long x = ds.addParentaux(listContacts_P.get(i));
-                i++;
+                    long x = ds.UpdateParentaux(listContacts_P.get(i), i + 1);
+                    i++;
+                }
+                mkLoader.setVisibility(View.VISIBLE);
+                Intent ite = new Intent(this, ContactsActivity.class);
+                startActivity(ite);
+                ContactParentaux.this.finish();
             }
-            Intent ite = new Intent(this, ContactsActivity.class);
-            startActivity(ite);
-            ContactParentaux.this.finish();
-        } else {
-            int i = 0;
-            while (i < listContacts_P.size()) {
-
-                long x = ds.UpdateParentaux(listContacts_P.get(i), i + 1);
-                i++;
-            }
-            Intent ite = new Intent(this, ContactsActivity.class);
-            startActivity(ite);
-            ContactParentaux.this.finish();
         }
+    }
+
+    private boolean valider() {
+        boolean valide = true;
+        if (!mail.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())) {
+            Email.setError(getString(R.string.email_invalide));
+            valide = false;
+        }
+        if (!mail2.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail2).matches())) {
+            Email2.setError(getString(R.string.email_invalide));
+            valide = false;
+        }
+        if (!mail3.isEmpty() && (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail3).matches())) {
+            Email3.setError(getString(R.string.email_invalide));
+            valide = false;
+        }
+        return valide;
     }
 
     public void alert(View view) {
@@ -412,8 +437,9 @@ public class ContactParentaux extends AppCompatActivity {
                     }
                 }).show();
     }
+
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent ite = new Intent(this, ContactsActivity.class);

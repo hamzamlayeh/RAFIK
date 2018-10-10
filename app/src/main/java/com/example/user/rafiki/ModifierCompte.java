@@ -1,10 +1,12 @@
 package com.example.user.rafiki;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.clients;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,7 +38,7 @@ public class ModifierCompte extends AppCompatActivity {
     String[] codes = new String[199];
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
-
+    MKLoader mkLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,7 @@ public class ModifierCompte extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.pass);
         confirm_pass = (EditText) findViewById(R.id.conf_pass);
         spinner = (Spinner) findViewById(R.id.code_pays);
+        mkLoader = findViewById(R.id.alerr);
 
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
         editor = prefs.edit();
@@ -70,7 +74,7 @@ public class ModifierCompte extends AppCompatActivity {
                 prenom.setText(list.get(0).getPrenom());
                 naisence.setText(list.get(0).getAge());
                 payes.setText(" " + list.get(0).getPayer());
-                payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Indice_Pays], 0, 0, 0);
+                payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Indice_Pays], 0, R.drawable.flash, 0);
                 mobile.setText(list.get(0).getMobile());
                 email.setText(list.get(0).getEmail());
                 sexe.setText(list.get(0).getSexe());
@@ -84,24 +88,59 @@ public class ModifierCompte extends AppCompatActivity {
     public void restoredvalue() {
         String restoredsexe = prefs.getString("sexe", null);
         String restoredpays = prefs.getString("Nom_Pays", null);
+        String restorednom = prefs.getString("Nom", null);
+        String restoredprenom = prefs.getString("Prenom", null);
         String restoredage = prefs.getString("Age", null);
+        String restoredemail = prefs.getString("Email", null);
+        String restoredtel = prefs.getString("Mobile", null);
+        String restoredpass = prefs.getString("Password", null);
+        String restoredpass_conf = prefs.getString("Password_conf", null);
 
-        if (restoredsexe != null) {
-            String sex = prefs.getString("sexe", "");
-            sexe.setText(sex);
-        }
+
         if (restoredpays != null) {
             String payss = prefs.getString("Nom_Pays", "");//"No name defined" is the default value.
             String imgp = prefs.getString("Id_img", "");//"No name defined" is the default value.
             payes.setText(" " + payss);
-            payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Integer.parseInt(imgp)], 0, 0, 0);
+            payes.setCompoundDrawablesWithIntrinsicBounds(Constante.imgs[Integer.parseInt(imgp)], 0, R.drawable.flash, 0);
             spinner.setSelection(Integer.parseInt(imgp));
         }
-        if (restoredage != null) {
-            naisence.setText(restoredage);
+        if (restorednom != null) {
+            String value = prefs.getString("Nom", "");//"No name defined" is the default value.
+            nom.setText(value);
+
+        }
+        if (restoredsexe != null) {
+            String sex = prefs.getString("sexe", "");
+            sexe.setText(sex);
+        }
+        if (restoredprenom != null) {
+            String value = prefs.getString("Prenom", "");//"No name defined" is the default value.
+            prenom.setText(value);
+
         }
         if (restoredage != null) {
-            naisence.setText(restoredage);
+            String value = prefs.getString("Age", "");//"No name defined" is the default value.
+            naisence.setText(value);
+        }
+        if (restoredemail != null) {
+            String value = prefs.getString("Email", "");//"No name defined" is the default value.
+            email.setText(value);
+
+        }
+        if (restoredtel != null) {
+            String value = prefs.getString("Mobile", "");//"No name defined" is the default value.
+            mobile.setText(value);
+        }
+
+        if (restoredpass != null) {
+            String value = prefs.getString("Password", "");//"No name defined" is the default value.
+            pass.setText(value);
+
+        }
+        if (restoredpass_conf != null) {
+            String value = prefs.getString("Password_conf", "");//"No name defined" is the default value.
+            confirm_pass.setText(value);
+
         }
     }
 
@@ -164,11 +203,15 @@ public class ModifierCompte extends AppCompatActivity {
 
 
     public void get_payer(View view) {
+        remplir_champs();
+        editor.putString("Age", naisence.getText().toString());
         Intent ite = new Intent(this, Liste_payers.class);
         startActivity(ite);
     }
 
     public void get_sexe(View view) {
+        remplir_champs();
+        editor.putString("Age", naisence.getText().toString());
         Intent ite = new Intent(this, SexeActivity.class);
         startActivity(ite);
     }
@@ -183,18 +226,28 @@ public class ModifierCompte extends AppCompatActivity {
         password = pass.getText().toString().trim();
         conf_password = confirm_pass.getText().toString().trim();
         phone = mobile.getText().toString().trim();
-
         if (valider()) {
             String codephone = prefs.getString("Code_pays", null);
             client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail, password);
             if (ds.updateClient(list.get(0).get_id(), client)) {
                 editor.putString("Email", mail);
                 editor.apply();
+                mkLoader.setVisibility(View.VISIBLE);
                 Intent ite = new Intent(this, MenuActivity.class);
                 startActivity(ite);
                 ModifierCompte.this.finish();
             }
         }
+    }
+
+    public void remplir_champs() {
+        editor.putString("Nom", nom.getText().toString().trim());
+        editor.putString("Prenom", prenom.getText().toString().trim());
+        editor.putString("Email", email.getText().toString().trim());
+        editor.putString("Password", pass.getText().toString().trim());
+        editor.putString("Password_conf", confirm_pass.getText().toString().trim());
+        editor.putString("Mobile", mobile.getText().toString().trim());
+        editor.apply();
     }
 
     private boolean valider() {
@@ -253,5 +306,14 @@ public class ModifierCompte extends AppCompatActivity {
             valide = false;
         }
         return valide;
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent ite = new Intent(this, MenuActivity.class);
+            startActivity(ite);
+        }
+        return false;
     }
 }

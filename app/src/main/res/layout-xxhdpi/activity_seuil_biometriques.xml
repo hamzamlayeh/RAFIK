@@ -119,7 +119,7 @@
                                     android:fontFamily="@font/raleway_regular"
                                     android:gravity="center"
                                     android:padding="3dp"
-                                    android:text="FC"
+                                    android:text="@string/fc"
                                     android:textColor="@color/color_fc"
                                     android:textSize="16sp" />
 
@@ -186,7 +186,7 @@
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_marche"
+                                app:srcCompat="@drawable/icon_marche"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -378,7 +378,7 @@
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_home"
+                                app:srcCompat="@drawable/icon_quotidien"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -456,7 +456,7 @@
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_lit"
+                                app:srcCompat="@drawable/icon_sommeil"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -573,7 +573,8 @@
                                     android:fontFamily="@font/raleway_regular"
                                     android:gravity="center"
                                     android:padding="3dp"
-                                    android:text="FR"
+                                    android:textAllCaps="true"
+                                    android:text="@string/fr"
                                     android:textColor="@color/color_fc"
                                     android:textSize="18sp" />
 
@@ -635,7 +636,7 @@
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_marche"
+                                app:srcCompat="@drawable/icon_marche"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -815,7 +816,7 @@
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_home"
+                                app:srcCompat="@drawable/icon_quotidien"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -890,7 +891,7 @@
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_lit"
+                                app:srcCompat="@drawable/icon_sommeil"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -1005,7 +1006,7 @@
                                     android:fontFamily="@font/raleway_regular"
                                     android:gravity="center"
                                     android:padding="3dp"
-                                    android:text="T°"
+                                    android:text="@string/t"
                                     android:textColor="@color/color_fc"
                                     android:textSize="18sp" />
 
@@ -1067,7 +1068,7 @@
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_marche"
+                                app:srcCompat="@drawable/icon_marche"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -1246,7 +1247,7 @@
                                 android:padding="3dp"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_home"
+                                app:srcCompat="@drawable/icon_quotidien"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -1321,7 +1322,7 @@
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
                                 android:textSize="18sp"
-                                app:srcCompat="@drawable/icone_lit"
+                                app:srcCompat="@drawable/icon_sommeil"
                                 tools:layout_editor_absoluteX="0dp"
                                 tools:layout_editor_absoluteY="8dp" />
 
@@ -1401,4 +1402,23 @@
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
+
+    <com.tuyenmonkey.mkloader.MKLoader
+        android:id="@+id/alerr"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        app:mk_color="@color/color_loader"
+        app:mk_type="TwinFishesSpinner" />
 </android.support.constraint.ConstraintLayout>
