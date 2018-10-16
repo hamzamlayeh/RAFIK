@@ -10,29 +10,27 @@ import com.tuyenmonkey.mkloader.MKLoader;
 
 public class ContactsActivity extends AppCompatActivity {
 
-    MKLoader mkLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
-        mkLoader = findViewById(R.id.alerr);
+
     }
     public void contacts1(View view) {
-        mkLoader.setVisibility(View.VISIBLE);
         Intent ite=new Intent(this,ContactParentaux.class);
         startActivity(ite);
         ContactsActivity.this.finish();
     }
 
     public void contacts2(View view) {
-        mkLoader.setVisibility(View.VISIBLE);
+
         Intent ite=new Intent(this,ContactMedcin.class);
         startActivity(ite);
         ContactsActivity.this.finish();
     }
 
     public void contacts3(View view) {
-        mkLoader.setVisibility(View.VISIBLE);
+
         Intent ite=new Intent(this,ContactUrgence.class);
         startActivity(ite);
         ContactsActivity.this.finish();

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class DetaileCardiaque extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Resaux ,Txt_Cycle;
+    ImageView Etat_Cycle, Resaux ,Txt_Cycle,Cercle;
     LineChart mchart;
     SharedPreferences prefs, pref;
     ConstraintLayout constraintLayout;
@@ -38,6 +38,7 @@ public class DetaileCardiaque extends AppCompatActivity {
         Txt_Cycle = findViewById(R.id.txt_etat);
         mchart = findViewById(R.id.chart1);
         constraintLayout = findViewById(R.id.constraint);
+        Cercle = findViewById(R.id.imageView10);
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
@@ -122,17 +123,20 @@ public class DetaileCardiaque extends AppCompatActivity {
                     Etat_Cycle.setImageResource(R.drawable.icon_quotidien);
                     Txt_Cycle.setImageResource(R.drawable.quotidien);
                     constraintLayout.setVisibility(View.VISIBLE);
+                    Cercle.setVisibility(View.GONE);
                     break;
                 case 2:
 
                     Etat_Cycle.setImageResource(R.drawable.icon_marche);
                     Txt_Cycle.setImageResource(R.drawable.marche);
                     constraintLayout.setVisibility(View.INVISIBLE);
+                    Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 3:
                     Etat_Cycle.setImageResource(R.drawable.icone_course);
                     Txt_Cycle.setImageResource(R.drawable.course_a_pied);
                     constraintLayout.setVisibility(View.INVISIBLE);
+                    Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 4:
                     Etat_Cycle.setImageResource(R.drawable.icone_cycle);
@@ -143,6 +147,7 @@ public class DetaileCardiaque extends AppCompatActivity {
                     Etat_Cycle.setImageResource(R.drawable.icon_sommeil);
                     Txt_Cycle.setImageResource(R.drawable.sommeil);
                     constraintLayout.setVisibility(View.VISIBLE);
+                    Cercle.setVisibility(View.GONE);
                     break;
             }
         }

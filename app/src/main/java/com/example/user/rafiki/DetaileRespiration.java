@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class DetaileRespiration extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Resaux, Txt_Cycle;
+    ImageView Etat_Cycle, Resaux, Txt_Cycle,Cercle;
     LineChart mchart;
     SharedPreferences prefs, pref;
     @Override
@@ -33,6 +33,7 @@ public class DetaileRespiration extends AppCompatActivity {
         Etat_Cycle = findViewById(R.id.etat_cycle);
         Resaux = findViewById(R.id.imageView29);
         Txt_Cycle = findViewById(R.id.txt_etat);
+        Cercle = findViewById(R.id.imageView17);
         mchart = findViewById(R.id.chart1);
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
@@ -108,23 +109,28 @@ public class DetaileRespiration extends AppCompatActivity {
                 case 1:
                     Etat_Cycle.setImageResource(R.drawable.icon_quotidien);
                     Txt_Cycle.setImageResource(R.drawable.quotidien);
+                    Cercle.setVisibility(View.GONE);
                     break;
                 case 2:
 
                     Etat_Cycle.setImageResource(R.drawable.icon_marche);
                     Txt_Cycle.setImageResource(R.drawable.marche);
+                    Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 3:
                     Etat_Cycle.setImageResource(R.drawable.icone_course);
                     Txt_Cycle.setImageResource(R.drawable.course_a_pied);
+                    Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 4:
                     Etat_Cycle.setImageResource(R.drawable.icone_cycle);
                     Txt_Cycle.setImageResource(R.drawable.cyclisme);
+                    Cercle.setVisibility(View.GONE);
                     break;
                 case 5:
                     Etat_Cycle.setImageResource(R.drawable.icon_sommeil);
                     Txt_Cycle.setImageResource(R.drawable.sommeil);
+                    Cercle.setVisibility(View.GONE);
                     break;
             }
         }

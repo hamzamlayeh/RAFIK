@@ -1,5 +1,6 @@
 package com.example.user.rafiki;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,13 +16,12 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class ParametresMesures extends AppCompatActivity {
 
-    ImageView Img_etat, Resaux,batteri,Img_lock;
-    TextView textHaute, textBas,niveaubatt;
+    ImageView Img_etat, Resaux, batteri, Img_lock;
+    TextView textHaute, textBas, niveaubatt;
     Chronometer chronometer;
     ToggleButton btn_P_R;
     Button stop;
@@ -36,7 +37,6 @@ public class ParametresMesures extends AppCompatActivity {
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
-        boolean value = pref.getBoolean("connexion", false);
         Indice = prefs.getInt("Indice", 0);
 
         niveaubatt = findViewById(R.id.NiveauBatt);
@@ -50,7 +50,67 @@ public class ParametresMesures extends AppCompatActivity {
         chronometer = findViewById(R.id.simpleChronometer);
         btn_P_R = findViewById(R.id.button3);
         stop = findViewById(R.id.button5);
+        Test_Donnees();
 
+    }
+
+    public void declancher(View view) {
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        chronometer.start();
+        btn_P_R.setClickable(true);
+        stop.setClickable(true);
+    }
+
+    public void Stop(View view) {
+        chronometer.stop();
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        lastPause = 0;
+        btn_P_R.setText(R.string.pause);
+        Img_lock.setImageResource(R.drawable.lock_close);
+        btn_P_R.setBackgroundResource(R.drawable.button_rudus);
+        btn_P_R.setChecked(false);
+        btn_P_R.setClickable(false);
+        AlertDialog.Builder alt = new AlertDialog.Builder(this);
+        alt.setTitle(" " + "Finir l'activité?")
+                .setIcon(R.drawable.alert)
+                .setMessage("\n " + "Etes-vous sure de vouloir \n " +
+                        "mettre fin à votre activité ?"
+                )
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
+
+                    }
+                }).setNegativeButton("Nom", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        }).show();
+    }
+
+    public void pause_rep(View view) {
+
+        if (btn_P_R.isChecked()) {
+            //en pause
+            btn_P_R.setText(R.string.reprendre);
+            Img_lock.setImageResource(R.drawable.lock_open);
+            btn_P_R.setBackgroundResource(R.drawable.button_rudus4);
+            lastPause = SystemClock.elapsedRealtime();
+            chronometer.stop();
+        } else {
+            //en reprendre
+            chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - lastPause);
+            chronometer.start();
+            Img_lock.setImageResource(R.drawable.lock_close);
+            btn_P_R.setText(R.string.pause);
+            btn_P_R.setBackgroundResource(R.drawable.button_rudus);
+        }
+    }
+
+    public void Test_Donnees() {
+        boolean value = pref.getBoolean("connexion", false);
         if (value) {
             Resaux.setImageResource(R.drawable.resaux);
         } else {
@@ -92,43 +152,7 @@ public class ParametresMesures extends AppCompatActivity {
             }
         }
     }
-    public void declancher(View view) {
-        chronometer.setBase(SystemClock.elapsedRealtime());
-        chronometer.start();
-        btn_P_R.setClickable(true);
-        stop.setClickable(true);
-    }
 
-    public void Stop(View view) {
-        chronometer.stop();
-        chronometer.setBase(SystemClock.elapsedRealtime());
-        lastPause = 0;
-        btn_P_R.setText(R.string.pause);
-        Img_lock.setImageResource(R.drawable.lock_close);
-        btn_P_R.setBackgroundResource(R.drawable.button_rudus);
-        btn_P_R.setChecked(false);
-        btn_P_R.setClickable(false);
-        startActivity(new Intent(this,DetaileCardiaque.class));
-    }
-
-    public void pause_rep(View view) {
-
-        if (btn_P_R.isChecked()){
-            //en pause
-            btn_P_R.setText(R.string.reprendre);
-            Img_lock.setImageResource(R.drawable.lock_open);
-            btn_P_R.setBackgroundResource(R.drawable.button_rudus4);
-            lastPause = SystemClock.elapsedRealtime();
-            chronometer.stop();
-        }else {
-            //en reprendre
-            chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - lastPause);
-            chronometer.start();
-            Img_lock.setImageResource(R.drawable.lock_close);
-            btn_P_R.setText(R.string.pause);
-            btn_P_R.setBackgroundResource(R.drawable.button_rudus);
-        }
-    }
     public void parammetres(View view) {
         Intent ite = new Intent(this, MenuActivity.class);
         startActivity(ite);

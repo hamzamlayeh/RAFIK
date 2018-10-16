@@ -19,19 +19,6 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView29"
-                android:layout_width="31dp"
-                android:layout_height="36dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="32dp"
-                android:padding="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux" />
-
-            <ImageView
                 android:id="@+id/RAFIKI-Icon"
                 android:layout_width="65dp"
                 android:layout_height="12dp"
@@ -59,6 +46,8 @@
                 android:id="@+id/txt_etat"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="40dp"
                 android:src="@drawable/course_a_pied"
                 app:layout_constraintStart_toEndOf="@+id/etat_cycle"

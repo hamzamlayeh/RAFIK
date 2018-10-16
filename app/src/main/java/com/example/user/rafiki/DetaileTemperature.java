@@ -3,9 +3,9 @@ package com.example.user.rafiki;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,9 +22,10 @@ import java.util.ArrayList;
 
 public class DetaileTemperature extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Resaux, Txt_Cycle;
+    ImageView Etat_Cycle, Resaux, Txt_Cycle, Suivant,Cercle;
     LineChart mchart;
     SharedPreferences prefs, pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,8 @@ public class DetaileTemperature extends AppCompatActivity {
         Etat_Cycle = findViewById(R.id.etat_cycle);
         Resaux = findViewById(R.id.imageView29);
         Txt_Cycle = findViewById(R.id.txt_etat);
+        Suivant = findViewById(R.id.suvi);
+        Cercle = findViewById(R.id.imageView10);
         mchart = findViewById(R.id.chart1);
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
@@ -48,28 +51,28 @@ public class DetaileTemperature extends AppCompatActivity {
         mchart.setPinchZoom(true);
         mchart.setDrawGridBackground(false);
 
-        YAxis leftAxis=mchart.getAxisLeft();
+        YAxis leftAxis = mchart.getAxisLeft();
         leftAxis.removeAllLimitLines();
         leftAxis.setAxisMaximum(40f);
         leftAxis.setAxisMinimum(32f);
         leftAxis.setTextColor(R.color.left);
-        leftAxis.enableGridDashedLine(2f,2f,0);
+        leftAxis.enableGridDashedLine(2f, 2f, 0);
         leftAxis.setDrawLimitLinesBehindData(true);
 
         ArrayList<Entry> yvalues = new ArrayList<>();
 
-        yvalues.add(new Entry(0,34f));
-        yvalues.add(new Entry(1,35f));
-        yvalues.add(new Entry(2,36f));
-        yvalues.add(new Entry(3,37f));
-        yvalues.add(new Entry(4,38f));
-        yvalues.add(new Entry(5,38f));
-        yvalues.add(new Entry(6,38f));
-        yvalues.add(new Entry(7,38f));
-        yvalues.add(new Entry(8,38f));
-        yvalues.add(new Entry(9,38f));
+        yvalues.add(new Entry(0, 34f));
+        yvalues.add(new Entry(1, 35f));
+        yvalues.add(new Entry(2, 36f));
+        yvalues.add(new Entry(3, 37f));
+        yvalues.add(new Entry(4, 38f));
+        yvalues.add(new Entry(5, 38f));
+        yvalues.add(new Entry(6, 38f));
+        yvalues.add(new Entry(7, 38f));
+        yvalues.add(new Entry(8, 38f));
+        yvalues.add(new Entry(9, 38f));
 
-        LineDataSet set1 = new LineDataSet(yvalues,"");
+        LineDataSet set1 = new LineDataSet(yvalues, "");
 
         set1.setLineWidth(4f);
         set1.setHighlightEnabled(false);
@@ -77,9 +80,9 @@ public class DetaileTemperature extends AppCompatActivity {
         set1.setDrawCircles(false);
 
 
-        ArrayList<ILineDataSet> datasets=new ArrayList<>();
+        ArrayList<ILineDataSet> datasets = new ArrayList<>();
         datasets.add(set1);
-        LineData data=new LineData(datasets);
+        LineData data = new LineData(datasets);
         mchart.setData(data);
         mchart.animateX(1400, Easing.EasingOption.Linear);
     }
@@ -87,7 +90,7 @@ public class DetaileTemperature extends AppCompatActivity {
     public void precedant(View view) {
         Intent ite = new Intent(this, DetaileRespiration.class);
         startActivity(ite);
-       overridePendingTransition(R.anim.exit_to_right, R.anim.enter_from_left);
+        overridePendingTransition(R.anim.exit_to_right, R.anim.enter_from_left);
     }
 
     public void suivant(View view) {
@@ -115,23 +118,33 @@ public class DetaileTemperature extends AppCompatActivity {
                 case 1:
                     Etat_Cycle.setImageResource(R.drawable.icon_quotidien);
                     Txt_Cycle.setImageResource(R.drawable.quotidien);
+                    Suivant.setVisibility(View.INVISIBLE);
+                    Cercle.setVisibility(View.GONE);
                     break;
                 case 2:
 
                     Etat_Cycle.setImageResource(R.drawable.icon_marche);
                     Txt_Cycle.setImageResource(R.drawable.marche);
+                    Suivant.setVisibility(View.VISIBLE);
+                    Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 3:
                     Etat_Cycle.setImageResource(R.drawable.icone_course);
                     Txt_Cycle.setImageResource(R.drawable.course_a_pied);
+                    Suivant.setVisibility(View.VISIBLE);
+                    Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 4:
                     Etat_Cycle.setImageResource(R.drawable.icone_cycle);
                     Txt_Cycle.setImageResource(R.drawable.cyclisme);
+                    Suivant.setVisibility(View.INVISIBLE);
+                    Cercle.setVisibility(View.GONE);
                     break;
                 case 5:
                     Etat_Cycle.setImageResource(R.drawable.icon_sommeil);
                     Txt_Cycle.setImageResource(R.drawable.sommeil);
+                    Suivant.setVisibility(View.INVISIBLE);
+                    Cercle.setVisibility(View.GONE);
                     break;
             }
         }

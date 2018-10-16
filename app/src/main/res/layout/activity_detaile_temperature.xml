@@ -19,19 +19,6 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView29"
-                android:layout_width="31dp"
-                android:layout_height="36dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="32dp"
-                android:padding="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux" />
-
-            <ImageView
                 android:id="@+id/RAFIKI-Icon"
                 android:layout_width="65dp"
                 android:layout_height="12dp"
@@ -59,6 +46,8 @@
                 android:id="@+id/txt_etat"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="40dp"
                 android:src="@drawable/course_a_pied"
                 app:layout_constraintStart_toEndOf="@+id/etat_cycle"
@@ -94,18 +83,217 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.01"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/chiffre_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:text="76"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:text="@string/c"
+                        android:textColor="@android:color/white"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/chifre_moys"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:text="82"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:text="@string/c"
+                        android:textColor="@android:color/white"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.99"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/chifre_max"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:text="94"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:gravity="center"
+                        android:text="@string/c"
+                        android:textColor="@android:color/white"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view52"
+                    android:layout_width="0dp"
+                    android:layout_height="13dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/cadre_rudus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout17" />
+
+                <ImageView
+                    android:id="@+id/imageView40"
+                    android:layout_width="25dp"
+                    android:layout_height="18dp"
+                    android:padding="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout17"
+                    app:srcCompat="@drawable/cercle_e" />
+
+                <ImageView
+                    android:id="@+id/imageView45"
+                    android:layout_width="25dp"
+                    android:layout_height="18dp"
+                    android:padding="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout19"
+                    app:srcCompat="@drawable/cercle_e" />
+
+                <ImageView
+                    android:id="@+id/imageView60"
+                    android:layout_width="25dp"
+                    android:layout_height="18dp"
+                    android:padding="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout18"
+                    app:srcCompat="@drawable/cercle_e" />
+
+                <TextView
+                    android:id="@+id/textView40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="@string/min"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="8sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.01"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView60" />
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="@string/max"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="8sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.99"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView45" />
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="moy"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="8sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView40" />
+
+            </android.support.constraint.ConstraintLayout>
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart1"
                 android:layout_width="0dp"
                 android:layout_height="239dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:animationCache="false"
                 android:background="@drawable/gard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
             <ImageView
                 android:id="@+id/prec"

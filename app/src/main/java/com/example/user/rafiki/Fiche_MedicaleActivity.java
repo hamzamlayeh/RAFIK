@@ -1,7 +1,6 @@
 package com.example.user.rafiki;
 
 import android.Manifest;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -11,13 +10,13 @@ import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -45,6 +44,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     List<Fiche> list = new ArrayList<Fiche>();
     final static int MY_PERMISSIONS_REQUEST = 1;
     MKLoader mkLoader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -297,7 +297,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     }
 
     private boolean valider() {
-        int taile = Integer.parseInt(taille);
+
         boolean valide = true;
         if (poid.isEmpty()) {
             Poid.setError(getString(R.string.champs_obligatoir));
@@ -307,9 +307,12 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
             Taille.setError(getString(R.string.champs_obligatoir));
             valide = false;
         }
-        if (!taille.isEmpty() && taile > 300) {
-            Taille.setError(getString(R.string.max_300));
-            valide = false;
+        if (!taille.isEmpty()) {
+            int taile = Integer.parseInt(taille);
+            if (taile > 300) {
+                Taille.setError(getString(R.string.max_300));
+                valide = false;
+            }
         }
         if (adresse.isEmpty()) {
             Adresse.setError(getString(R.string.champs_obligatoir));
