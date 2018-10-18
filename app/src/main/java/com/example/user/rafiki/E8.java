@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
@@ -41,7 +42,20 @@ public class E8 extends AppCompatActivity {
         Mythred thread = new Mythred();
         thread.start();
         StopThread = true;
+        new Handler().postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+            public void run() {
+                byte[] buffer = {0x02, 0x73, 0x00, 0x74, 0x03, 0x03, 0x0A};
+                BLEManager.writeData(buffer);
+                try {
+                    Thread.sleep(1000);
+                    BLEManager.readData();
 
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 1000);
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
         animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out);
         coeur = findViewById(R.id.Coeur);
@@ -137,8 +151,11 @@ public class E8 extends AppCompatActivity {
     }
 
     public void Cycles(View view) {
+        StopThread = false;
         Intent ite = new Intent(this, CycleActivity.class);
         startActivity(ite);
+        E7_2.str=null;
+
     }
 
     class Mythred extends Thread {

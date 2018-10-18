@@ -1,23 +1,19 @@
 package com.example.user.rafiki;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.MailBody;
-import com.example.user.rafiki.ItemData.clients;
 
-import java.util.List;
 import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
@@ -74,7 +70,9 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.EmailOuMotDePasseInvalide, Toast.LENGTH_LONG).show();
             }
         }
-    }
+
+//ds.removetable();
+ }
 
     private boolean valider() {
         boolean valide = true;

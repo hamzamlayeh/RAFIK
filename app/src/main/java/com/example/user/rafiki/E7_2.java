@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class E7_2 extends AppCompatActivity {
 
-    static byte[] str = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    static byte[] str = {};
     ImageView testcouple;
     TextView textcouple;
     boolean test;
@@ -41,22 +41,6 @@ public class E7_2 extends AppCompatActivity {
                 textcouple.setText(R.string.votre_t_shirt_pas_couple);
             }
         }
-
-
-        new Handler().postDelayed(new Runnable() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-            public void run() {
-                byte[] buffer = {0x02, 0x73, 0x00, 0x74, 0x03, 0x03, 0x0A};
-                BLEManager.writeData(buffer);
-                try {
-                    Thread.sleep(1000);
-                    BLEManager.readData();
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, 1000);
     }
 
     public void nexte(View view) {
