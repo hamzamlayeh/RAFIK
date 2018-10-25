@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,12 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ParametresMesures extends AppCompatActivity {
 
@@ -32,7 +40,7 @@ public class ParametresMesures extends AppCompatActivity {
     long lastPause;
     SharedPreferences prefs, pref;
     Activity activity;
-
+File file;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +66,12 @@ public class ParametresMesures extends AppCompatActivity {
         stop = findViewById(R.id.button5);
 
         Test_Donnees();
+        Calendar date =Calendar.getInstance();
+        String   donnerdate= String.valueOf(date.getTimeInMillis());
+
+       file= writeToFile(donnerdate+".csv");
+
+
     }
 
     public void declancher(View view) {
@@ -94,6 +108,7 @@ public class ParametresMesures extends AppCompatActivity {
 
             }
         }).show();
+
     }
 
     public void pause_rep(View view) {
@@ -296,13 +311,20 @@ public class ParametresMesures extends AppCompatActivity {
                                 batteri.setImageResource(R.drawable.batt1);
 
                             }
-                        } catch (Exception e) {
+
+                                String line =  String.format("%s ; %s ; %s\n", String.valueOf(E7_2.str[2]), String.valueOf(E7_2.str[3]),String.valueOf(E7_2.str[4]));
+//                              String heder = String.format("%s ; %s ; %s\n", "coeur","poumon","tenpirateur");
+                                FileWriter filewriter = new FileWriter(file, true);
+                                filewriter.write(line);
+                                filewriter.close();
+
+                                } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 });
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -313,15 +335,24 @@ public class ParametresMesures extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        StopThread = true;
-        Mythred0 thread = new Mythred0();
-        thread.start();
+//        StopThread = true;
+//        Mythred0 thread = new Mythred0();
+//        thread.start();
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        StopThread = false;
+//        StopThread = false;
 
+    }
+    private File writeToFile(String nomFicher) {
+
+            File chemin = this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
+            File fichier = new File(chemin, nomFicher);
+
+//
+            return fichier;
     }
 }

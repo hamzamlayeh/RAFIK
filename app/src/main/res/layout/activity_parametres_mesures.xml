@@ -30,7 +30,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux" />
+                app:srcCompat="@drawable/resaux"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription,HardcodedText" />
 
             <ImageView
                 android:id="@+id/RAFIKI-Icon"
