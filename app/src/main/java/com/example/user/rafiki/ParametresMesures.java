@@ -11,14 +11,12 @@ import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.SmsManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class ParametresMesures extends AppCompatActivity {
@@ -30,7 +28,7 @@ public class ParametresMesures extends AppCompatActivity {
     ToggleButton btn_P_R;
     Button stop;
     ConstraintLayout constraintDistance;
-     int Indice;
+    int Indice;
     long lastPause;
     SharedPreferences prefs, pref;
     Activity activity;
@@ -41,12 +39,11 @@ public class ParametresMesures extends AppCompatActivity {
         setContentView(R.layout.activity_parametres_mesures);
 
         activity = this;
+        StopThread = true;
         Mythred0 thread0 = new Mythred0();
         thread0.start();
-//        Mythred1 thread1 = new Mythred1();
-//        thread1.start();
+        EnvoiaTrame();
 
-        StopThread = true;
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
         Indice = prefs.getInt("Indice", 0);
@@ -59,8 +56,8 @@ public class ParametresMesures extends AppCompatActivity {
         chronometer = findViewById(R.id.simpleChronometer);
         btn_P_R = findViewById(R.id.button3);
         stop = findViewById(R.id.button5);
-        Test_Donnees();
 
+        Test_Donnees();
     }
 
     public void declancher(View view) {
@@ -162,15 +159,73 @@ public class ParametresMesures extends AppCompatActivity {
         }
     }
 
+    public void EnvoiaTrame() {
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                while (StopThread) {
+                    try {
+                        runOnUiThread(new Runnable() {
+                            byte[] buffer;
+
+                            @Override
+                            public void run() {
+                                if (Indice != 0) {
+                                    switch (Indice) {
+                                        case 1:
+                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x01, 0x03, 0x03, 0x0A};
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                                                BLEManager.writeData(buffer);
+                                                BLEManager.readData();
+                                            }
+                                            break;
+                                        case 2:
+                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x02, 0x03, 0x03, 0x0A};
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                                                BLEManager.writeData(buffer);
+                                                BLEManager.readData();
+                                            }
+                                            break;
+                                        case 3:
+                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x03, 0x03, 0x03, 0x0A};
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                                                BLEManager.writeData(buffer);
+                                                BLEManager.readData();
+                                            }
+                                            break;
+                                        case 4:
+                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x04, 0x03, 0x03, 0x0A};
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                                                BLEManager.writeData(buffer);
+                                                BLEManager.readData();
+                                            }
+                                            break;
+                                        case 5:
+                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x05, 0x03, 0x03, 0x0A};
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                                                BLEManager.writeData(buffer);
+                                                BLEManager.readData();
+                                            }
+                                            break;
+                                    }
+                                }
+                            }
+                        });
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        t.start();
+    }
+
     public void parammetres(View view) {
         StopThread = false;
         Intent ite = new Intent(this, MenuActivity.class);
         startActivity(ite);
-    }
-
-    public void Cycles(View view) {
-        Intent ite = new Intent(this, CycleActivity.class);
-        startActivity(ite);
+        E7_2.str=null;
     }
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void exite(View view) {
@@ -192,6 +247,13 @@ public class ParametresMesures extends AppCompatActivity {
         return false;
     }
 
+    public void acueil(View view) {
+        StopThread = false;
+        Intent ite = new Intent(this, CycleActivity.class);
+        startActivity(ite);
+        E7_2.str=null;
+    }
+
     class Mythred0 extends Thread {
         public void run() {
             textECG = findViewById(R.id.chiffreECG);
@@ -205,7 +267,38 @@ public class ParametresMesures extends AppCompatActivity {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        try {
+                            textECG.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
+                            textPoumon.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
+                            textTemp.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
+                            textCal.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[5])));
+                            niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[7]) + "%"));
 
+                            textDist.setText(String.valueOf(BLEManager.unsignedToBytes((byte) (E7_2.str[5]+E7_2.str[6]))));
+                            if (E7_2.str[7] == 0) {
+                                batteri.setImageResource(R.drawable.batt7);
+                            } else if (E7_2.str[7] >= 1 && E7_2.str[7] <= 13) {
+                                batteri.setImageResource(R.drawable.batt6);
+
+                            } else if (E7_2.str[7] > 13 && E7_2.str[7] <= 25) {
+                                batteri.setImageResource(R.drawable.batt5);
+
+                            } else if (E7_2.str[7] > 25 && E7_2.str[7] <= 38) {
+                                batteri.setImageResource(R.drawable.batt4);
+
+                            } else if (E7_2.str[7] > 38 && E7_2.str[7] <= 50) {
+                                batteri.setImageResource(R.drawable.batt3);
+
+                            } else if (E7_2.str[7] > 50 && E7_2.str[7] <= 75) {
+                                batteri.setImageResource(R.drawable.batt2);
+
+                            } else if (E7_2.str[7] > 76 && E7_2.str[7] <= 100) {
+                                batteri.setImageResource(R.drawable.batt1);
+
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
                 try {
@@ -216,136 +309,12 @@ public class ParametresMesures extends AppCompatActivity {
             }
         }
     }
-    class Mythred1 extends Thread {
-        public void run() {
 
-            while (StopThread) {
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            byte[] buffer;
-                            try {
-                                textECG.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
-                                textPoumon.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
-                                textTemp.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
-                                textCal.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[5])));
-                                niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[6]) + "%"));
-
-                                if (E7_2.str[6] == 0) {
-                                    batteri.setImageResource(R.drawable.batt7);
-                                } else if (E7_2.str[6] >= 1 && E7_2.str[6] <= 13) {
-                                    batteri.setImageResource(R.drawable.batt6);
-
-                                } else if (E7_2.str[6] > 13 && E7_2.str[6] <= 25) {
-                                    batteri.setImageResource(R.drawable.batt5);
-
-                                } else if (E7_2.str[6] > 25 && E7_2.str[6] <= 38) {
-                                    batteri.setImageResource(R.drawable.batt4);
-
-                                } else if (E7_2.str[6] > 38 && E7_2.str[6] <= 50) {
-                                    batteri.setImageResource(R.drawable.batt3);
-
-                                } else if (E7_2.str[6] > 50 && E7_2.str[6] <= 75) {
-                                    batteri.setImageResource(R.drawable.batt2);
-
-                                } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
-                                    batteri.setImageResource(R.drawable.batt1);
-
-                                }
-                            } catch (Exception e) {
-
-                            }
-                            if (Indice != 0) {
-                                switch (Indice) {
-                                    case 1:
-                                        buffer = new byte[]{0x02, 0x73, 0x02, 0x01, 0x03, 0x03, 0x0A};
-                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                            BLEManager.writeData(buffer);
-                                            try {
-                                                Thread.sleep(1000);
-                                                BLEManager.readData();
-
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-
-                                        break;
-                                    case 2:
-                                         buffer = new byte[]{0x02, 0x73, 0x02, 0x02, 0x03, 0x03, 0x0A};
-                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                            BLEManager.writeData(buffer);
-                                            try {
-                                                Thread.sleep(1000);
-                                                BLEManager.readData();
-
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                        break;
-                                    case 3:
-                                        buffer = new byte[]{0x02, 0x73, 0x02, 0x03, 0x03, 0x03, 0x0A};
-                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                            BLEManager.writeData(buffer);
-                                            try {
-                                                Thread.sleep(1000);
-                                                BLEManager.readData();
-
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-
-                                        break;
-                                    case 4:
-                                        buffer = new byte[]{0x02, 0x73, 0x02, 0x04, 0x03, 0x03, 0x0A};
-                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                            BLEManager.writeData(buffer);
-                                            try {
-                                                Thread.sleep(1000);
-                                                BLEManager.readData();
-
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                        break;
-                                    case 5:
-                                        buffer = new byte[]{0x02, 0x73, 0x02, 0x05, 0x03, 0x03, 0x0A};
-                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                            BLEManager.writeData(buffer);
-                                            try {
-                                                Thread.sleep(1000);
-                                                BLEManager.readData();
-
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                        break;
-                                }
-                            }
-
-                        } catch (Exception e) {
-
-                        }
-                    }
-                });
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        }
     @Override
     public void onResume() {
         super.onResume();
         StopThread = true;
-        Mythred1 thread = new Mythred1();
+        Mythred0 thread = new Mythred0();
         thread.start();
     }
 
