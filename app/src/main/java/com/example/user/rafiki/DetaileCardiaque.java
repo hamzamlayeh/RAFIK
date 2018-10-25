@@ -110,7 +110,6 @@ public class DetaileCardiaque extends AppCompatActivity {
     public void Test_Donnees() {
         boolean value = pref.getBoolean("connexion", false);
         int Indice = prefs.getInt("Indice", 0);
-
         if (value) {
             Resaux.setImageResource(R.drawable.resaux);
         } else {
@@ -169,5 +168,10 @@ public class DetaileCardiaque extends AppCompatActivity {
             startActivity(ite);
         }
         return false;
+    }
+
+    public void acueil(View view) {
+        Intent ite = new Intent(this, E8.class);
+        startActivity(ite);
     }
 }

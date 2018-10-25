@@ -167,4 +167,9 @@ public class DetaileTemperature extends AppCompatActivity {
         }
         return false;
     }
+
+    public void acueil(View view) {
+        Intent ite = new Intent(this, E8.class);
+        startActivity(ite);
+    }
 }

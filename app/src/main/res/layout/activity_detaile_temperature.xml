@@ -54,6 +54,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/imageView29"
+                android:layout_width="31dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="32dp"
+                android:contentDescription="TODO"
+                android:padding="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/resaux"
+                tools:ignore="ContentDescription,HardcodedText" />
+
+            <ImageView
                 android:id="@+id/imageView24"
                 android:layout_width="80dp"
                 android:layout_height="60dp"
@@ -83,6 +97,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constraintLayout3"
                 android:layout_width="0dp"
@@ -345,12 +360,12 @@
                     app:srcCompat="@drawable/cercle" />
 
                 <!--<ImageView-->
-                    <!--android:id="@+id/imageView108"-->
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="20dp"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:padding="5dp"-->
-                    <!--app:srcCompat="@drawable/cercle" />-->
+                <!--android:id="@+id/imageView108"-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:padding="5dp"-->
+                <!--app:srcCompat="@drawable/cercle" />-->
 
                 <ImageView
                     android:id="@+id/imageView17"
@@ -447,7 +462,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@android:color/white"
+                android:background="#024372"
+                android:onClick="acueil"
                 android:orientation="vertical">
 
                 <ImageView
@@ -457,7 +473,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/mison" />
+                    android:background="@drawable/ic_misson" />
 
                 <TextView
                     android:id="@+id/textView30"
@@ -466,7 +482,7 @@
                     android:fontFamily="@font/raleway_bold"
                     android:gravity="center"
                     android:text="@string/title_home"
-                    android:textColor="#024372"
+                    android:textColor="@android:color/white"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -474,7 +490,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#024372"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
                 <ImageView
@@ -484,7 +500,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/horloge" />
+                    android:background="@drawable/horloge2" />
 
                 <TextView
                     android:id="@+id/textView31"
@@ -493,7 +509,7 @@
                     android:fontFamily="@font/raleway_bold"
                     android:gravity="center"
                     android:text="@string/cycle"
-                    android:textColor="@android:color/white"
+                    android:textColor="#024372"
                     android:textSize="12sp" />
             </LinearLayout>
 

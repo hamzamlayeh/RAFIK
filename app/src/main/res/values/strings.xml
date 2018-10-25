@@ -195,4 +195,9 @@
     <string name="km_h">km/h</string>
     <string name="calorie">Calories</string>
     <string name="cal">cal</string>
+    <string name="finir_activity">Finir l\'activité?</string>
+    <string name="etes_vous_sure_de_vouloir">Etes-vous sure de vouloir</string>
+    <string name="mettre_fin_a_votre_activité">mettre fin à votre activité ?</string>
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
 </resources>
