@@ -301,6 +301,40 @@
                         android:layout_weight="1"
                         android:background="#02366a">
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginRight="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/chiffreECG"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_bold"
+                                android:gravity="center"
+                                android:text="91"
+                                android:textColor="@android:color/white"
+                                android:textSize="35sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:text="@string/bpm"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/chiffreECG" />
+                        </LinearLayout>
+
                         <ImageView
                             android:id="@+id/imageView57"
                             android:layout_width="55dp"
@@ -325,32 +359,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/imageView57" />
 
-                        <TextView
-                            android:id="@+id/chiffreECG"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginRight="24dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/raleway_bold"
-                            android:text="91"
-                            android:textColor="@android:color/white"
-                            android:textSize="35sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginRight="24dp"
-                            android:fontFamily="@font/raleway_regular"
-                            android:text="@string/bpm"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/chiffreECG" />
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
@@ -359,6 +367,40 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="#02366a">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginRight="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/chiffrePoumon"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_bold"
+                                android:gravity="center"
+                                android:text="32"
+                                android:textColor="@android:color/white"
+                                android:textSize="35sp"
+                                tools:layout_editor_absoluteX="100dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView14"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:text="@string/rpm"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp"
+                                tools:layout_editor_absoluteX="113dp"
+                                tools:layout_editor_absoluteY="55dp" />
+                        </LinearLayout>
 
                         <ImageView
                             android:id="@+id/imageView58"
@@ -370,20 +412,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/poumon" />
-
-                        <TextView
-                            android:id="@+id/chiffrePoumon"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginRight="32dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/raleway_bold"
-                            android:text="32"
-                            android:textColor="@android:color/white"
-                            android:textSize="35sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textView21"
@@ -399,18 +427,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/imageView58" />
 
-                        <TextView
-                            android:id="@+id/textView14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginRight="32dp"
-                            android:fontFamily="@font/raleway_regular"
-                            android:text="@string/rpm"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/chiffrePoumon" />
                     </android.support.constraint.ConstraintLayout>
                 </LinearLayout>
 
@@ -424,6 +440,40 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="#02366a">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginRight="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/chiffreTemp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_bold"
+                                android:gravity="center"
+                                android:text="37.5"
+                                android:textColor="@android:color/white"
+                                android:textSize="35sp"
+                                tools:layout_editor_absoluteX="89dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView25"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:text="@string/c"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp"
+                                tools:layout_editor_absoluteX="124dp"
+                                tools:layout_editor_absoluteY="55dp" />
+                        </LinearLayout>
 
                         <ImageView
                             android:id="@+id/imageView590"
@@ -448,32 +498,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/imageView590" />
 
-                        <TextView
-                            android:id="@+id/chiffreTemp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/raleway_bold"
-                            android:text="37.5"
-                            android:textColor="@android:color/white"
-                            android:textSize="35sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginRight="32dp"
-                            android:fontFamily="@font/raleway_regular"
-                            android:text="@string/c"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/chiffreTemp" />
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
@@ -482,6 +506,40 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="#02366a">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginRight="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/chiffrecalorie"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_bold"
+                                android:gravity="center"
+                                android:text="204"
+                                android:textColor="@android:color/white"
+                                android:textSize="35sp"
+                                tools:layout_editor_absoluteX="94dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView250"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:text="@string/cal"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp"
+                                tools:layout_editor_absoluteX="125dp"
+                                tools:layout_editor_absoluteY="55dp" />
+                        </LinearLayout>
 
                         <ImageView
                             android:id="@+id/imageView5"
@@ -506,42 +564,50 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-                        <TextView
-                            android:id="@+id/chiffrecalorie"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/raleway_bold"
-                            android:text="204"
-                            android:textColor="@android:color/white"
-                            android:textSize="35sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView250"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginRight="32dp"
-                            android:fontFamily="@font/raleway_regular"
-                            android:text="@string/cal"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/chiffrecalorie" />
                     </android.support.constraint.ConstraintLayout>
                 </LinearLayout>
 
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraint_distance"
                     android:layout_width="180dp"
-                    android:layout_height="80dp"
+                    android:layout_height="85dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:background="#02366a">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginRight="24dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/chiffreDistance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/raleway_bold"
+                            android:gravity="center"
+                            android:text="37.5"
+                            android:textColor="@android:color/white"
+                            android:textSize="35sp"
+                            tools:layout_editor_absoluteX="97dp"
+                            tools:layout_editor_absoluteY="8dp" />
+
+                        <TextView
+                            android:id="@+id/textView252"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/raleway_regular"
+                            android:gravity="center"
+                            android:text="@string/km_h"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            tools:layout_editor_absoluteX="113dp"
+                            tools:layout_editor_absoluteY="56dp" />
+                    </LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageView59"
@@ -566,32 +632,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView59" />
 
-                    <TextView
-                        android:id="@+id/chiffreDistance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/raleway_bold"
-                        android:text="37.5"
-                        android:textColor="@android:color/white"
-                        android:textSize="35sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView252"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginRight="24dp"
-                        android:fontFamily="@font/raleway_regular"
-                        android:text="@string/km_h"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/chiffreDistance" />
                 </android.support.constraint.ConstraintLayout>
 
             </LinearLayout>

@@ -8,63 +8,50 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class ParametresMesures extends AppCompatActivity {
 
     static boolean StopThread = true;
-    ImageView Img_etat, Resaux, batteri, Img_lock;
+    ImageView Img_etat, Resaux, batteri;
     TextView textHaute, textBas, niveaubatt, textECG, textPoumon, textTemp, textCal, textDist;
     Chronometer chronometer;
     ToggleButton btn_P_R;
-    Button stop;
+    Button stop, declancher,Img_lock;
     ConstraintLayout constraintDistance;
     int Indice;
     long lastPause;
     SharedPreferences prefs, pref;
     Activity activity;
-File file;
+    File file;
+    Thread thread;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres_mesures);
 
         activity = this;
-        StopThread = true;
-        Mythred0 thread0 = new Mythred0();
-        thread0.start();
-        EnvoiaTrame();
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
         Indice = prefs.getInt("Indice", 0);
         Img_etat = findViewById(R.id.imageView10);
-        Img_lock = findViewById(R.id.imageView1);
+        Img_lock = findViewById(R.id.bt_clock);
         Resaux = findViewById(R.id.imageView29);
         textHaute = findViewById(R.id.Signes);
         textBas = findViewById(R.id.BIOMETRIQUE);
@@ -72,52 +59,50 @@ File file;
         chronometer = findViewById(R.id.simpleChronometer);
         btn_P_R = findViewById(R.id.button3);
         stop = findViewById(R.id.button5);
+        declancher = findViewById(R.id.declancher);
 
         Test_Donnees();
-        Calendar date =Calendar.getInstance();
-        String   donnerdate= String.valueOf(date.getTimeInMillis());
-
-//       file= writeToFile(donnerdate+".csv");
-       file= writeToFile("1540474192622.csv");
-
-
-
-        List<String> result = null;
-        result= Lireficher(file);
-
-
-
     }
 
     public void declancher(View view) {
         chronometer.setBase(SystemClock.elapsedRealtime());
         chronometer.start();
         btn_P_R.setClickable(true);
+        declancher.setClickable(false);
         stop.setClickable(true);
+        Calendar date = Calendar.getInstance();
+        String donnerdate = String.valueOf(date.getTimeInMillis());
+        file = writeToFile(donnerdate + ".csv");
+        StopThread = true;
+        Mythred0 thread0 = new Mythred0();
+        thread0.start();
+        EnvoiaTrame();
     }
 
     public void Stop(View view) {
-        chronometer.stop();
-        chronometer.setBase(SystemClock.elapsedRealtime());
-        lastPause = 0;
-        btn_P_R.setText(R.string.pause);
-        Img_lock.setImageResource(R.drawable.lock_close);
-        btn_P_R.setBackgroundResource(R.drawable.button_rudus);
-        btn_P_R.setChecked(false);
-        btn_P_R.setClickable(false);
         AlertDialog.Builder alt = new AlertDialog.Builder(this);
-        alt.setTitle(" " + "Finir l'activité?")
+        alt.setTitle(" " + getString(R.string.finir_activity))
                 .setIcon(R.drawable.alert)
-                .setMessage("\n " + "Etes-vous sure de vouloir \n " +
-                        "mettre fin à votre activité ?"
+                .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir) +
+                        getString(R.string.mettre_fin_a_votre_activité)
                 )
-                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        StopThread = false;
+                        chronometer.stop();
+                        chronometer.setBase(SystemClock.elapsedRealtime());
+                        lastPause = 0;
+                        btn_P_R.setText(R.string.pause);
+                        Img_lock.setBackgroundResource(R.drawable.lock_close);
+                        btn_P_R.setBackgroundResource(R.drawable.button_rudus);
+                        btn_P_R.setChecked(false);
+                        btn_P_R.setClickable(false);
+                        declancher.setClickable(true);
                         startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
 
                     }
-                }).setNegativeButton("Nom", new DialogInterface.OnClickListener() {
+                }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -130,16 +115,21 @@ File file;
 
         if (btn_P_R.isChecked()) {
             //en pause
+            StopThread = false;
             btn_P_R.setText(R.string.reprendre);
-            Img_lock.setImageResource(R.drawable.lock_open);
+            Img_lock.setBackgroundResource(R.drawable.lock_open);
             btn_P_R.setBackgroundResource(R.drawable.button_rudus4);
             lastPause = SystemClock.elapsedRealtime();
             chronometer.stop();
         } else {
             //en reprendre
+            StopThread = true;
+            thread.start();
+            Mythred0 thread0 = new Mythred0();
+            thread0.start();
             chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - lastPause);
             chronometer.start();
-            Img_lock.setImageResource(R.drawable.lock_close);
+            Img_lock.setBackgroundResource(R.drawable.lock_close);
             btn_P_R.setText(R.string.pause);
             btn_P_R.setBackgroundResource(R.drawable.button_rudus);
         }
@@ -190,7 +180,7 @@ File file;
     }
 
     public void EnvoiaTrame() {
-        Thread t = new Thread() {
+         thread = new Thread() {
             @Override
             public void run() {
                 while (StopThread) {
@@ -248,15 +238,16 @@ File file;
                 }
             }
         };
-        t.start();
+        thread.start();
     }
 
     public void parammetres(View view) {
         StopThread = false;
         Intent ite = new Intent(this, MenuActivity.class);
         startActivity(ite);
-        E7_2.str=null;
+        E7_2.str = null;
     }
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void exite(View view) {
         StopThread = false;
@@ -281,7 +272,7 @@ File file;
         StopThread = false;
         Intent ite = new Intent(this, CycleActivity.class);
         startActivity(ite);
-        E7_2.str=null;
+        E7_2.str = null;
     }
 
     class Mythred0 extends Thread {
@@ -304,7 +295,7 @@ File file;
                             textCal.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[5])));
                             niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[7]) + "%"));
 
-                            textDist.setText(String.valueOf(BLEManager.unsignedToBytes((byte) (E7_2.str[5]+E7_2.str[6]))));
+                            textDist.setText(String.valueOf(BLEManager.unsignedToBytes((byte) (E7_2.str[5] + E7_2.str[6]))));
                             if (E7_2.str[7] == 0) {
                                 batteri.setImageResource(R.drawable.batt7);
                             } else if (E7_2.str[7] >= 1 && E7_2.str[7] <= 13) {
@@ -326,14 +317,13 @@ File file;
                                 batteri.setImageResource(R.drawable.batt1);
 
                             }
-
-                                String line =  String.format("%s;%s;%s\n", String.valueOf(E7_2.str[2]), String.valueOf(E7_2.str[3]),String.valueOf(E7_2.str[4]));
+                            String line = String.format("%s ; %s ; %s\n", String.valueOf(E7_2.str[2]), String.valueOf(E7_2.str[3]), String.valueOf(E7_2.str[4]));
 //                              String heder = String.format("%s ; %s ; %s\n", "coeur","poumon","tenpirateur");
-                                FileWriter filewriter = new FileWriter(file, true);
-                                filewriter.write(line);
-                                filewriter.close();
+                            FileWriter filewriter = new FileWriter(file, true);
+                            filewriter.write(line);
+                            filewriter.close();
 
-                                } catch (Exception e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -347,55 +337,8 @@ File file;
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-//        StopThread = true;
-//        Mythred0 thread = new Mythred0();
-//        thread.start();
-
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-//        StopThread = false;
-
-    }
-    @NonNull
     private File writeToFile(String nomFicher) {
-
-            File chemin = this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
-        //
-            return new File(chemin, nomFicher);
-    }
-
-
-    @NonNull
-    private List<String> Lireficher(File file){
-        List<String> result = new ArrayList<String>();
-        StringBuilder objBuffer = new StringBuilder();
-        try {
-            FileInputStream objFile = new FileInputStream(file);
-            InputStreamReader objReader = new InputStreamReader(objFile);
-            BufferedReader objBufferReader = new BufferedReader(objReader);
-            String strLine;
-            while ((strLine = objBufferReader.readLine()) != null) {
-                objBuffer.append(strLine);
-                objBuffer.append("\n");
-                result.add(strLine);
-
-            }
-            objFile.close();
-            objBufferReader.close();
-//            Toast.makeText(activity, objBuffer.toString()+"", Toast.LENGTH_SHORT).show();
-        }
-        catch (FileNotFoundException objError) {
-            Toast.makeText(this, "Fichier non trouvé\n"+objError.toString(), Toast.LENGTH_LONG).show();
-        }
-        catch (IOException objError) {
-            Toast.makeText(this, "Erreur\n"+objError.toString(), Toast.LENGTH_LONG).show();
-        }
-        return result;
+        File chemin = this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
+        return new File(chemin, nomFicher);
     }
 }
