@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
@@ -18,11 +19,19 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ParametresMesures extends AppCompatActivity {
 
@@ -37,7 +46,7 @@ public class ParametresMesures extends AppCompatActivity {
     long lastPause;
     SharedPreferences prefs, pref;
     Activity activity;
-    File file;
+    static File file;
     Thread thread;
 
     @Override
@@ -62,6 +71,7 @@ public class ParametresMesures extends AppCompatActivity {
         declancher = findViewById(R.id.declancher);
 
         Test_Donnees();
+
     }
 
     public void declancher(View view) {
@@ -99,8 +109,25 @@ public class ParametresMesures extends AppCompatActivity {
                         btn_P_R.setChecked(false);
                         btn_P_R.setClickable(false);
                         declancher.setClickable(true);
-                        startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
+//                        startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
 
+                        String[] donne = new String[0];
+                        String[] temp = new String[0];
+                        List<String> result = new ArrayList<String>();
+                        result=Lireficher(file);
+                        for (int i=0;i<result.size();i++){
+                             donne= result.get(i).split(";");
+                         temp  = donne[0].split(";");
+//                            String[] po= result.get(2).split(";");
+
+//
+                        }
+                        for (String tem : temp) {
+                            Toast.makeText(activity, "" + tem.length(), Toast.LENGTH_LONG).show();
+
+                        }
+
+                        Toast.makeText(activity, ""+Lireficher(file).size(), Toast.LENGTH_SHORT).show();
                     }
                 }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
             @Override
@@ -340,5 +367,32 @@ public class ParametresMesures extends AppCompatActivity {
     private File writeToFile(String nomFicher) {
         File chemin = this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
         return new File(chemin, nomFicher);
+    }
+    @NonNull
+    private List<String> Lireficher(File file){
+        List<String> result = new ArrayList<String>();
+        StringBuilder objBuffer = new StringBuilder();
+        try {
+            FileInputStream objFile = new FileInputStream(file);
+            InputStreamReader objReader = new InputStreamReader(objFile);
+            BufferedReader objBufferReader = new BufferedReader(objReader);
+            String strLine;
+            while ((strLine = objBufferReader.readLine()) != null) {
+                objBuffer.append(strLine);
+                objBuffer.append("\n");
+                result.add(strLine);
+
+            }
+            objFile.close();
+            objBufferReader.close();
+//            Toast.makeText(activity, objBuffer.toString()+"", Toast.LENGTH_SHORT).show();
+        }
+        catch (FileNotFoundException objError) {
+            Toast.makeText(this, "Fichier non trouvé\n"+objError.toString(), Toast.LENGTH_LONG).show();
+        }
+        catch (IOException objError) {
+            Toast.makeText(this, "Erreur\n"+objError.toString(), Toast.LENGTH_LONG).show();
+        }
+        return result;
     }
 }
