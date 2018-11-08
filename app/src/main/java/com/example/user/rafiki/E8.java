@@ -158,6 +158,13 @@ public class E8 extends AppCompatActivity {
 
     }
 
+    public void historique(View view) {
+        E7_2.str=null;
+        StopThread = false;
+        Intent ite = new Intent(this, HistoriqueActivity.class);
+        startActivity(ite);
+    }
+
     class Mythred extends Thread {
         public void run() {
             final TextView bpm = findViewById(R.id.BPM_D);

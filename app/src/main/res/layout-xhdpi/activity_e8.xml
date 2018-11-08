@@ -52,6 +52,7 @@
                 android:layout_marginRight="261dp"
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.09"
+                android:src="@drawable/batt2"
                 app:layout_constraintHorizontal_bias="0.088"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -789,6 +790,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="historique"
                 android:background="#024372"
                 android:orientation="vertical">
 

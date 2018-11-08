@@ -22,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.user.rafiki.ItemData.Donnes;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,25 +31,35 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ParametresMesures extends AppCompatActivity {
 
+    static int UNITE_SECONDE = 1000, UNITE_MENUTE = 60000, UNITE_HEURE = 3600000;
     static boolean StopThread = true;
     ImageView Img_etat, Resaux, batteri;
     TextView textHaute, textBas, niveaubatt, textECG, textPoumon, textTemp, textCal, textDist;
     Chronometer chronometer;
     ToggleButton btn_P_R;
-    Button stop, declancher,Img_lock;
+    Button stop, declancher, Img_lock;
     ConstraintLayout constraintDistance;
-    int Indice;
+    int Indice, Poids;
     long lastPause;
-    SharedPreferences prefs, pref;
+    double Nbr_pas, Duree_en_munite, Calorie;
+    String Chrono;
+    SharedPreferences prefs, pref, pref2;
+    SharedPreferences.Editor editor;
     Activity activity;
-    static File file;
+    File file;
     Thread thread;
+    static String[] temp = new String[0];
+    static List<Donnes> Liste_donne = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +67,11 @@ public class ParametresMesures extends AppCompatActivity {
         setContentView(R.layout.activity_parametres_mesures);
 
         activity = this;
-
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
+        pref2 = getApplicationContext().getSharedPreferences("Fiche_Medicale", MODE_PRIVATE);
         Indice = prefs.getInt("Indice", 0);
+
         Img_etat = findViewById(R.id.imageView10);
         Img_lock = findViewById(R.id.bt_clock);
         Resaux = findViewById(R.id.imageView29);
@@ -71,7 +84,13 @@ public class ParametresMesures extends AppCompatActivity {
         declancher = findViewById(R.id.declancher);
 
         Test_Donnees();
-
+        String restoredpoid = pref2.getString("Poid", null);
+        if (restoredpoid != null) {
+            Poids = Integer.parseInt(restoredpoid);
+        } else {
+            Poids = 0;
+        }
+        Toast.makeText(activity, Poids + "", Toast.LENGTH_SHORT).show();
     }
 
     public void declancher(View view) {
@@ -99,6 +118,18 @@ public class ParametresMesures extends AppCompatActivity {
                 .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+//                        SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
+//                        try {
+//                            Date date = dateFormat.parse(String.valueOf(chronometer.getText()));
+//                            Calendar cl=Calendar.getInstance();
+//                            cl.setTime(date);
+//                            Duree_en_munite=((cl.get(Calendar.SECOND)*UNITE_SECONDE)+(cl.get(Calendar.MINUTE)*UNITE_MENUTE)+
+//                                    (cl.get(Calendar.HOUR)*UNITE_HEURE))/UNITE_MENUTE;
+//                            System.out.println(Duree_en_munite);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+
                         StopThread = false;
                         chronometer.stop();
                         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -109,25 +140,29 @@ public class ParametresMesures extends AppCompatActivity {
                         btn_P_R.setChecked(false);
                         btn_P_R.setClickable(false);
                         declancher.setClickable(true);
-//                        startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
 
-                        String[] donne = new String[0];
-                        String[] temp = new String[0];
-                        List<String> result = new ArrayList<String>();
-                        result=Lireficher(file);
-                        for (int i=0;i<result.size();i++){
-                             donne= result.get(i).split(";");
-                         temp  = donne[0].split(";");
-//                            String[] po= result.get(2).split(";");
-
-//
+                        for (int i = 0; i < Lireficher(file).size(); i++) {
+                            String[] donnes = Lireficher(file).get(i).split(";");
+                            String couer = donnes[0];
+                            String poumon = donnes[1];
+                            String temp = donnes[2];
+                            Donnes item = new Donnes(couer, poumon, temp);
+                            Liste_donne.add(item);
+                            if (i == Lireficher(file).size() - 1) {
+                                editor = prefs.edit();
+                                editor.putString("Calorie", String.valueOf(Calorie));
+                                editor.putString("Nbr_Pas", String.valueOf(Nbr_pas));
+                                editor.putString("Duree_Minute", String.valueOf(Duree_en_munite));
+                                editor.putString("Chronomaitre", Chrono);
+                                editor.apply();
+                                startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
+                            }
                         }
-                        for (String tem : temp) {
-                            Toast.makeText(activity, "" + tem.length(), Toast.LENGTH_LONG).show();
-
-                        }
-
-                        Toast.makeText(activity, ""+Lireficher(file).size(), Toast.LENGTH_SHORT).show();
+//                        long base=chronometer.getBase();
+//                      Toast.makeText(activity, ""+base, Toast.LENGTH_SHORT).show();
+//                        System.out.println(Liste_donne.get(0).getCoeur());
+//                        System.out.println(Liste_donne.get(0).getPoumon());
+//                        System.out.println(Liste_donne.get(0).getTempirateur());
                     }
                 }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
             @Override
@@ -207,7 +242,7 @@ public class ParametresMesures extends AppCompatActivity {
     }
 
     public void EnvoiaTrame() {
-         thread = new Thread() {
+        thread = new Thread() {
             @Override
             public void run() {
                 while (StopThread) {
@@ -316,13 +351,61 @@ public class ParametresMesures extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
+                            NumberFormat format = NumberFormat.getInstance();
+                            format.setMaximumFractionDigits(2);
+                            try {
+                                Chrono = String.valueOf(chronometer.getText());
+                                Date date = dateFormat.parse(Chrono);
+                                Calendar cl = Calendar.getInstance();
+                                cl.setTime(date);
+                                double seconde = cl.get(Calendar.SECOND) * UNITE_SECONDE;
+                                double munite = cl.get(Calendar.MINUTE) * UNITE_MENUTE;
+                                double huere = cl.get(Calendar.HOUR_OF_DAY);
+
+                                Duree_en_munite = (seconde + munite) / UNITE_MENUTE;
+                                System.out.println((seconde + munite) / UNITE_MENUTE);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                             textECG.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
                             textPoumon.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
                             textTemp.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
-                            textCal.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[5])));
                             niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[7]) + "%"));
+                            Nbr_pas = BLEManager.unsignedToBytes((byte) (E7_2.str[5] + E7_2.str[6]));
+                            if (Indice != 0) {
+                                switch (Indice) {
+                                    case 1:
+                                        Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
+                                        textCal.setText(format.format(Calorie));
+                                        break;
+                                    case 2:
+                                        textDist.setText(format.format(Nbr_pas / 1600));
+                                        Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
+                                        textCal.setText(format.format(Calorie));
+                                        break;
+                                    case 3:
+                                        textDist.setText(format.format(Nbr_pas / 1250));
+                                        if (Nbr_pas <= 12) {
+                                            Calorie = (8 * 3.5 * Poids / 200) * Duree_en_munite;
+                                            textCal.setText(format.format(Calorie));
+                                        } else {
+                                            Calorie = (14 * 3.5 * Poids / 200) * Duree_en_munite;
+                                            textCal.setText(format.format(Calorie));
+                                        }
+                                        break;
+                                    case 4:
+                                        Calorie = (4 * 3.5 * Poids / 200) * Duree_en_munite;
+                                        textCal.setText(format.format(Calorie));
+                                        break;
+                                    case 5:
+                                        Calorie = (1 * 3.5 * Poids / 200) * Duree_en_munite;
+                                        textCal.setText(format.format(Calorie));
+                                        break;
+                                }
+                            }
+//                            textDist.setText(String.valueOf(BLEManager.unsignedToBytes((byte) (E7_2.str[5] + E7_2.str[6]))));
 
-                            textDist.setText(String.valueOf(BLEManager.unsignedToBytes((byte) (E7_2.str[5] + E7_2.str[6]))));
                             if (E7_2.str[7] == 0) {
                                 batteri.setImageResource(R.drawable.batt7);
                             } else if (E7_2.str[7] >= 1 && E7_2.str[7] <= 13) {
@@ -368,8 +451,9 @@ public class ParametresMesures extends AppCompatActivity {
         File chemin = this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
         return new File(chemin, nomFicher);
     }
+
     @NonNull
-    private List<String> Lireficher(File file){
+    private List<String> Lireficher(File file) {
         List<String> result = new ArrayList<String>();
         StringBuilder objBuffer = new StringBuilder();
         try {
@@ -386,12 +470,10 @@ public class ParametresMesures extends AppCompatActivity {
             objFile.close();
             objBufferReader.close();
 //            Toast.makeText(activity, objBuffer.toString()+"", Toast.LENGTH_SHORT).show();
-        }
-        catch (FileNotFoundException objError) {
-            Toast.makeText(this, "Fichier non trouvé\n"+objError.toString(), Toast.LENGTH_LONG).show();
-        }
-        catch (IOException objError) {
-            Toast.makeText(this, "Erreur\n"+objError.toString(), Toast.LENGTH_LONG).show();
+        } catch (FileNotFoundException objError) {
+            Toast.makeText(this, "Fichier non trouvé\n" + objError.toString(), Toast.LENGTH_LONG).show();
+        } catch (IOException objError) {
+            Toast.makeText(this, "Erreur\n" + objError.toString(), Toast.LENGTH_LONG).show();
         }
         return result;
     }

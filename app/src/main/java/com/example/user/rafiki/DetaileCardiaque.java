@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 public class DetaileCardiaque extends AppCompatActivity {
 
     ImageView Etat_Cycle, Resaux ,Txt_Cycle,Cercle;
+    TextView Txt_Calorie;
     LineChart mchart;
     SharedPreferences prefs, pref;
     ConstraintLayout constraintLayout;
@@ -36,6 +38,7 @@ public class DetaileCardiaque extends AppCompatActivity {
         Etat_Cycle = findViewById(R.id.etat_cycle);
         Resaux = findViewById(R.id.imageView29);
         Txt_Cycle = findViewById(R.id.txt_etat);
+        Txt_Calorie = findViewById(R.id.cal_chifre);
         mchart = findViewById(R.id.chart1);
         constraintLayout = findViewById(R.id.constraint);
         Cercle = findViewById(R.id.imageView10);
@@ -54,33 +57,24 @@ public class DetaileCardiaque extends AppCompatActivity {
         mchart.setPinchZoom(true);
         mchart.setDrawGridBackground(false);
 
+        String restoredcal = prefs.getString("Calorie", null);
+        if (restoredcal != null) {
+            Txt_Calorie.setText(restoredcal);
+        }
+
         YAxis leftAxis = mchart.getAxisLeft();
         leftAxis.removeAllLimitLines();
-        leftAxis.setAxisMaximum(10f);
-        leftAxis.setAxisMinimum(-10f);
+        leftAxis.setAxisMaximum(500f);
+        leftAxis.setAxisMinimum(-500f);
         leftAxis.enableGridDashedLine(2f, 10f, 0);
         leftAxis.setDrawLimitLinesBehindData(true);
 
         ArrayList<Entry> yvalues = new ArrayList<>();
-
-        yvalues.add(new Entry(0f, 0f));
-        yvalues.add(new Entry(2f, 0f));
-        yvalues.add(new Entry(2.5f, 4f));
-        yvalues.add(new Entry(2.7f, -4f));
-        yvalues.add(new Entry(3f, 2f));
-        yvalues.add(new Entry(3.2f, -2f));
-        yvalues.add(new Entry(3.5f, 1f));
-        yvalues.add(new Entry(3.7f, -1f));
-        yvalues.add(new Entry(3.79f, 0f));
-        yvalues.add(new Entry(7f, 0f));
-        yvalues.add(new Entry(7.5f, 4f));
-        yvalues.add(new Entry(7.7f, -4f));
-        yvalues.add(new Entry(8f, 2f));
-        yvalues.add(new Entry(8.2f, -2f));
-        yvalues.add(new Entry(8.5f, 1f));
-        yvalues.add(new Entry(8.7f, -1f));
-        yvalues.add(new Entry(8.79f, 0f));
-        yvalues.add(new Entry(11, 0f));
+        float x=0f;
+        for (int i=0;i<ParametresMesures.Liste_donne.size();i++){
+            yvalues.add(new Entry(x,Float.parseFloat(ParametresMesures.Liste_donne.get(i).getCoeur())));
+            x=x+5f;
+        }
 
         LineDataSet set1 = new LineDataSet(yvalues, "");
 

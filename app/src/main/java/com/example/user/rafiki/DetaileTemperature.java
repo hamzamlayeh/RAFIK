@@ -53,24 +53,18 @@ public class DetaileTemperature extends AppCompatActivity {
 
         YAxis leftAxis = mchart.getAxisLeft();
         leftAxis.removeAllLimitLines();
-        leftAxis.setAxisMaximum(40f);
-        leftAxis.setAxisMinimum(32f);
+        leftAxis.setAxisMaximum(55f);
+        leftAxis.setAxisMinimum(15f);
         leftAxis.setTextColor(R.color.left);
         leftAxis.enableGridDashedLine(2f, 2f, 0);
         leftAxis.setDrawLimitLinesBehindData(true);
 
         ArrayList<Entry> yvalues = new ArrayList<>();
-
-        yvalues.add(new Entry(0, 34f));
-        yvalues.add(new Entry(1, 35f));
-        yvalues.add(new Entry(2, 36f));
-        yvalues.add(new Entry(3, 37f));
-        yvalues.add(new Entry(4, 38f));
-        yvalues.add(new Entry(5, 38f));
-        yvalues.add(new Entry(6, 38f));
-        yvalues.add(new Entry(7, 38f));
-        yvalues.add(new Entry(8, 38f));
-        yvalues.add(new Entry(9, 38f));
+        float x=0f;
+        for (int i=0;i<ParametresMesures.Liste_donne.size();i++){
+            yvalues.add(new Entry(x,Float.parseFloat(ParametresMesures.Liste_donne.get(i).getTempirateur())));
+            x=x+5f;
+        }
 
         LineDataSet set1 = new LineDataSet(yvalues, "");
 

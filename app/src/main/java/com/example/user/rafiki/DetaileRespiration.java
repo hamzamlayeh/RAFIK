@@ -52,15 +52,16 @@ public class DetaileRespiration extends AppCompatActivity {
 
         YAxis leftAxis=mchart.getAxisLeft();
         leftAxis.removeAllLimitLines();
-        leftAxis.setAxisMaximum(32f);
+        leftAxis.setAxisMaximum(50f);
         leftAxis.setAxisMinimum(16f);
         leftAxis.enableGridDashedLine(2f,2f,0);
         leftAxis.setDrawLimitLinesBehindData(true);
 
         ArrayList<Entry> yvalues = new ArrayList<>();
-        for (int i=0;i<=50;i++){
-            float val=(float) (Math.random()*(28-21)+21);
-            yvalues.add(new Entry((i/3f),val));
+        float x=0f;
+        for (int i=0;i<ParametresMesures.Liste_donne.size();i++){
+            yvalues.add(new Entry(x,Float.parseFloat(ParametresMesures.Liste_donne.get(i).getPoumon())));
+            x=x+5f;
         }
 
         LineDataSet set1 = new LineDataSet(yvalues,"");

@@ -78,12 +78,12 @@
                 android:layout_marginTop="94dp"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textView2"
+                app:layout_constraintRight_toLeftOf="@+id/chrono"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_montre" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/chrono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -455,6 +455,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/supp"
+                android:onClick="supprimer"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -545,6 +546,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="historique"
                 android:background="#024372"
                 android:orientation="vertical">
 
