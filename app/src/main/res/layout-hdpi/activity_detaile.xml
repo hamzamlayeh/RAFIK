@@ -34,10 +34,10 @@
             <ImageView
                 android:id="@+id/imageView29"
                 android:layout_width="31dp"
-                android:layout_height="36dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginRight="24dp"
+                android:layout_height="37dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
                 android:contentDescription="TODO"
                 android:padding="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -69,13 +69,11 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="41dp"
-                android:layout_height="37dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="94dp"
+                android:layout_marginRight="8dp"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/chrono"
@@ -86,16 +84,14 @@
                 android:id="@+id/chrono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="160dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="160dp"
+                android:layout_marginLeft="130dp"
                 android:layout_marginTop="94dp"
+                android:layout_marginRight="32dp"
                 android:text="00:00:00"
                 android:textColor="@android:color/background_light"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -140,7 +136,7 @@
                         android:gravity="center"
                         android:text="3563"
                         android:textColor="@color/bleu"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -195,7 +191,7 @@
                         android:gravity="center"
                         android:text="3563"
                         android:textColor="@color/bleu"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -254,10 +250,10 @@
                     android:id="@+id/linearLayout10"
                     android:layout_width="94dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginStart="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -271,7 +267,7 @@
                         android:gravity="center"
                         android:text="03"
                         android:textColor="@color/bleu"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -317,10 +313,12 @@
                 <LinearLayout
                     android:layout_width="94dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/linearLayout11"
@@ -335,7 +333,7 @@
                         android:gravity="center"
                         android:text="55"
                         android:textColor="@color/bleu"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -382,10 +380,10 @@
                     android:id="@+id/linearLayout11"
                     android:layout_width="94dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginRight="32dp"
                     android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -399,7 +397,7 @@
                         android:gravity="center"
                         android:text="246"
                         android:textColor="@color/bleu"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -447,13 +445,13 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/supp"
                 android:onClick="supprimer"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
@@ -462,11 +460,11 @@
 
             <ImageView
                 android:id="@+id/prec"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="16dp"
                 android:onClick="precedant"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
