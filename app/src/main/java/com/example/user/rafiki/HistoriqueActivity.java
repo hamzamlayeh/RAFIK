@@ -2,6 +2,7 @@ package com.example.user.rafiki;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class HistoriqueActivity extends AppCompatActivity {
 
@@ -9,5 +10,9 @@ public class HistoriqueActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historique);
+    }
+
+
+    public void Bt_OK(View view) {
     }
 }

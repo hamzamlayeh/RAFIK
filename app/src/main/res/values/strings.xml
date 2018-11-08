@@ -200,4 +200,6 @@
     <string name="mettre_fin_a_votre_activité">mettre fin à votre activité ?</string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
+    <string name="nombre_de_pas">Nombre de pas</string>
+    <string name="chutes">Chutes</string>
 </resources>
