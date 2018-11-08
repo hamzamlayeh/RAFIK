@@ -159,4 +159,9 @@ public class DetaileRespiration extends AppCompatActivity {
         Intent ite = new Intent(this, E8.class);
         startActivity(ite);
     }
+
+    public void historique(View view) {
+        Intent ite = new Intent(this, HistoriqueActivity.class);
+        startActivity(ite);
+    }
 }

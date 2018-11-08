@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DetaileCardiaque">
+    tools:context=".DetaileRespiration">
 
     <FrameLayout
         android:id="@+id/content"
@@ -32,6 +32,17 @@
                 app:srcCompat="@drawable/rafik" />
 
             <ImageView
+                android:id="@+id/etat_cycle"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_weight="0.09"
+                android:src="@drawable/icon_sommeil"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
                 android:id="@+id/imageView29"
                 android:layout_width="31dp"
                 android:layout_height="36dp"
@@ -44,17 +55,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/resaux"
                 tools:ignore="ContentDescription,HardcodedText" />
-
-            <ImageView
-                android:id="@+id/etat_cycle"
-                android:layout_width="35dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_weight="0.09"
-                android:src="@drawable/icon_sommeil"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/txt_etat"
@@ -81,7 +81,7 @@
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/coeurs" />
+                app:srcCompat="@drawable/poumon" />
 
             <TextView
                 android:id="@+id/txt"
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_regular"
                 android:gravity="center"
-                android:text="@string/bpm"
+                android:text="@string/rpm"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -97,166 +97,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView24" />
-
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
-                android:layout_width="0dp"
-                android:layout_height="211dp"
-                android:layout_marginTop="8dp"
-                android:animationCache="false"
-                android:background="@drawable/gard"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-            <ImageView
-                android:id="@+id/suvi"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:onClick="suivant"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_suivant" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    app:srcCompat="@drawable/cercle_wite" />
-
-                <ImageView
-                    android:id="@+id/imageView18"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    app:srcCompat="@drawable/cercle" />
-
-                <ImageView
-                    android:id="@+id/imageView17"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    app:srcCompat="@drawable/cercle" />
-
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    app:srcCompat="@drawable/cercle" />
-
-                <!--<ImageView-->
-                <!--android:id="@+id/imageView100"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:padding="5dp"-->
-                <!--app:srcCompat="@drawable/cercle" />-->
-
-            </LinearLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraint"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="8dp"
-                android:background="#02366a"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chart1">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.25"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/imageView23"
-                        android:layout_width="35dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:padding="5dp"
-                        app:srcCompat="@drawable/callorie" />
-
-                    <TextView
-                        android:id="@+id/textView37"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="3dp"
-                        android:fontFamily="@font/raleway_semibold"
-                        android:gravity="center"
-                        android:text="@string/calorie"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.65"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/cal_chifre"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_bold"
-                        android:gravity="center"
-                        android:text="486"
-                        android:textColor="@color/bleu"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:id="@+id/textView39"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_bold"
-                        android:gravity="center"
-                        android:text="@string/cal"
-                        android:textColor="@color/bleu"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constraintLayout3"
@@ -299,7 +139,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
-                        android:text="@string/bpm"
+                        android:text="@string/rpm"
                         android:textColor="@android:color/white"
                         android:textSize="8sp" />
                 </LinearLayout>
@@ -331,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
-                        android:text="@string/bpm"
+                        android:text="@string/rpm"
                         android:textColor="@android:color/white"
                         android:textSize="8sp" />
                 </LinearLayout>
@@ -364,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/raleway_regular"
                         android:gravity="center"
-                        android:text="@string/bpm"
+                        android:text="@string/rpm"
                         android:textColor="@android:color/white"
                         android:textSize="8sp" />
                 </LinearLayout>
@@ -457,6 +297,93 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView40" />
 
             </android.support.constraint.ConstraintLayout>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart1"
+                android:layout_width="0dp"
+                android:layout_height="239dp"
+                android:layout_marginTop="8dp"
+                android:animationCache="false"
+                android:background="@drawable/gard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+            <ImageView
+                android:id="@+id/prec"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:onClick="precedant"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ic_precedant" />
+
+            <ImageView
+                android:id="@+id/suvi"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:onClick="suivant"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_suivant" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/cercle" />
+
+                <ImageView
+                    android:id="@+id/imageView102"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/cercle_wite" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/cercle" />
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/cercle" />
+
+                <!--<ImageView-->
+                <!--android:id="@+id/imageView10"-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:padding="5dp"-->
+                <!--app:srcCompat="@drawable/cercle" />-->
+
+            </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
