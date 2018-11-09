@@ -12,9 +12,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.amitshekhar.DebugDB;
 import com.example.user.rafiki.ItemData.MailBody;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
+
+import static java.lang.String.format;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,6 +33,16 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Toast.makeText(this, ""+DebugDB.getAddressLog(), Toast.LENGTH_SHORT).show();
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+
+        cal.add(Calendar.DAY_OF_YEAR, -5);
+        String previusdDate = format(String.valueOf(cal.getTime()));
+
+        Toast.makeText(this, ""+previusdDate, Toast.LENGTH_SHORT).show();
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editors = pref.edit();
         String lang = pref.getString("lang", null);
