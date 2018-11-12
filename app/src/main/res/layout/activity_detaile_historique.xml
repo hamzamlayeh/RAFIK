@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bag10"
+    tools:context=".DetaileHistorique">
+
+    <ImageView
+        android:id="@+id/etat_cycle"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="0.09"
+        android:src="@drawable/icon_sommeil"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/txt_etat"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/course_a_pied"
+        app:layout_constraintStart_toEndOf="@+id/etat_cycle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        android:textColor="@color/btn_radio"
+        android:textSize="16sp"
+        android:fontFamily="@font/raleway_semibold"
+        app:layout_constraintStart_toEndOf="@+id/txt_etat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view24"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/btn_radio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etat_cycle" />
+</android.support.constraint.ConstraintLayout>

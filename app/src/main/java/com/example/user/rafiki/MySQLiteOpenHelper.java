@@ -12,7 +12,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
 
     public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
-        super(context, name, factory, 3);
+        super(context, name, factory, 5);
     }
 
     @Override
@@ -56,6 +56,10 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 "FRcourse_M text,FRcourse_X text,FRactivite_M text,FRactivite_X text,FRsommeil_M text," +
                 "FRsommeil_X text,Tmarche_M text,Tmarche_X text,Tcourse_M text,Tcourse_X text,Tactivite_M text," +
                 "Tactivite_X text,Tsommeil_M text,Tsommeil_X text)";
+        //Table Cycle
+        String sql11="CREATE TABLE Cycle (_id integer PRIMARY KEY autoincrement not null,"+
+                "fuldate_cycle text,date text,time text,frequenceC real,poumon real,tempirateur real," +
+                "nb_pas real,calorie real,cycle integer)";
         db.execSQL(sql);
         db.execSQL(sql2);
         db.execSQL(sql3);
@@ -66,6 +70,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql8);
         db.execSQL(sql9);
         db.execSQL(sql10);
+        db.execSQL(sql11);
     }
 
     @Override
@@ -81,6 +86,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String delet_sql8="DROP Table Contacts_Medecins ";
         String delet_sql9="DROP Table Contacts_Urgences ";
         String delet_sql10="DROP Table Seuils_Bio ";
+        String delet_sql11="DROP Table Cycle ";
 
         sqLiteDatabase.execSQL(delet_sql);
         sqLiteDatabase.execSQL(delet_sql2);
@@ -92,6 +98,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(delet_sql8);
         sqLiteDatabase.execSQL(delet_sql9);
         sqLiteDatabase.execSQL(delet_sql10);
+        sqLiteDatabase.execSQL(delet_sql11);
 
         onCreate(sqLiteDatabase);
     }

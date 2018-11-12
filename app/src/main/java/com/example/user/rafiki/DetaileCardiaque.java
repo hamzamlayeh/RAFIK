@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.user.rafiki.ItemData.Cycle;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.YAxis;
@@ -20,15 +21,23 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 
 public class DetaileCardiaque extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Resaux ,Txt_Cycle,Cercle;
-    TextView Txt_Calorie;
+    ImageView Etat_Cycle, Resaux, Txt_Cycle, Cercle;
+    TextView Txt_Calorie, Txt_max, Txt_min, Txt_moy;
     LineChart mchart;
     SharedPreferences prefs, pref;
     ConstraintLayout constraintLayout;
+    MySQLiteOpenHelper helper;
+    UserDataSource ds;
+    ArrayList<Double> list_coure = new ArrayList<>();
+    static List<Cycle> Liste_donne = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +48,15 @@ public class DetaileCardiaque extends AppCompatActivity {
         Resaux = findViewById(R.id.imageView29);
         Txt_Cycle = findViewById(R.id.txt_etat);
         Txt_Calorie = findViewById(R.id.cal_chifre);
+        Txt_max = findViewById(R.id.chifre_max);
+        Txt_min = findViewById(R.id.chiffre_min);
+        Txt_moy = findViewById(R.id.chifre_moys);
         mchart = findViewById(R.id.chart1);
         constraintLayout = findViewById(R.id.constraint);
         Cercle = findViewById(R.id.imageView10);
 
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
+        ds = new UserDataSource(helper);
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
         Test_Donnees();
@@ -57,9 +71,21 @@ public class DetaileCardiaque extends AppCompatActivity {
         mchart.setPinchZoom(true);
         mchart.setDrawGridBackground(false);
 
+        NumberFormat format = NumberFormat.getInstance();
+        format.setMaximumFractionDigits(2);
         String restoredcal = prefs.getString("Calorie", null);
+        String fuldate = prefs.getString("Date_Cycle", null);
         if (restoredcal != null) {
-            Txt_Calorie.setText(restoredcal);
+            Txt_Calorie.setText(format.format(Double.valueOf(restoredcal)));
+        }
+        if (fuldate != null) {
+            Liste_donne = ds.getListCycle(fuldate);
+        }
+        if (Liste_donne.size() > 0) {
+
+            for (Cycle c : Liste_donne) {
+                list_coure.add(c.getFrequenceC());
+            }
         }
 
         YAxis leftAxis = mchart.getAxisLeft();
@@ -70,10 +96,11 @@ public class DetaileCardiaque extends AppCompatActivity {
         leftAxis.setDrawLimitLinesBehindData(true);
 
         ArrayList<Entry> yvalues = new ArrayList<>();
-        float x=0f;
-        for (int i=0;i<ParametresMesures.Liste_donne.size();i++){
-            yvalues.add(new Entry(x,Float.parseFloat(ParametresMesures.Liste_donne.get(i).getCoeur())));
-            x=x+5f;
+        float x = 0f;
+        for (int i = 0; i < Liste_donne.size(); i++) {
+            yvalues.add(new Entry(x, (float) Liste_donne.get(i).getFrequenceC()));
+            System.out.println(Liste_donne.get(i).getFrequenceC());
+            x = x + 5f;
         }
 
         LineDataSet set1 = new LineDataSet(yvalues, "");
@@ -88,6 +115,10 @@ public class DetaileCardiaque extends AppCompatActivity {
         LineData data = new LineData(datasets);
         mchart.setData(data);
         mchart.animateX(1400, Easing.EasingOption.Linear);
+
+        Txt_max.setText(String.valueOf(Collections.max(list_coure)));
+        Txt_min.setText(String.valueOf(Collections.min(list_coure)));
+        Txt_moy.setText(String.valueOf((Collections.min(list_coure) + Collections.max(list_coure)) / 2));
     }
 
     public void suivant(View view) {
@@ -104,6 +135,7 @@ public class DetaileCardiaque extends AppCompatActivity {
     public void Test_Donnees() {
         boolean value = pref.getBoolean("connexion", false);
         int Indice = prefs.getInt("Indice", 0);
+
         if (value) {
             Resaux.setImageResource(R.drawable.resaux);
         } else {

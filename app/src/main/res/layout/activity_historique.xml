@@ -42,12 +42,12 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginBottom="3dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -138,6 +138,7 @@
                             android:layout_marginRight="16dp"
                             android:layout_marginTop="24dp"
                             android:buttonTint="@color/btn_radio"
+                            android:onClick="get_Quotidien"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -171,7 +172,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="3dp">
 
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="0dp"
@@ -238,6 +240,7 @@
                             android:layout_marginRight="16dp"
                             android:layout_marginTop="24dp"
                             android:buttonTint="@color/btn_radio"
+                            android:onClick="get_Marche"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -270,7 +273,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="3dp">
 
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="0dp"
@@ -335,6 +339,7 @@
                             android:layout_marginRight="16dp"
                             android:layout_marginTop="24dp"
                             android:buttonTint="@color/btn_radio"
+                            android:onClick="get_Course"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -367,7 +372,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="3dp">
 
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="0dp"
@@ -425,13 +431,14 @@
                         android:background="#02366a">
 
                         <CheckBox
-                            android:id="@+id/chek_sommeil"
+                            android:id="@+id/chek_cyclisme"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginTop="24dp"
                             android:buttonTint="@color/btn_radio"
+                            android:onClick="get_Cyclisme"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -454,7 +461,7 @@
                             android:layout_marginLeft="8dp"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/raleway_semibold"
-                            android:text="@string/sommeil"
+                            android:text="@string/cyclisme"
                             android:textColor="@android:color/white"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -464,7 +471,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="3dp">
 
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="0dp"
@@ -522,13 +530,14 @@
                         android:background="#02366a">
 
                         <CheckBox
-                            android:id="@+id/chek_cyclisme"
+                            android:id="@+id/chek_sommeil"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginTop="24dp"
                             android:buttonTint="@color/btn_radio"
+                            android:onClick="get_Sommeil"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -551,7 +560,7 @@
                             android:layout_marginLeft="8dp"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/raleway_semibold"
-                            android:text="@string/cyclisme"
+                            android:text="@string/sommeil"
                             android:textColor="@android:color/white"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/imageView7" />

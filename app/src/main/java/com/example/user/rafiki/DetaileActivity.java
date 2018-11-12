@@ -1,10 +1,12 @@
 package com.example.user.rafiki;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class DetaileActivity extends AppCompatActivity {
@@ -21,7 +22,9 @@ public class DetaileActivity extends AppCompatActivity {
     TextView Txt_Calorie, Txt_vitesse, Txt_Cadense, Txt_Nbpas, Txt_Distance, Txt_Chrono;
     SharedPreferences prefs, pref;
     LinearLayout linearLayout;
-    double Duree, Nbr_Pas,Distance;
+    double Duree, Nbr_Pas, Distance;
+    MySQLiteOpenHelper helper;
+    UserDataSource ds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class DetaileActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
+        ds = new UserDataSource(helper);
         Test_Donnees();
 
     }
@@ -64,7 +69,7 @@ public class DetaileActivity extends AppCompatActivity {
         boolean value = pref.getBoolean("connexion", false);
         int Indice = prefs.getInt("Indice", 0);
         NumberFormat format = NumberFormat.getInstance();
-        format.setMaximumFractionDigits(2);;
+        format.setMaximumFractionDigits(2);
 
         if (value) {
             Resaux.setImageResource(R.drawable.resaux);
@@ -72,7 +77,7 @@ public class DetaileActivity extends AppCompatActivity {
             Resaux.setImageResource(R.drawable.resaux2);
         }
         if (restoredcal != null) {
-            Txt_Calorie.setText(restoredcal);
+            Txt_Calorie.setText(format.format(Double.valueOf(restoredcal)));
         }
         if (restoredchrono != null) {
             Txt_Chrono.setText(restoredchrono);
@@ -85,7 +90,7 @@ public class DetaileActivity extends AppCompatActivity {
             Txt_Nbpas.setText(restorednbpas);
         }
         Txt_Cadense.setText(format.format(Nbr_Pas / Duree));
-        //vitesse
+
         if (Indice != 0) {
             switch (Indice) {
                 case 1:
@@ -97,17 +102,17 @@ public class DetaileActivity extends AppCompatActivity {
                     Etat_Cycle.setImageResource(R.drawable.icon_marche);
                     Txt_Cycle.setImageResource(R.drawable.marche);
                     linearLayout.setVisibility(View.VISIBLE);
-                    Distance=Nbr_Pas / 1600;
+                    Distance = Nbr_Pas / 1600;
                     Txt_Distance.setText(format.format(Distance));
-                    Txt_vitesse.setText(format.format(Distance/(Duree/60)));
+                    Txt_vitesse.setText(format.format(Distance / (Duree / 60)));
                     break;
                 case 3:
                     Etat_Cycle.setImageResource(R.drawable.icone_course);
                     Txt_Cycle.setImageResource(R.drawable.course_a_pied);
                     linearLayout.setVisibility(View.VISIBLE);
-                    Distance=Nbr_Pas / 1250;
+                    Distance = Nbr_Pas / 1250;
                     Txt_Distance.setText(format.format(Distance));
-                    Txt_vitesse.setText(format.format(Distance/(Duree/60)));
+                    Txt_vitesse.setText(format.format(Distance / (Duree / 60)));
                     break;
                 case 4:
                     Etat_Cycle.setImageResource(R.drawable.icone_cycle);
@@ -145,10 +150,35 @@ public class DetaileActivity extends AppCompatActivity {
         Intent ite = new Intent(this, E8.class);
         startActivity(ite);
     }
+
     public void historique(View view) {
-//        Intent ite = new Intent(this, HistoriqueActivity.class);
-//        startActivity(ite);
+        Intent ite = new Intent(this, HistoriqueActivity.class);
+        startActivity(ite);
     }
+
     public void supprimer(View view) {
+        final String fuldate = prefs.getString("Date_Cycle", null);
+
+        if (fuldate != null) {
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir) +
+                            getString(R.string.mettre_fin_a_votre_activité)
+                    )
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ds.deleteCycle(fuldate);
+                            startActivity(new Intent(getApplicationContext(), ParametresMesures.class));
+                        }
+                    })
+                    .setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    }).show();
+        }
     }
 }

@@ -1,19 +1,21 @@
 package com.example.user.rafiki;
 
-        import android.content.ContentValues;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import com.example.user.rafiki.ItemData.Antecedents_Item;
-        import com.example.user.rafiki.ItemData.Contacts_Medecins;
-        import com.example.user.rafiki.ItemData.Contacts_Parentaux;
-        import com.example.user.rafiki.ItemData.Contacts_Urgences;
-        import com.example.user.rafiki.ItemData.Fiche;
-        import com.example.user.rafiki.ItemData.Medicament_Item;
-        import com.example.user.rafiki.ItemData.Seuils_Item;
-        import com.example.user.rafiki.ItemData.clients;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import com.example.user.rafiki.ItemData.Antecedents_Item;
+import com.example.user.rafiki.ItemData.Contacts_Medecins;
+import com.example.user.rafiki.ItemData.Contacts_Parentaux;
+import com.example.user.rafiki.ItemData.Contacts_Urgences;
+import com.example.user.rafiki.ItemData.Cycle;
+import com.example.user.rafiki.ItemData.Fiche;
+import com.example.user.rafiki.ItemData.Medicament_Item;
+import com.example.user.rafiki.ItemData.Seuils_Item;
+import com.example.user.rafiki.ItemData.clients;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ASUS on 30/03/2018.
@@ -33,6 +35,7 @@ public class UserDataSource {
     private final String TABLE_NAME8 = "Contacts_Medecins";
     private final String TABLE_NAME9 = "Contacts_Urgences";
     private final String TABLE_NAME10 = "Seuils_Bio";
+    private final String TABLE_NAME11 = "Cycle";
 
     public UserDataSource(MySQLiteOpenHelper helper) {
         this.helper = helper;
@@ -160,7 +163,7 @@ public class UserDataSource {
 
         ContentValues values = new ContentValues();
         values.put("image", img);
-         db.update(TABLE_NAME, values, "email=?", new String[]{email});
+        db.update(TABLE_NAME, values, "email=?", new String[]{email});
 
     }
 
@@ -236,7 +239,7 @@ public class UserDataSource {
     public int getCountMaladi() {
         Cursor cursor = db.query(TABLE_NAME3, null, null, null,
                 null, null, null, null);
-        int count=cursor.getCount();
+        int count = cursor.getCount();
         cursor.close();
         return count;
 
@@ -278,7 +281,7 @@ public class UserDataSource {
     public int getCountAntece() {
         Cursor cursor = db.query(TABLE_NAME4, null, null, null,
                 null, null, null, null);
-        int count=cursor.getCount();
+        int count = cursor.getCount();
         cursor.close();
         return count;
     }
@@ -460,7 +463,7 @@ public class UserDataSource {
     public int getCountParentaux() {
         Cursor cursor = db.query(TABLE_NAME7, null, null, null,
                 null, null, null, null);
-        int count=cursor.getCount();
+        int count = cursor.getCount();
         cursor.close();
         return count;
     }
@@ -513,7 +516,7 @@ public class UserDataSource {
     public int getCountMedecins() {
         Cursor cursor = db.query(TABLE_NAME8, null, null, null,
                 null, null, null, null);
-        int count=cursor.getCount();
+        int count = cursor.getCount();
         cursor.close();
         return count;
     }
@@ -570,7 +573,7 @@ public class UserDataSource {
     public int getCountUrgences() {
         Cursor cursor = db.query(TABLE_NAME9, null, null, null,
                 null, null, null, null);
-        int count=cursor.getCount();
+        int count = cursor.getCount();
         cursor.close();
         return count;
     }
@@ -626,7 +629,7 @@ public class UserDataSource {
     public int getCountSeuils() {
         Cursor cursor = db.query(TABLE_NAME10, null, null, null,
                 null, null, null, null);
-        int count=cursor.getCount();
+        int count = cursor.getCount();
         cursor.close();
         return count;
     }
@@ -729,6 +732,46 @@ public class UserDataSource {
             String F24 = cursor.getString(23);
 
             list.add(new Seuils_Item(F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+
+    //Cycle
+    public void addCycle(Cycle cycle) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("fuldate_cycle", cycle.getFuldate_cycle());
+        contentValues.put("date", cycle.getDate());
+        contentValues.put("time", cycle.getTime());
+        contentValues.put("frequenceC", cycle.getFrequenceC());
+        contentValues.put("poumon", cycle.getPoumon());
+        contentValues.put("tempirateur", cycle.getTempirateur());
+        contentValues.put("nb_pas", cycle.getNb_pas());
+        contentValues.put("calorie", cycle.getCalorie());
+        contentValues.put("cycle", cycle.getCycle());
+
+        db.insert(TABLE_NAME11, null, contentValues);
+    }
+
+    public void deleteCycle(String fulldate) {
+
+        db.delete(TABLE_NAME11, "fuldate_cycle = ?", new String[]{fulldate});
+    }
+
+    public List getListCycle(String fulldate) {
+        ArrayList<Cycle> list = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT frequenceC,poumon,tempirateur FROM Cycle WHERE fuldate_cycle = ?"
+                , new String[]{fulldate});
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            double coeur = cursor.getDouble(0);
+            double poumon = cursor.getDouble(1);
+            double tempirateur = cursor.getDouble(2);
+
+            list.add(new Cycle(coeur, poumon, tempirateur));
             cursor.moveToNext();
         }
         cursor.close();
