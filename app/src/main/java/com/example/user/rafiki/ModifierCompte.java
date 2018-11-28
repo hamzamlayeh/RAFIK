@@ -1,6 +1,5 @@
 package com.example.user.rafiki;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.clients;
@@ -26,8 +24,8 @@ import java.util.List;
 
 public class ModifierCompte extends AppCompatActivity {
 
-    EditText naisence, nom, prenom, sexe, email, pass, payes, mobile, confirm_pass;
-    String name, password, after_name, berthday, mail, sexee, payers, phone, conf_password;
+    EditText naisence, nom, prenom, sexe, email, pass, poid, payes, mobile, confirm_pass;
+    String name, password, after_name, berthday, mail, sexee, payers, phone, Poid, conf_password;
     Spinner spinner;
     static int Indice_Pays;
     Liste_code_payes adapter;
@@ -39,6 +37,7 @@ public class ModifierCompte extends AppCompatActivity {
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     MKLoader mkLoader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +51,7 @@ public class ModifierCompte extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         sexe = (EditText) findViewById(R.id.sexe);
         pass = (EditText) findViewById(R.id.pass);
+        poid = (EditText) findViewById(R.id.poid);
         confirm_pass = (EditText) findViewById(R.id.conf_pass);
         spinner = (Spinner) findViewById(R.id.code_pays);
         mkLoader = findViewById(R.id.alerr);
@@ -79,6 +79,7 @@ public class ModifierCompte extends AppCompatActivity {
                 email.setText(list.get(0).getEmail());
                 sexe.setText(list.get(0).getSexe());
                 pass.setText(list.get(0).getPassword());
+                poid.setText(list.get(0).getPoid());
                 confirm_pass.setText(list.get(0).getPassword());
                 spinner.setSelection(Indice_Pays);
             }
@@ -94,6 +95,7 @@ public class ModifierCompte extends AppCompatActivity {
         String restoredemail = prefs.getString("Email", null);
         String restoredtel = prefs.getString("Mobile", null);
         String restoredpass = prefs.getString("Password", null);
+        String restoredpoid = prefs.getString("Poid", null);
         String restoredpass_conf = prefs.getString("Password_conf", null);
 
 
@@ -140,6 +142,11 @@ public class ModifierCompte extends AppCompatActivity {
         if (restoredpass_conf != null) {
             String value = prefs.getString("Password_conf", "");//"No name defined" is the default value.
             confirm_pass.setText(value);
+
+        }
+        if (restoredpoid != null) {
+            String value = prefs.getString("Poid", "");//"No name defined" is the default value.
+            poid.setText(value);
 
         }
     }
@@ -226,9 +233,10 @@ public class ModifierCompte extends AppCompatActivity {
         password = pass.getText().toString().trim();
         conf_password = confirm_pass.getText().toString().trim();
         phone = mobile.getText().toString().trim();
+        Poid = poid.getText().toString().trim();
         if (valider()) {
             String codephone = prefs.getString("Code_pays", null);
-            client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail, password);
+            client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
             if (ds.updateClient(list.get(0).get_id(), client)) {
                 editor.putString("Email", mail);
                 editor.apply();
@@ -247,6 +255,7 @@ public class ModifierCompte extends AppCompatActivity {
         editor.putString("Password", pass.getText().toString().trim());
         editor.putString("Password_conf", confirm_pass.getText().toString().trim());
         editor.putString("Mobile", mobile.getText().toString().trim());
+        editor.putString("Poid", poid.getText().toString().trim());
         editor.apply();
     }
 
@@ -301,12 +310,17 @@ public class ModifierCompte extends AppCompatActivity {
             mobile.setError(getString(R.string.champs_obligatoir));
             valide = false;
         }
+        if (Poid.isEmpty()) {
+            poid.setError(getString(R.string.champs_obligatoir));
+            valide = false;
+        }
         if (spinner.getSelectedItemPosition() == -1) {
 
             valide = false;
         }
         return valide;
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 

@@ -4,7 +4,6 @@ public class Fiche {
 
     private int _id;
     private String email;
-    private String poid;
     private String taille;
     private String num_scret;
     private String adresse;
@@ -12,9 +11,8 @@ public class Fiche {
     private String ville;
     private String sang;
 
-    public Fiche(String email, String poid, String taille, String num_scret, String adresse, String code_postal, String ville,String sang) {
+    public Fiche(String email, String taille, String num_scret, String adresse, String code_postal, String ville, String sang) {
         this.email = email;
-        this.poid = poid;
         this.taille = taille;
         this.num_scret = num_scret;
         this.adresse = adresse;
@@ -37,14 +35,6 @@ public class Fiche {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPoid() {
-        return poid;
-    }
-
-    public void setPoid(String poid) {
-        this.poid = poid;
     }
 
     public String getTaille() {

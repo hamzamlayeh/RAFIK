@@ -259,6 +259,30 @@
                         android:layout_weight="1">
 
                         <EditText
+                            android:id="@+id/poid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/poids"
+                            android:inputType="number"
+                            android:padding="8dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/view52"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
                             android:id="@+id/pass"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

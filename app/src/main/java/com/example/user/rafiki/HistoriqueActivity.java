@@ -2,15 +2,18 @@ package com.example.user.rafiki;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
 public class HistoriqueActivity extends AppCompatActivity {
 
-    CheckBox Chek_FC, Chek_FR, Chek_Temp, Chek_Pas, Chek_Chute;
+    CheckBox Chek_FC, Chek_FR, Chek_Temp, Chek_Calorie, Chek_Chute;
     CheckBox Chek_QT, Chek_Mar, Chek_Cour, Chek_cycl, Chek_somm;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -25,7 +28,7 @@ public class HistoriqueActivity extends AppCompatActivity {
         Chek_FC = findViewById(R.id.chek_fc);
         Chek_FR = findViewById(R.id.chek_fr);
         Chek_Temp = findViewById(R.id.chek_temp);
-        Chek_Pas = findViewById(R.id.chek_pas);
+        Chek_Calorie = findViewById(R.id.chek_calorie);
         Chek_Chute = findViewById(R.id.chek_chute);
 
         Chek_QT = findViewById(R.id.chek_quotidien);
@@ -49,7 +52,7 @@ public class HistoriqueActivity extends AppCompatActivity {
 
     private boolean valider() {
         boolean valide = true;
-        if (!(Chek_FC.isChecked() || Chek_FR.isChecked() || Chek_Temp.isChecked() || Chek_Pas.isChecked()
+        if (!(Chek_FC.isChecked() || Chek_FR.isChecked() || Chek_Temp.isChecked() || Chek_Calorie.isChecked()
                 || Chek_Chute.isChecked())) {
             valide = false;
             Toast.makeText(this, "Cocher !!", Toast.LENGTH_SHORT).show();
@@ -67,13 +70,13 @@ public class HistoriqueActivity extends AppCompatActivity {
         Chek_FC.setChecked(true);
         Chek_FR.setChecked(false);
         Chek_Temp.setChecked(false);
-        Chek_Pas.setChecked(false);
+        Chek_Calorie.setChecked(false);
         Chek_Chute.setChecked(false);
 
         Chek_FC.setClickable(false);
         Chek_FR.setClickable(true);
         Chek_Temp.setClickable(true);
-        Chek_Pas.setClickable(true);
+        Chek_Calorie.setClickable(true);
         Chek_Chute.setClickable(true);
     }
 
@@ -82,13 +85,13 @@ public class HistoriqueActivity extends AppCompatActivity {
         Chek_FC.setChecked(false);
         Chek_FR.setChecked(true);
         Chek_Temp.setChecked(false);
-        Chek_Pas.setChecked(false);
+        Chek_Calorie.setChecked(false);
         Chek_Chute.setChecked(false);
 
         Chek_FC.setClickable(true);
         Chek_FR.setClickable(false);
         Chek_Temp.setClickable(true);
-        Chek_Pas.setClickable(true);
+        Chek_Calorie.setClickable(true);
         Chek_Chute.setClickable(true);
     }
 
@@ -97,28 +100,28 @@ public class HistoriqueActivity extends AppCompatActivity {
         Chek_FC.setChecked(false);
         Chek_FR.setChecked(false);
         Chek_Temp.setChecked(true);
-        Chek_Pas.setChecked(false);
+        Chek_Calorie.setChecked(false);
         Chek_Chute.setChecked(false);
 
         Chek_FC.setClickable(true);
         Chek_FR.setClickable(true);
         Chek_Temp.setClickable(false);
-        Chek_Pas.setClickable(true);
+        Chek_Calorie.setClickable(true);
         Chek_Chute.setClickable(true);
     }
 
-    public void get_Pas(View view) {
+    public void get_Calorie(View view) {
         Etat=4;
         Chek_FC.setChecked(false);
         Chek_FR.setChecked(false);
         Chek_Temp.setChecked(false);
-        Chek_Pas.setChecked(true);
+        Chek_Calorie.setChecked(true);
         Chek_Chute.setChecked(false);
 
         Chek_FC.setClickable(true);
         Chek_FR.setClickable(true);
         Chek_Temp.setClickable(true);
-        Chek_Pas.setClickable(false);
+        Chek_Calorie.setClickable(false);
         Chek_Chute.setClickable(true);
     }
 
@@ -127,13 +130,13 @@ public class HistoriqueActivity extends AppCompatActivity {
         Chek_FC.setChecked(false);
         Chek_FR.setChecked(false);
         Chek_Temp.setChecked(false);
-        Chek_Pas.setChecked(false);
+        Chek_Calorie.setChecked(false);
         Chek_Chute.setChecked(true);
 
         Chek_FC.setClickable(true);
         Chek_FR.setClickable(true);
         Chek_Temp.setClickable(true);
-        Chek_Pas.setClickable(true);
+        Chek_Calorie.setClickable(true);
         Chek_Chute.setClickable(false);
     }
 
@@ -210,5 +213,37 @@ public class HistoriqueActivity extends AppCompatActivity {
         Chek_Cour.setClickable(true);
         Chek_cycl.setClickable(true);
         Chek_somm.setClickable(false);
+    }
+    public void parammetres(View view) {
+        Intent ite = new Intent(this, MenuActivity.class);
+        startActivity(ite);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void exite(View view) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+        finishAffinity();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent ite = new Intent(this, E8.class);
+            startActivity(ite);
+        }
+        return false;
+    }
+
+    public void acueil(View view) {
+        Intent ite = new Intent(this, E8.class);
+        startActivity(ite);
+    }
+
+    public void Cycle(View view) {
+        Intent ite = new Intent(this, CycleActivity.class);
+        startActivity(ite);
     }
 }

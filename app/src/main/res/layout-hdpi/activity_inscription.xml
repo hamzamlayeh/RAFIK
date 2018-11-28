@@ -1,352 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bag10">
-<android.support.constraint.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="com.example.user.rafiki.Inscription">
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context="com.example.user.rafiki.Inscription">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="137dp"
-            android:layout_height="46dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/rafik"
-            android:contentDescription="TODO" />
-
-        <TextView
-            android:id="@+id/sevill"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/raleway_light"
-            android:gravity="center"
-            android:text="@string/surveillance"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="278dp"
-        android:layout_height="296dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="#f2f0f1"
-        app:cardCornerRadius="7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="137dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/rafik" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fadeScrollbars="false"
-            android:visibility="visible">
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/sevill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/raleway_light"
+                android:gravity="center"
+                android:text="@string/surveillance"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="278dp"
+            android:layout_height="296dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#f2f0f1"
+            app:cardCornerRadius="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadeScrollbars="false"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/nom"
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:ems="10"
-                            android:fontFamily="@font/raleway_regular"
-                            android:hint="@string/nom"
-                            android:inputType="textPersonName"
-                            android:padding="8dp" />
+                            android:layout_weight="1">
 
-                    </android.support.design.widget.TextInputLayout>
+                            <EditText
+                                android:id="@+id/nom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:hint="@string/nom"
+                                android:inputType="textPersonName"
+                                android:padding="8dp" />
 
-                    <View
-                        android:id="@+id/view46"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="0"
-                        android:background="@color/ligne_horizontal" />
+                        </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        <View
+                            android:id="@+id/view46"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="7dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
 
-                        <EditText
-                            android:id="@+id/prenom"
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:ems="10"
-                            android:fontFamily="@font/raleway_regular"
-                            android:hint="@string/prenom"
-                            android:padding="8dp" />
-                    </android.support.design.widget.TextInputLayout>
-                </LinearLayout>
+                            android:layout_weight="1">
 
-                <View
-                    android:id="@+id/view51"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/ligne_horizontal" />
-
-                <EditText
-                    android:id="@+id/age"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:cursorVisible="false"
-                    android:drawableEnd="@drawable/flash"
-                    android:drawableRight="@drawable/flash"
-                    android:ems="8"
-                    android:focusableInTouchMode="false"
-                    android:fontFamily="@font/raleway_regular"
-                    android:hint="@string/age"
-                    android:inputType="number"
-                    android:onClick="get_age"
-                    android:padding="8dp" />
-
-                <View
-                    android:id="@+id/view50"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/ligne_horizontal" />
-
-                <EditText
-                    android:id="@+id/payer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:cursorVisible="false"
-                    android:drawableEnd="@drawable/flash"
-                    android:drawableRight="@drawable/flash"
-                    android:ems="10"
-                    android:focusableInTouchMode="false"
-                    android:fontFamily="@font/raleway_regular"
-                    android:hint="@string/payer"
-                    android:onClick="get_payer"
-                    android:padding="8dp" />
-
-                <View
-                    android:id="@+id/view40"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/ligne_horizontal" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <Spinner
-                        android:id="@+id/code_pays"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:spinnerMode="dialog">
-
-                    </Spinner>
+                            <EditText
+                                android:id="@+id/prenom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/raleway_regular"
+                                android:hint="@string/prenom"
+                                android:padding="8dp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
 
                     <View
-                        android:id="@+id/view47"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="0"
+                        android:id="@+id/view51"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
                         android:background="@color/ligne_horizontal" />
 
                     <EditText
-                        android:id="@+id/mobile"
+                        android:id="@+id/age"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:ems="10"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/flash"
+                        android:drawableRight="@drawable/flash"
+                        android:ems="8"
+                        android:focusableInTouchMode="false"
                         android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/telephone"
+                        android:hint="@string/age"
                         android:inputType="number"
+                        android:onClick="get_age"
                         android:padding="8dp" />
+
+                    <View
+                        android:id="@+id/view50"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <EditText
+                        android:id="@+id/payer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/flash"
+                        android:drawableRight="@drawable/flash"
+                        android:ems="10"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/payer"
+                        android:onClick="get_payer"
+                        android:padding="8dp" />
+
+                    <View
+                        android:id="@+id/view40"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Spinner
+                            android:id="@+id/code_pays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:spinnerMode="dialog">
+
+                        </Spinner>
+
+                        <View
+                            android:id="@+id/view47"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="7dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_weight="0"
+                            android:background="@color/ligne_horizontal" />
+
+                        <EditText
+                            android:id="@+id/mobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/telephone"
+                            android:inputType="number"
+                            android:padding="8dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view41"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            android:padding="8dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/view42"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <EditText
+                        android:id="@+id/sexe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/flash"
+                        android:drawableRight="@drawable/flash"
+                        android:ems="10"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="@string/sexe"
+                        android:onClick="get_sexe"
+                        android:padding="8dp" />
+
+                    <View
+                        android:id="@+id/view43"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/poid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/poids"
+                            android:inputType="number"
+                            android:padding="8dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/view52"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/mot_de_passe"
+                            android:inputType="textPassword"
+                            android:padding="8dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/view44"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/ligne_horizontal" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/conf_pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:fontFamily="@font/raleway_regular"
+                            android:hint="@string/confirmer_mot_de_pass"
+                            android:inputType="textPassword"
+                            android:padding="8dp" />
+                    </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
+            </ScrollView>
 
-                <View
-                    android:id="@+id/view41"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/ligne_horizontal" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                <com.tuyenmonkey.mkloader.MKLoader
+                    android:id="@+id/alerr"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.499"
+                    app:mk_color="@color/color_loader"
+                    app:mk_type="TwinFishesSpinner" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
 
-                    <EditText
-                        android:id="@+id/email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:ems="10"
-                        android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/email"
-                        android:inputType="textEmailAddress"
-                        android:padding="8dp" />
-                </android.support.design.widget.TextInputLayout>
-
-                <View
-                    android:id="@+id/view42"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/ligne_horizontal" />
-
-                <EditText
-                    android:id="@+id/sexe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:cursorVisible="false"
-                    android:drawableEnd="@drawable/flash"
-                    android:drawableRight="@drawable/flash"
-                    android:ems="10"
-                    android:focusableInTouchMode="false"
-                    android:fontFamily="@font/raleway_regular"
-                    android:hint="@string/sexe"
-                    android:onClick="get_sexe"
-                    android:padding="8dp" />
-
-                <View
-                    android:id="@+id/view43"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/ligne_horizontal" />
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/pass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:ems="10"
-                        android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/mot_de_passe"
-                        android:inputType="textPassword"
-                        android:padding="8dp" />
-                </android.support.design.widget.TextInputLayout>
-
-                <View
-                    android:id="@+id/view44"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/ligne_horizontal" />
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/conf_pass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:ems="10"
-                        android:fontFamily="@font/raleway_regular"
-                        android:hint="@string/confirmer_mot_de_pass"
-                        android:inputType="textPassword"
-                        android:padding="8dp" />
-                </android.support.design.widget.TextInputLayout>
-            </LinearLayout>
-        </ScrollView>
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.tuyenmonkey.mkloader.MKLoader
-                android:id="@+id/alerr"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.499"
-                app:mk_color="@color/color_loader"
-                app:mk_type="TwinFishesSpinner" />
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
-
-    <Button
-        android:id="@+id/inscrire"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/button_rudus"
-        android:fontFamily="@font/raleway_bold"
-        android:onClick="sinscrire"
-        android:text="@string/s_inscrire"
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/inscrire"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_rudus"
+            android:fontFamily="@font/raleway_bold"
+            android:onClick="sinscrire"
+            android:text="@string/s_inscrire"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+    </android.support.constraint.ConstraintLayout>
 </ScrollView>

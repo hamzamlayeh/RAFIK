@@ -16,10 +16,11 @@ public class clients {
     private String sexe;
     private String email;
     private String password;
+    private String poid;
     private byte[] image;
 
 
-    public clients(String nom, String prenom, String age, String payer, String mobile,String code, String sexe, String email, String password ) {
+    public clients(String nom, String prenom, String age, String payer, String mobile,String code, String sexe, String email,String poid, String password ) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
@@ -29,6 +30,7 @@ public class clients {
         this.sexe = sexe;
         this.email = email;
         this.password = password;
+        this.poid = poid;
     }
 
 
@@ -118,5 +120,13 @@ public class clients {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPoid() {
+        return poid;
+    }
+
+    public void setPoid(String poid) {
+        this.poid = poid;
     }
 }

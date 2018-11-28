@@ -26,8 +26,8 @@ import static com.example.user.rafiki.R.layout;
 import static com.example.user.rafiki.R.string;
 
 public class Inscription extends AppCompatActivity {
-    EditText naisence, nom, prenom, sexe, email, pass, confirm_pass, payes, mobile;
-    String name, password, conf_password, after_name, berthday, mail, sexee, payers, phone;
+    EditText naisence, nom, prenom, sexe, email, poid, pass, confirm_pass, payes, mobile;
+    String name, password, conf_password, after_name, berthday, mail, sexee, payers, phone, Poid;
     String[] codes = new String[199];
     Spinner spinner;
     Intent ite;
@@ -37,7 +37,7 @@ public class Inscription extends AppCompatActivity {
     clients client;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    public static int idc = -1,NUM_PAGE=1;
+    public static int idc = -1, NUM_PAGE = 1;
     MKLoader mkLoader;
 
     @Override
@@ -53,6 +53,7 @@ public class Inscription extends AppCompatActivity {
         email = (EditText) findViewById(id.email);
         sexe = (EditText) findViewById(id.sexe);
         pass = (EditText) findViewById(id.pass);
+        poid = (EditText) findViewById(id.poid);
         confirm_pass = (EditText) findViewById(id.conf_pass);
         spinner = (Spinner) findViewById(id.code_pays);
         mkLoader = findViewById(R.id.alerr);
@@ -77,6 +78,7 @@ public class Inscription extends AppCompatActivity {
         String restoredtel = prefs.getString("Mobile", null);
         String restoredpass = prefs.getString("Password", null);
         String restoredpass_conf = prefs.getString("Password_conf", null);
+        String restoredpoid = prefs.getString("Poid", null);
         if (restoredsexe != null) {
             String sex = prefs.getString("sexe", "");//"No name defined" is the default value.
             sexe.setText(sex);
@@ -124,7 +126,10 @@ public class Inscription extends AppCompatActivity {
         if (restoredpass_conf != null) {
             String value = prefs.getString("Password_conf", "");//"No name defined" is the default value.
             confirm_pass.setText(value);
-
+        }
+        if (restoredpoid != null) {
+            String value = prefs.getString("Poid", "");
+            poid.setText(value);
         }
     }
 
@@ -208,12 +213,13 @@ public class Inscription extends AppCompatActivity {
         password = pass.getText().toString().trim();
         conf_password = confirm_pass.getText().toString().trim();
         phone = mobile.getText().toString().trim();
+        Poid = poid.getText().toString().trim();
 
         if (valider()) {
             String codephone = prefs.getString("Code_pays", null);
             remplir_champs();
 
-            client = new clients(name, after_name, berthday, payers,phone,codephone, sexee, mail, password);
+            client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
             List list = ds.getAllClient();
             if (list.size() > 0) {
                 Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();
@@ -238,6 +244,7 @@ public class Inscription extends AppCompatActivity {
         editor.putString("Password", pass.getText().toString().trim());
         editor.putString("Password_conf", confirm_pass.getText().toString().trim());
         editor.putString("Mobile", mobile.getText().toString().trim());
+        editor.putString("Poid", poid.getText().toString().trim());
         editor.apply();
     }
 
@@ -277,7 +284,7 @@ public class Inscription extends AppCompatActivity {
             valide = false;
         }
         if (!conf_password.isEmpty() && (!conf_password.contentEquals(password))) {
-            confirm_pass.setError( getString(string.err_pass2));
+            confirm_pass.setError(getString(string.err_pass2));
             valide = false;
         }
         if (berthday.isEmpty()) {
@@ -294,6 +301,10 @@ public class Inscription extends AppCompatActivity {
         }
         if (phone.isEmpty()) {
             mobile.setError(getString(string.champs_obligatoir));
+            valide = false;
+        }
+        if (Poid.isEmpty()) {
+            poid.setError(getString(string.champs_obligatoir));
             valide = false;
         }
         if (spinner.getSelectedItemPosition() == -1) {

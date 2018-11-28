@@ -166,34 +166,17 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:onClick="vocal"
                         android:orientation="vertical">
-
-                        <CheckBox
-                            android:id="@+id/radioButton4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_regular"
-                            android:padding="10dp"
-                            android:text="Message vocal"
-                            android:textSize="18sp"
-                            android:buttonTint="@color/btn_radio"
-                            tools:layout_editor_absoluteX="184dp"
-                            tools:layout_editor_absoluteY="225dp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/ligne_horizontal" />
 
                         <CheckBox
                             android:id="@+id/radioButton25"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="@color/btn_radio"
+                            android:checked="true"
                             android:fontFamily="@font/raleway_regular"
                             android:padding="10dp"
                             android:text="SMS"
-                            android:buttonTint="@color/btn_radio"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="184dp"
                             tools:layout_editor_absoluteY="225dp" />
@@ -253,31 +236,15 @@
                         android:orientation="vertical">
 
                         <CheckBox
-                            android:id="@+id/radioButton6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_regular"
-                            android:padding="10dp"
-                            android:text="Message vocal"
-                            android:buttonTint="@color/btn_radio"
-                            android:textSize="18sp"
-                            tools:layout_editor_absoluteX="184dp"
-                            tools:layout_editor_absoluteY="225dp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/ligne_horizontal" />
-
-                        <CheckBox
                             android:id="@+id/radioButton20"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="@color/btn_radio"
+                            android:checked="true"
                             android:fontFamily="@font/raleway_regular"
                             android:padding="10dp"
                             android:text="SMS"
                             android:textSize="18sp"
-                            android:buttonTint="@color/btn_radio"
                             tools:layout_editor_absoluteX="184dp"
                             tools:layout_editor_absoluteY="225dp" />
 
@@ -334,30 +301,14 @@
                         android:orientation="vertical">
 
                         <CheckBox
-                            android:id="@+id/radioButton60"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_regular"
-                            android:padding="10dp"
-                            android:text="Message vocal"
-                            android:textSize="18sp"
-                            android:buttonTint="@color/btn_radio"
-                            tools:layout_editor_absoluteX="184dp"
-                            tools:layout_editor_absoluteY="225dp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/ligne_horizontal" />
-
-                        <CheckBox
                             android:id="@+id/radioButton200"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="@color/btn_radio"
+                            android:checked="true"
                             android:fontFamily="@font/raleway_regular"
                             android:padding="10dp"
                             android:text="SMS"
-                            android:buttonTint="@color/btn_radio"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="184dp"
                             tools:layout_editor_absoluteY="225dp" />

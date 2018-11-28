@@ -95,6 +95,7 @@ public class MenuActivity extends AppCompatActivity {
         editor.remove("Password_conf");
         editor.remove("sexe");
         editor.remove("Nom_Pays");
+        editor.remove("Poid");
         editor.remove("ID_img");
         editor.remove("Id_code");
         editor.remove("Code_pays");
@@ -109,7 +110,6 @@ public class MenuActivity extends AppCompatActivity {
 
     public void resetvalueFiche() {
         SharedPreferences.Editor editor = getSharedPreferences("Fiche_Medicale", MODE_PRIVATE).edit();
-        editor.remove("Poid");
         editor.remove("Taille");
         editor.remove("Num_Secrt");
         editor.remove("Code_Postal");

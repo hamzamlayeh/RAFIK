@@ -1,10 +1,12 @@
 package com.example.user.rafiki;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -25,11 +27,13 @@ import java.util.Collections;
 
 public class DetaileRespiration extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Resaux, Txt_Cycle, Cercle;
+    ImageView Etat_Cycle, Txt_Cycle, Cercle;
     LineChart mchart;
-    TextView  Txt_max, Txt_min, Txt_moy;
+    TextView Txt_max, Txt_min, Txt_moy;
     SharedPreferences prefs, pref;
     ArrayList<Double> list_poumon = new ArrayList<>();
+    MySQLiteOpenHelper helper;
+    UserDataSource ds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,6 @@ public class DetaileRespiration extends AppCompatActivity {
         setContentView(R.layout.activity_detaile_respiration);
 
         Etat_Cycle = findViewById(R.id.etat_cycle);
-        Resaux = findViewById(R.id.imageView29);
         Txt_Cycle = findViewById(R.id.txt_etat);
         Txt_max = findViewById(R.id.chifre_max);
         Txt_min = findViewById(R.id.chiffre_min);
@@ -47,6 +50,8 @@ public class DetaileRespiration extends AppCompatActivity {
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
+        ds = new UserDataSource(helper);
         Test_Donnees();
 
         mchart.setDragEnabled(true);
@@ -116,14 +121,7 @@ public class DetaileRespiration extends AppCompatActivity {
     }
 
     public void Test_Donnees() {
-        boolean value = pref.getBoolean("connexion", false);
         int Indice = prefs.getInt("Indice", 0);
-
-        if (value) {
-            Resaux.setImageResource(R.drawable.resaux);
-        } else {
-            Resaux.setImageResource(R.drawable.resaux2);
-        }
 
         if (Indice != 0) {
             switch (Indice) {
@@ -183,5 +181,29 @@ public class DetaileRespiration extends AppCompatActivity {
     public void historique(View view) {
         Intent ite = new Intent(this, HistoriqueActivity.class);
         startActivity(ite);
+    }
+
+    public void supprimer(View view) {
+        final String fuldate = prefs.getString("Date_Cycle", null);
+
+        if (fuldate != null) {
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.text_supprimer_cycle))
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ds.deleteCycle(fuldate);
+                            startActivity(new Intent(getApplicationContext(), ParametresMesures.class));
+                        }
+                    })
+                    .setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    }).show();
+        }
     }
 }

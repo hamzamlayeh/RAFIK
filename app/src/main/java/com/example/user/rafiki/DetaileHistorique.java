@@ -59,18 +59,22 @@ public class DetaileHistorique extends AppCompatActivity {
                     Txt_Etat.setText(R.string.frequence_cardiaque);
                     break;
                 case 2:
-                    Txt_Etat.setText(R.string.frequence_cardiaque);
+                    Txt_Etat.setText(R.string.respirations);
                     break;
                 case 3:
-                    Txt_Etat.setText(R.string.frequence_cardiaque);
+                    Txt_Etat.setText(R.string.tempirateur);
                     break;
                 case 4:
-                    Txt_Etat.setText(R.string.frequence_cardiaque);
+                    Txt_Etat.setText(R.string.calories);
                     break;
                 case 5:
-                    Txt_Etat.setText(R.string.frequence_cardiaque);
+                    Txt_Etat.setText(R.string.chute);
                     break;
             }
         }
+    }
+
+    public void imprime(View view) {
+
     }
 }

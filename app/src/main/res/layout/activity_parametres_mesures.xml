@@ -26,12 +26,12 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="18dp"
+                android:contentDescription="TODO"
                 android:padding="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/resaux"
-                android:contentDescription="TODO"
                 tools:ignore="ContentDescription,HardcodedText" />
 
             <ImageView
@@ -83,7 +83,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="70dp"
                 android:fontFamily="@font/raleway_semibolditalic"
-                android:textAllCaps="false"
+                android:textAllCaps="true"
                 android:textColor="#02abff"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_bias="0.24"
@@ -112,7 +112,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="88dp"
                 android:fontFamily="@font/raleway_semibolditalic"
-                android:textAllCaps="false"
+                android:textAllCaps="true"
                 android:textColor="#00ffdd"
                 android:textSize="20sp"
                 android:textStyle="bold|italic"
@@ -148,13 +148,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.42"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/simpleChronometer"
                 app:layout_constraintTop_toBottomOf="@+id/Signes"
                 app:srcCompat="@drawable/ic_montre" />
 
@@ -167,7 +163,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/raleway_semibold"
+                android:fontFamily="@font/"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -182,9 +178,9 @@
                 android:layout_height="31dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/declencher"
+                android:fontFamily="@font/raleway_bold"
                 android:onClick="declancher"
                 android:text="@string/d_clencher"
-                android:fontFamily="@font/raleway_bold"
                 android:textColor="@android:color/background_light"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -192,83 +188,57 @@
                 app:layout_constraintTop_toBottomOf="@+id/simpleChronometer" />
 
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="291dp"
-                android:layout_height="wrap_content"
+            <ToggleButton
+                android:id="@+id/button3"
+                android:layout_width="141dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="18dp"
+                android:layout_weight="1"
+                android:background="@color/color_btnpause"
+                android:clickable="false"
+                android:fontFamily="@font/raleway_bold"
+                android:gravity="center"
+                android:onClick="pause_rep"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textOff="@string/pause"
+                android:textOn="@string/reprendre"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/bt_clock" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="141dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="18dp"
+                android:layout_weight="1"
+                android:background="#FF0C0E"
+                android:clickable="false"
+                android:fontFamily="@font/raleway_bold"
+                android:gravity="center"
+                android:onClick="Stop"
+                android:text="@string/stop"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bt_clock" />
+
+            <Button
+                android:id="@+id/bt_clock"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_weight="1"
+                android:background="@drawable/lock_close"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <ToggleButton
-                    android:id="@+id/button3"
-                    android:layout_width="141dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_rudus"
-                    android:clickable="false"
-                    android:fontFamily="@font/raleway_bold"
-                    android:gravity="center"
-                    android:onClick="pause_rep"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textOff="@string/pause"
-                    android:textOn="@string/reprendre"
-                    app:layout_constraintEnd_toEndOf="@+id/button5"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="141dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_rudus3"
-                    android:clickable="false"
-                    android:fontFamily="@font/raleway_bold"
-                    android:gravity="center"
-                    android:onClick="Stop"
-                    android:text="@string/stop"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/bt_clock"
-                    android:layout_width="51dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@drawable/lock_close"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.48"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </android.support.constraint.ConstraintLayout>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -312,7 +282,7 @@
 
                             <TextView
                                 android:id="@+id/chiffreECG"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/raleway_bold"
                                 android:gravity="center"
@@ -324,7 +294,7 @@
 
                             <TextView
                                 android:id="@+id/textView9"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
@@ -567,72 +537,143 @@
                     </android.support.constraint.ConstraintLayout>
                 </LinearLayout>
 
-                <android.support.constraint.ConstraintLayout
-                    android:id="@+id/constraint_distance"
-                    android:layout_width="180dp"
-                    android:layout_height="85dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:background="#02366a">
+                <LinearLayout
+                    android:id="@+id/linearDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginRight="20dp"
-                        android:orientation="vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="#02366a">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="16dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/chiffreDistance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_bold"
+                                android:gravity="center"
+                                android:text="--"
+                                android:textColor="@android:color/white"
+                                android:textSize="35sp"
+                                tools:layout_editor_absoluteX="89dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView252"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:text="@string/km"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp"
+                                tools:layout_editor_absoluteX="124dp"
+                                tools:layout_editor_absoluteY="55dp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/imageView59"
+                            android:layout_width="55dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/distence" />
 
                         <TextView
-                            android:id="@+id/chiffreDistance"
-                            android:layout_width="match_parent"
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_bold"
-                            android:gravity="center"
-                            android:text="--"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/raleway_semibold"
+                            android:text="@string/distance"
                             android:textColor="@android:color/white"
-                            android:textSize="35sp"
-                            tools:layout_editor_absoluteX="97dp"
-                            tools:layout_editor_absoluteY="8dp" />
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView59" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="#02366a">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="16dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/chiffrevittesse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_bold"
+                                android:gravity="center"
+                                android:text="--"
+                                android:textColor="@android:color/white"
+                                android:textSize="35sp"
+                                tools:layout_editor_absoluteX="94dp"
+                                tools:layout_editor_absoluteY="8dp" />
+
+                            <TextView
+                                android:id="@+id/textView255"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_regular"
+                                android:gravity="center"
+                                android:text="@string/km_h"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp"
+                                tools:layout_editor_absoluteX="125dp"
+                                tools:layout_editor_absoluteY="55dp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/imageView51"
+                            android:layout_width="55dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/vitesse" />
 
                         <TextView
-                            android:id="@+id/textView252"
-                            android:layout_width="match_parent"
+                            android:id="@+id/textView211"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_regular"
-                            android:gravity="center"
-                            android:text="@string/km_h"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/raleway_semibold"
+                            android:text="@string/vitesse"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            tools:layout_editor_absoluteX="113dp"
-                            tools:layout_editor_absoluteY="56dp" />
-                    </LinearLayout>
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView51" />
 
-                    <ImageView
-                        android:id="@+id/imageView59"
-                        android:layout_width="55dp"
-                        android:layout_height="48dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/distence" />
-
-                    <TextView
-                        android:id="@+id/textView23"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginStart="8dp"
-                        android:fontFamily="@font/raleway_semibold"
-                        android:text="@string/distance"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView59" />
-
-                </android.support.constraint.ConstraintLayout>
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
 
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>

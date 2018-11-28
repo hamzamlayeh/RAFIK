@@ -54,6 +54,7 @@ public class UserDataSource {
         values.put("sexe", clt.getSexe());
         values.put("email", clt.getEmail());
         values.put("password", clt.getPassword());
+        values.put("poid", clt.getPoid());
         long id = db.insert(TABLE_NAME, null, values);
         return id;
     }
@@ -84,6 +85,7 @@ public class UserDataSource {
         values.put("sexe", clt.getSexe());
         values.put("email", clt.getEmail());
         values.put("password", clt.getPassword());
+        values.put("poid", clt.getPoid());
         return db.update(TABLE_NAME, values, "_id=" + id, null) > 0;
     }
 
@@ -91,7 +93,7 @@ public class UserDataSource {
     public List getAllClient() {
 
         ArrayList<clients> list = new ArrayList<>();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{"_id", "nom", "prenom", "age", "payer", "mobile", "code", "sexe", "email", "password"}, null,
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"_id", "nom", "prenom", "age", "payer", "mobile", "code", "sexe", "email", "password", "poid"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -105,8 +107,9 @@ public class UserDataSource {
             String sexe = cursor.getString(7);
             String email = cursor.getString(8);
             String password = cursor.getString(9);
+            String poid = cursor.getString(10);
 
-            clients clt = new clients(nom, prenom, age, payer, mobile, code, sexe, email, password);
+            clients clt = new clients(nom, prenom, age, payer, mobile, code, sexe, email, poid, password);
             clt.set_id(id);
             list.add(clt);
             cursor.moveToNext();
@@ -159,6 +162,19 @@ public class UserDataSource {
         return "";
     }
 
+    public String getPoid(String email) {
+
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"poid"}, "email=?", new String[]{email},
+                null, null, null, null);
+        int cursorcount = cursor.getCount();
+        if (cursorcount > 0) {
+            cursor.moveToFirst();
+            return cursor.getString(0);
+        }
+        cursor.close();
+        return null;
+    }
+
     public void UpdateImg(String img, String email) {
 
         ContentValues values = new ContentValues();
@@ -184,7 +200,6 @@ public class UserDataSource {
 
         ContentValues values = new ContentValues();
         values.put("email", fich.getEmail());
-        values.put("poid", fich.getPoid());
         values.put("taille", fich.getTaille());
         values.put("num_scret", fich.getNum_scret());
         values.put("adresse", fich.getAdresse());
@@ -198,13 +213,12 @@ public class UserDataSource {
     public List getFiche() {
 
         ArrayList<Fiche> list = new ArrayList<>();
-        Cursor cursor = db.query(TABLE_NAME2, new String[]{"_id", "email", "poid", "taille", "num_scret", "adresse", "code_postal", "ville", "sang"}, null,
+        Cursor cursor = db.query(TABLE_NAME2, new String[]{"_id", "email", "taille", "num_scret", "adresse", "code_postal", "ville", "sang"}, null,
                 null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             int id = cursor.getInt(0);
             String email = cursor.getString(1);
-            String poid = cursor.getString(2);
             String taille = cursor.getString(3);
             String num_scret = cursor.getString(4);
             String adresse = cursor.getString(5);
@@ -212,7 +226,7 @@ public class UserDataSource {
             String ville = cursor.getString(7);
             String sang = cursor.getString(8);
 
-            Fiche clt = new Fiche(email, poid, taille, num_scret, adresse, code_postal, ville, sang);
+            Fiche clt = new Fiche(email, taille, num_scret, adresse, code_postal, ville, sang);
             clt.set_id(id);
             System.out.println(id);
             list.add(clt);
@@ -225,7 +239,6 @@ public class UserDataSource {
     public long UpdateFiche(String email, Fiche fich) {
 
         ContentValues values = new ContentValues();
-        values.put("poid", fich.getPoid());
         values.put("taille", fich.getTaille());
         values.put("num_scret", fich.getNum_scret());
         values.put("adresse", fich.getAdresse());
@@ -777,4 +790,5 @@ public class UserDataSource {
         cursor.close();
         return list;
     }
+
 }

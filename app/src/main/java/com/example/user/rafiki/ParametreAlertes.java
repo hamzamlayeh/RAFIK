@@ -13,8 +13,8 @@ public class ParametreAlertes extends AppCompatActivity {
         setContentView(R.layout.activity_parametre_alertes);
     }
 
-    public void vocal(View view) {
-        Intent ite=new Intent(this,EnregistrementVocal.class);
-        startActivity(ite);
-    }
+//    public void vocal(View view) {
+//        Intent ite=new Intent(this,EnregistrementVocal.class);
+//        startActivity(ite);
+//    }
 }

@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        Toast.makeText(this, ""+ DebugDB.getAddressLog(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, ""+ DebugDB.getAddressLog(), Toast.LENGTH_SHORT).show();
 
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editors = pref.edit();
@@ -114,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
         editor.remove("Nom_Pays");
         editor.remove("ID_img");
         editor.remove("Id_code");
+        editor.remove("Poid");
         editor.remove("Code_pays");
         editor.apply();
     }

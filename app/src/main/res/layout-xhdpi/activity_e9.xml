@@ -118,8 +118,7 @@
                 android:id="@+id/btn"
                 android:layout_width="233dp"
                 android:layout_height="28dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginBottom="24dp"
                 android:background="#24bf0a"
                 android:onClick="retour"
                 android:text="OK"
@@ -129,29 +128,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.92" />
-
-            <Button
-                android:id="@+id/notes"
-                android:layout_width="135dp"
-                android:layout_height="39dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="400dp"
-                android:background="@drawable/notes"
-                android:onClick="alert"
-                android:text="@string/notes_conseils"
-                android:textColor="@android:color/background_light"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toTopOf="@+id/btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.954" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ProgressBar
                 android:id="@+id/vertical"

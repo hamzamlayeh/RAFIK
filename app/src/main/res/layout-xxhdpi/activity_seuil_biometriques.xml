@@ -389,7 +389,7 @@
                                 android:layout_weight="7"
                                 android:fontFamily="@font/raleway_regular"
                                 android:padding="9dp"
-                                android:text="@string/activit_journali_res" />
+                                android:text="@string/quotidien" />
 
                             <View
                                 android:id="@+id/view32"
@@ -827,7 +827,7 @@
                                 android:layout_weight="7"
                                 android:fontFamily="@font/raleway_regular"
                                 android:padding="9dp"
-                                android:text="@string/activit_journali_res" />
+                                android:text="@string/quotidien" />
 
                             <View
                                 android:layout_width="1dp"
@@ -1258,7 +1258,7 @@
                                 android:layout_weight="7"
                                 android:fontFamily="@font/raleway_regular"
                                 android:padding="9dp"
-                                android:text="@string/activit_journali_res" />
+                                android:text="@string/quotidien" />
 
                             <View
                                 android:layout_width="1dp"

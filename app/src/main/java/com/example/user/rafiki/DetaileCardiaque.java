@@ -1,11 +1,13 @@
 package com.example.user.rafiki;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,7 +31,7 @@ import java.util.List;
 
 public class DetaileCardiaque extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Resaux, Txt_Cycle, Cercle;
+    ImageView Etat_Cycle, Txt_Cycle, Cercle;
     TextView Txt_Calorie, Txt_max, Txt_min, Txt_moy;
     LineChart mchart;
     SharedPreferences prefs, pref;
@@ -45,7 +47,7 @@ public class DetaileCardiaque extends AppCompatActivity {
         setContentView(R.layout.activity_detaile_cardiaque);
 
         Etat_Cycle = findViewById(R.id.etat_cycle);
-        Resaux = findViewById(R.id.imageView29);
+
         Txt_Cycle = findViewById(R.id.txt_etat);
         Txt_Calorie = findViewById(R.id.cal_chifre);
         Txt_max = findViewById(R.id.chifre_max);
@@ -71,12 +73,10 @@ public class DetaileCardiaque extends AppCompatActivity {
         mchart.setPinchZoom(true);
         mchart.setDrawGridBackground(false);
 
-        NumberFormat format = NumberFormat.getInstance();
-        format.setMaximumFractionDigits(2);
         String restoredcal = prefs.getString("Calorie", null);
         String fuldate = prefs.getString("Date_Cycle", null);
         if (restoredcal != null) {
-            Txt_Calorie.setText(format.format(Double.valueOf(restoredcal)));
+            Txt_Calorie.setText(String.valueOf((int) Double.parseDouble(restoredcal)));
         }
         if (fuldate != null) {
             Liste_donne = ds.getListCycle(fuldate);
@@ -99,7 +99,6 @@ public class DetaileCardiaque extends AppCompatActivity {
         float x = 0f;
         for (int i = 0; i < Liste_donne.size(); i++) {
             yvalues.add(new Entry(x, (float) Liste_donne.get(i).getFrequenceC()));
-            System.out.println(Liste_donne.get(i).getFrequenceC());
             x = x + 5f;
         }
 
@@ -133,14 +132,7 @@ public class DetaileCardiaque extends AppCompatActivity {
     }
 
     public void Test_Donnees() {
-        boolean value = pref.getBoolean("connexion", false);
         int Indice = prefs.getInt("Indice", 0);
-
-        if (value) {
-            Resaux.setImageResource(R.drawable.resaux);
-        } else {
-            Resaux.setImageResource(R.drawable.resaux2);
-        }
 
         if (Indice != 0) {
             switch (Indice) {
@@ -201,6 +193,37 @@ public class DetaileCardiaque extends AppCompatActivity {
         startActivity(ite);
     }
 
+    public void precedant(View view) {
+        Intent ite = new Intent(this, ParametresMesures.class);
+        startActivity(ite);
+    }
+
     public void historique(View view) {
+        Intent ite = new Intent(this, HistoriqueActivity.class);
+        startActivity(ite);
+    }
+
+    public void supprimer(View view) {
+        final String fuldate = prefs.getString("Date_Cycle", null);
+
+        if (fuldate != null) {
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.text_supprimer_cycle))
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ds.deleteCycle(fuldate);
+                            startActivity(new Intent(getApplicationContext(), ParametresMesures.class));
+                        }
+                    })
+                    .setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    }).show();
+        }
     }
 }

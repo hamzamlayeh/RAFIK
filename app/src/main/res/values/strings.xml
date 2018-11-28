@@ -116,7 +116,6 @@
     <string name="urgence">Urgence</string>
     <string name="course">Course</string>
     <string name="cyclisme">Cyclisme</string>
-    <string name="activit_journali_res">Activités journaliéres</string>
     <string name="sommeil">Sommeil</string>
     <string name="activit">Activité</string>
     <string name="min">Min</string>
@@ -175,7 +174,7 @@
     <string name="temp_rateur">Températeure</string>
     <string name="distance">Distance</string>
     <string name="d_clencher">Déclencher</string>
-    <string name="km">Kh</string>
+    <string name="km">Km</string>
     <string name="activer_gps_t_l_phone">Activer GPS Téléphone   </string>
     <string name="exit">Exit</string>
     <string name="cycle">Cycle</string>
@@ -195,12 +194,21 @@
     <string name="km_h">km/h</string>
     <string name="calorie">Calories</string>
     <string name="cal">cal</string>
-    <string name="finir_activity">Finir l\'activité?</string>
-    <string name="etes_vous_sure_de_vouloir">Etes-vous ete sure de vouloir </string>
-    <string name="mettre_fin_a_votre_activité">mettre fin à votre activité ?</string>
+    <string name="finir_activity">Finir l\'activité</string>
+    <string name="etes_vous_sure_de_vouloir">Êtes-vous sûr de vouloir mettre fin à votre activité ? </string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
     <string name="nombre_de_pas">Nombre de pas</string>
     <string name="chutes">Chutes</string>
     <string name="frequence_cardiaque">- Fréquence cardiaque</string>
+    <string name="respirations">- Respiration</string>
+    <string name="tempirateur">- Températeur</string>
+    <string name="calories">- Calories</string>
+    <string name="chute">- Chutes</string>
+    <string name="text_supprimer_cycle">Êtes-vous sûr de vouloir supprimer ce cycle ?</string>
+    <string name="jour">jour</string>
+    <string name="mois">mois</string>
+    <string name="an">an</string>
+    <string name="semaine">semaine</string>
+    <string name="s_lectionner_le_param_tre">Sélectionner le paramètre</string>
 </resources>

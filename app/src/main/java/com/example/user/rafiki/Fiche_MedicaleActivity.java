@@ -34,8 +34,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Fiche_MedicaleActivity extends AppCompatActivity {
 
     CircleImageView profile_img;
-    EditText NomUtilisateur, Sang, Poid, Taille, Num_secrt, Adresse, Code_post, Ville;
-    String email, poid, taille, num_secrt, adresse, code_post, ville, sang;
+    EditText NomUtilisateur, Sang, Taille, Num_secrt, Adresse, Code_post, Ville;
+    String email, taille, num_secrt, adresse, code_post, ville, sang;
     SharedPreferences pref, pref2;
     SharedPreferences.Editor editor;
     MySQLiteOpenHelper helper;
@@ -62,7 +62,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         profile_img = findViewById(R.id.profile_image);
         NomUtilisateur = findViewById(R.id.nom);
         Sang = findViewById(R.id.txt_sang);
-        Poid = findViewById(R.id.poid);
         Taille = findViewById(R.id.taille);
         Num_secrt = findViewById(R.id.num_scret);
         Adresse = findViewById(R.id.adresse);
@@ -101,7 +100,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     public void restoredFiche() {
         if (list.size() >= 1) {
             if (list.get(0).getEmail().equals(email)) {
-                editor.putString("Poid", list.get(0).getPoid());
                 editor.putString("Taille", list.get(0).getTaille());
                 editor.putString("Num_Secrt", list.get(0).getNum_scret());
                 editor.putString("Code_Postal", list.get(0).getCode_postal());
@@ -115,7 +113,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     }
 
     public void restoredvalue() {
-        String restoredpoid = pref2.getString("Poid", null);
         String restoredtaile = pref2.getString("Taille", null);
         String restorednumscret = pref2.getString("Num_Secrt", null);
         String restoredcodeP = pref2.getString("Code_Postal", null);
@@ -123,9 +120,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         String restoredville = pref2.getString("Ville", null);
         String restoredsang = pref2.getString("G_Sang", null);
 
-        if (restoredpoid != null) {
-            Poid.setText(restoredpoid);
-        }
         if (restoredtaile != null) {
             Taille.setText(restoredtaile);
         }
@@ -253,7 +247,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     }
 
     public void remplir_champs() {
-        editor.putString("Poid", Poid.getText().toString().trim());
         editor.putString("Taille", Taille.getText().toString().trim());
         editor.putString("Num_Secrt", Num_secrt.getText().toString().trim());
         editor.putString("Adresse", Adresse.getText().toString().trim());
@@ -263,7 +256,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     }
 
     public void enregestrer(View view) {
-        poid = Poid.getText().toString().trim();
         taille = Taille.getText().toString().trim();
         num_secrt = Num_secrt.getText().toString().trim();
         adresse = Adresse.getText().toString().trim();
@@ -271,7 +263,7 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
         ville = Ville.getText().toString().trim();
         sang = Sang.getText().toString().trim();
         if (valider()) {
-            fiches = new Fiche(email, poid, taille, num_secrt, adresse, code_post, ville, sang);
+            fiches = new Fiche(email, taille, num_secrt, adresse, code_post, ville, sang);
             if (list.size() < 1) {
                 long ids = ds.addFiche(fiches);
                 if (ids == -1) {
@@ -299,10 +291,6 @@ public class Fiche_MedicaleActivity extends AppCompatActivity {
     private boolean valider() {
 
         boolean valide = true;
-        if (poid.isEmpty()) {
-            Poid.setError(getString(R.string.champs_obligatoir));
-            valide = false;
-        }
         if (taille.isEmpty()) {
             Taille.setError(getString(R.string.champs_obligatoir));
             valide = false;

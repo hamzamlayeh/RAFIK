@@ -32,20 +32,6 @@
                 app:srcCompat="@drawable/rafik" />
 
             <ImageView
-                android:id="@+id/imageView29"
-                android:layout_width="31dp"
-                android:layout_height="36dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginRight="24dp"
-                android:layout_marginTop="32dp"
-                android:contentDescription="TODO"
-                android:padding="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux"
-                tools:ignore="ContentDescription,HardcodedText" />
-
-            <ImageView
                 android:id="@+id/etat_cycle"
                 android:layout_width="35dp"
                 android:layout_height="40dp"
@@ -449,7 +435,7 @@
                 android:id="@+id/button4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"

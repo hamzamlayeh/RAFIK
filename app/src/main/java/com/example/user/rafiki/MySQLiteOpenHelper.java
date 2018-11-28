@@ -12,7 +12,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
 
     public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
-        super(context, name, factory, 5);
+        super(context, name, factory, 6);
     }
 
     @Override
@@ -20,10 +20,11 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         //Table client
         String sql="CREATE TABLE clients (_id integer PRIMARY KEY autoincrement not null," +
                 "nom text not null,prenom text not null,age text not null,payer text not null," +
-                "mobile text not null,code text not null,sexe text not null,email text not null,password text not null,image text )";
+                "mobile text not null,code text not null,sexe text not null,email text not null," +
+                "password text not null,poid text not null ,image text )";
         //Table FicheMedicale
         String sql2="CREATE TABLE ficheMedicale (_id integer PRIMARY KEY autoincrement not null,"+
-                "email text not null,poid text not null,taille text not null,num_scret text,adresse text not null,"+
+                "email text not null,taille text not null,num_scret text,adresse text not null,"+
                 "code_postal text not null,ville text not null,sang text)";
         //Table Maladie
         String sql3="CREATE TABLE Maladis (_id integer PRIMARY KEY autoincrement not null,"+

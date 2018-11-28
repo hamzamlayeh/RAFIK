@@ -18,7 +18,7 @@ import java.text.NumberFormat;
 
 public class DetaileActivity extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Resaux, Txt_Cycle;
+    ImageView Etat_Cycle, Txt_Cycle;
     TextView Txt_Calorie, Txt_vitesse, Txt_Cadense, Txt_Nbpas, Txt_Distance, Txt_Chrono;
     SharedPreferences prefs, pref;
     LinearLayout linearLayout;
@@ -32,7 +32,6 @@ public class DetaileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detaile);
 
         Etat_Cycle = findViewById(R.id.etat_cycle);
-        Resaux = findViewById(R.id.imageView29);
         Txt_Cycle = findViewById(R.id.txt_etat);
         Txt_Calorie = findViewById(R.id.chifre_cal);
         Txt_vitesse = findViewById(R.id.chiffre_vite);
@@ -66,18 +65,12 @@ public class DetaileActivity extends AppCompatActivity {
         String restoredchrono = prefs.getString("Chronomaitre", null);
         String restoredduree = prefs.getString("Duree_Minute", null);
         String restorednbpas = prefs.getString("Nbr_Pas", null);
-        boolean value = pref.getBoolean("connexion", false);
         int Indice = prefs.getInt("Indice", 0);
         NumberFormat format = NumberFormat.getInstance();
         format.setMaximumFractionDigits(2);
 
-        if (value) {
-            Resaux.setImageResource(R.drawable.resaux);
-        } else {
-            Resaux.setImageResource(R.drawable.resaux2);
-        }
         if (restoredcal != null) {
-            Txt_Calorie.setText(format.format(Double.valueOf(restoredcal)));
+            Txt_Calorie.setText(String.valueOf((int) Double.parseDouble(restoredcal)));
         }
         if (restoredchrono != null) {
             Txt_Chrono.setText(restoredchrono);
@@ -87,7 +80,7 @@ public class DetaileActivity extends AppCompatActivity {
         }
         if (restorednbpas != null) {
             Nbr_Pas = Double.parseDouble(restorednbpas);
-            Txt_Nbpas.setText(restorednbpas);
+            Txt_Nbpas.setText(String.valueOf((int) Nbr_Pas));
         }
         Txt_Cadense.setText(format.format(Nbr_Pas / Duree));
 
@@ -163,9 +156,7 @@ public class DetaileActivity extends AppCompatActivity {
             AlertDialog.Builder alt = new AlertDialog.Builder(this);
             alt.setTitle(" " + getString(R.string.finir_activity))
                     .setIcon(R.drawable.alert)
-                    .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir) +
-                            getString(R.string.mettre_fin_a_votre_activité)
-                    )
+                    .setMessage("\n " +getString(R.string.text_supprimer_cycle))
                     .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

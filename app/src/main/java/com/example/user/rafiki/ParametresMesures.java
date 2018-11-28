@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -18,25 +15,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.user.rafiki.ItemData.Cycle;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 public class ParametresMesures extends AppCompatActivity {
@@ -44,23 +33,21 @@ public class ParametresMesures extends AppCompatActivity {
     static int UNITE_SECONDE = 1000, UNITE_MENUTE = 60000, UNITE_HEURE = 3600000;
     static boolean StopThread = true;
     ImageView Img_etat, Resaux, batteri;
-    TextView textHaute, textBas, niveaubatt, textECG, textPoumon, textTemp, textCal, textDist;
+    TextView textHaute, textBas, niveaubatt, textECG, textPoumon, textTemp, textCal, textDist, textVitesse;
+    LinearLayout LinearDistance;
     Chronometer chronometer;
     ToggleButton btn_P_R;
     Button stop, declancher, Img_lock;
-    ConstraintLayout constraintDistance;
     int Indice, Poids;
     long lastPause;
     double Nbr_pas, Duree_en_munite, Calorie;
-    String Chrono, Date_cycle,FullDate_cycle,Time_cycle;
-    SharedPreferences prefs, pref, pref2;
+    String Chrono, Date_cycle, FullDate_cycle, Time_cycle;
+    SharedPreferences prefs, pref;
     SharedPreferences.Editor editor;
     Activity activity;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-//    File file;
     Thread thread;
-    //    static String[] temp = new String[0];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +57,6 @@ public class ParametresMesures extends AppCompatActivity {
         activity = this;
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
-        pref2 = getApplicationContext().getSharedPreferences("Fiche_Medicale", MODE_PRIVATE);
         Indice = prefs.getInt("Indice", 0);
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
@@ -81,49 +67,51 @@ public class ParametresMesures extends AppCompatActivity {
         Resaux = findViewById(R.id.imageView29);
         textHaute = findViewById(R.id.Signes);
         textBas = findViewById(R.id.BIOMETRIQUE);
-        constraintDistance = findViewById(R.id.constraint_distance);
+        LinearDistance = findViewById(R.id.linearDistance);
         chronometer = findViewById(R.id.simpleChronometer);
         btn_P_R = findViewById(R.id.button3);
         stop = findViewById(R.id.button5);
         declancher = findViewById(R.id.declancher);
         stop.setClickable(false);
         Test_Donnees();
-        String restoredpoid = pref2.getString("Poid", null);
-        if (restoredpoid != null) {
-            Poids = Integer.parseInt(restoredpoid);
+        String restoredemail = pref.getString("Email", null);
+        if (restoredemail != null) {
+            Poids = Integer.parseInt(ds.getPoid(restoredemail));
         } else {
             Poids = 0;
         }
     }
 
     public void declancher(View view) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
-        SimpleDateFormat FullDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss", Locale.getDefault());
-        SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-        Calendar date = Calendar.getInstance();
-        chronometer.setBase(SystemClock.elapsedRealtime());
-        chronometer.start();
-        btn_P_R.setClickable(true);
-        declancher.setClickable(false);
-        stop.setClickable(true);
-//        String donnerdate = String.valueOf(date.getTimeInMillis());
-//        file = writeToFile(donnerdate + ".csv");
-        StopThread = true;
-        Date_cycle = simpleDateFormat.format(date.getTime());
-        FullDate_cycle = FullDateFormat.format(date.getTime());
-        Time_cycle = TimeFormat.format(date.getTime());
-        Mythred0 thread0 = new Mythred0();
-        thread0.start();
-        EnvoiaTrame();
+        boolean value = pref.getBoolean("connexion", false);
+        if (value) {
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
+            SimpleDateFormat FullDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss", Locale.getDefault());
+            SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+            Calendar date = Calendar.getInstance();
+            chronometer.setBase(SystemClock.elapsedRealtime());
+            chronometer.start();
+            btn_P_R.setClickable(true);
+            declancher.setClickable(false);
+            stop.setClickable(true);
+            StopThread = true;
+            Date_cycle = simpleDateFormat.format(date.getTime());
+            FullDate_cycle = FullDateFormat.format(date.getTime());
+            Time_cycle = TimeFormat.format(date.getTime());
+            Mythred0 thread0 = new Mythred0();
+            thread0.start();
+            EnvoiaTrame();
+        }else{
+            Toast.makeText(activity, "Pas de carte", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void Stop(View view) {
         AlertDialog.Builder alt = new AlertDialog.Builder(this);
         alt.setTitle(" " + getString(R.string.finir_activity))
                 .setIcon(R.drawable.alert)
-                .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir) +
-                        getString(R.string.mettre_fin_a_votre_activité)
-                )
+                .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir))
                 .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -191,20 +179,20 @@ public class ParametresMesures extends AppCompatActivity {
             StopThread = false;
             btn_P_R.setText(R.string.reprendre);
             Img_lock.setBackgroundResource(R.drawable.lock_open);
-            btn_P_R.setBackgroundResource(R.drawable.button_rudus4);
+            btn_P_R.setBackgroundResource(R.color.bg_btn_ok);
             lastPause = SystemClock.elapsedRealtime();
             chronometer.stop();
         } else {
             //en reprendre
             StopThread = true;
-            thread.start();
+            EnvoiaTrame();
             Mythred0 thread0 = new Mythred0();
             thread0.start();
             chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - lastPause);
             chronometer.start();
             Img_lock.setBackgroundResource(R.drawable.lock_close);
             btn_P_R.setText(R.string.pause);
-            btn_P_R.setBackgroundResource(R.drawable.button_rudus);
+            btn_P_R.setBackgroundResource(R.color.color_btnpause);
         }
     }
 
@@ -219,32 +207,32 @@ public class ParametresMesures extends AppCompatActivity {
             switch (Indice) {
                 case 1:
                     textBas.setVisibility(View.INVISIBLE);
-                    constraintDistance.setVisibility(View.GONE);
+                    LinearDistance.setVisibility(View.GONE);
                     textHaute.setText(R.string.quotidien);
                     Img_etat.setImageResource(R.drawable.icon_quotidien);
                     break;
                 case 2:
                     textBas.setVisibility(View.INVISIBLE);
-                    constraintDistance.setVisibility(View.VISIBLE);
+                    LinearDistance.setVisibility(View.VISIBLE);
                     textHaute.setText(R.string.marche);
                     Img_etat.setImageResource(R.drawable.icon_marche);
                     break;
                 case 3:
                     textBas.setVisibility(View.VISIBLE);
-                    constraintDistance.setVisibility(View.VISIBLE);
+                    LinearDistance.setVisibility(View.VISIBLE);
                     textHaute.setText(R.string.course);
                     textBas.setText(R.string.a_pied);
                     Img_etat.setImageResource(R.drawable.icone_course);
                     break;
                 case 4:
                     textBas.setVisibility(View.INVISIBLE);
-                    constraintDistance.setVisibility(View.GONE);
+                    LinearDistance.setVisibility(View.GONE);
                     textHaute.setText(R.string.cyclisme);
                     Img_etat.setImageResource(R.drawable.icone_cycle);
                     break;
                 case 5:
                     textBas.setVisibility(View.INVISIBLE);
-                    constraintDistance.setVisibility(View.GONE);
+                    LinearDistance.setVisibility(View.GONE);
                     textHaute.setText(R.string.sommeil);
                     Img_etat.setImageResource(R.drawable.icon_sommeil);
                     break;
@@ -345,7 +333,7 @@ public class ParametresMesures extends AppCompatActivity {
 
     public void acueil(View view) {
         StopThread = false;
-        Intent ite = new Intent(this, CycleActivity.class);
+        Intent ite = new Intent(this, E8.class);
         startActivity(ite);
         E7_2.str = null;
     }
@@ -357,6 +345,7 @@ public class ParametresMesures extends AppCompatActivity {
             textTemp = findViewById(R.id.chiffreTemp);
             textCal = findViewById(R.id.chiffrecalorie);
             textDist = findViewById(R.id.chiffreDistance);
+            textVitesse = findViewById(R.id.chiffrevittesse);
             niveaubatt = findViewById(R.id.NiveauBatt);
             batteri = findViewById(R.id.batterie);
             while (StopThread) {
@@ -377,7 +366,6 @@ public class ParametresMesures extends AppCompatActivity {
                                 double huere = cl.get(Calendar.HOUR_OF_DAY);
 
                                 Duree_en_munite = (seconde + munite) / UNITE_MENUTE;
-                                System.out.println((seconde + munite) / UNITE_MENUTE);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -390,34 +378,39 @@ public class ParametresMesures extends AppCompatActivity {
                                 switch (Indice) {
                                     case 1:
                                         Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(format.format(Calorie));
+                                        textCal.setText(String.valueOf((int) Calorie));
                                         break;
                                     case 2:
-                                        textDist.setText(format.format(Nbr_pas / 1600));
+                                        double DistanceM = Nbr_pas / 1600;
+                                        textDist.setText(format.format(DistanceM));
+                                        textVitesse.setText(format.format(DistanceM / (Duree_en_munite / 60)));
                                         Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(format.format(Calorie));
+                                        textCal.setText(String.valueOf((int) Calorie));
                                         break;
                                     case 3:
-                                        textDist.setText(format.format(Nbr_pas / 1250));
-                                        if (Nbr_pas <= 12) {
+                                        double DistanceC = Nbr_pas / 1250;
+                                        double vitesseC = DistanceC / (Duree_en_munite / 60);
+                                        textDist.setText(format.format(DistanceC));
+                                        textVitesse.setText(format.format(vitesseC));
+
+                                        if (vitesseC <= 10) {
                                             Calorie = (8 * 3.5 * Poids / 200) * Duree_en_munite;
-                                            textCal.setText(format.format(Calorie));
+                                            textCal.setText(String.valueOf((int) Calorie));
                                         } else {
                                             Calorie = (14 * 3.5 * Poids / 200) * Duree_en_munite;
-                                            textCal.setText(format.format(Calorie));
+                                            textCal.setText(String.valueOf((int) Calorie));
                                         }
                                         break;
                                     case 4:
                                         Calorie = (4 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(format.format(Calorie));
+                                        textCal.setText(String.valueOf((int) Calorie));
                                         break;
                                     case 5:
                                         Calorie = (1 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(format.format(Calorie));
+                                        textCal.setText(String.valueOf((int) Calorie));
                                         break;
                                 }
                             }
-//                            textDist.setText(String.valueOf(BLEManager.unsignedToBytes((byte) (E7_2.str[5] + E7_2.str[6]))));
 
                             if (E7_2.str[7] == 0) {
                                 batteri.setImageResource(R.drawable.batt7);
@@ -440,7 +433,7 @@ public class ParametresMesures extends AppCompatActivity {
                                 batteri.setImageResource(R.drawable.batt1);
 
                             }
-                            Cycle cycle = new Cycle(FullDate_cycle,Date_cycle,Time_cycle, E7_2.str[2], E7_2.str[3], E7_2.str[4], Nbr_pas, Calorie, Indice);
+                            Cycle cycle = new Cycle(FullDate_cycle, Date_cycle, Time_cycle, E7_2.str[2], E7_2.str[3], E7_2.str[4], Nbr_pas, Calorie, Indice);
                             ds.addCycle(cycle);
 //                            String line = String.format("%s ; %s ; %s\n", String.valueOf(E7_2.str[2]), String.valueOf(E7_2.str[3]), String.valueOf(E7_2.str[4]));
 ////                              String heder = String.format("%s ; %s ; %s\n", "coeur","poumon","tenpirateur");
