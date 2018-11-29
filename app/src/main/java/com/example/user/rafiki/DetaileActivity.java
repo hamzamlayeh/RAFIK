@@ -73,7 +73,11 @@ public class DetaileActivity extends AppCompatActivity {
             Txt_Calorie.setText(String.valueOf((int) Double.parseDouble(restoredcal)));
         }
         if (restoredchrono != null) {
-            Txt_Chrono.setText(restoredchrono);
+            if (restoredchrono.length() > 6) {
+                Txt_Chrono.setText(restoredchrono);
+            } else {
+                Txt_Chrono.setText("00:"+restoredchrono);
+            }
         }
         if (restoredduree != null) {
             Duree = Double.parseDouble(restoredduree);
@@ -156,7 +160,7 @@ public class DetaileActivity extends AppCompatActivity {
             AlertDialog.Builder alt = new AlertDialog.Builder(this);
             alt.setTitle(" " + getString(R.string.finir_activity))
                     .setIcon(R.drawable.alert)
-                    .setMessage("\n " +getString(R.string.text_supprimer_cycle))
+                    .setMessage("\n " + getString(R.string.text_supprimer_cycle))
                     .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

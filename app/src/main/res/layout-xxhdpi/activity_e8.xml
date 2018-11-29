@@ -43,7 +43,7 @@
                 android:layout_marginRight="261dp"
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.09"
-                android:src="@drawable/batt2"
+                android:src="@drawable/batt7"
                 app:layout_constraintHorizontal_bias="0.088"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -177,6 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:fontFamily="@font/raleway_light"
+                    android:text="--"
                     android:textColor="#f2f0f1"
                     android:textSize="24dp" />
 
@@ -203,8 +204,8 @@
 
                 <LinearLayout
                     android:id="@+id/bpm-Layout-D"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <TextView
@@ -215,7 +216,8 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
-                        android:text="00"
+                        android:gravity="center"
+                        android:text="--"
                         android:textColor="#869bbf"
                         android:textSize="18sp" />
 
@@ -227,7 +229,8 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
-                        android:text="00"
+                        android:gravity="center"
+                        android:text="--"
                         android:textColor="#869bbf"
                         android:textSize="18sp" />
 
@@ -239,15 +242,16 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
-                        android:text="00"
+                        android:gravity="center"
+                        android:text="--"
                         android:textColor="#869bbf"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <TextView
@@ -256,10 +260,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:paddingRight="8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/raleway_bold"
+                        android:gravity="center"
                         android:text="BPM"
                         android:textColor="#e2e3e8"
-                        android:fontFamily="@font/raleway_bold"
                         android:textSize="10sp"
                         tools:layout_editor_absoluteX="259dp"
                         tools:layout_editor_absoluteY="213dp" />
@@ -270,8 +275,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:text="BPM"
+                        android:layout_weight="1"
                         android:fontFamily="@font/raleway_bold"
+                        android:gravity="center"
+                        android:text="BPM"
                         android:textColor="#e2e3e8"
                         android:textSize="10sp"
                         tools:layout_editor_absoluteX="293dp"
@@ -283,8 +290,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:text="BPM"
+                        android:layout_weight="1"
                         android:fontFamily="@font/raleway_bold"
+                        android:gravity="center"
+                        android:text="BPM"
                         android:textColor="#e2e3e8"
                         android:textSize="10sp"
                         tools:layout_editor_absoluteX="333dp"
@@ -321,6 +330,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:fontFamily="@font/raleway_light"
+                    android:text="--"
                     android:textColor="@android:color/background_light"
                     android:textSize="24dp" />
 
@@ -364,8 +374,8 @@
                         android:layout_marginRight="8dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:text="00"
                         android:fontFamily="@font/raleway_light"
+                        android:text="--"
                         android:textColor="#869bbf"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.87"
@@ -381,8 +391,8 @@
                         android:layout_marginRight="8dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
-                        android:text="00"
                         android:fontFamily="@font/raleway_light"
+                        android:text="--"
                         android:textColor="#869bbf"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.33"
@@ -397,8 +407,8 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        android:text="00"
                         android:fontFamily="@font/raleway_light"
+                        android:text="--"
                         android:textColor="#869bbf"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.77"
@@ -498,6 +508,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_light"
+                    android:text="--"
                     android:textColor="@android:color/background_light"
                     android:textSize="24dp" />
 
@@ -505,9 +516,8 @@
                     android:id="@+id/textView22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:text="C°"
                     android:fontFamily="@font/raleway_bold"
+                    android:text="C°"
                     android:textColor="#9bb2ca"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -540,8 +550,8 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        android:text="00"
                         android:fontFamily="@font/raleway_light"
+                        android:text="--"
                         android:textColor="#dde4e8"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -556,8 +566,8 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        android:text="00"
                         android:fontFamily="@font/raleway_light"
+                        android:text="--"
                         android:textColor="#dde4e8"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.76"
@@ -572,8 +582,8 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        android:text="00"
                         android:fontFamily="@font/raleway_light"
+                        android:text="--"
                         android:textColor="#dde4e8"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.848"
