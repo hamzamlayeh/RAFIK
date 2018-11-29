@@ -102,8 +102,6 @@ public class ParametresMesures extends AppCompatActivity {
             Mythred0 thread0 = new Mythred0();
             thread0.start();
             EnvoiaTrame();
-        }else{
-            Toast.makeText(activity, "Pas de carte", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -115,53 +113,27 @@ public class ParametresMesures extends AppCompatActivity {
                 .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
-//                        try {
-//                            Date date = dateFormat.parse(String.valueOf(chronometer.getText()));
-//                            Calendar cl=Calendar.getInstance();
-//                            cl.setTime(date);
-//                            Duree_en_munite=((cl.get(Calendar.SECOND)*UNITE_SECONDE)+(cl.get(Calendar.MINUTE)*UNITE_MENUTE)+
-//                                    (cl.get(Calendar.HOUR)*UNITE_HEURE))/UNITE_MENUTE;
-//                            System.out.println(Duree_en_munite);
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-
-                        StopThread = false;
-                        E7_2.str = null;
-                        chronometer.stop();
-                        chronometer.setBase(SystemClock.elapsedRealtime());
-                        lastPause = 0;
-                        btn_P_R.setText(R.string.pause);
-                        Img_lock.setBackgroundResource(R.drawable.lock_close);
-                        btn_P_R.setBackgroundResource(R.drawable.button_rudus);
-                        btn_P_R.setChecked(false);
-                        btn_P_R.setClickable(false);
-                        declancher.setClickable(true);
-                        editor = prefs.edit();
-                        editor.putString("Calorie", String.valueOf(Calorie));
-                        editor.putString("Nbr_Pas", String.valueOf(Nbr_pas));
-                        editor.putString("Duree_Minute", String.valueOf(Duree_en_munite));
-                        editor.putString("Chronomaitre", Chrono);
-                        editor.putString("Date_Cycle", FullDate_cycle);
-                        editor.apply();
-                        startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
-//                        for (int i = 0; i < Lireficher(file).size(); i++) {
-//                            String[] donnes = Lireficher(file).get(i).split(";");
-//                            String couer = donnes[0];
-//                            String poumon = donnes[1];
-//                            String temp = donnes[2];
-//                            Donnes item = new Donnes(couer, poumon, temp);
-//                            Liste_donne.add(item);
-//                            if (i == Lireficher(file).size() - 1) {
-//
-//                            }
-//                        }
-//                        long base=chronometer.getBase();
-//                      Toast.makeText(activity, ""+base, Toast.LENGTH_SHORT).show();
-//                        System.out.println(Liste_donne.get(0).getCoeur());
-//                        System.out.println(Liste_donne.get(0).getPoumon());
-//                        System.out.println(Liste_donne.get(0).getTempirateur());
+                        if (E7_2.str != null) {
+                            StopThread = false;
+                            E7_2.str = null;
+                            chronometer.stop();
+                            chronometer.setBase(SystemClock.elapsedRealtime());
+                            lastPause = 0;
+                            btn_P_R.setText(R.string.pause);
+                            Img_lock.setBackgroundResource(R.drawable.lock_close);
+                            btn_P_R.setBackgroundResource(R.drawable.button_rudus);
+                            btn_P_R.setChecked(false);
+                            btn_P_R.setClickable(false);
+                            declancher.setClickable(true);
+                            editor = prefs.edit();
+                            editor.putString("Calorie", String.valueOf(Calorie));
+                            editor.putString("Nbr_Pas", String.valueOf(Nbr_pas));
+                            editor.putString("Duree_Minute", String.valueOf(Duree_en_munite));
+                            editor.putString("Chronomaitre", Chrono);
+                            editor.putString("Date_Cycle", FullDate_cycle);
+                            editor.apply();
+                            startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
+                        }
                     }
                 }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
             @Override

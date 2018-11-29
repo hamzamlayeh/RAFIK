@@ -223,6 +223,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
 
                             <View
@@ -245,6 +246,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="3"
                                 android:textSize="12sp" />
 
 
@@ -326,6 +328,7 @@
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
+                                android:maxLength="2"
                                 android:text="0"
                                 android:textSize="12sp" />
 
@@ -348,6 +351,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="3"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -406,6 +410,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
 
                             <View
@@ -428,6 +433,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="3"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -485,6 +491,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
 
                             <View
@@ -507,6 +514,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="3"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -666,6 +674,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="1"
                                 android:textSize="12sp" />
 
                             <View
@@ -688,6 +697,7 @@
                                 android:padding="9dp"
                                 android:text="0"
                                 android:textSize="12sp"
+                                android:maxLength="2"
                                 tools:layout_editor_absoluteX="160dp"
                                 tools:layout_editor_absoluteY="0dp" />
 
@@ -769,6 +779,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="1"
                                 android:textSize="12sp" />
 
                             <View
@@ -780,13 +791,14 @@
                             <EditText
                                 android:id="@+id/FRcourse_max"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="3"
                                 android:background="@android:color/transparent"
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
                                 android:inputType="numberDecimal"
+                                android:maxLength="2"
                                 android:padding="9dp"
                                 android:text="0"
                                 android:textSize="12sp" />
@@ -845,6 +857,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="1"
                                 android:textSize="12sp" />
 
                             <View
@@ -866,6 +879,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -921,6 +935,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="1"
                                 android:textSize="12sp" />
 
                             <View
@@ -1102,6 +1117,7 @@
                                 android:padding="9dp"
                                 android:text="0"
                                 android:textSize="12sp"
+                                android:maxLength="2"
                                 tools:layout_editor_absoluteX="55dp"
                                 tools:layout_editor_absoluteY="0dp" />
 
@@ -1125,6 +1141,7 @@
                                 android:padding="9dp"
                                 android:text="0"
                                 android:textSize="12sp"
+                                android:maxLength="2"
                                 tools:layout_editor_absoluteX="160dp"
                                 tools:layout_editor_absoluteY="0dp" />
 
@@ -1192,6 +1209,12 @@
                                 android:layout_weight="0"
                                 android:background="@color/ligne_horizontal" />
 
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0"
+                                android:background="@color/ligne_horizontal" />
+
                             <EditText
                                 android:id="@+id/Tcourse_min"
                                 android:layout_width="0dp"
@@ -1205,13 +1228,8 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
-
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0"
-                                android:background="@color/ligne_horizontal" />
 
                             <EditText
                                 android:id="@+id/Tcourse_max"
@@ -1225,6 +1243,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -1281,6 +1300,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
 
                             <View
@@ -1302,6 +1322,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -1357,6 +1378,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
 
                             <View
@@ -1378,6 +1400,7 @@
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:text="0"
+                                android:maxLength="2"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
