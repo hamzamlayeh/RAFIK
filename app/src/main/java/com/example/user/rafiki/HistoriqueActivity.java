@@ -46,7 +46,7 @@ public class HistoriqueActivity extends AppCompatActivity {
             editor.putInt("Cycle", Cycle);
             editor.putInt("Etat", Etat);
             editor.apply();
-         startActivity(new Intent(this, DetaileHistorique.class));
+//         startActivity(new Intent(this, DetaileHistorique.class));
         }
     }
 

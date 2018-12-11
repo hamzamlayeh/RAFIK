@@ -10,33 +10,28 @@ import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
-import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
-import android.widget.Toast;
 
-import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 
 public class BLEManager {
 
     private static BluetoothAdapter mBluetoothAdapter;
     private static BluetoothDevice mBluetoothDevice;
     private static BluetoothGatt bluetoothGatt;
-    private static final String GADGET_NAME     = "BLE_SPP SERVER";
-    private static final long SCAN_PERIOD       = 10;
-    private static final long INTERVAL_MS       = 30;
+    private static final String GADGET_NAME = "BLE_SPP SERVER";
+    private static final long SCAN_PERIOD = 10;
+    private static final long INTERVAL_MS = 30;
     private static int scanCycle = 0;
-    private static boolean isDeviceFound        = false;
-    private static boolean isDeviceConnected    = false;
+    private static boolean isDeviceFound = false;
+    private static boolean isDeviceConnected = false;
     private static BluetoothGattService mSPPBluetoothService;
 
     /* Texas Instruments */
     private static final String UIID_SERVICE = "F000C0E0-0451-4000-B000-000000000000";
-    private static final String UIID_DATA_CHARACTERISTIC  = "F000C0E1-0451-4000-B000-000000000000";
+    private static final String UIID_DATA_CHARACTERISTIC = "F000C0E1-0451-4000-B000-000000000000";
 
     private static BluetoothAdapter.LeScanCallback leScanCallback = new BluetoothAdapter.LeScanCallback() {
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -79,12 +74,12 @@ public class BLEManager {
         public void onCharacteristicChanged(BluetoothGatt gatt, final BluetoothGattCharacteristic characteristic) {
             // this will get called anytime you perform a read or write characteristic operation
             try {
-                byte[] data ={};
+                byte[] data = {};
                 data = characteristic.getValue();
-                E7_2.str=data;
+                E7_2.str = data;
 
 
-                }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
 
             }
@@ -145,7 +140,7 @@ public class BLEManager {
         } catch (Exception ex) {
             bResult = false;
         }
-        return  bResult;
+        return bResult;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -158,7 +153,7 @@ public class BLEManager {
             mBluetoothAdapter.stopLeScan(leScanCallback);
             bResult = false;
         }
-        return  bResult;
+        return bResult;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -169,31 +164,31 @@ public class BLEManager {
         } catch (Exception ex) {
             bResult = false;
         }
-        return  bResult;
+        return bResult;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static boolean discoverDeviceServices(){
+    public static boolean discoverDeviceServices() {
         boolean bResult = true;
         try {
             bluetoothGatt.discoverServices();
         } catch (Exception ex) {
             bResult = false;
         }
-        return  bResult;
+        return bResult;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public static boolean writeData(byte[] buffer) {
         boolean bResult = true;
         try {
-            if(mSPPBluetoothService == null){
+            if (mSPPBluetoothService == null) {
                 bResult = false;
             } else {
                 BluetoothGattCharacteristic mWriteCharacteristic = mSPPBluetoothService.getCharacteristic(UUID.fromString(UIID_DATA_CHARACTERISTIC));
                 mWriteCharacteristic.setValue(buffer);
                 mWriteCharacteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);
-                if(bluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false){
+                if (bluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false) {
                     bResult = false;
                 } else {
                     Thread.sleep(INTERVAL_MS);
@@ -202,20 +197,20 @@ public class BLEManager {
         } catch (Exception ex) {
             bResult = false;
         }
-        return  bResult;
+        return bResult;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public static boolean readData() {
         boolean bResult = true;
-        if(mSPPBluetoothService == null){
+        if (mSPPBluetoothService == null) {
             bResult = false;
         } else {
             BluetoothGattCharacteristic mReadCharacteristic = mSPPBluetoothService.getCharacteristic(UUID.fromString(UIID_DATA_CHARACTERISTIC));
             byte[] buffer = mReadCharacteristic.getValue();
-            Log.d("BLE",new String(buffer));
+            Log.d("BLE", new String(buffer));
         }
-        return  bResult;
+        return bResult;
     }
 
 
@@ -234,9 +229,18 @@ public class BLEManager {
         } catch (Exception ex) {
             bResult = false;
         }
-        return  bResult;
+        return bResult;
     }
+
     public static int unsignedToBytes(byte b) {
         return b & 0xFF;
+    }
+
+    public static String decToHex(int dec, int dec2) {
+        return Integer.toHexString(dec2) + Integer.toHexString(dec);
+    }
+
+    public static int hexToInt(String hex) {
+        return Integer.parseInt(hex, 16);
     }
 }

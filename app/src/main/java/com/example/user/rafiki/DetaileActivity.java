@@ -73,7 +73,7 @@ public class DetaileActivity extends AppCompatActivity {
             Txt_Calorie.setText(String.valueOf((int) Double.parseDouble(restoredcal)));
         }
         if (restoredchrono != null) {
-            if (restoredchrono.length() > 6) {
+            if (restoredchrono.length() > 5) {
                 Txt_Chrono.setText(restoredchrono);
             } else {
                 Txt_Chrono.setText("00:"+restoredchrono);

@@ -44,26 +44,29 @@ public class E12 extends AppCompatActivity {
 
         YAxis leftAxis=mchart.getAxisLeft();
         leftAxis.removeAllLimitLines();
-        leftAxis.setAxisMaximum(40f);
-        leftAxis.setAxisMinimum(34f);
+        leftAxis.setAxisMaximum(50f);
+        leftAxis.setAxisMinimum(20f);
         leftAxis.setTextColor(R.color.left);
         leftAxis.enableGridDashedLine(10f,10f,0);
         leftAxis.setDrawLimitLinesBehindData(true);
 
         ArrayList<Entry> yvalues = new ArrayList<>();
-
-        yvalues.add(new Entry(0,37f));
-        yvalues.add(new Entry(1,38f));
-        yvalues.add(new Entry(2,38f));
-        yvalues.add(new Entry(3,36f));
-        yvalues.add(new Entry(4,35f));
-        yvalues.add(new Entry(5,36f));
-        yvalues.add(new Entry(6,36f));
-        yvalues.add(new Entry(7,37.5f));
-        yvalues.add(new Entry(8,37.5f));
-        yvalues.add(new Entry(9,37f));
-        yvalues.add(new Entry(10,36.9f));
-        yvalues.add(new Entry(11,36.5f));
+        for (int i=0;i<=50;i++){
+            float val=(float) (Math.random()*(40-35)+35);
+            yvalues.add(new Entry((i+5),val));
+        }
+//        yvalues.add(new Entry(0,37f));
+//        yvalues.add(new Entry(1,38f));
+//        yvalues.add(new Entry(2,38f));
+//        yvalues.add(new Entry(3,36f));
+//        yvalues.add(new Entry(4,35f));
+//        yvalues.add(new Entry(5,36f));
+//        yvalues.add(new Entry(6,36f));
+//        yvalues.add(new Entry(7,37.5f));
+//        yvalues.add(new Entry(8,37.5f));
+//        yvalues.add(new Entry(9,37f));
+//        yvalues.add(new Entry(10,36.9f));
+//        yvalues.add(new Entry(11,36.5f));
 
         LineDataSet set1 = new LineDataSet(yvalues,"");
 

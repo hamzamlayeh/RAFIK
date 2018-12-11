@@ -282,7 +282,7 @@
 
                             <TextView
                                 android:id="@+id/chiffreECG"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/raleway_bold"
                                 android:gravity="center"
@@ -691,6 +691,7 @@
             android:layout_width="match_parent"
             android:layout_height="74dp"
             android:background="#024372"
+            android:onClick="historique"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -780,6 +781,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="Cycle"
                 android:background="@android:color/white"
                 android:orientation="vertical">
 

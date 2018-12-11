@@ -118,6 +118,7 @@ public class UserDataSource {
         return list;
     }
 
+
     public boolean verifEmail(String email) {
 
         Cursor cursor = db.query(TABLE_NAME, new String[]{"email"}, "email=?", new String[]{email},
@@ -126,7 +127,6 @@ public class UserDataSource {
         cursor.close();
         return cursorcount > 0;
     }
-
     public boolean verifUser(String email, String password) {
 
         Cursor cursor = db.query(TABLE_NAME, new String[]{"email,password"}, "email=? AND password=?", new String[]{email, password},

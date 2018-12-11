@@ -38,9 +38,10 @@ public class ParametresMesures extends AppCompatActivity {
     Chronometer chronometer;
     ToggleButton btn_P_R;
     Button stop, declancher, Img_lock;
-    int Indice, Poids;
+    int Indice, Poids,Nbr_pas;
     long lastPause;
-    double Nbr_pas, Duree_en_munite, Calorie;
+    double  Duree_en_munite, Calorie;
+    Boolean DECLANCHER=false;
     String Chrono, Date_cycle, FullDate_cycle, Time_cycle;
     SharedPreferences prefs, pref;
     SharedPreferences.Editor editor;
@@ -85,7 +86,7 @@ public class ParametresMesures extends AppCompatActivity {
     public void declancher(View view) {
         boolean value = pref.getBoolean("connexion", false);
         if (value) {
-
+            DECLANCHER=true;
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
             SimpleDateFormat FullDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss", Locale.getDefault());
             SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
@@ -102,6 +103,8 @@ public class ParametresMesures extends AppCompatActivity {
             Mythred0 thread0 = new Mythred0();
             thread0.start();
             EnvoiaTrame();
+        }else {
+            Toast.makeText(activity, "Votre carte n'est pas connecté", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -116,6 +119,7 @@ public class ParametresMesures extends AppCompatActivity {
                         if (E7_2.str != null) {
                             StopThread = false;
                             E7_2.str = null;
+                            DECLANCHER=false;
                             chronometer.stop();
                             chronometer.setBase(SystemClock.elapsedRealtime());
                             lastPause = 0;
@@ -133,6 +137,8 @@ public class ParametresMesures extends AppCompatActivity {
                             editor.putString("Date_Cycle", FullDate_cycle);
                             editor.apply();
                             startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
+                        }else{
+                            Toast.makeText(activity, "Votre carte n'est pas connecté", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
@@ -275,39 +281,171 @@ public class ParametresMesures extends AppCompatActivity {
     }
 
     public void parammetres(View view) {
-        StopThread = false;
-        Intent ite = new Intent(this, MenuActivity.class);
-        startActivity(ite);
-        E7_2.str = null;
+        if (DECLANCHER){
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir))
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            StopThread = false;
+                            E7_2.str = null;
+                            startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+                        }
+                    }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            }).show();
+        }else {
+            StopThread = false;
+            E7_2.str = null;
+            startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void exite(View view) {
-        StopThread = false;
-        E7_2.str = null;
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        startActivity(intent);
-        finishAffinity();
+        if (DECLANCHER){
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir))
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            StopThread = false;
+                            E7_2.str = null;
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            startActivity(intent);
+                            finishAffinity();
+                        }
+                    }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            }).show();
+        }else {
+            StopThread = false;
+            E7_2.str = null;
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            startActivity(intent);
+            finishAffinity();
+        }
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            StopThread = false;
-            E7_2.str = null;
-            Intent ite = new Intent(this, CycleActivity.class);
-            startActivity(ite);
+            if (DECLANCHER){
+                AlertDialog.Builder alt = new AlertDialog.Builder(this);
+                alt.setTitle(" " + getString(R.string.finir_activity))
+                        .setIcon(R.drawable.alert)
+                        .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir))
+                        .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                StopThread = false;
+                                E7_2.str = null;
+                                startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+                            }
+                        }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).show();
+            }else {
+                StopThread = false;
+                E7_2.str = null;
+                startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+            }
         }
         return false;
     }
 
     public void acueil(View view) {
-        StopThread = false;
-        Intent ite = new Intent(this, E8.class);
-        startActivity(ite);
-        E7_2.str = null;
+        if (DECLANCHER){
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir))
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            StopThread = false;
+                            E7_2.str = null;
+                            startActivity(new Intent(getApplicationContext(),E8.class));
+                        }
+                    }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            }).show();
+        }else {
+            StopThread = false;
+            E7_2.str = null;
+            startActivity(new Intent(getApplicationContext(),E8.class));
+        }
+    }
+
+    public void Cycle(View view) {
+        if (DECLANCHER){
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir))
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            StopThread = false;
+                            E7_2.str = null;
+                            startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+                        }
+                    }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            }).show();
+        }else {
+            StopThread = false;
+            E7_2.str = null;
+            startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+        }
+    }
+
+    public void historique(View view) {
+        if (DECLANCHER){
+            AlertDialog.Builder alt = new AlertDialog.Builder(this);
+            alt.setTitle(" " + getString(R.string.finir_activity))
+                    .setIcon(R.drawable.alert)
+                    .setMessage("\n " + getString(R.string.etes_vous_sure_de_vouloir))
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            StopThread = false;
+                            E7_2.str = null;
+                            startActivity(new Intent(getApplicationContext(),HistoriqueActivity.class));
+                        }
+                    }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            }).show();
+        }else {
+            StopThread = false;
+            E7_2.str = null;
+            startActivity(new Intent(getApplicationContext(),HistoriqueActivity.class));
+        }
     }
 
     class Mythred0 extends Thread {
@@ -325,27 +463,40 @@ public class ParametresMesures extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-                            SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
+//                            SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
                             NumberFormat format = NumberFormat.getInstance();
                             format.setMaximumFractionDigits(2);
+                            SimpleDateFormat dateFormat;
                             try {
                                 Chrono = String.valueOf(chronometer.getText());
+                                if (Chrono.length() > 5) {
+                                     dateFormat = new SimpleDateFormat("hh:mm:ss");
+                                     System.out.println("A=="+Chrono);
+                                } else {
+                                    dateFormat = new SimpleDateFormat("mm:ss");
+                                    System.out.println("B=="+Chrono);
+                                }
                                 Date date = dateFormat.parse(Chrono);
                                 Calendar cl = Calendar.getInstance();
                                 cl.setTime(date);
                                 double seconde = cl.get(Calendar.SECOND) * UNITE_SECONDE;
                                 double munite = cl.get(Calendar.MINUTE) * UNITE_MENUTE;
-                                double huere = cl.get(Calendar.HOUR_OF_DAY);
+                                double huere = cl.get(Calendar.HOUR_OF_DAY)*UNITE_HEURE;
 
-                                Duree_en_munite = (seconde + munite) / UNITE_MENUTE;
+                                Duree_en_munite = (huere + seconde + munite) / UNITE_MENUTE;
+                                System.out.println(Duree_en_munite);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+//                            Toast.makeText(activity, E7_2.str[2]+"", Toast.LENGTH_SHORT).show();
                             textECG.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
                             textPoumon.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
                             textTemp.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
                             niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[7]) + "%"));
-                            Nbr_pas = BLEManager.unsignedToBytes((byte) (E7_2.str[5] + E7_2.str[6]));
+
+                            Nbr_pas = BLEManager.hexToInt(BLEManager.decToHex(BLEManager.unsignedToBytes(E7_2.str[5]),
+                                      BLEManager.unsignedToBytes(E7_2.str[6])));
+
                             if (Indice != 0) {
                                 switch (Indice) {
                                     case 1:
@@ -353,14 +504,14 @@ public class ParametresMesures extends AppCompatActivity {
                                         textCal.setText(String.valueOf((int) Calorie));
                                         break;
                                     case 2:
-                                        double DistanceM = Nbr_pas / 1600;
+                                        double DistanceM = (double) Nbr_pas / 1600;
                                         textDist.setText(format.format(DistanceM));
                                         textVitesse.setText(format.format(DistanceM / (Duree_en_munite / 60)));
                                         Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
                                         textCal.setText(String.valueOf((int) Calorie));
                                         break;
                                     case 3:
-                                        double DistanceC = Nbr_pas / 1250;
+                                        double DistanceC = (double) Nbr_pas / 1250;
                                         double vitesseC = DistanceC / (Duree_en_munite / 60);
                                         textDist.setText(format.format(DistanceC));
                                         textVitesse.setText(format.format(vitesseC));

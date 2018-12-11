@@ -31,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Toast.makeText(this, ""+ DebugDB.getAddressLog(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+ hexToLong(decToHex(255,255)), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, decToHex(10,10), Toast.LENGTH_SHORT).show();
 
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editors = pref.edit();
@@ -166,6 +168,10 @@ public class LoginActivity extends AppCompatActivity {
         getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         recreate();
     }
-
-
+//    public static int hexToLong(String hex) {
+//        return Integer.parseInt(hex, 16);
+//    }
+//    public static String decToHex(int dec, int dec2) {
+//        return Integer.toHexString(dec2) + Integer.toHexString(dec);
+//    }
 }
