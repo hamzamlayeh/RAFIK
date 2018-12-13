@@ -133,7 +133,7 @@
         <activity android:name=".DetaileActivity" />
         <activity android:name=".DetaileRespiration" />
         <activity android:name=".HistoriqueActivity" />
-        <activity android:name=".DetaileHistorique"></activity>
+        <activity android:name=".DetaileHistorique"/>
     </application>
 
 </manifest>

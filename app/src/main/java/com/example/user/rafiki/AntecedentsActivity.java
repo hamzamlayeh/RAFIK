@@ -248,7 +248,6 @@ public class AntecedentsActivity extends AppCompatActivity {
         if (matcher.matches()) {
             matcher.reset();
             if (matcher.find()) {
-
                 String day = matcher.group(1);
                 String month = matcher.group(2);
                 int year = Integer.parseInt(matcher.group(3));
