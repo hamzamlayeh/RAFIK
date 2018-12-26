@@ -52,7 +52,7 @@ public class Calandrier_pop extends DialogFragment implements View.OnClickListen
             int x = cal.get(Calendar.YEAR) - naisence.getYear();
             int month = naisence.getMonth() + 1;
             date = naisence.getDayOfMonth() + "-" + month + "-" + naisence.getYear();
-            age = x + " ans";
+            age = String.valueOf(x);
             if (Inscription.NUM_PAGE == 1) {
                 Inscription inscr = (Inscription) getActivity();
                 inscr.setage(age);

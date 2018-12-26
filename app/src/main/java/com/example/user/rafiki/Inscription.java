@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Constante;
+import com.example.user.rafiki.ItemData.SeuilValues;
 import com.example.user.rafiki.ItemData.clients;
 import com.tuyenmonkey.mkloader.MKLoader;
 
@@ -35,8 +36,11 @@ public class Inscription extends AppCompatActivity {
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     clients client;
+    SeuilValues seuilValues;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
+    int poidInt;
+    float FCmarche_X,FCcourse_X,FCactivite_X,FCsommeil_X;
     public static int idc = -1, NUM_PAGE = 1;
     MKLoader mkLoader;
 
@@ -183,7 +187,7 @@ public class Inscription extends AppCompatActivity {
     }
 
     public void setage(String age) {
-        naisence.setText(age);
+        naisence.setText(age+" age");
         naisence.setError(null);
         editor.putString("Age", naisence.getText().toString());
     }
@@ -218,8 +222,17 @@ public class Inscription extends AppCompatActivity {
         if (valider()) {
             String codephone = prefs.getString("Code_pays", null);
             remplir_champs();
-
+           try {
+               poidInt= Integer.parseInt(Poid);
+           }catch (Exception e){
+               e.printStackTrace();
+           }
             client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
+           FCmarche_X=0;
+           FCcourse_X=0;
+           FCactivite_X=0;
+           FCsommeil_X= (float) ((208-(0.7*poidInt))*0.6);
+                  // seuilValues = new SeuilValues(, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
             List list = ds.getAllClient();
             if (list.size() > 0) {
                 Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();

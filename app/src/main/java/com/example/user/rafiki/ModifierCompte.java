@@ -202,7 +202,7 @@ public class ModifierCompte extends AppCompatActivity {
     }
 
     public void setage(String age) {
-        naisence.setText(age);
+        naisence.setText(age+ " age");
         naisence.setError(null);
         editor.putString("Age", age);
         editor.apply();
