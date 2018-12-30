@@ -1,6 +1,5 @@
 package com.example.user.rafiki;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,8 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.user.rafiki.ItemData.Fiche;
-import com.example.user.rafiki.ItemData.Seuils_Item;
+import com.example.user.rafiki.ItemData.SeuilValues;
 import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.util.ArrayList;
@@ -25,8 +23,8 @@ public class SeuilBiometriques extends AppCompatActivity {
     String Cmarche_M, Cmarche_X, Ccourse_M, Ccourse_X, Cactivite_M, Cactivite_X, Csommeil_M, Csommeil_X;
     String Rmarche_M, Rmarche_X, Rcourse_M, Rcourse_X, Ractivite_M, Ractivite_X, Rsommeil_M, Rsommeil_X;
     String Tmarch_M, Tmarch_X, Tcours_M, Tcours_X, Tactivit_M, Tactivit_X, Tsomeil_M, Tsomeil_X;
-    List<Seuils_Item> list = new ArrayList<Seuils_Item>();
-    Seuils_Item Seuils;
+    List<SeuilValues> list = new ArrayList<SeuilValues>();
+    SeuilValues Seuils;
     MKLoader mkLoader;
 
     @Override
@@ -122,29 +120,28 @@ public class SeuilBiometriques extends AppCompatActivity {
         Tsomeil_X = Tsommeil_X.getText().toString().trim();
         if (valider()) {
 
-            Seuils = new Seuils_Item(Cmarche_M, Cmarche_X, Ccourse_M, Ccourse_X, Cactivite_M, Cactivite_X, Csommeil_M,
+            Seuils = new SeuilValues(Cmarche_M, Cmarche_X, Ccourse_M, Ccourse_X, Cactivite_M, Cactivite_X, Csommeil_M,
                     Csommeil_X, Rmarche_M, Rmarche_X, Rcourse_M, Rcourse_X, Ractivite_M, Ractivite_X, Rsommeil_M, Rsommeil_X,
                     Tmarch_M, Tmarch_X, Tcours_M, Tcours_X, Tactivit_M, Tactivit_X, Tsomeil_M, Tsomeil_X);
-            if (ds.getCountSeuils() <= 0) {
-                long ids = ds.addSeuils(Seuils);
-                if (ids == -1) {
-                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
-                } else {
-                    mkLoader.setVisibility(View.VISIBLE);
-                    Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
-                    startActivity(ite);
-                    SeuilBiometriques.this.finish();
-                }
+//            if (ds.getCountSeuils() <= 0) {
+//                long ids = ds.addSeuils(Seuils);
+//                if (ids == -1) {
+//                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+//                } else {
+//                    mkLoader.setVisibility(View.VISIBLE);
+//                    Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
+//                    startActivity(ite);
+//                    SeuilBiometriques.this.finish();
+//                }
+//            } else {
+            long ids = ds.UpdateSeuils(Seuils, 1);
+            if (ids == -1) {
+                Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
             } else {
-                long ids = ds.UpdateSeuils(Seuils, 1);
-                if (ids == -1) {
-                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
-                } else {
-                    mkLoader.setVisibility(View.VISIBLE);
-                    Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
-                    startActivity(ite);
-                    SeuilBiometriques.this.finish();
-                }
+                mkLoader.setVisibility(View.VISIBLE);
+                Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
+                startActivity(ite);
+                SeuilBiometriques.this.finish();
             }
         }
     }

@@ -19,16 +19,26 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.user.rafiki.ItemData.SeuilValues;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class E8 extends AppCompatActivity {
 
     final static int MY_PERMISSIONS_REQUEST = 1;
     Intent intent;
+    MySQLiteOpenHelper helper;
+    UserDataSource ds;
     Animation animation, animation2;
     ImageView coeur, poumon, Resaux;
     int minBat = 0, maxBat = 0, moyBat = 0, minPoum = 0, maxPoum = 0, moyPoum = 0, minTemp = 0, maxTemp = 0, moyTemp = 0;
     int minOxy = 0, maxOxy = 0, moyOxy = 0;
+    int FC = 0, FR = 0, T = 0, W = 0, N = 0;
     Activity activity;
+    List<SeuilValues> list = new ArrayList<SeuilValues>();
     static boolean StopThread = true;
     SharedPreferences prefs;
 
@@ -36,6 +46,8 @@ public class E8 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e8);
+        helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
+        ds = new UserDataSource(helper);
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
         checkSmsPermission();
         activity = this;
@@ -154,12 +166,12 @@ public class E8 extends AppCompatActivity {
         StopThread = false;
         Intent ite = new Intent(this, CycleActivity.class);
         startActivity(ite);
-        E7_2.str=null;
+        E7_2.str = null;
 
     }
 
     public void historique(View view) {
-        E7_2.str=null;
+        E7_2.str = null;
         StopThread = false;
         Intent ite = new Intent(this, HistoriqueActivity.class);
         startActivity(ite);
@@ -219,8 +231,10 @@ public class E8 extends AppCompatActivity {
                                 sms.sendTextMessage(num, null, msg, null, null);
                                 E7_2.str[7] = 0;
                             }
+                            AlertSeuil(BLEManager.unsignedToBytes(E7_2.str[2]),
+                                    BLEManager.unsignedToBytes(E7_2.str[3]), BLEManager.unsignedToBytes(E7_2.str[4]));
                         } catch (Exception e) {
-                            ;
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -230,6 +244,68 @@ public class E8 extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    public void AlertSeuil(int FCinst, int FRinst, int Tinst) {
+
+        list = ds.getListSeuils();
+        //Fréquence Cardiaque FC
+        if (maxBat >= Integer.parseInt(list.get(1).getFCmarche_X())
+                || FCinst >= Integer.parseInt(list.get(1).getFCmarche_X())) {
+            FC = 1;
+        } else {
+            FC = 0;
+        }
+        if (minBat <= Integer.parseInt(list.get(1).getFCmarche_M())
+                || FCinst <= Integer.parseInt(list.get(1).getFCmarche_M())) {
+            FC = 1;
+        } else {
+            FC = 0;
+        }
+        //Fréquence Respiratoire FR
+        if (maxPoum >= Integer.parseInt(list.get(1).getFRmarche_X())
+                || FRinst >= Integer.parseInt(list.get(1).getFRmarche_X())) {
+            FR = 1;
+            N += 1;
+        } else {
+            FR = 0;
+        }
+        if (minPoum <= Integer.parseInt(list.get(1).getFRmarche_M())
+                || FRinst <= Integer.parseInt(list.get(1).getFRmarche_M())) {
+            FR = 1;
+            N += 1;
+        } else {
+            FR = 0;
+        }
+        //Température T°:
+        if (maxTemp >= Integer.parseInt(list.get(1).getTmarche_X())
+                || Tinst >= Integer.parseInt(list.get(1).getTmarche_X())) {
+            T = 1;
+            N += 1;
+        } else {
+            T = 0;
+        }
+        if (maxTemp <= Integer.parseInt(list.get(1).getTmarche_M())
+                || Tinst <= Integer.parseInt(list.get(1).getTmarche_M())) {
+            T = 1;
+            N += 1;
+        } else {
+            T = 0;
+        }
+        W = FC * FR * T;
+
+        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
+            Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
+        }
+        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
+            Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
+        }
+        if (W == 1 && N <= 2) {
+            Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
+        }
+        if (W == 1 && N > 2) {
+            Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
         }
     }
 

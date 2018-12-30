@@ -39,8 +39,8 @@ public class Inscription extends AppCompatActivity {
     SeuilValues seuilValues;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    int poidInt;
-    float FCmarche_X,FCcourse_X,FCactivite_X,FCsommeil_X;
+    int Age ;
+    int FCmarche_X,FCcourse_X,FCactivite_X,FCsommeil_X;
     public static int idc = -1, NUM_PAGE = 1;
     MKLoader mkLoader;
 
@@ -188,6 +188,11 @@ public class Inscription extends AppCompatActivity {
 
     public void setage(String age) {
         naisence.setText(age+" age");
+        try {
+            Age = Integer.parseInt(age);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         naisence.setError(null);
         editor.putString("Age", naisence.getText().toString());
     }
@@ -223,16 +228,17 @@ public class Inscription extends AppCompatActivity {
             String codephone = prefs.getString("Code_pays", null);
             remplir_champs();
            try {
-               poidInt= Integer.parseInt(Poid);
+               Age = Integer.parseInt(Poid);
            }catch (Exception e){
                e.printStackTrace();
            }
             client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
-           FCmarche_X=0;
-           FCcourse_X=0;
-           FCactivite_X=0;
-           FCsommeil_X= (float) ((208-(0.7*poidInt))*0.6);
-                  // seuilValues = new SeuilValues(, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
+            FCmarche_X = (int) ((208 - (0.7 * Age)) * 0.7);
+            FCcourse_X = (int) ((208 - (0.7 * Age)) * 0.9);
+            FCactivite_X = (int) ((208 - (0.7 * Age)) * 0.6);
+            FCsommeil_X = (int) ((208 - (0.7 * Age)) * 0.6);
+            seuilValues = new SeuilValues(String.valueOf(FCmarche_X), String.valueOf(FCcourse_X),
+                    String.valueOf(FCactivite_X), String.valueOf(FCsommeil_X));
             List list = ds.getAllClient();
             if (list.size() > 0) {
                 Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();
@@ -241,10 +247,15 @@ public class Inscription extends AppCompatActivity {
                 if (ids == -1) {
                     Toast.makeText(Inscription.this, string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                 } else {
-                    mkLoader.setVisibility(View.VISIBLE);
-                    Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
-                    ite = new Intent(Inscription.this, LoginActivity.class);
-                    startActivity(ite);
+                    long id = ds.addSeuils(seuilValues);
+                    if (id == -1) {
+                        Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                    } else {
+                        mkLoader.setVisibility(View.VISIBLE);
+                        Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
+                        ite = new Intent(Inscription.this, LoginActivity.class);
+                        startActivity(ite);
+                    }
                 }
             }
         }

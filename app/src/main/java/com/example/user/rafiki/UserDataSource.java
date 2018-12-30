@@ -11,7 +11,7 @@ import com.example.user.rafiki.ItemData.Contacts_Urgences;
 import com.example.user.rafiki.ItemData.Cycle;
 import com.example.user.rafiki.ItemData.Fiche;
 import com.example.user.rafiki.ItemData.Medicament_Item;
-import com.example.user.rafiki.ItemData.Seuils_Item;
+import com.example.user.rafiki.ItemData.SeuilValues;
 import com.example.user.rafiki.ItemData.clients;
 
 import java.util.ArrayList;
@@ -127,6 +127,7 @@ public class UserDataSource {
         cursor.close();
         return cursorcount > 0;
     }
+
     public boolean verifUser(String email, String password) {
 
         Cursor cursor = db.query(TABLE_NAME, new String[]{"email,password"}, "email=? AND password=?", new String[]{email, password},
@@ -647,7 +648,7 @@ public class UserDataSource {
         return count;
     }
 
-    public long addSeuils(Seuils_Item itemData) {
+    public long addSeuils(SeuilValues itemData) {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("FCmarche_M", itemData.getFCmarche_M());
@@ -678,7 +679,7 @@ public class UserDataSource {
         return db.insert(TABLE_NAME10, null, contentValues);
     }
 
-    public long UpdateSeuils(Seuils_Item itemData, int id) {
+    public long UpdateSeuils(SeuilValues itemData, int id) {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("FCmarche_M", itemData.getFCmarche_M());
@@ -709,8 +710,19 @@ public class UserDataSource {
         return (long) db.update(TABLE_NAME10, contentValues, "_id= " + id, null);
     }
 
-    public List getListSeuils() {
-        ArrayList<Seuils_Item> list = new ArrayList<>();
+    public long UpdateSeuilsInsc(SeuilValues itemData, int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("FCmarche_X", itemData.getFCmarche_X());
+        contentValues.put("FCcourse_X", itemData.getFCcourse_X());
+        contentValues.put("FCactivite_X", itemData.getFCactivite_X());
+        contentValues.put("FCsommeil_X", itemData.getFCsommeil_X());
+
+        return (long) db.update(TABLE_NAME10, contentValues, "_id= " + id, null);
+    }
+
+    public List<SeuilValues> getListSeuils() {
+        ArrayList<SeuilValues> list = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME10, new String[]{"FCmarche_M,FCmarche_X,FCcourse_M,FCcourse_X," +
                         "FCactivite_M,FCactivite_X,FCsommeil_M,FCsommeil_X,FRmarche_M,FRmarche_X,FRcourse_M," +
                         "FRcourse_X,FRactivite_M,FRactivite_X,FRsommeil_M,FRsommeil_X,Tmarche_M,Tmarche_X,Tcourse_M," +
@@ -744,7 +756,7 @@ public class UserDataSource {
             String F23 = cursor.getString(22);
             String F24 = cursor.getString(23);
 
-            list.add(new Seuils_Item(F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24));
+            list.add(new SeuilValues(F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24));
             cursor.moveToNext();
         }
         cursor.close();

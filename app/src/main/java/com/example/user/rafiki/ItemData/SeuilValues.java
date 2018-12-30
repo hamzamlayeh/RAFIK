@@ -30,7 +30,10 @@ public class SeuilValues {
     private String Tsommeil_M;
     private String Tsommeil_X;
 
-    public SeuilValues(String FCmarche_X, String FCcourse_X, String FCactivite_X,String FCsommeil_X) {
+    public SeuilValues() {
+    }
+
+    public SeuilValues(String FCmarche_X, String FCcourse_X, String FCactivite_X, String FCsommeil_X) {
         this.FCmarche_M = "60";
         this.FCmarche_X = FCmarche_X;
         this.FCcourse_M = "60";
@@ -57,6 +60,33 @@ public class SeuilValues {
         this.Tactivite_X="42";
         this.Tsommeil_M="20";
         this.Tsommeil_X="42";
+    }
+
+    public SeuilValues(String FCmarche_M, String FCmarche_X, String FCcourse_M, String FCcourse_X, String FCactivite_M, String FCactivite_X, String FCsommeil_M, String FCsommeil_X, String FRmarche_M, String FRmarche_X, String FRcourse_M, String FRcourse_X, String FRactivite_M, String FRactivite_X, String FRsommeil_M, String FRsommeil_X, String tmarche_M, String tmarche_X, String tcourse_M, String tcourse_X, String tactivite_M, String tactivite_X, String tsommeil_M, String tsommeil_X) {
+        this.FCmarche_M = FCmarche_M;
+        this.FCmarche_X = FCmarche_X;
+        this.FCcourse_M = FCcourse_M;
+        this.FCcourse_X = FCcourse_X;
+        this.FCactivite_M = FCactivite_M;
+        this.FCactivite_X = FCactivite_X;
+        this.FCsommeil_M = FCsommeil_M;
+        this.FCsommeil_X = FCsommeil_X;
+        this.FRmarche_M = FRmarche_M;
+        this.FRmarche_X = FRmarche_X;
+        this.FRcourse_M = FRcourse_M;
+        this.FRcourse_X = FRcourse_X;
+        this.FRactivite_M = FRactivite_M;
+        this.FRactivite_X = FRactivite_X;
+        this.FRsommeil_M = FRsommeil_M;
+        this.FRsommeil_X = FRsommeil_X;
+        Tmarche_M = tmarche_M;
+        Tmarche_X = tmarche_X;
+        Tcourse_M = tcourse_M;
+        Tcourse_X = tcourse_X;
+        Tactivite_M = tactivite_M;
+        Tactivite_X = tactivite_X;
+        Tsommeil_M = tsommeil_M;
+        Tsommeil_X = tsommeil_X;
     }
 
     public int get_id() {

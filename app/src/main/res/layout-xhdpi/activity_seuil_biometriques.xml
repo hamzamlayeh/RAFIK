@@ -240,6 +240,8 @@
                                 android:layout_weight="3"
                                 android:background="@android:color/transparent"
                                 android:ems="10"
+                                android:focusableInTouchMode="false"
+                                android:cursorVisible="false"
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
@@ -347,6 +349,8 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
+                                android:focusableInTouchMode="false"
+                                android:cursorVisible="false"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:maxLength="3"
@@ -428,6 +432,8 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
+                                android:focusableInTouchMode="false"
+                                android:cursorVisible="false"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:maxLength="3"
@@ -508,6 +514,8 @@
                                 android:fontFamily="@font/raleway_regular"
                                 android:gravity="center"
                                 android:hint="@string/bpm"
+                                android:focusableInTouchMode="false"
+                                android:cursorVisible="false"
                                 android:inputType="numberDecimal"
                                 android:padding="9dp"
                                 android:maxLength="3"
@@ -669,9 +677,9 @@
                                 android:gravity="center"
                                 android:hint="@string/rpm"
                                 android:inputType="numberDecimal"
+                                android:maxLength="2"
                                 android:padding="9dp"
                                 android:text="0"
-                                android:maxLength="1"
                                 android:textSize="13sp"
                                 tools:layout_editor_absoluteX="55dp"
                                 tools:layout_editor_absoluteY="0dp" />
@@ -775,9 +783,9 @@
                                 android:gravity="center"
                                 android:hint="@string/rpm"
                                 android:inputType="numberDecimal"
+                                android:maxLength="2"
                                 android:padding="9dp"
                                 android:text="0"
-                                android:maxLength="1"
                                 android:textSize="13sp" />
 
                             <View
@@ -852,9 +860,9 @@
                                 android:gravity="center"
                                 android:hint="@string/rpm"
                                 android:inputType="numberDecimal"
+                                android:maxLength="2"
                                 android:padding="9dp"
                                 android:text="0"
-                                android:maxLength="1"
                                 android:textSize="13sp" />
 
                             <View
@@ -929,9 +937,9 @@
                                 android:gravity="center"
                                 android:hint="@string/rpm"
                                 android:inputType="numberDecimal"
+                                android:maxLength="2"
                                 android:padding="9dp"
                                 android:text="0"
-                                android:maxLength="1"
                                 android:textSize="13sp" />
 
                             <View

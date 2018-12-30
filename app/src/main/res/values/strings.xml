@@ -211,4 +211,13 @@
     <string name="an">an</string>
     <string name="semaine">semaine</string>
     <string name="s_lectionner_le_param_tre">Sélectionner le paramètre</string>
+    <string name="vibreur">Vibreur</string>
+    <string name="notification_application">Notification application</string>
+    <string name="sms">SMS</string>
+    <string name="texte_du_message">Texte du Message</string>
+    <string name="alerte_niveau_2">alerte niveau 2</string>
+    <string name="alerte_niveau_1">alerte niveau 1</string>
+    <string name="alerte_niveau_3">alerte niveau 3</string>
+    <string name="alerte_niveau_4">alerte niveau 4</string>
+    <string name="param_tres_d_alerte">Paramètres D\'alerte</string>
 </resources>

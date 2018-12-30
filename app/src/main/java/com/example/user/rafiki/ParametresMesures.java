@@ -506,7 +506,7 @@ public class ParametresMesures extends AppCompatActivity {
                                     case 2:
                                         double DistanceM = (double) Nbr_pas / 1600;
                                         textDist.setText(format.format(DistanceM));
-                                        textVitesse.setText(format.format(DistanceM / (Duree_en_munite / 60)));
+                                        textVitesse.setText(format.format((int) DistanceM / (Duree_en_munite / 60)));
                                         Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
                                         textCal.setText(String.valueOf((int) Calorie));
                                         break;
@@ -514,7 +514,7 @@ public class ParametresMesures extends AppCompatActivity {
                                         double DistanceC = (double) Nbr_pas / 1250;
                                         double vitesseC = DistanceC / (Duree_en_munite / 60);
                                         textDist.setText(format.format(DistanceC));
-                                        textVitesse.setText(format.format(vitesseC));
+                                        textVitesse.setText(format.format((int)vitesseC));
 
                                         if (vitesseC <= 10) {
                                             Calorie = (8 * 3.5 * Poids / 200) * Duree_en_munite;

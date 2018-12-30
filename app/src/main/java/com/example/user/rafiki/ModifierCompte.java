@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Constante;
+import com.example.user.rafiki.ItemData.SeuilValues;
 import com.example.user.rafiki.ItemData.clients;
 import com.tuyenmonkey.mkloader.MKLoader;
 
@@ -32,6 +34,9 @@ public class ModifierCompte extends AppCompatActivity {
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     clients client;
+    SeuilValues seuilValues;
+    int Age ;
+    int FCmarche_X,FCcourse_X,FCactivite_X,FCsommeil_X;
     List<clients> list = new ArrayList<clients>();
     String[] codes = new String[199];
     SharedPreferences prefs;
@@ -203,6 +208,11 @@ public class ModifierCompte extends AppCompatActivity {
 
     public void setage(String age) {
         naisence.setText(age+ " age");
+        try {
+            Age = Integer.parseInt(age);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         naisence.setError(null);
         editor.putString("Age", age);
         editor.apply();
@@ -237,13 +247,28 @@ public class ModifierCompte extends AppCompatActivity {
         if (valider()) {
             String codephone = prefs.getString("Code_pays", null);
             client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
+            FCmarche_X = (int) ((208 - (0.7 * Age)) * 0.7);
+            FCcourse_X = (int) ((208 - (0.7 * Age)) * 0.9);
+            FCactivite_X = (int) ((208 - (0.7 * Age)) * 0.6);
+            FCsommeil_X = (int) ((208 - (0.7 * Age)) * 0.6);
+            seuilValues = new SeuilValues();
+            seuilValues.setFCmarche_X(String.valueOf(FCmarche_X));
+            seuilValues.setFCcourse_X(String.valueOf(FCcourse_X));
+            seuilValues.setFCactivite_X(String.valueOf(FCactivite_X));
+            seuilValues.setFCsommeil_X(String.valueOf(FCsommeil_X));
+
             if (ds.updateClient(list.get(0).get_id(), client)) {
-                editor.putString("Email", mail);
-                editor.apply();
-                mkLoader.setVisibility(View.VISIBLE);
-                Intent ite = new Intent(this, MenuActivity.class);
-                startActivity(ite);
-                ModifierCompte.this.finish();
+                long ids = ds.UpdateSeuilsInsc(seuilValues, 1);
+                if (ids == -1) {
+                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+                } else {
+                    editor.putString("Email", mail);
+                    editor.apply();
+                    mkLoader.setVisibility(View.VISIBLE);
+                    Intent ite = new Intent(this, MenuActivity.class);
+                    startActivity(ite);
+                    ModifierCompte.this.finish();
+                }
             }
         }
     }
