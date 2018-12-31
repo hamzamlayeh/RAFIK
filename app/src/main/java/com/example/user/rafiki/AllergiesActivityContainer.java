@@ -38,7 +38,6 @@ public class AllergiesActivityContainer extends AppCompatActivity {
         donne2 = findViewById(R.id.donne2);
         donne3 = findViewById(R.id.donne3);
 
-
         NonAllergies = findViewById(R.id.NonAllergies);
         NonAllergies.setText(nomAllergies);
 
