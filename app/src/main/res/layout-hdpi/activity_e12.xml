@@ -20,148 +20,147 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView48"
-                android:layout_width="25dp"
-                android:layout_height="32dp"
+                android:id="@+id/icone_resaux"
+                android:layout_width="31dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="18dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="9dp"
-                android:padding="3dp"
+                android:layout_marginRight="16dp"
+                android:padding="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/resaux" />
 
             <ImageView
-                android:id="@+id/RAFIKI-Icon4"
-                android:layout_width="50dp"
-                android:layout_height="9dp"
+                android:id="@+id/batterie"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="261dp"
+                android:layout_weight="0.09"
+                android:src="@drawable/batt7"
+                app:layout_constraintHorizontal_bias="0.088"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/NiveauBatt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="0.09"
+                android:fontFamily="@font/bebasneue_regular"
+                android:text="0%"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Respiration"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="68dp"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/raleway_semibolditalic"
+                android:text="@string/temperatur"
+                android:textAllCaps="false"
+                android:textColor="#02abff"
+                android:textSize="14dsp"
+                android:textStyle="bold|italic"
+                app:layout_constraintHorizontal_bias="0.26"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/RAFIKI-Icon"
+                android:layout_width="65dp"
+                android:layout_height="12dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="20dp"
-                android:contentDescription="TODO"
-                app:layout_constraintHorizontal_bias="0.85"
+                android:layout_marginTop="28dp"
+                app:layout_constraintHorizontal_bias="0.86"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/rafik" />
 
             <ImageView
-                android:id="@+id/batterie"
-                android:layout_width="27dp"
-                android:layout_height="28dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="261dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="0.09"
-                app:layout_constraintHorizontal_bias="0.088"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/batt6" />
-
-            <TextView
-                android:id="@+id/NiveauBatt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_weight="0.09"
-                android:text="78%"
-                android:textColor="@android:color/background_light"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/batterie"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/Respiration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="55dp"
-                android:text="@string/temperatur"
-                android:textAllCaps="false"
-                android:textColor="#02abff"
-                android:textSize="12sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintHorizontal_bias="0.343"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <ImageView
                 android:id="@+id/barre1"
-                android:layout_width="80dp"
+                android:layout_width="110dp"
                 android:layout_height="0dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.31"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bare1" />
 
             <ImageView
                 android:id="@+id/barre2"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="110dp"
+                android:layout_height="7dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintBottom_toTopOf="@+id/LayoutBaProgress"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/Respiration"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75"
+                app:layout_constraintHorizontal_bias="0.87"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/RAFIKI-Icon"
                 app:srcCompat="@drawable/bare2" />
 
+            <ImageView
+                android:id="@+id/respiration"
+                android:layout_width="216dp"
+                android:layout_height="178dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="116dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.01"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/tempir" />
+
             <Button
-                android:id="@+id/btn2"
-                android:layout_width="218dp"
-                android:layout_height="21dp"
-                android:layout_marginBottom="24dp"
-                android:background="#24bf0a"
+                android:id="@+id/btn"
+                android:layout_width="307dp"
+                android:layout_height="31dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/color_btnpause"
                 android:onClick="retour"
                 android:text="OK"
                 android:textColor="@android:color/background_light"
-                android:textSize="12sp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageView
-                android:id="@+id/respiration"
-                android:layout_width="143dp"
-                android:layout_height="113dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="96dp"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/tempir" />
-
             <ProgressBar
                 android:id="@+id/vertical"
                 style="@style/Widget.ProgressBar.Vertical2"
-                android:layout_width="9dp"
-                android:layout_height="81dp"
-                android:layout_marginEnd="68dp"
-                android:layout_marginTop="96dp"
+                android:layout_width="15dp"
+                android:layout_height="139dp"
+                android:layout_marginTop="124dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginRight="64dp"
                 android:layout_weight="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginRight="68dp" />
+                tools:visibility="invisible" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -181,116 +180,114 @@
             <LinearLayout
                 android:id="@+id/LayoutBaProgress"
                 android:layout_width="146dp"
-                android:layout_height="135dp"
+                android:layout_height="165dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="84dp"
+                android:layout_marginTop="116dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.949"
+                app:layout_constraintHorizontal_bias="0.967"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="136dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:id="@+id/max"
+                        android:id="@+id/max2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginTop="4dp"
-                        android:text="40"
+                        android:text="C°"
                         android:textColor="@android:color/background_light"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.39"
+                        app:layout_constraintHorizontal_bias="0.37"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.00999999" />
 
                     <TextView
-                        android:id="@+id/max2"
-                        android:layout_width="9dp"
-                        android:layout_height="10dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="C°"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="8sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.49"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.029999971" />
-
-                    <TextView
                         android:id="@+id/max4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginTop="6dp"
                         android:text="C°"
                         android:textColor="@android:color/background_light"
-                        android:textSize="8sp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.48"
+                        app:layout_constraintHorizontal_bias="0.38"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.32999998" />
+                        app:layout_constraintVertical_bias="0.52" />
 
                     <TextView
                         android:id="@+id/max3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginTop="6dp"
                         android:text="C°"
                         android:textColor="@android:color/background_light"
-                        android:textSize="8sp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.48"
+                        app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.72" />
+                        app:layout_constraintVertical_bias="0.94" />
+
+                    <TextView
+                        android:id="@+id/index1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="40"
+                        android:textColor="@android:color/background_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintHorizontal_bias="0.23"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/index2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginTop="10dp"
                         android:text="37"
                         android:textColor="@android:color/background_light"
-                        android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.392"
+                        app:layout_constraintHorizontal_bias="0.241"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.31" />
+                        app:layout_constraintVertical_bias="0.49" />
 
                     <TextView
-                        android:id="@+id/textMin"
+                        android:id="@+id/index3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="36"
                         android:textColor="@android:color/background_light"
-                        android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.398"
+                        app:layout_constraintHorizontal_bias="0.258"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.66999996" />
+                        app:layout_constraintVertical_bias="0.884" />
 
                     <TextView
                         android:id="@+id/t1"
@@ -299,29 +296,27 @@
                         android:layout_marginBottom="8dp"
                         android:text="max"
                         android:textColor="@android:color/background_light"
-                        android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.863"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.034" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/t2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
                         android:text="moy"
                         android:textColor="@android:color/background_light"
-                        android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.863"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.32" />
+                        app:layout_constraintVertical_bias="0.49" />
 
                     <TextView
                         android:id="@+id/t3"
@@ -330,41 +325,28 @@
                         android:layout_marginTop="8dp"
                         android:text="min"
                         android:textColor="@android:color/background_light"
-                        android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.866"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.684" />
+                        app:layout_constraintVertical_bias="0.90999997" />
 
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
-                android:layout_width="0dp"
-                android:layout_height="196dp"
-                android:layout_marginTop="5dp"
-                android:animateLayoutChanges="false"
-                android:animationCache="false"
-                android:background="@drawable/gard"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/LayoutBaProgress" />
-
 
             <ImageView
                 android:id="@+id/etat"
-                android:layout_width="87dp"
-                android:layout_height="14dp"
+                android:layout_width="129dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="275dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="188dp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.87"
+                app:layout_constraintHorizontal_bias="0.97"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -375,125 +357,161 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="187dp"
+                android:layout_marginTop="277dp"
                 android:text="@string/elevee"
                 android:textColor="@android:color/background_light"
-                android:textSize="10sp"
+                android:textSize="18sp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintHorizontal_bias="0.86"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/tirerMaw"
-                android:layout_width="23dp"
+                android:layout_width="35dp"
                 android:layout_height="2dp"
+                android:layout_marginBottom="8dp"
                 android:background="#ff0000"
-                app:layout_constraintBottom_toTopOf="@+id/vertical"
-                app:layout_constraintHorizontal_bias="0.78"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/tirer1"
+                app:layout_constraintHorizontal_bias="0.83"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/RAFIKI-Icon"
+                app:layout_constraintVertical_bias="0.87" />
 
             <View
                 android:id="@+id/tirer1"
-                android:layout_width="8dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="9dp"
+                android:layout_width="12sp"
+                android:layout_height="1sp"
+                android:layout_marginTop="21dp"
                 android:background="#ff0000"
-                app:layout_constraintHorizontal_bias="0.74"
+                android:visibility="invisible"
+                app:layout_constraintHorizontal_bias="0.791"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirerMaw" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
             <View
                 android:id="@+id/tirer2"
-                android:layout_width="8dp"
+                android:layout_width="12sp"
                 android:layout_height="1sp"
+                android:layout_marginTop="44dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:background="#ff0000"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/LayoutBaProgress"
-                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintHorizontal_bias="0.791"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirer1"
-                app:layout_constraintVertical_bias="0.01999998" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.029999971" />
 
             <View
                 android:id="@+id/tirer3"
-                android:layout_width="8dp"
+                android:layout_width="12sp"
                 android:layout_height="1sp"
+                android:layout_marginTop="46dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:background="#ff0000"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/LayoutBaProgress"
-                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintHorizontal_bias="0.791"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirer2"
-                app:layout_constraintVertical_bias="0.050000012" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.25" />
 
             <View
                 android:id="@+id/tirer4"
-                android:layout_width="8dp"
+                android:layout_width="12sp"
                 android:layout_height="1sp"
+                android:layout_marginTop="46dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:background="#ff0000"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/LayoutBaProgress"
-                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintHorizontal_bias="0.791"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirer3"
-                app:layout_constraintVertical_bias="0.07999998" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.49" />
 
             <View
                 android:id="@+id/tirer5"
-                android:layout_width="8dp"
+                android:layout_width="12sp"
                 android:layout_height="1sp"
+                android:layout_marginTop="46dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:background="#ff0000"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/LayoutBaProgress"
-                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintHorizontal_bias="0.791"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tirer4"
-                app:layout_constraintVertical_bias="0.120000005" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.74" />
 
             <View
                 android:id="@+id/tirerMin"
-                android:layout_width="23dp"
+                android:layout_width="35dp"
                 android:layout_height="2dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="#ff0000"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/etat3"
-                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintHorizontal_bias="0.83"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/vertical"
+                app:layout_constraintVertical_bias="0.96" />
 
             <TextView
                 android:id="@+id/tempirature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="180dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="232dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/raleway_light"
                 android:text="40"
                 android:textColor="@android:color/background_light"
-                android:textSize="19sp"
-                app:layout_constraintEnd_toStartOf="@+id/temp"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="256dp"
-                android:layout_marginTop="172dp"
-                android:text="C°"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="225dp"
+                android:text="c°"
+                android:fontFamily="@font/raleway_light"
                 android:textColor="@android:color/background_light"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.14"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart1"
+                android:layout_width="0dp"
+                android:layout_height="138dp"
+                android:animateLayoutChanges="false"
+                android:animationCache="false"
+                android:background="@drawable/gard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etat" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 
