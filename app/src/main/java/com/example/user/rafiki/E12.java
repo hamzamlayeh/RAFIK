@@ -30,7 +30,8 @@ public class E12 extends AppCompatActivity {
         setContentView(R.layout.activity_e12);
 
         ProgressBar bar =(ProgressBar)findViewById(R.id.vertical);
-        bar.setProgress(100);
+        bar.setVisibility(View.INVISIBLE);
+//        bar.setProgress(100);
 
         mchart = (LineChart) findViewById(R.id.chart1);
         mchart.setDragEnabled(true);

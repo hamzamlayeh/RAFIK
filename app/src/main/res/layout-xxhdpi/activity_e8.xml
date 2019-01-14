@@ -57,7 +57,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_weight="0.09"
                 android:fontFamily="@font/bebasneue_regular"
-                android:text="0%"
+                android:text="--%"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -774,14 +774,14 @@
                 android:id="@+id/icone_resaux"
                 android:layout_width="31dp"
                 android:layout_height="36dp"
+                android:layout_marginTop="18dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="18dp"
                 android:padding="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux" />
+                app:srcCompat="@drawable/resaux2" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 

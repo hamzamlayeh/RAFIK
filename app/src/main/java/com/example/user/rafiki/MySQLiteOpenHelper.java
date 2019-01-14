@@ -12,7 +12,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
 
     public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
-        super(context, name, factory, 6);
+        super(context, name, factory, 7);
     }
 
     @Override
@@ -61,6 +61,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String sql11="CREATE TABLE Cycle (_id integer PRIMARY KEY autoincrement not null,"+
                 "fuldate_cycle text,date text,time text,frequenceC real,poumon real,tempirateur real," +
                 "nb_pas real,calorie real,cycle integer)";
+        // Parametre_Alert
+        String sql12="CREATE TABLE Parametre_Alert (_id integer PRIMARY KEY autoincrement not null,"+
+                "smsNiveau2 text,smsNiveau3 text,smsNiveau4 text)";
         db.execSQL(sql);
         db.execSQL(sql2);
         db.execSQL(sql3);
@@ -72,22 +75,24 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql9);
         db.execSQL(sql10);
         db.execSQL(sql11);
+        db.execSQL(sql12);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
-        String delet_sql="DROP Table clients ";
-        String delet_sql2="DROP Table ficheMedicale ";
-        String delet_sql3="DROP Table Antecedents ";
-        String delet_sql4="DROP Table Maladis ";
-        String delet_sql5="DROP Table Allergies ";
-        String delet_sql6="DROP Table Medicament ";
-        String delet_sql7="DROP Table Contacts_Parentaux ";
-        String delet_sql8="DROP Table Contacts_Medecins ";
-        String delet_sql9="DROP Table Contacts_Urgences ";
-        String delet_sql10="DROP Table Seuils_Bio ";
-        String delet_sql11="DROP Table Cycle ";
+        String delet_sql="DROP Table IF EXISTS clients ";
+        String delet_sql2="DROP Table IF EXISTS ficheMedicale ";
+        String delet_sql3="DROP Table IF EXISTS Antecedents ";
+        String delet_sql4="DROP Table IF EXISTS Maladis ";
+        String delet_sql5="DROP Table IF EXISTS Allergies ";
+        String delet_sql6="DROP Table IF EXISTS Medicament ";
+        String delet_sql7="DROP Table IF EXISTS Contacts_Parentaux ";
+        String delet_sql8="DROP Table IF EXISTS Contacts_Medecins ";
+        String delet_sql9="DROP Table IF EXISTS Contacts_Urgences ";
+        String delet_sql10="DROP Table IF EXISTS Seuils_Bio ";
+        String delet_sql11="DROP Table IF EXISTS Cycle ";
+       String delet_sql12="DROP Table IF EXISTS Parametre_Alert ";
 
         sqLiteDatabase.execSQL(delet_sql);
         sqLiteDatabase.execSQL(delet_sql2);
@@ -100,6 +105,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(delet_sql9);
         sqLiteDatabase.execSQL(delet_sql10);
         sqLiteDatabase.execSQL(delet_sql11);
+      sqLiteDatabase.execSQL(delet_sql12);
 
         onCreate(sqLiteDatabase);
     }

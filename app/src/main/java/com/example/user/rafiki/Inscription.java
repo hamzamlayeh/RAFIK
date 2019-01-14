@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.user.rafiki.ItemData.Alerts;
 import com.example.user.rafiki.ItemData.Constante;
 import com.example.user.rafiki.ItemData.SeuilValues;
 import com.example.user.rafiki.ItemData.clients;
@@ -37,6 +38,7 @@ public class Inscription extends AppCompatActivity {
     SharedPreferences.Editor editor;
     clients client;
     SeuilValues seuilValues;
+
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     int Age ;
@@ -251,6 +253,7 @@ public class Inscription extends AppCompatActivity {
                     if (id == -1) {
                         Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
                     } else {
+                        ds.addAlert(new Alerts());
                         mkLoader.setVisibility(View.VISIBLE);
                         Toast.makeText(Inscription.this, string.InsertionTerminer, Toast.LENGTH_LONG).show();
                         ite = new Intent(Inscription.this, LoginActivity.class);

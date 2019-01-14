@@ -71,7 +71,7 @@
                 android:text="@string/temperatur"
                 android:textAllCaps="false"
                 android:textColor="#02abff"
-                android:textSize="14dsp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintHorizontal_bias="0.26"
                 app:layout_constraintLeft_toLeftOf="parent"

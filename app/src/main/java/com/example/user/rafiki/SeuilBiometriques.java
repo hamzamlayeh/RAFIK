@@ -123,17 +123,7 @@ public class SeuilBiometriques extends AppCompatActivity {
             Seuils = new SeuilValues(Cmarche_M, Cmarche_X, Ccourse_M, Ccourse_X, Cactivite_M, Cactivite_X, Csommeil_M,
                     Csommeil_X, Rmarche_M, Rmarche_X, Rcourse_M, Rcourse_X, Ractivite_M, Ractivite_X, Rsommeil_M, Rsommeil_X,
                     Tmarch_M, Tmarch_X, Tcours_M, Tcours_X, Tactivit_M, Tactivit_X, Tsomeil_M, Tsomeil_X);
-//            if (ds.getCountSeuils() <= 0) {
-//                long ids = ds.addSeuils(Seuils);
-//                if (ids == -1) {
-//                    Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
-//                } else {
-//                    mkLoader.setVisibility(View.VISIBLE);
-//                    Intent ite = new Intent(this, Fiche_MedicaleActivity.class);
-//                    startActivity(ite);
-//                    SeuilBiometriques.this.finish();
-//                }
-//            } else {
+
             long ids = ds.UpdateSeuils(Seuils, 1);
             if (ids == -1) {
                 Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();

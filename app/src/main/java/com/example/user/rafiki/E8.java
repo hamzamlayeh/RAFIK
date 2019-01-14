@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +28,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.rafiki.ItemData.Alerts;
+import com.example.user.rafiki.ItemData.Contacts_Medecins;
+import com.example.user.rafiki.ItemData.Contacts_Parentaux;
 import com.example.user.rafiki.ItemData.SeuilValues;
 
 import java.util.ArrayList;
@@ -42,9 +46,12 @@ public class E8 extends AppCompatActivity {
     ImageView coeur, poumon, Resaux;
     int minBat = 0, maxBat = 0, moyBat = 0, minPoum = 0, maxPoum = 0, moyPoum = 0, minTemp = 0, maxTemp = 0, moyTemp = 0;
     int minOxy = 0, maxOxy = 0, moyOxy = 0;
-    int FC = 0, FR = 0, T = 0, W = 0, N = 0;
+    int FC = 0, FR = 0, T = 0, W = 0, N = 0, TempAlert = 0;
     Activity activity;
     List<SeuilValues> list = new ArrayList<SeuilValues>();
+    List<Alerts> listAlert = new ArrayList<Alerts>();
+    List<Contacts_Parentaux> listFamilia = new ArrayList<Contacts_Parentaux>();
+    List<Contacts_Medecins> listMedcin = new ArrayList<Contacts_Medecins>();
     static boolean StopThread = true;
     SharedPreferences prefs;
 
@@ -52,18 +59,17 @@ public class E8 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e8);
+
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
         checkSmsPermission();
         activity = this;
-        Mythred thread = new Mythred();
-        thread.start();
         StopThread = true;
         new Handler().postDelayed(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
             public void run() {
-                byte[] buffer = {0x02, 0x73, 0x00, 0x74, 0x03, 0x03, 0x0A};
+                byte[] buffer = {0x02, 0x73, 0x00, 0x74, 0x03, 0x0A};
                 BLEManager.writeData(buffer);
                 try {
                     Thread.sleep(1000);
@@ -74,6 +80,9 @@ public class E8 extends AppCompatActivity {
                 }
             }
         }, 1000);
+        Mythred thread = new Mythred();
+        thread.start();
+
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
         animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out);
         coeur = findViewById(R.id.Coeur);
@@ -81,12 +90,7 @@ public class E8 extends AppCompatActivity {
         Resaux = findViewById(R.id.icone_resaux);
         coeur.startAnimation(animation2);
         poumon.startAnimation(animation2);
-        boolean value = prefs.getBoolean("connexion", false);
-        if (value) {
-            Resaux.setImageResource(R.drawable.resaux);
-        } else {
-            Resaux.setImageResource(R.drawable.resaux2);
-        }
+
         animation2.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -164,12 +168,16 @@ public class E8 extends AppCompatActivity {
     }
 
     public void parammetres(View view) {
+        TrameSop();
+        E7_2.str = null;
+        StopThread = false;
         Intent ite = new Intent(this, MenuActivity.class);
         startActivity(ite);
     }
 
     public void Cycles(View view) {
         StopThread = false;
+        TrameSop();
         Intent ite = new Intent(this, CycleActivity.class);
         startActivity(ite);
         E7_2.str = null;
@@ -177,6 +185,7 @@ public class E8 extends AppCompatActivity {
     }
 
     public void historique(View view) {
+        TrameSop();
         E7_2.str = null;
         StopThread = false;
         Intent ite = new Intent(this, HistoriqueActivity.class);
@@ -190,46 +199,76 @@ public class E8 extends AppCompatActivity {
             final TextView temps = findViewById(R.id.TEMP_D);
             final TextView oxy = findViewById(R.id.oxigen);
             final TextView niveaubatt = findViewById(R.id.NiveauBatt);
-
             final ImageView batteri = findViewById(R.id.batterie);
 
+            final TextView txt9 = (TextView) findViewById(R.id.text_temp1);
+            final TextView txt8 = (TextView) findViewById(R.id.text_temp2);
+            final TextView txt7 = (TextView) findViewById(R.id.text_temp3);
+            final TextView txt6 = (TextView) findViewById(R.id.rpm_text1);
+            final TextView txt5 = (TextView) findViewById(R.id.rpm_text2);
+            final TextView txt4 = (TextView) findViewById(R.id.rpm_text3);
+            final TextView txt3 = (TextView) findViewById(R.id.bpm_text1);
+            final TextView txt2 = (TextView) findViewById(R.id.bpm_text2);
+            final TextView txt1 = (TextView) findViewById(R.id.bpm_text3);
 
             while (StopThread) {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            bpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
-                            Setvaluesbatement(BLEManager.unsignedToBytes(E7_2.str[2]));
-                            rpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
-                            Setvaluespoumon(BLEManager.unsignedToBytes(E7_2.str[3]));
-                            temps.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
-                            Setvaluestempirature(BLEManager.unsignedToBytes(E7_2.str[4]));
-                            oxy.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[5]) + "%"));
-                            Setvaluesoxygene(BLEManager.unsignedToBytes(E7_2.str[5]));
-                            niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[6]) + "%"));
+                            TempAlert++;
+                            if (E7_2.str[8] == 0) {
+                                bpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
+                                Setvaluesbatement(BLEManager.unsignedToBytes(E7_2.str[2]));
+                                rpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
+                                Setvaluespoumon(BLEManager.unsignedToBytes(E7_2.str[3]));
+                                temps.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
+                                Setvaluestempirature(BLEManager.unsignedToBytes(E7_2.str[4]));
+                                oxy.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[5]) + "%"));
+                                Setvaluesoxygene(BLEManager.unsignedToBytes(E7_2.str[5]));
+                                niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[6]) + "%"));
 
-                            if (E7_2.str[6] == 0) {
+                                if (E7_2.str[6] == 0) {
+                                    batteri.setImageResource(R.drawable.batt7);
+                                } else if (E7_2.str[6] >= 1 && E7_2.str[6] <= 13) {
+                                    batteri.setImageResource(R.drawable.batt6);
+
+                                } else if (E7_2.str[6] > 13 && E7_2.str[6] <= 25) {
+                                    batteri.setImageResource(R.drawable.batt5);
+
+                                } else if (E7_2.str[6] > 25 && E7_2.str[6] <= 38) {
+                                    batteri.setImageResource(R.drawable.batt4);
+
+                                } else if (E7_2.str[6] > 38 && E7_2.str[6] <= 50) {
+                                    batteri.setImageResource(R.drawable.batt3);
+
+                                } else if (E7_2.str[6] > 50 && E7_2.str[6] <= 75) {
+                                    batteri.setImageResource(R.drawable.batt2);
+
+                                } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
+                                    batteri.setImageResource(R.drawable.batt1);
+                                }
+                                Resaux.setImageResource(R.drawable.resaux);
+                            } else {
+                                bpm.setText("--");
+                                rpm.setText("--");
+                                temps.setText("--");
+                                oxy.setText("--");
+                                txt1.setText("--");
+                                txt2.setText("--");
+                                txt3.setText("--");
+                                txt4.setText("--");
+                                txt5.setText("--");
+                                txt6.setText("--");
+                                txt7.setText("--");
+                                txt8.setText("--");
+                                txt9.setText("--");
+                                niveaubatt.setText("-- %");
                                 batteri.setImageResource(R.drawable.batt7);
-                            } else if (E7_2.str[6] >= 1 && E7_2.str[6] <= 13) {
-                                batteri.setImageResource(R.drawable.batt6);
-
-                            } else if (E7_2.str[6] > 13 && E7_2.str[6] <= 25) {
-                                batteri.setImageResource(R.drawable.batt5);
-
-                            } else if (E7_2.str[6] > 25 && E7_2.str[6] <= 38) {
-                                batteri.setImageResource(R.drawable.batt4);
-
-                            } else if (E7_2.str[6] > 38 && E7_2.str[6] <= 50) {
-                                batteri.setImageResource(R.drawable.batt3);
-
-                            } else if (E7_2.str[6] > 50 && E7_2.str[6] <= 75) {
-                                batteri.setImageResource(R.drawable.batt2);
-
-                            } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
-                                batteri.setImageResource(R.drawable.batt1);
-
+                                Resaux.setImageResource(R.drawable.resaux2);
                             }
+
+
                             if (E7_2.str[7] == 1) {
                                 String num = "52845265";
                                 String msg = "ATTENTION : Choc détécté!";
@@ -237,8 +276,14 @@ public class E8 extends AppCompatActivity {
                                 sms.sendTextMessage(num, null, msg, null, null);
                                 E7_2.str[7] = 0;
                             }
-                            AlertSeuil(BLEManager.unsignedToBytes(E7_2.str[2]),
-                                    BLEManager.unsignedToBytes(E7_2.str[3]), BLEManager.unsignedToBytes(E7_2.str[4]));
+                            Test_Les_Seuil(BLEManager.unsignedToBytes(E7_2.str[2]), BLEManager.unsignedToBytes(E7_2.str[3]),
+                                    BLEManager.unsignedToBytes(E7_2.str[4]));
+                            if (TempAlert == 300000) {
+
+                                Alerts(E7_2.str[7]);//Declancher Les Alerts
+                                TempAlert = 0;
+                            }
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -252,118 +297,6 @@ public class E8 extends AppCompatActivity {
             }
         }
     }
-
-    public void AlertSeuil(int FCinst, int FRinst, int Tinst) {
-
-        list = ds.getListSeuils();
-        //Fréquence Cardiaque FC
-        if (maxBat >= Integer.parseInt(list.get(1).getFCmarche_X())
-                || FCinst >= Integer.parseInt(list.get(1).getFCmarche_X())) {
-            FC = 1;
-        } else {
-            FC = 0;
-        }
-        if (minBat <= Integer.parseInt(list.get(1).getFCmarche_M())
-                || FCinst <= Integer.parseInt(list.get(1).getFCmarche_M())) {
-            FC = 1;
-        } else {
-            FC = 0;
-        }
-        //Fréquence Respiratoire FR
-        if (maxPoum >= Integer.parseInt(list.get(1).getFRmarche_X())
-                || FRinst >= Integer.parseInt(list.get(1).getFRmarche_X())) {
-            FR = 1;
-            N += 1;
-        } else {
-            FR = 0;
-        }
-        if (minPoum <= Integer.parseInt(list.get(1).getFRmarche_M())
-                || FRinst <= Integer.parseInt(list.get(1).getFRmarche_M())) {
-            FR = 1;
-            N += 1;
-        } else {
-            FR = 0;
-        }
-        //Température T°:
-        if (maxTemp >= Integer.parseInt(list.get(1).getTmarche_X())
-                || Tinst >= Integer.parseInt(list.get(1).getTmarche_X())) {
-            T = 1;
-            N += 1;
-        } else {
-            T = 0;
-        }
-        if (maxTemp <= Integer.parseInt(list.get(1).getTmarche_M())
-                || Tinst <= Integer.parseInt(list.get(1).getTmarche_M())) {
-            T = 1;
-            N += 1;
-        } else {
-            T = 0;
-        }
-        W = FC * FR * T;
-
-        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
-            Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
-        }
-        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
-            Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
-        }
-        if (W == 1 && N <= 2) {
-            Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
-        }
-        if (W == 1 && N > 2) {
-            Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-//    public void Notification(Context context) {
-//
-//
-//        String CHANNEL_ID = "my_channel_01";
-//        CharSequence name = "my_channel";
-//        String Description = "This is my channel";
-//
-//        int NOTIFICATION_ID = 1;
-//
-//        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-//
-//
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-//
-//            int importance = NotificationManager.IMPORTANCE_HIGH;
-//            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
-//            mChannel.setDescription(Description);
-//            mChannel.enableLights(true);
-//            mChannel.setLightColor(Color.RED);
-//            mChannel.enableVibration(true);
-//            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
-//            mChannel.setShowBadge(true);
-//
-//            if (notificationManager != null) {
-//
-//                notificationManager.createNotificationChannel(mChannel);
-//            }
-//
-//        }
-//        @SuppressLint("ResourceAsColor")
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-//                .setContentTitle("TITLE")
-//                .setContentText("SUB-TITLE")
-//                .setStyle(new NotificationCompat.BigTextStyle().bigText("Notice that the NotificationCompat.Builder constructor requires that you provide a channel ID. This is required for compatibility with Android 8.0 (API level 26) and higher, but is ignored by older versions By default, the notification's text content is truncated to fit one line. If you want your notification to be longer, you can enable an expandable notification by adding a style template with setStyle(). For example, the following code creates a larger text area"))
-//                .setSmallIcon(R.mipmap.ic_launcher)
-//                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//                .setContentIntent(resultPendingIntent)
-//                .setAutoCancel(true)
-//                .setColor((android.R.color.holo_red_dark))
-//                .addAction(R.drawable.ic_launcher_foreground, "Call", resultPendingIntent)
-//                .addAction(R.drawable.ic_launcher_foreground, "More", resultPendingIntent)
-//                .addAction(R.drawable.ic_launcher_foreground, "And more", resultPendingIntent);
-//
-//
-//        if (notificationManager != null) {
-//
-//            notificationManager.notify(NOTIFICATION_ID, builder.build());
-//        }
-//    }
 
     public void Setvaluesbatement(int x) {
 
@@ -478,21 +411,172 @@ public class E8 extends AppCompatActivity {
         }
     }
 
+    public void Test_Les_Seuil(int FCinst, int FRinst, int Tinst) {
+
+        list = ds.getListSeuils();
+        //Fréquence Cardiaque FC
+        if (maxBat >= Integer.parseInt(list.get(0).getFCactivite_X())
+                || FCinst >= Integer.parseInt(list.get(0).getFCactivite_X())) {
+            FC = 1;
+            N += 1;
+            System.out.print(maxBat);
+        } else {
+            FC = 0;
+        }
+        if (minBat <= Integer.parseInt(list.get(0).getFCactivite_M())
+                || FCinst <= Integer.parseInt(list.get(0).getFCactivite_M())) {
+            FC = 1;
+            N += 1;
+        } else {
+            FC = 0;
+        }
+        //Fréquence Respiratoire FR
+        if (maxPoum >= Integer.parseInt(list.get(0).getFRactivite_X())
+                || FRinst >= Integer.parseInt(list.get(0).getFRactivite_X())) {
+            FR = 1;
+            N += 1;
+        } else {
+            FR = 0;
+        }
+        if (minPoum <= Integer.parseInt(list.get(0).getFRactivite_M())
+                || FRinst <= Integer.parseInt(list.get(0).getFRactivite_M())) {
+            FR = 1;
+            N += 1;
+        } else {
+            FR = 0;
+        }
+        //Température T°:
+        if (maxTemp >= Integer.parseInt(list.get(0).getTactivite_X())
+                || Tinst >= Integer.parseInt(list.get(0).getTactivite_X())) {
+            T = 1;
+            N += 1;
+        } else {
+            T = 0;
+        }
+        if (maxTemp <= Integer.parseInt(list.get(0).getTactivite_M())
+                || Tinst <= Integer.parseInt(list.get(0).getTactivite_M())) {
+            T = 1;
+            N += 1;
+        } else {
+            T = 0;
+        }
+        W = FC * FR * T;
+//        Toast.makeText(activity, W + "alert 2" + FC + "//" + FR + "//" + T + "//" + N, Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void Alerts(int Chute) {
+        listAlert = ds.getListAlerts();
+        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
+            Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
+            Notification(activity);
+        }
+        if (ds.getCountParentaux() > 0) {
+
+            listFamilia=ds.getListParentaux();
+            if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
+                Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
+                Notification(activity);
+            SmsManager sms = SmsManager.getDefault();
+            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+            }
+            if (W == 1 && N <= 2) {
+                Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
+                Notification(activity);
+            SmsManager sms = SmsManager.getDefault();
+            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+            }
+        }
+        if (ds.getCountParentaux() > 0 && ds.getCountMedecins() > 0) {
+            listMedcin=ds.getListMedecins();
+            if (W == 1 && N > 2) {
+                Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
+                Notification(activity);
+            SmsManager sms = SmsManager.getDefault();
+            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau3(), null, null);
+            }
+            if (W == 1 && N > 2 && Chute == 1) {
+                Toast.makeText(activity, "aler 4", Toast.LENGTH_SHORT).show();
+            SmsManager sms = SmsManager.getDefault();
+            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau4(), null, null);
+            }
+        }
+        N = 0;
+    }
+
+    public void Notification(Context context) {
+
+
+        String CHANNEL_ID = "my_channel_01";
+        CharSequence name = "my_channel";
+        String Description = "This is my channel";
+
+        int NOTIFICATION_ID = 1;
+
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+            mChannel.setDescription(Description);
+            mChannel.enableLights(true);
+            mChannel.setLightColor(Color.RED);
+            mChannel.enableVibration(true);
+            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            mChannel.setShowBadge(true);
+
+            if (notificationManager != null) {
+
+                notificationManager.createNotificationChannel(mChannel);
+            }
+
+        }
+        Intent resultIntent = new Intent(context, E8.class);
+        android.support.v4.app.TaskStackBuilder stackBuilder = android.support.v4.app.TaskStackBuilder.create(context);
+        stackBuilder.addParentStack(E8.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        @SuppressLint("ResourceAsColor")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                .setContentTitle("RAFIKI")
+                .setContentText("ALERT")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText("Notice "))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(resultPendingIntent)
+                .setAutoCancel(true)
+                .setColor((android.R.color.holo_red_dark))
+                .addAction(R.drawable.ic_launcher_foreground, "Call", resultPendingIntent)
+                .addAction(R.drawable.ic_launcher_foreground, "More", resultPendingIntent)
+                .addAction(R.drawable.ic_launcher_foreground, "And more", resultPendingIntent);
+
+
+        if (notificationManager != null) {
+
+            notificationManager.notify(NOTIFICATION_ID, builder.build());
+        }
+    }
+
     public void E10(View view) {
         StopThread = false;
+        TrameSop();
         intent = new Intent(this, E10.class);
         startActivity(intent);
     }
 
-
     public void E12(View view) {
         StopThread = false;
+        TrameSop();
         intent = new Intent(this, E12.class);
         startActivity(intent);
     }
 
     public void E11(View view) {
         StopThread = false;
+        TrameSop();
         intent = new Intent(this, E11.class);
         startActivity(intent);
     }
@@ -506,6 +590,7 @@ public class E8 extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void exite(View view) {
         StopThread = false;
+        TrameSop();
         intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
@@ -532,4 +617,22 @@ public class E8 extends AppCompatActivity {
         StopThread = false;
 
     }
+
+    public void TrameSop() {
+        new Handler().postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+            public void run() {
+                byte[] buffer = {0x02, 0x73, 0x01, 0x74, 0x03, 0x0A};
+                BLEManager.writeData(buffer);
+                try {
+                    Thread.sleep(1000);
+                    BLEManager.readData();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 1000);
+    }
+
 }

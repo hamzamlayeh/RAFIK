@@ -74,6 +74,7 @@
                 android:layout_marginTop="94dp"
                 android:layout_marginRight="32dp"
                 android:text="00:00:00"
+                android:fontFamily="@font/hundin"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
                 android:textStyle="bold"

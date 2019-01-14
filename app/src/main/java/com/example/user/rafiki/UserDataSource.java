@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.user.rafiki.ItemData.Alerts;
 import com.example.user.rafiki.ItemData.Antecedents_Item;
 import com.example.user.rafiki.ItemData.Contacts_Medecins;
 import com.example.user.rafiki.ItemData.Contacts_Parentaux;
@@ -36,6 +37,7 @@ public class UserDataSource {
     private final String TABLE_NAME9 = "Contacts_Urgences";
     private final String TABLE_NAME10 = "Seuils_Bio";
     private final String TABLE_NAME11 = "Cycle";
+    private final String TABLE_NAME12 = "Parametre_Alert";
 
     public UserDataSource(MySQLiteOpenHelper helper) {
         this.helper = helper;
@@ -803,4 +805,50 @@ public class UserDataSource {
         return list;
     }
 
+    //Parametre_Alert
+    public void addAlert(Alerts alerts) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("smsNiveau2", alerts.getSMSNiveau2());
+        contentValues.put("smsNiveau3", alerts.getSMSNiveau3());
+        contentValues.put("smsNiveau4", alerts.getSMSNiveau4());
+
+        db.insert(TABLE_NAME12, null, contentValues);
+    }
+
+    public List getListAlerts() {
+        ArrayList<Alerts> list = new ArrayList<>();
+        Cursor cursor = db.query(TABLE_NAME12, new String[]{"smsNiveau2,smsNiveau3,smsNiveau4"}, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            String alert2 = cursor.getString(0);
+            String alert3 = cursor.getString(1);
+            String alert4 = cursor.getString(2);
+
+            list.add(new Alerts(alert2, alert3, alert4));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+
+    public long UpdateAlert(Alerts alerts, int id) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("smsNiveau2", alerts.getSMSNiveau2());
+        contentValues.put("smsNiveau3", alerts.getSMSNiveau3());
+        contentValues.put("smsNiveau4", alerts.getSMSNiveau4());
+
+        return (long) db.update(TABLE_NAME12, contentValues, "_id= " + id, null);
+    }
+
+    public int getCountAlerts() {
+        Cursor cursor = db.query(TABLE_NAME12, null, null, null,
+                null, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
 }

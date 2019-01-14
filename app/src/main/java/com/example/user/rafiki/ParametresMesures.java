@@ -38,10 +38,10 @@ public class ParametresMesures extends AppCompatActivity {
     Chronometer chronometer;
     ToggleButton btn_P_R;
     Button stop, declancher, Img_lock;
-    int Indice, Poids,Nbr_pas;
+    int Indice, Poids, Nbr_pas;
     long lastPause;
-    double  Duree_en_munite, Calorie;
-    Boolean DECLANCHER=false;
+    double Duree_en_munite, Calorie;
+    Boolean DECLANCHER = false;
     String Chrono, Date_cycle, FullDate_cycle, Time_cycle;
     SharedPreferences prefs, pref;
     SharedPreferences.Editor editor;
@@ -86,7 +86,7 @@ public class ParametresMesures extends AppCompatActivity {
     public void declancher(View view) {
         boolean value = pref.getBoolean("connexion", false);
         if (value) {
-            DECLANCHER=true;
+            DECLANCHER = true;
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
             SimpleDateFormat FullDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss", Locale.getDefault());
             SimpleDateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
@@ -103,7 +103,7 @@ public class ParametresMesures extends AppCompatActivity {
             Mythred0 thread0 = new Mythred0();
             thread0.start();
             EnvoiaTrame();
-        }else {
+        } else {
             Toast.makeText(activity, "Votre carte n'est pas connecté", Toast.LENGTH_SHORT).show();
         }
     }
@@ -119,7 +119,7 @@ public class ParametresMesures extends AppCompatActivity {
                         if (E7_2.str != null) {
                             StopThread = false;
                             E7_2.str = null;
-                            DECLANCHER=false;
+                            DECLANCHER = false;
                             chronometer.stop();
                             chronometer.setBase(SystemClock.elapsedRealtime());
                             lastPause = 0;
@@ -137,7 +137,7 @@ public class ParametresMesures extends AppCompatActivity {
                             editor.putString("Date_Cycle", FullDate_cycle);
                             editor.apply();
                             startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
-                        }else{
+                        } else {
                             Toast.makeText(activity, "Votre carte n'est pas connecté", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -175,12 +175,12 @@ public class ParametresMesures extends AppCompatActivity {
     }
 
     public void Test_Donnees() {
-        boolean value = pref.getBoolean("connexion", false);
-        if (value) {
-            Resaux.setImageResource(R.drawable.resaux);
-        } else {
-            Resaux.setImageResource(R.drawable.resaux2);
-        }
+//        boolean value = pref.getBoolean("connexion", false);
+//        if (value) {
+//            Resaux.setImageResource(R.drawable.resaux);
+//        } else {
+//            Resaux.setImageResource(R.drawable.resaux2);
+//        }
         if (Indice != 0) {
             switch (Indice) {
                 case 1:
@@ -229,44 +229,10 @@ public class ParametresMesures extends AppCompatActivity {
 
                             @Override
                             public void run() {
-                                if (Indice != 0) {
-                                    switch (Indice) {
-                                        case 1:
-                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x01, 0x03, 0x03, 0x0A};
-                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                                BLEManager.writeData(buffer);
-                                                BLEManager.readData();
-                                            }
-                                            break;
-                                        case 2:
-                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x02, 0x03, 0x03, 0x0A};
-                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                                BLEManager.writeData(buffer);
-                                                BLEManager.readData();
-                                            }
-                                            break;
-                                        case 3:
-                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x03, 0x03, 0x03, 0x0A};
-                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                                BLEManager.writeData(buffer);
-                                                BLEManager.readData();
-                                            }
-                                            break;
-                                        case 4:
-                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x04, 0x03, 0x03, 0x0A};
-                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                                BLEManager.writeData(buffer);
-                                                BLEManager.readData();
-                                            }
-                                            break;
-                                        case 5:
-                                            buffer = new byte[]{0x02, 0x73, 0x02, 0x05, 0x03, 0x03, 0x0A};
-                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                                BLEManager.writeData(buffer);
-                                                BLEManager.readData();
-                                            }
-                                            break;
-                                    }
+                                buffer = new byte[]{0x02, 0x73, 0x02, 0x74, 0x03, 0x0A};
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                                    BLEManager.writeData(buffer);
+                                    BLEManager.readData();
                                 }
                             }
                         });
@@ -281,7 +247,7 @@ public class ParametresMesures extends AppCompatActivity {
     }
 
     public void parammetres(View view) {
-        if (DECLANCHER){
+        if (DECLANCHER) {
             AlertDialog.Builder alt = new AlertDialog.Builder(this);
             alt.setTitle(" " + getString(R.string.finir_activity))
                     .setIcon(R.drawable.alert)
@@ -291,7 +257,7 @@ public class ParametresMesures extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             StopThread = false;
                             E7_2.str = null;
-                            startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+                            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
                         }
                     }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
                 @Override
@@ -299,16 +265,16 @@ public class ParametresMesures extends AppCompatActivity {
 
                 }
             }).show();
-        }else {
+        } else {
             StopThread = false;
             E7_2.str = null;
-            startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
         }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void exite(View view) {
-        if (DECLANCHER){
+        if (DECLANCHER) {
             AlertDialog.Builder alt = new AlertDialog.Builder(this);
             alt.setTitle(" " + getString(R.string.finir_activity))
                     .setIcon(R.drawable.alert)
@@ -329,7 +295,7 @@ public class ParametresMesures extends AppCompatActivity {
 
                 }
             }).show();
-        }else {
+        } else {
             StopThread = false;
             E7_2.str = null;
             Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -343,7 +309,7 @@ public class ParametresMesures extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (DECLANCHER){
+            if (DECLANCHER) {
                 AlertDialog.Builder alt = new AlertDialog.Builder(this);
                 alt.setTitle(" " + getString(R.string.finir_activity))
                         .setIcon(R.drawable.alert)
@@ -353,7 +319,7 @@ public class ParametresMesures extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 StopThread = false;
                                 E7_2.str = null;
-                                startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+                                startActivity(new Intent(getApplicationContext(), CycleActivity.class));
                             }
                         }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
                     @Override
@@ -361,17 +327,17 @@ public class ParametresMesures extends AppCompatActivity {
 
                     }
                 }).show();
-            }else {
+            } else {
                 StopThread = false;
                 E7_2.str = null;
-                startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+                startActivity(new Intent(getApplicationContext(), CycleActivity.class));
             }
         }
         return false;
     }
 
     public void acueil(View view) {
-        if (DECLANCHER){
+        if (DECLANCHER) {
             AlertDialog.Builder alt = new AlertDialog.Builder(this);
             alt.setTitle(" " + getString(R.string.finir_activity))
                     .setIcon(R.drawable.alert)
@@ -381,7 +347,7 @@ public class ParametresMesures extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             StopThread = false;
                             E7_2.str = null;
-                            startActivity(new Intent(getApplicationContext(),E8.class));
+                            startActivity(new Intent(getApplicationContext(), E8.class));
                         }
                     }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
                 @Override
@@ -389,15 +355,15 @@ public class ParametresMesures extends AppCompatActivity {
 
                 }
             }).show();
-        }else {
+        } else {
             StopThread = false;
             E7_2.str = null;
-            startActivity(new Intent(getApplicationContext(),E8.class));
+            startActivity(new Intent(getApplicationContext(), E8.class));
         }
     }
 
     public void Cycle(View view) {
-        if (DECLANCHER){
+        if (DECLANCHER) {
             AlertDialog.Builder alt = new AlertDialog.Builder(this);
             alt.setTitle(" " + getString(R.string.finir_activity))
                     .setIcon(R.drawable.alert)
@@ -407,7 +373,7 @@ public class ParametresMesures extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             StopThread = false;
                             E7_2.str = null;
-                            startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+                            startActivity(new Intent(getApplicationContext(), CycleActivity.class));
                         }
                     }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
                 @Override
@@ -415,15 +381,15 @@ public class ParametresMesures extends AppCompatActivity {
 
                 }
             }).show();
-        }else {
+        } else {
             StopThread = false;
             E7_2.str = null;
-            startActivity(new Intent(getApplicationContext(),CycleActivity.class));
+            startActivity(new Intent(getApplicationContext(), CycleActivity.class));
         }
     }
 
     public void historique(View view) {
-        if (DECLANCHER){
+        if (DECLANCHER) {
             AlertDialog.Builder alt = new AlertDialog.Builder(this);
             alt.setTitle(" " + getString(R.string.finir_activity))
                     .setIcon(R.drawable.alert)
@@ -433,7 +399,7 @@ public class ParametresMesures extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             StopThread = false;
                             E7_2.str = null;
-                            startActivity(new Intent(getApplicationContext(),HistoriqueActivity.class));
+                            startActivity(new Intent(getApplicationContext(), HistoriqueActivity.class));
                         }
                     }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
                 @Override
@@ -441,10 +407,10 @@ public class ParametresMesures extends AppCompatActivity {
 
                 }
             }).show();
-        }else {
+        } else {
             StopThread = false;
             E7_2.str = null;
-            startActivity(new Intent(getApplicationContext(),HistoriqueActivity.class));
+            startActivity(new Intent(getApplicationContext(), HistoriqueActivity.class));
         }
     }
 
@@ -470,99 +436,129 @@ public class ParametresMesures extends AppCompatActivity {
                             try {
                                 Chrono = String.valueOf(chronometer.getText());
                                 if (Chrono.length() > 5) {
-                                     dateFormat = new SimpleDateFormat("hh:mm:ss");
-                                     System.out.println("A=="+Chrono);
+                                    dateFormat = new SimpleDateFormat("hh:mm:ss");
+                                    System.out.println("A==" + Chrono);
                                 } else {
                                     dateFormat = new SimpleDateFormat("mm:ss");
-                                    System.out.println("B=="+Chrono);
+                                    System.out.println("B==" + Chrono);
                                 }
                                 Date date = dateFormat.parse(Chrono);
                                 Calendar cl = Calendar.getInstance();
                                 cl.setTime(date);
                                 double seconde = cl.get(Calendar.SECOND) * UNITE_SECONDE;
                                 double munite = cl.get(Calendar.MINUTE) * UNITE_MENUTE;
-                                double huere = cl.get(Calendar.HOUR_OF_DAY)*UNITE_HEURE;
+                                double huere = cl.get(Calendar.HOUR_OF_DAY) * UNITE_HEURE;
 
                                 Duree_en_munite = (huere + seconde + munite) / UNITE_MENUTE;
                                 System.out.println(Duree_en_munite);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-//                            Toast.makeText(activity, E7_2.str[2]+"", Toast.LENGTH_SHORT).show();
-                            textECG.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
-                            textPoumon.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
-                            textTemp.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
-                            niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[7]) + "%"));
 
+                            if (E7_2.str[8] == 0) {
+                                Resaux.setImageResource(R.drawable.resaux);
+                                textECG.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
+                                textPoumon.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
+                                textTemp.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
+                                niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[7]) + "%"));
+
+                                if (E7_2.str[7] == 0) {
+                                    batteri.setImageResource(R.drawable.batt7);
+                                } else if (E7_2.str[7] >= 1 && E7_2.str[7] <= 13) {
+                                    batteri.setImageResource(R.drawable.batt6);
+
+                                } else if (E7_2.str[7] > 13 && E7_2.str[7] <= 25) {
+                                    batteri.setImageResource(R.drawable.batt5);
+
+                                } else if (E7_2.str[7] > 25 && E7_2.str[7] <= 38) {
+                                    batteri.setImageResource(R.drawable.batt4);
+
+                                } else if (E7_2.str[7] > 38 && E7_2.str[7] <= 50) {
+                                    batteri.setImageResource(R.drawable.batt3);
+
+                                } else if (E7_2.str[7] > 50 && E7_2.str[7] <= 75) {
+                                    batteri.setImageResource(R.drawable.batt2);
+
+                                } else if (E7_2.str[7] > 76 && E7_2.str[7] <= 100) {
+                                    batteri.setImageResource(R.drawable.batt1);
+
+                                }
+                            } else {
+                                textECG.setText("--");
+                                textPoumon.setText("--");
+                                textTemp.setText("--");
+                                niveaubatt.setText("-- %");
+                                batteri.setImageResource(R.drawable.batt7);
+                                Resaux.setImageResource(R.drawable.resaux2);
+                            }
                             Nbr_pas = BLEManager.hexToInt(BLEManager.decToHex(BLEManager.unsignedToBytes(E7_2.str[5]),
-                                      BLEManager.unsignedToBytes(E7_2.str[6])));
-
+                                    BLEManager.unsignedToBytes(E7_2.str[6])));
                             if (Indice != 0) {
                                 switch (Indice) {
                                     case 1:
-                                        Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(String.valueOf((int) Calorie));
-                                        break;
-                                    case 2:
-                                        double DistanceM = (double) Nbr_pas / 1600;
-                                        textDist.setText(format.format(DistanceM));
-                                        textVitesse.setText(format.format((int) DistanceM / (Duree_en_munite / 60)));
-                                        Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(String.valueOf((int) Calorie));
-                                        break;
-                                    case 3:
-                                        double DistanceC = (double) Nbr_pas / 1250;
-                                        double vitesseC = DistanceC / (Duree_en_munite / 60);
-                                        textDist.setText(format.format(DistanceC));
-                                        textVitesse.setText(format.format((int)vitesseC));
-
-                                        if (vitesseC <= 10) {
-                                            Calorie = (8 * 3.5 * Poids / 200) * Duree_en_munite;
+                                        if (E7_2.str[8] == 0) {
+                                            Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
                                             textCal.setText(String.valueOf((int) Calorie));
                                         } else {
-                                            Calorie = (14 * 3.5 * Poids / 200) * Duree_en_munite;
+                                            textCal.setText("--");
+                                        }
+                                        break;
+                                    case 2:
+                                        if (E7_2.str[8] == 0) {
+                                            double DistanceM = (double) Nbr_pas / 1600;
+                                            textDist.setText(format.format(DistanceM));
+                                            textVitesse.setText(format.format((int) DistanceM / (Duree_en_munite / 60)));
+                                            Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
                                             textCal.setText(String.valueOf((int) Calorie));
+                                        } else {
+                                            textDist.setText("--");
+                                            textVitesse.setText("--");
+                                            textCal.setText("--");
+                                        }
+                                        break;
+                                    case 3:
+                                        if (E7_2.str[8] == 0) {
+                                            double DistanceC = (double) Nbr_pas / 1250;
+                                            double vitesseC = DistanceC / (Duree_en_munite / 60);
+                                            textDist.setText(format.format(DistanceC));
+                                            textVitesse.setText(format.format((int) vitesseC));
+
+                                            if (vitesseC <= 10) {
+                                                Calorie = (8 * 3.5 * Poids / 200) * Duree_en_munite;
+                                                textCal.setText(String.valueOf((int) Calorie));
+                                            } else {
+                                                Calorie = (14 * 3.5 * Poids / 200) * Duree_en_munite;
+                                                textCal.setText(String.valueOf((int) Calorie));
+                                            }
+                                        } else {
+                                            textDist.setText("--");
+                                            textVitesse.setText("--");
+                                            textCal.setText("--");
                                         }
                                         break;
                                     case 4:
-                                        Calorie = (4 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(String.valueOf((int) Calorie));
+                                        if (E7_2.str[8] == 0) {
+                                            Calorie = (4 * 3.5 * Poids / 200) * Duree_en_munite;
+                                            textCal.setText(String.valueOf((int) Calorie));
+                                        } else {
+                                            textCal.setText("--");
+                                        }
                                         break;
                                     case 5:
-                                        Calorie = (1 * 3.5 * Poids / 200) * Duree_en_munite;
-                                        textCal.setText(String.valueOf((int) Calorie));
+                                        if (E7_2.str[8] == 0) {
+                                            Calorie = (1 * 3.5 * Poids / 200) * Duree_en_munite;
+                                            textCal.setText(String.valueOf((int) Calorie));
+                                        } else {
+                                            textCal.setText("--");
+                                        }
                                         break;
                                 }
                             }
 
                             if (E7_2.str[7] == 0) {
-                                batteri.setImageResource(R.drawable.batt7);
-                            } else if (E7_2.str[7] >= 1 && E7_2.str[7] <= 13) {
-                                batteri.setImageResource(R.drawable.batt6);
-
-                            } else if (E7_2.str[7] > 13 && E7_2.str[7] <= 25) {
-                                batteri.setImageResource(R.drawable.batt5);
-
-                            } else if (E7_2.str[7] > 25 && E7_2.str[7] <= 38) {
-                                batteri.setImageResource(R.drawable.batt4);
-
-                            } else if (E7_2.str[7] > 38 && E7_2.str[7] <= 50) {
-                                batteri.setImageResource(R.drawable.batt3);
-
-                            } else if (E7_2.str[7] > 50 && E7_2.str[7] <= 75) {
-                                batteri.setImageResource(R.drawable.batt2);
-
-                            } else if (E7_2.str[7] > 76 && E7_2.str[7] <= 100) {
-                                batteri.setImageResource(R.drawable.batt1);
-
+                                Cycle cycle = new Cycle(FullDate_cycle, Date_cycle, Time_cycle, E7_2.str[2], E7_2.str[3], E7_2.str[4], Nbr_pas, Calorie, Indice);
+                                ds.addCycle(cycle);
                             }
-                            Cycle cycle = new Cycle(FullDate_cycle, Date_cycle, Time_cycle, E7_2.str[2], E7_2.str[3], E7_2.str[4], Nbr_pas, Calorie, Indice);
-                            ds.addCycle(cycle);
-//                            String line = String.format("%s ; %s ; %s\n", String.valueOf(E7_2.str[2]), String.valueOf(E7_2.str[3]), String.valueOf(E7_2.str[4]));
-////                              String heder = String.format("%s ; %s ; %s\n", "coeur","poumon","tenpirateur");
-//                            FileWriter filewriter = new FileWriter(file, true);
-//                            filewriter.write(line);
-//                            filewriter.close();
 
                         } catch (Exception e) {
                             e.printStackTrace();
