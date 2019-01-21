@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -456,6 +457,10 @@ public class ParametresMesures extends AppCompatActivity {
                             }
 
                             if (E7_2.str[8] == 0) {
+                                Log.d("trame",BLEManager.unsignedToBytes(E7_2.str[2])+"/"+BLEManager.unsignedToBytes(E7_2.str[3])
+                                +"/"+BLEManager.unsignedToBytes(E7_2.str[4])+"/"+BLEManager.hexToInt(BLEManager.decToHex(BLEManager.unsignedToBytes(E7_2.str[5]),
+                                        BLEManager.unsignedToBytes(E7_2.str[6])))+"/"+BLEManager.unsignedToBytes(E7_2.str[7])+"/"+
+                                        BLEManager.unsignedToBytes(E7_2.str[8]));
                                 Resaux.setImageResource(R.drawable.resaux);
                                 textECG.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
                                 textPoumon.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
@@ -498,7 +503,7 @@ public class ParametresMesures extends AppCompatActivity {
                                     case 1:
                                         if (E7_2.str[8] == 0) {
                                             Calorie = (2 * 3.5 * Poids / 200) * Duree_en_munite;
-                                            textCal.setText(String.valueOf((int) Calorie));
+                                            textCal.setText(String.valueOf(Math.round( Calorie)));
                                         } else {
                                             textCal.setText("--");
                                         }
@@ -525,10 +530,10 @@ public class ParametresMesures extends AppCompatActivity {
 
                                             if (vitesseC <= 10) {
                                                 Calorie = (8 * 3.5 * Poids / 200) * Duree_en_munite;
-                                                textCal.setText(String.valueOf((int) Calorie));
+                                                textCal.setText(String.valueOf(Math.round( Calorie)));
                                             } else {
                                                 Calorie = (14 * 3.5 * Poids / 200) * Duree_en_munite;
-                                                textCal.setText(String.valueOf((int) Calorie));
+                                                textCal.setText(String.valueOf(Math.round( Calorie)));
                                             }
                                         } else {
                                             textDist.setText("--");
@@ -539,7 +544,7 @@ public class ParametresMesures extends AppCompatActivity {
                                     case 4:
                                         if (E7_2.str[8] == 0) {
                                             Calorie = (4 * 3.5 * Poids / 200) * Duree_en_munite;
-                                            textCal.setText(String.valueOf((int) Calorie));
+                                            textCal.setText(String.valueOf(Math.round( Calorie)));
                                         } else {
                                             textCal.setText("--");
                                         }
@@ -547,7 +552,7 @@ public class ParametresMesures extends AppCompatActivity {
                                     case 5:
                                         if (E7_2.str[8] == 0) {
                                             Calorie = (1 * 3.5 * Poids / 200) * Duree_en_munite;
-                                            textCal.setText(String.valueOf((int) Calorie));
+                                            textCal.setText(String.valueOf(Math.round( Calorie)));
                                         } else {
                                             textCal.setText("--");
                                         }
@@ -556,7 +561,7 @@ public class ParametresMesures extends AppCompatActivity {
                             }
 
                             if (E7_2.str[7] == 0) {
-                                Cycle cycle = new Cycle(FullDate_cycle, Date_cycle, Time_cycle, E7_2.str[2], E7_2.str[3], E7_2.str[4], Nbr_pas, Calorie, Indice);
+                                Cycle cycle = new Cycle(FullDate_cycle, Date_cycle, Time_cycle, E7_2.str[2], E7_2.str[3], E7_2.str[4], Nbr_pas, Math.round( Calorie), Indice);
                                 ds.addCycle(cycle);
                             }
 

@@ -195,7 +195,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/BPM-D"
+                    android:id="@+id/BPM_D"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="--"
@@ -203,7 +203,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/BPM-S"
+                    android:id="@+id/BPM_S"
                     android:layout_width="35dp"
                     android:layout_height="18dp"
                     android:fontFamily="@font/raleway_bold"

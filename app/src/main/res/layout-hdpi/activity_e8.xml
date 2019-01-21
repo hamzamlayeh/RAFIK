@@ -213,7 +213,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/BIOMETRIQUE">
 
                 <TextView
-                    android:id="@+id/BPM-D"
+                    android:id="@+id/BPM_D"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_light"
@@ -222,7 +222,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/BPM-S"
+                    android:id="@+id/BPM_S"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_bold"
@@ -256,8 +256,6 @@
                         android:id="@+id/bpm_text1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
                         android:gravity="center"
@@ -269,8 +267,6 @@
                         android:id="@+id/bpm_text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
                         android:gravity="center"
@@ -282,8 +278,6 @@
                         android:id="@+id/bpm_text3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
                         android:gravity="center"

@@ -220,4 +220,6 @@
     <string name="alerte_niveau_3">alerte niveau 3</string>
     <string name="alerte_niveau_4">alerte niveau 4</string>
     <string name="param_tres_d_alerte">Paramètres D\'alerte</string>
+    <string name="title_notification">RAFIKI</string>
+    <string name="text_notif">ATTENTION! Seuils biométriques critiques.</string>
 </resources>

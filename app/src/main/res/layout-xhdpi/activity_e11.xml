@@ -30,7 +30,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/RAFIKI-Icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/resaux" />
+                app:srcCompat="@drawable/resaux2" />
 
             <ImageView
                 android:id="@+id/batterie"
@@ -54,7 +54,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_weight="0.09"
                 android:fontFamily="@font/bebasneue_regular"
-                android:text="0%"
+                android:text="--%"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -330,7 +330,7 @@
                 android:layout_marginTop="240dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/raleway_light"
-                android:text="32"
+                android:text="--"
                 android:textColor="@android:color/white"
                 android:textSize="40sp"
                 android:visibility="visible"

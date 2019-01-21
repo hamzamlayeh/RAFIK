@@ -21,6 +21,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -216,8 +217,9 @@ public class E8 extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-                            TempAlert++;
+
                             if (E7_2.str[8] == 0) {
+//                                Alerts(E7_2.str[7]);
                                 bpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
                                 Setvaluesbatement(BLEManager.unsignedToBytes(E7_2.str[2]));
                                 rpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
@@ -248,7 +250,61 @@ public class E8 extends AppCompatActivity {
                                 } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
                                     batteri.setImageResource(R.drawable.batt1);
                                 }
+                                Log.d("trameInst", BLEManager.unsignedToBytes(E7_2.str[2]) + "/" + BLEManager.unsignedToBytes(E7_2.str[3]) + "/" + BLEManager.unsignedToBytes(E7_2.str[4]) + "/" + BLEManager.unsignedToBytes(E7_2.str[5]) + "/" + BLEManager.unsignedToBytes(E7_2.str[6]) + "/" + BLEManager.unsignedToBytes(E7_2.str[7]));
                                 Resaux.setImageResource(R.drawable.resaux);
+                                if (E7_2.str[7] == 1) {
+                                    String num = "52845265";
+                                    String msg = "ATTENTION : Choc détécté!";
+                                    SmsManager sms = SmsManager.getDefault();
+                                    sms.sendTextMessage(num, null, msg, null, null);
+                                    E7_2.str[7] = 0;
+                                }
+                                Test_Les_Seuil(BLEManager.unsignedToBytes(E7_2.str[2]), BLEManager.unsignedToBytes(E7_2.str[3]),
+                                        BLEManager.unsignedToBytes(E7_2.str[4]));
+                                if (TempAlert >= 300000) {
+                                    listAlert = ds.getListAlerts();
+                                    if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
+//           Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
+                                        Notification(activity);
+                                    }
+                                    if (ds.getCountParentaux() > 0) {
+
+                                        listFamilia = ds.getListParentaux();
+                                        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
+//                Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
+                                            Notification(activity);
+                                            SmsManager sms = SmsManager.getDefault();
+                                            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+                                        }
+                                        if (W == 1 && N <= 2) {
+//              Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
+                                            Notification(activity);
+                                            SmsManager sms = SmsManager.getDefault();
+                                            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+                                        }
+                                    }
+                                    if (ds.getCountParentaux() > 0 && ds.getCountMedecins() > 0) {
+                                        listMedcin = ds.getListMedecins();
+                                        if (W == 1 && N > 2) {
+//                Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
+                                            Notification(activity);
+                                            SmsManager sms = SmsManager.getDefault();
+                                            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau3(), null, null);
+                                        }
+                                        if (W == 1 && N > 2 &&  E7_2.str[7]  == 1) {
+//                Toast.makeText(activity, "aler 4", Toast.LENGTH_SHORT).show();
+                                            SmsManager sms = SmsManager.getDefault();
+                                            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau4(), null, null);
+                                        }
+                                    }
+                                    N = 0;
+                                    TempAlert = 0;
+
+                                } else {
+                                    TempAlert++;
+                                    Log.d("ttttttt", TempAlert + "");
+                                }
+
                             } else {
                                 bpm.setText("--");
                                 rpm.setText("--");
@@ -268,21 +324,6 @@ public class E8 extends AppCompatActivity {
                                 Resaux.setImageResource(R.drawable.resaux2);
                             }
 
-
-                            if (E7_2.str[7] == 1) {
-                                String num = "52845265";
-                                String msg = "ATTENTION : Choc détécté!";
-                                SmsManager sms = SmsManager.getDefault();
-                                sms.sendTextMessage(num, null, msg, null, null);
-                                E7_2.str[7] = 0;
-                            }
-                            Test_Les_Seuil(BLEManager.unsignedToBytes(E7_2.str[2]), BLEManager.unsignedToBytes(E7_2.str[3]),
-                                    BLEManager.unsignedToBytes(E7_2.str[4]));
-                            if (TempAlert == 300000) {
-
-                                Alerts(E7_2.str[7]);//Declancher Les Alerts
-                                TempAlert = 0;
-                            }
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -461,48 +502,48 @@ public class E8 extends AppCompatActivity {
             T = 0;
         }
         W = FC * FR * T;
-//        Toast.makeText(activity, W + "alert 2" + FC + "//" + FR + "//" + T + "//" + N, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(activity, W + "alert 2" + FC + "//" + FR + "//" + T + "//" + N, Toast.LENGTH_SHORT).show();
 
     }
 
-    public void Alerts(int Chute) {
-        listAlert = ds.getListAlerts();
-        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
-            Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
-            Notification(activity);
-        }
-        if (ds.getCountParentaux() > 0) {
-
-            listFamilia=ds.getListParentaux();
-            if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
-                Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
-                Notification(activity);
-            SmsManager sms = SmsManager.getDefault();
-            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
-            }
-            if (W == 1 && N <= 2) {
-                Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
-                Notification(activity);
-            SmsManager sms = SmsManager.getDefault();
-            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
-            }
-        }
-        if (ds.getCountParentaux() > 0 && ds.getCountMedecins() > 0) {
-            listMedcin=ds.getListMedecins();
-            if (W == 1 && N > 2) {
-                Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
-                Notification(activity);
-            SmsManager sms = SmsManager.getDefault();
-            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau3(), null, null);
-            }
-            if (W == 1 && N > 2 && Chute == 1) {
-                Toast.makeText(activity, "aler 4", Toast.LENGTH_SHORT).show();
-            SmsManager sms = SmsManager.getDefault();
-            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau4(), null, null);
-            }
-        }
-        N = 0;
-    }
+//    public void Alerts(int Chute) {
+//        listAlert = ds.getListAlerts();
+//        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
+////           Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
+//            Notification(activity);
+//        }
+//        if (ds.getCountParentaux() > 0) {
+//
+//            listFamilia = ds.getListParentaux();
+//            if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
+////                Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
+//                Notification(activity);
+//                SmsManager sms = SmsManager.getDefault();
+//                sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//            }
+//            if (W == 1 && N <= 2) {
+////              Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
+//                Notification(activity);
+//                SmsManager sms = SmsManager.getDefault();
+//                sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//            }
+//        }
+//        if (ds.getCountParentaux() > 0 && ds.getCountMedecins() > 0) {
+//            listMedcin = ds.getListMedecins();
+//            if (W == 1 && N > 2) {
+////                Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
+//                Notification(activity);
+//                SmsManager sms = SmsManager.getDefault();
+//                sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau3(), null, null);
+//            }
+//            if (W == 1 && N > 2 && Chute == 1) {
+////                Toast.makeText(activity, "aler 4", Toast.LENGTH_SHORT).show();
+//                SmsManager sms = SmsManager.getDefault();
+//                sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau4(), null, null);
+//            }
+//        }
+//        N = 0;
+//    }
 
     public void Notification(Context context) {
 
@@ -541,17 +582,14 @@ public class E8 extends AppCompatActivity {
 
         @SuppressLint("ResourceAsColor")
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setContentTitle("RAFIKI")
-                .setContentText("ALERT")
-                .setStyle(new NotificationCompat.BigTextStyle().bigText("Notice "))
+                .setContentTitle(getString(R.string.title_notification))
+                .setContentText(getString(R.string.text_notif))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.text_notif)))
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(resultPendingIntent)
                 .setAutoCancel(true)
-                .setColor((android.R.color.holo_red_dark))
-                .addAction(R.drawable.ic_launcher_foreground, "Call", resultPendingIntent)
-                .addAction(R.drawable.ic_launcher_foreground, "More", resultPendingIntent)
-                .addAction(R.drawable.ic_launcher_foreground, "And more", resultPendingIntent);
+                .setColor((android.R.color.holo_red_dark));
 
 
         if (notificationManager != null) {
@@ -562,6 +600,7 @@ public class E8 extends AppCompatActivity {
 
     public void E10(View view) {
         StopThread = false;
+        E7_2.str = null;
         TrameSop();
         intent = new Intent(this, E10.class);
         startActivity(intent);
@@ -569,6 +608,7 @@ public class E8 extends AppCompatActivity {
 
     public void E12(View view) {
         StopThread = false;
+        E7_2.str = null;
         TrameSop();
         intent = new Intent(this, E12.class);
         startActivity(intent);
@@ -576,6 +616,7 @@ public class E8 extends AppCompatActivity {
 
     public void E11(View view) {
         StopThread = false;
+        E7_2.str = null;
         TrameSop();
         intent = new Intent(this, E11.class);
         startActivity(intent);
