@@ -11,11 +11,10 @@
         android:id="@+id/imageView30"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="105dp"
         android:layout_marginTop="275dp"
         android:contentDescription="TODO"
         android:paddingRight="8dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView31"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sound_left" />
 
@@ -37,11 +36,10 @@
         android:id="@+id/imageView32"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="104dp"
         android:layout_marginTop="275dp"
         android:contentDescription="TODO"
         android:paddingLeft="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView31"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sound_right" />
 

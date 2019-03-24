@@ -103,10 +103,10 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
 
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="140dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="120dp"
+                android:layout_marginEnd="165dp"
+                android:layout_marginBottom="16dp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -114,9 +114,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/coure"
-                android:layout_marginRight="140dp"
-                android:layout_marginLeft="16dp" />
+                app:srcCompat="@drawable/coure" />
 
             <LinearLayout
                 android:id="@+id/Nutre-Layout"
@@ -145,32 +143,28 @@
                     app:layout_constraintHorizontal_bias="0.01"
                     app:layout_constraintTop_toBottomOf="@+id/Neutre" />
             </LinearLayout>
+
             <ImageView
                 android:id="@+id/Coeur"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginTop="55dp"
                 android:layout_marginEnd="68dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="120dp"
                 android:onClick="E10"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/BIOMETRIQUE"
                 app:srcCompat="@drawable/g1" />
 
             <LinearLayout
                 android:id="@+id/BPM-Layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="124dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@+id/Coeur"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/BIOMETRIQUE">
 
                 <TextView
                     android:id="@+id/BPM_D"
@@ -196,11 +190,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="36dp"
-                android:layout_marginTop="180dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginRight="36dp">
+                app:layout_constraintTop_toBottomOf="@+id/Coeur">
 
                 <LinearLayout
                     android:id="@+id/bpm-Layout-D"
@@ -306,24 +298,21 @@
                 android:id="@+id/poumon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="236dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="40dp"
                 android:onClick="E11"
-                app:layout_constraintHorizontal_bias="0.916"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bpm-Layout"
                 app:srcCompat="@drawable/g2" />
 
             <LinearLayout
                 android:id="@+id/Layout-RPM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="236dp"
+                android:layout_marginTop="40dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@+id/poumon"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/bpm-Layout">
 
                 <TextView
                     android:id="@+id/RPM_D"
@@ -338,8 +327,8 @@
                     android:id="@+id/rpm-s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="RPM"
                     android:fontFamily="@font/raleway_bold"
+                    android:text="RPM"
                     android:textColor="#9bb2ca"
                     android:textSize="14sp" />
 
@@ -349,16 +338,10 @@
                 android:id="@+id/Layout-rmp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="23dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="15dp"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toTopOf="@+id/Tampirature"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/hom"
-                app:layout_constraintTop_toBottomOf="@+id/poumon"
-                app:layout_constraintVertical_bias="0.0"
-                android:layout_marginRight="8dp">
+                app:layout_constraintTop_toBottomOf="@+id/poumon">
 
                 <LinearLayout
                     android:id="@+id/rpm-D"
@@ -371,8 +354,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_marginTop="0dp"
+                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
                         android:text="--"
@@ -388,8 +371,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_marginTop="0dp"
+                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway_light"
                         android:text="--"
@@ -428,13 +411,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_marginTop="0dp"
+                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="RPM"
                         android:textColor="#9bb2ca"
                         android:textSize="10sp"
-                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.87"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -447,10 +430,10 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="RPM"
                         android:textColor="#9bb2ca"
                         android:textSize="10sp"
-                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rpm_text2" />
 
@@ -459,13 +442,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_marginTop="0dp"
+                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="RPM"
                         android:textColor="#9bb2ca"
                         android:textSize="10sp"
-                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.78"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -478,29 +461,22 @@
                 android:id="@+id/Tampirature"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="356dp"
+                android:layout_marginTop="32dp"
 
+                android:layout_marginRight="45dp"
                 android:onClick="E12"
-                app:layout_constraintHorizontal_bias="0.856"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Layout-rmp"
                 app:srcCompat="@drawable/g4" />
 
             <LinearLayout
                 android:id="@+id/TEMPIRATURE-Layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="250dp"
-                android:layout_marginStart="250dp"
-                android:layout_marginTop="356dp"
+                android:layout_marginTop="40dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@+id/Tampirature"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Layout-rmp"
                 tools:ignore="MissingConstraints">
 
                 <TextView
@@ -526,16 +502,11 @@
                 android:id="@+id/tempirature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="416dp"
+                android:layout_marginEnd="32dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.919"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginLeft="8dp">
+                app:layout_constraintTop_toBottomOf="@+id/Tampirature">
 
                 <LinearLayout
                     android:id="@+id/temp-D"
@@ -605,10 +576,10 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/c"
                         android:textColor="#f2f0f1"
                         android:textSize="12sp"
-                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.762"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -621,10 +592,10 @@
                         android:layout_marginLeft="0dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/c"
                         android:textColor="#f2f0f1"
                         android:textSize="12sp"
-                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.39"
                         app:layout_constraintLeft_toRightOf="@+id/textView27"
                         app:layout_constraintRight_toRightOf="parent"
@@ -635,10 +606,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/raleway_bold"
                         android:text="@string/c"
                         android:textColor="#f2f0f1"
                         android:textSize="12sp"
-                        android:fontFamily="@font/raleway_bold"
                         app:layout_constraintHorizontal_bias="0.85"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"

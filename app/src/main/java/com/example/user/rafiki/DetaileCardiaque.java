@@ -3,25 +3,33 @@ package com.example.user.rafiki;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Cycle;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -33,7 +41,7 @@ public class DetaileCardiaque extends AppCompatActivity {
 
     ImageView Etat_Cycle, Txt_Cycle, Cercle;
     TextView Txt_Calorie, Txt_max, Txt_min, Txt_moy;
-    LineChart mchart;
+    GraphView graph;
     SharedPreferences prefs, pref;
     ConstraintLayout constraintLayout;
     MySQLiteOpenHelper helper;
@@ -45,7 +53,6 @@ public class DetaileCardiaque extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaile_cardiaque);
-
         Etat_Cycle = findViewById(R.id.etat_cycle);
 
         Txt_Cycle = findViewById(R.id.txt_etat);
@@ -53,8 +60,8 @@ public class DetaileCardiaque extends AppCompatActivity {
         Txt_max = findViewById(R.id.chifre_max);
         Txt_min = findViewById(R.id.chiffre_min);
         Txt_moy = findViewById(R.id.chifre_moys);
-        mchart = findViewById(R.id.chart1);
         constraintLayout = findViewById(R.id.constraint);
+        graph = (GraphView) findViewById(R.id.graph);
         Cercle = findViewById(R.id.imageView10);
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
@@ -63,61 +70,76 @@ public class DetaileCardiaque extends AppCompatActivity {
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
         Test_Donnees();
 
-        mchart.setDragEnabled(true);
-        mchart.setScaleEnabled(true);
-        mchart.getAxisRight().setEnabled(false);
-        mchart.getAxisLeft().setEnabled(false);
-        mchart.getXAxis().setEnabled(false);
-        mchart.getDescription().setEnabled(false);
-        mchart.setDrawBorders(false);
-        mchart.setPinchZoom(true);
-        mchart.setDrawGridBackground(false);
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(150);
+
+        graph.getViewport().setXAxisBoundsManual(false);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(4);
+
+        graph.getGridLabelRenderer().setHumanRounding(true);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(5);
+        graph.getGridLabelRenderer().setNumVerticalLabels(6);
+
+        graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
+        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.CYAN);
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
+        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
+        graph.getViewport().setScalable(false);
+        graph.getViewport().setScrollable(true);
+
 
         String restoredcal = prefs.getString("Calorie", null);
         String fuldate = prefs.getString("Date_Cycle", null);
         if (restoredcal != null) {
             Txt_Calorie.setText(String.valueOf((int) Double.parseDouble(restoredcal)));
         }
-        if (fuldate != null) {
-            Liste_donne = ds.getListCycle(fuldate);
-        }
-        if (Liste_donne.size() > 0) {
 
-            for (Cycle c : Liste_donne) {
-                list_coure.add(c.getFrequenceC());
+        if (fuldate != null && ds.getCountCycle(fuldate) > 0) {
+            Liste_donne = ds.getListCycle(fuldate);
+            if (Liste_donne.size() > 0) {
+
+                for (Cycle c : Liste_donne) {
+                    list_coure.add(c.getFrequenceC());
+                }
+                Txt_max.setText(String.valueOf(Collections.max(list_coure)));
+                Txt_min.setText(String.valueOf(Collections.min(list_coure)));
+                Txt_moy.setText(String.valueOf(Math.round(Moyenne_Val(list_coure))));
             }
         }
+        if (ds.getCountCycle(fuldate) > 0) {
 
-        YAxis leftAxis = mchart.getAxisLeft();
-        leftAxis.removeAllLimitLines();
-        leftAxis.setAxisMaximum(500f);
-        leftAxis.setAxisMinimum(-500f);
-        leftAxis.enableGridDashedLine(2f, 10f, 0);
-        leftAxis.setDrawLimitLinesBehindData(true);
+            int x = 0;
+            DataPoint[] points = new DataPoint[Liste_donne.size()];
+            for (int i = 0; i < points.length; i++) {
 
-        ArrayList<Entry> yvalues = new ArrayList<>();
-        float x = 0f;
-        for (int i = 0; i < Liste_donne.size(); i++) {
-            yvalues.add(new Entry(x, (float) Liste_donne.get(i).getFrequenceC()));
-            x = x + 5f;
+                points[i] = new DataPoint(x, Liste_donne.get(i).getFrequenceC());
+                x += 3;
+            }
+//            int val=0;
+//            DataPoint[] points = new DataPoint[50];
+//            for (int i = 0; i < points.length; i++) {
+//                points[i] = new DataPoint(val, (Math.random()*50+1));
+//                val+=5;
+//            }
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
+            series.setDrawDataPoints(true);
+            series.setDataPointsRadius(7);
+            series.setThickness(7);
+            series.setColor(Color.CYAN);
+            graph.addSeries(series);
         }
+    }
 
-        LineDataSet set1 = new LineDataSet(yvalues, "");
-
-        set1.setLineWidth(2f);
-        set1.setDrawValues(false);
-
-        set1.setDrawCircles(false);
-
-        ArrayList<ILineDataSet> datasets = new ArrayList<>();
-        datasets.add(set1);
-        LineData data = new LineData(datasets);
-        mchart.setData(data);
-        mchart.animateX(1400, Easing.EasingOption.Linear);
-
-        Txt_max.setText(String.valueOf(Collections.max(list_coure)));
-        Txt_min.setText(String.valueOf(Collections.min(list_coure)));
-        Txt_moy.setText(String.valueOf((Collections.min(list_coure) + Collections.max(list_coure)) / 2));
+    public double Moyenne_Val(ArrayList<Double> list) {
+        int total = 0;
+        for (double val : list) {
+            total += val;
+        }
+        return total / list.size();
     }
 
     public void suivant(View view) {
@@ -203,6 +225,10 @@ public class DetaileCardiaque extends AppCompatActivity {
         startActivity(ite);
     }
 
+    public void Cycle(View view) {
+        startActivity(new Intent(this, CycleActivity.class));
+    }
+
     public void supprimer(View view) {
         final String fuldate = prefs.getString("Date_Cycle", null);
 
@@ -226,4 +252,5 @@ public class DetaileCardiaque extends AppCompatActivity {
                     }).show();
         }
     }
+
 }

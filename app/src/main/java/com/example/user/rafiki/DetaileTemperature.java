@@ -3,6 +3,7 @@ package com.example.user.rafiki;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -16,19 +17,26 @@ import android.widget.TextView;
 import com.example.user.rafiki.ItemData.Cycle;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.example.user.rafiki.DetaileCardiaque.Liste_donne;
+
 public class DetaileTemperature extends AppCompatActivity {
 
     ImageView Etat_Cycle, Txt_Cycle, Suivant, Cercle;
-    LineChart mchart;
+    GraphView graph;
     TextView Txt_max, Txt_min, Txt_moy;
     SharedPreferences prefs, pref;
     ArrayList<Double> list_temp = new ArrayList<>();
@@ -47,7 +55,7 @@ public class DetaileTemperature extends AppCompatActivity {
         Txt_moy = findViewById(R.id.chifre_moys);
         Suivant = findViewById(R.id.suvi);
         Cercle = findViewById(R.id.imageView10);
-        mchart = findViewById(R.id.chart1);
+        graph = (GraphView) findViewById(R.id.graph);
 
         prefs = getSharedPreferences("Cycle", MODE_PRIVATE);
         pref = getSharedPreferences("Inscription", MODE_PRIVATE);
@@ -55,53 +63,68 @@ public class DetaileTemperature extends AppCompatActivity {
         ds = new UserDataSource(helper);
         Test_Donnees();
 
-        mchart.setDragEnabled(true);
-        mchart.setScaleEnabled(true);
-        mchart.getAxisRight().setEnabled(false);
-        mchart.getXAxis().setEnabled(false);
-        mchart.getDescription().setEnabled(false);
-        mchart.setDrawBorders(false);
-        mchart.setPinchZoom(true);
-        mchart.setDrawGridBackground(false);
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(150);
 
-        if (DetaileCardiaque.Liste_donne.size() > 0) {
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(80);
 
-            for (Cycle c : DetaileCardiaque.Liste_donne) {
-                list_temp.add(c.getTempirateur());
+        graph.getGridLabelRenderer().setHumanRounding(true);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(4);
+        graph.getGridLabelRenderer().setNumVerticalLabels(6);
+
+        graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
+        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.CYAN);
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
+        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
+        graph.getViewport().setScrollable(true);
+
+        String fuldate = prefs.getString("Date_Cycle", null);
+        if (fuldate != null && ds.getCountCycle(fuldate) > 0) {
+            if (Liste_donne.size() > 0) {
+
+                for (Cycle c : Liste_donne) {
+                    list_temp.add(c.getTempirateur());
+                }
             }
         }
-        YAxis leftAxis = mchart.getAxisLeft();
-        leftAxis.removeAllLimitLines();
-        leftAxis.setAxisMaximum(55f);
-        leftAxis.setAxisMinimum(15f);
-        leftAxis.setTextColor(R.color.left);
-        leftAxis.enableGridDashedLine(2f, 2f, 0);
-        leftAxis.setDrawLimitLinesBehindData(true);
 
-        ArrayList<Entry> yvalues = new ArrayList<>();
-        float x = 0f;
-        for (int i = 0; i < DetaileCardiaque.Liste_donne.size(); i++) {
-            yvalues.add(new Entry(x, (float) DetaileCardiaque.Liste_donne.get(i).getTempirateur()));
-            x = x + 5f;
+        if (ds.getCountCycle(fuldate) > 0) {
+//            float x = 0f;
+//            for (int i = 0; i < DetaileCardiaque.Liste_donne.size(); i++) {
+//                yvalues.add(new Entry(x, (float) DetaileCardiaque.Liste_donne.get(i).getTempirateur()));
+//                x = x + 5f;
+//            }
+            int x = 0;
+            DataPoint[] points = new DataPoint[Liste_donne.size()];
+            for (int i = 0; i < points.length; i++) {
+
+                points[i] = new DataPoint(x, Liste_donne.get(i).getTempirateur());
+                x += 5;
+            }
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
+            series.setDrawDataPoints(true);
+            series.setDataPointsRadius(7);
+            series.setThickness(7);
+            series.setColor(Color.CYAN);
+            graph.addSeries(series);
         }
-
-        LineDataSet set1 = new LineDataSet(yvalues, "");
-
-        set1.setLineWidth(4f);
-        set1.setHighlightEnabled(false);
-        set1.setDrawValues(false);
-        set1.setDrawCircles(false);
-
-
-        ArrayList<ILineDataSet> datasets = new ArrayList<>();
-        datasets.add(set1);
-        LineData data = new LineData(datasets);
-        mchart.setData(data);
-        mchart.animateX(1400, Easing.EasingOption.Linear);
 
         Txt_max.setText(String.valueOf(Collections.max(list_temp)));
         Txt_min.setText(String.valueOf(Collections.min(list_temp)));
-        Txt_moy.setText(String.valueOf((Collections.min(list_temp) + Collections.max(list_temp)) / 2));
+        Txt_moy.setText(String.valueOf(Math.round(Moyenne_Val(list_temp))));
+    }
+
+    public double Moyenne_Val(ArrayList<Double> list) {
+        int total = 0;
+        for (double val : list) {
+            total += val;
+        }
+        return total / list.size();
     }
 
     public void precedant(View view) {
@@ -186,6 +209,10 @@ public class DetaileTemperature extends AppCompatActivity {
     public void historique(View view) {
         Intent ite = new Intent(this, HistoriqueActivity.class);
         startActivity(ite);
+    }
+
+    public void Cycle(View view) {
+        startActivity(new Intent(this, CycleActivity.class));
     }
 
     public void supprimer(View view) {

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.rafiki.E10"    >
+    tools:context="com.example.user.rafiki.E10">
 
     <FrameLayout
         android:id="@+id/content"
@@ -482,8 +482,18 @@
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
+            <!--<com.github.mikephil.charting.charts.LineChart-->
+            <!--android:id="@+id/chart1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="240dp"-->
+            <!--android:layout_marginTop="32dp"-->
+            <!--android:animationCache="false"-->
+            <!--android:background="@drawable/gard"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
                 android:layout_width="0dp"
                 android:layout_height="240dp"
                 android:layout_marginTop="32dp"
@@ -524,6 +534,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 </LinearLayout>

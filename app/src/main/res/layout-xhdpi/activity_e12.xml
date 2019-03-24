@@ -488,16 +488,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="182dp"
                 android:layout_marginTop="32dp"
-                android:animateLayoutChanges="false"
                 android:animationCache="false"
                 android:background="@drawable/gard"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etat" />
         </android.support.constraint.ConstraintLayout>

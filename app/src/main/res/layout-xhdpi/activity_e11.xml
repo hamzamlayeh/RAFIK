@@ -175,18 +175,27 @@
 
             </LinearLayout>
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
+            <!--<com.github.mikephil.charting.charts.LineChart-->
+                <!--android:id="@+id/chart1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="57dp"-->
+                <!--android:layout_marginTop="32dp"-->
+                <!--android:animationCache="false"-->
+                <!--android:background="@drawable/gard"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.0"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/etat" />-->
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="167dp"
                 android:layout_marginTop="32dp"
                 android:animationCache="false"
                 android:background="@drawable/gard"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etat" />
-
             <ImageView
                 android:id="@+id/etat"
                 android:layout_width="129dp"

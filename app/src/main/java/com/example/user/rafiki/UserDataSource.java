@@ -805,6 +805,14 @@ public class UserDataSource {
         return list;
     }
 
+    public int getCountCycle(String fulldate) {
+        Cursor cursor = db.query(TABLE_NAME11, null, "fuldate_cycle = ?", new String[]{fulldate},
+                null, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
     //Parametre_Alert
     public void addAlert(Alerts alerts) {
 

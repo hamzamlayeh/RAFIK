@@ -37,7 +37,7 @@ public class BLEManager {
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
         @Override
         public void onLeScan(final BluetoothDevice device, final int rssi, final byte[] scanRecord) {
-            if (isDeviceFound == false) {
+            if (!isDeviceFound) {
                 String deviceName = device.getName();
                 if (deviceName != null) {
                     if (deviceName.equals(GADGET_NAME)) {
@@ -47,7 +47,7 @@ public class BLEManager {
                         try {
                             mBluetoothAdapter.stopLeScan(leScanCallback);
                         } catch (Exception ex) {
-
+                            ex.printStackTrace();
                         }
                     }
                 }
@@ -58,7 +58,7 @@ public class BLEManager {
                     try {
                         mBluetoothAdapter.stopLeScan(leScanCallback);
                     } catch (Exception ex) {
-
+                        ex.printStackTrace();
                     }
                 } else {
                     scanCycle++;
@@ -188,7 +188,7 @@ public class BLEManager {
                 BluetoothGattCharacteristic mWriteCharacteristic = mSPPBluetoothService.getCharacteristic(UUID.fromString(UIID_DATA_CHARACTERISTIC));
                 mWriteCharacteristic.setValue(buffer);
                 mWriteCharacteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);
-                if (bluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false) {
+                if (!bluetoothGatt.writeCharacteristic(mWriteCharacteristic)) {
                     bResult = false;
                 } else {
                     Thread.sleep(INTERVAL_MS);
@@ -236,11 +236,23 @@ public class BLEManager {
         return b & 0xFF;
     }
 
-    public static String decToHex(int dec, int dec2) {
-        return Integer.toHexString(dec2) + Integer.toHexString(dec);
+    public static String decToHex(int high, int low) {
+        return Integer.toHexString(low) + Integer.toHexString(high);
     }
 
     public static int hexToInt(String hex) {
         return Integer.parseInt(hex, 16);
     }
+
+    public static int TestValeurTrame(int high, int low) {
+
+        if (Integer.toHexString(low).equals("ff")) {
+            //return dec;
+//            Log.d("tt",((low -high) +1 )* (-1)+"");
+            return ((low -high) +1 )* (-1);
+        } else {
+            return high;
+        }
+    }
+
 }

@@ -1,10 +1,10 @@
-<resources xmlns:android="http://schemas.android.com/tools">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">RAFIKI</string>
     <string name="title_home">Acueil</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="signes">SIGNES</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="signes" translatable="false">SIGNES</string>
     <string name="neutre">NEUTRE</string>
     <string name="biometrique">biométriques</string>
     <string name="frequence">FREQUENCE</string>
@@ -31,12 +31,12 @@
     <string name="email">Email</string>
     <string name="s_inscrire">S\'INSCRIRE</string>
     <string name="sexe">Genre</string>
-    <string name="un_code_de_verification">Un code de vérification est envoyé à votre numéro par mail</string>
+    <string name="un_code_de_verification">Un code de vérification est envoyé par mail</string>
     <string name="entrer_le_code">Entrer le code</string>
     <string name="f_minin">Féminin</string>
     <string name="masculin">Masculin</string>
     <string name="v_rifier">Vérifier</string>
-    <string name="ok">OK</string>
+    <string name="ok" translatable="false">OK</string>
     <string name="alert_msg1">Consulter votre mail pour</string>
     <string name="alert_msg2">Valider votre inscription</string>
     <string name="recherche">Recherche…</string>
@@ -45,7 +45,7 @@
     <string name="confirmer_mot_de_pass">Confirmer mot de passe</string>
     <string name="err_pass2">Votre mot de passe n\'est pas identique</string>
     <string name="chekmail">Cette adresse mail est déjà utilisée</string>
-    <string name="couplage">Couplage de votre T-shirt avec SRT phone</string>
+    <string name="couplage">Couplage de votre T-shirt avec le Smartphone</string>
     <string name="votre_t_shirt">Votre T-shirt doit être couplé avec votre Smartphone via Bluetooth</string>
     <string name="couplage2">Couplage de votre T-shirt</string>
     <string name="recherche_gadget">Recherche Gadget</string>
@@ -118,7 +118,7 @@
     <string name="cyclisme">Cyclisme</string>
     <string name="sommeil">Sommeil</string>
     <string name="activit">Activité</string>
-    <string name="min">Min</string>
+    <string name="min" translatable="false">Min</string>
     <string name="max" translatable="false">Max</string>
     <string name="c" translatable="false">C°</string>
     <string name="acte_chirurgicale">Acte chirurgicale</string>
@@ -146,7 +146,7 @@
     <string name="s">S</string>
     <string name="d">D</string>
     <string name="pr_c_dent">précédent</string>
-    <string name="exp_2" translatable="false">2</string>
+    <string name="exp_2" translatable="false">0</string>
     <string name="cliquer_sur_antecedents">Cliquer sur un antécédent.</string>
     <string name="appui_long_sur_antecedents">Appui long sur un antécédent.</string>
     <string name="cliquer_sur_allergis">Cliquer sur une allergie.</string>
@@ -163,14 +163,14 @@
     <string name="donn_es_personnelles">Données personnelles</string>
     <string name="alertes">Alertes</string>
     <string name="d_connecter">Déconnecter</string>
-    <string name="cycle_d_activit">cycle d\'activité</string>
+    <string name="cycle_d_activit">Cycle d\'activité</string>
     <string name="quotidien">Quotidien</string>
     <string name="marche">Marche</string>
     <string name="course_pied">Course à pied</string>
     <string name="reprendre">Reprendre</string>
-    <string name="stop">Stop</string>
+    <string name="stop" translatable="false">Stop</string>
     <string name="fc">FC</string>
-    <string name="t">T°</string>
+    <string name="t" translatable="false">T°</string>
     <string name="temp_rateur">Températeure</string>
     <string name="distance">Distance</string>
     <string name="d_clencher">Déclencher</string>
@@ -181,12 +181,12 @@
     <string name="param_tre">Paramètre</string>
     <string name="historique">Historique</string>
     <string name="a_pied">à pied</string>
-    <string name="maladie_sup">Maladie Supprimer!</string>
+    <string name="maladie_sup">Maladie Supprimée!</string>
     <string name="date_simple">Date</string>
     <string name="modifier_2">Modifier</string>
     <string name="max_300">Max 300cm</string>
     <string name="pause">Pause</string>
-    <string name="ecg">Ecg</string>
+    <string name="ecg">ECG</string>
     <string name="vitesse">Vitesse</string>
     <string name="total_pas">Total pas</string>
     <string name="cadance">Cadance</string>
@@ -202,7 +202,7 @@
     <string name="chutes">Chutes</string>
     <string name="frequence_cardiaque">- Fréquence cardiaque</string>
     <string name="respirations">- Respiration</string>
-    <string name="tempirateur">- Températeur</string>
+    <string name="tempirateur">- Températeure</string>
     <string name="calories">- Calories</string>
     <string name="chute">- Chutes</string>
     <string name="text_supprimer_cycle">Êtes-vous sûr de vouloir supprimer ce cycle ?</string>
@@ -213,7 +213,7 @@
     <string name="s_lectionner_le_param_tre">Sélectionner le paramètre</string>
     <string name="vibreur">Vibreur</string>
     <string name="notification_application">Notification application</string>
-    <string name="sms">SMS</string>
+    <string name="sms" translatable="false">SMS</string>
     <string name="texte_du_message">Texte du Message</string>
     <string name="alerte_niveau_2">alerte niveau 2</string>
     <string name="alerte_niveau_1">alerte niveau 1</string>
@@ -222,4 +222,6 @@
     <string name="param_tres_d_alerte">Paramètres D\'alerte</string>
     <string name="title_notification">RAFIKI</string>
     <string name="text_notif">ATTENTION! Seuils biométriques critiques.</string>
+    <string name="test_carte_cycle">Votre carte n\'est pas connectée</string>
+    <string name="tempsinst">Temps(s)</string>
 </resources>

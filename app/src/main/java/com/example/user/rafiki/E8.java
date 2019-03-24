@@ -22,6 +22,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -35,6 +36,7 @@ import com.example.user.rafiki.ItemData.Contacts_Parentaux;
 import com.example.user.rafiki.ItemData.SeuilValues;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class E8 extends AppCompatActivity {
@@ -45,14 +47,15 @@ public class E8 extends AppCompatActivity {
     UserDataSource ds;
     Animation animation, animation2;
     ImageView coeur, poumon, Resaux;
-    int minBat = 0, maxBat = 0, moyBat = 0, minPoum = 0, maxPoum = 0, moyPoum = 0, minTemp = 0, maxTemp = 0, moyTemp = 0;
-    int minOxy = 0, maxOxy = 0, moyOxy = 0;
-    int FC = 0, FR = 0, T = 0, W = 0, N = 0, TempAlert = 0;
+    int FC = 0, FR = 0, T = 0, W = 0, N = 0, TempAlert = 0, CompteurMIN_MAX = 0;
     Activity activity;
     List<SeuilValues> list = new ArrayList<SeuilValues>();
     List<Alerts> listAlert = new ArrayList<Alerts>();
     List<Contacts_Parentaux> listFamilia = new ArrayList<Contacts_Parentaux>();
     List<Contacts_Medecins> listMedcin = new ArrayList<Contacts_Medecins>();
+    List<Integer> ListeBPM = new ArrayList<Integer>();
+    List<Integer> ListeRPM = new ArrayList<Integer>();
+    List<Integer> ListeTemp = new ArrayList<Integer>();
     static boolean StopThread = true;
     SharedPreferences prefs;
 
@@ -80,7 +83,7 @@ public class E8 extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }, 1000);
+        }, 2000);
         Mythred thread = new Mythred();
         thread.start();
 
@@ -186,9 +189,9 @@ public class E8 extends AppCompatActivity {
     }
 
     public void historique(View view) {
+        StopThread = false;
         TrameSop();
         E7_2.str = null;
-        StopThread = false;
         Intent ite = new Intent(this, HistoriqueActivity.class);
         startActivity(ite);
     }
@@ -217,41 +220,50 @@ public class E8 extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
+                            niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[6]) + "%"));
+                            if (E7_2.str[6] == 0) {
+                                batteri.setImageResource(R.drawable.batt7);
+                            } else if (E7_2.str[6] >= 1 && E7_2.str[6] <= 13) {
+                                batteri.setImageResource(R.drawable.batt6);
 
+                            } else if (E7_2.str[6] > 13 && E7_2.str[6] <= 25) {
+                                batteri.setImageResource(R.drawable.batt5);
+
+                            } else if (E7_2.str[6] > 25 && E7_2.str[6] <= 38) {
+                                batteri.setImageResource(R.drawable.batt4);
+
+                            } else if (E7_2.str[6] > 38 && E7_2.str[6] <= 50) {
+                                batteri.setImageResource(R.drawable.batt3);
+
+                            } else if (E7_2.str[6] > 50 && E7_2.str[6] <= 75) {
+                                batteri.setImageResource(R.drawable.batt2);
+
+                            } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
+                                batteri.setImageResource(R.drawable.batt1);
+                            }
                             if (E7_2.str[8] == 0) {
 //                                Alerts(E7_2.str[7]);
                                 bpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
-                                Setvaluesbatement(BLEManager.unsignedToBytes(E7_2.str[2]));
                                 rpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
-                                Setvaluespoumon(BLEManager.unsignedToBytes(E7_2.str[3]));
                                 temps.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[4])));
-                                Setvaluestempirature(BLEManager.unsignedToBytes(E7_2.str[4]));
                                 oxy.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[5]) + "%"));
-                                Setvaluesoxygene(BLEManager.unsignedToBytes(E7_2.str[5]));
-                                niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[6]) + "%"));
-
-                                if (E7_2.str[6] == 0) {
-                                    batteri.setImageResource(R.drawable.batt7);
-                                } else if (E7_2.str[6] >= 1 && E7_2.str[6] <= 13) {
-                                    batteri.setImageResource(R.drawable.batt6);
-
-                                } else if (E7_2.str[6] > 13 && E7_2.str[6] <= 25) {
-                                    batteri.setImageResource(R.drawable.batt5);
-
-                                } else if (E7_2.str[6] > 25 && E7_2.str[6] <= 38) {
-                                    batteri.setImageResource(R.drawable.batt4);
-
-                                } else if (E7_2.str[6] > 38 && E7_2.str[6] <= 50) {
-                                    batteri.setImageResource(R.drawable.batt3);
-
-                                } else if (E7_2.str[6] > 50 && E7_2.str[6] <= 75) {
-                                    batteri.setImageResource(R.drawable.batt2);
-
-                                } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
-                                    batteri.setImageResource(R.drawable.batt1);
-                                }
-                                Log.d("trameInst", BLEManager.unsignedToBytes(E7_2.str[2]) + "/" + BLEManager.unsignedToBytes(E7_2.str[3]) + "/" + BLEManager.unsignedToBytes(E7_2.str[4]) + "/" + BLEManager.unsignedToBytes(E7_2.str[5]) + "/" + BLEManager.unsignedToBytes(E7_2.str[6]) + "/" + BLEManager.unsignedToBytes(E7_2.str[7]));
                                 Resaux.setImageResource(R.drawable.resaux);
+
+                                if (CompteurMIN_MAX >= 60) {
+                                    CompteurMIN_MAX = 0;
+                                    ListeBPM.clear();
+                                    ListeRPM.clear();
+                                    ListeTemp.clear();
+                                } else {
+                                    Setvaluesbatement(BLEManager.unsignedToBytes(E7_2.str[2]));
+                                    Setvaluespoumon(BLEManager.unsignedToBytes(E7_2.str[3]));
+                                    Setvaluestempirature(BLEManager.unsignedToBytes(E7_2.str[4]));
+                                    CompteurMIN_MAX++;
+//                                    Log.d("compteur",CompteurMIN_MAX+"");
+                                }
+
+                                Log.d("trameInst", BLEManager.unsignedToBytes(E7_2.str[2]) + "/" + BLEManager.unsignedToBytes(E7_2.str[3]) + "/" + BLEManager.unsignedToBytes(E7_2.str[4]) + "/" + BLEManager.unsignedToBytes(E7_2.str[5]) + "/" + BLEManager.unsignedToBytes(E7_2.str[6]) + "/" + BLEManager.unsignedToBytes(E7_2.str[7]));
+
                                 if (E7_2.str[7] == 1) {
                                     String num = "52845265";
                                     String msg = "ATTENTION : Choc détécté!";
@@ -291,7 +303,7 @@ public class E8 extends AppCompatActivity {
                                             SmsManager sms = SmsManager.getDefault();
                                             sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau3(), null, null);
                                         }
-                                        if (W == 1 && N > 2 &&  E7_2.str[7]  == 1) {
+                                        if (W == 1 && N > 2 && E7_2.str[7] == 1) {
 //                Toast.makeText(activity, "aler 4", Toast.LENGTH_SHORT).show();
                                             SmsManager sms = SmsManager.getDefault();
                                             sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau4(), null, null);
@@ -302,7 +314,7 @@ public class E8 extends AppCompatActivity {
 
                                 } else {
                                     TempAlert++;
-                                    Log.d("ttttttt", TempAlert + "");
+//                                    Log.d("ttttttt", TempAlert + "");
                                 }
 
                             } else {
@@ -319,8 +331,6 @@ public class E8 extends AppCompatActivity {
                                 txt7.setText("--");
                                 txt8.setText("--");
                                 txt9.setText("--");
-                                niveaubatt.setText("-- %");
-                                batteri.setImageResource(R.drawable.batt7);
                                 Resaux.setImageResource(R.drawable.resaux2);
                             }
 
@@ -344,28 +354,12 @@ public class E8 extends AppCompatActivity {
         TextView txt3 = (TextView) findViewById(R.id.bpm_text1);
         TextView txt2 = (TextView) findViewById(R.id.bpm_text2);
         TextView txt1 = (TextView) findViewById(R.id.bpm_text3);
+        ListeBPM.add(x);
+        txt1.setText(String.valueOf(Collections.max(ListeBPM)));
+        txt2.setText(String.valueOf(Math.round(Moyenne_Val(ListeBPM))));
+        txt3.setText(String.valueOf(Collections.min(ListeBPM)));
+//        Log.d("size", ListeBPM.size() + "//");
 
-        if (maxBat <= x) {
-            maxBat = x;
-            txt1.setText(String.valueOf(maxBat));
-        }
-        if ((minBat < x && minBat == 0)) {
-            minBat = x;
-
-            txt3.setText(String.valueOf(minBat));
-        } else if (minBat < x) {
-            txt3.setText(String.valueOf(minBat));
-        } else {
-            minBat = x;
-            txt3.setText(String.valueOf(minBat));
-        }
-
-        if (maxBat != 0 && minBat != 0) {
-            moyBat = (maxBat + minBat) / 2;
-            txt2.setText(String.valueOf(moyBat));
-        } else {
-            txt2.setText("00");
-        }
     }
 
     public void Setvaluespoumon(int x) {
@@ -373,27 +367,11 @@ public class E8 extends AppCompatActivity {
         TextView txt3 = (TextView) findViewById(R.id.rpm_text1);
         TextView txt2 = (TextView) findViewById(R.id.rpm_text2);
         TextView txt1 = (TextView) findViewById(R.id.rpm_text3);
+        ListeRPM.add(x);
+        txt1.setText(String.valueOf(Collections.max(ListeRPM)));
+        txt2.setText(String.valueOf(Math.round(Moyenne_Val(ListeRPM))));
+        txt3.setText(String.valueOf(Collections.min(ListeRPM)));
 
-        if (maxPoum <= x) {
-            maxPoum = x;
-            txt1.setText(String.valueOf(maxPoum));
-        }
-        if ((minPoum < x && minPoum == 0)) {
-            minPoum = x;
-            txt3.setText(String.valueOf(minPoum));
-        } else if (minPoum < x) {
-            txt3.setText(String.valueOf(minPoum));
-        } else {
-            minPoum = x;
-            txt3.setText(String.valueOf(minPoum));
-        }
-
-        if (maxPoum != 0 && minPoum != 0) {
-            moyPoum = (maxPoum + minPoum) / 2;
-            txt2.setText(String.valueOf(moyPoum));
-        } else {
-            txt2.setText("00");
-        }
     }
 
     public void Setvaluestempirature(int x) {
@@ -401,70 +379,34 @@ public class E8 extends AppCompatActivity {
         TextView txt3 = (TextView) findViewById(R.id.text_temp1);
         TextView txt2 = (TextView) findViewById(R.id.text_temp2);
         TextView txt1 = (TextView) findViewById(R.id.text_temp3);
+        ListeTemp.add(x);
+        txt1.setText(String.valueOf(Collections.max(ListeTemp)));
+        txt2.setText(String.valueOf(Math.round(Moyenne_Val(ListeTemp))));
+        txt3.setText(String.valueOf(Collections.min(ListeTemp)));
 
-        if (maxTemp <= x) {
-            maxTemp = x;
-            txt1.setText(String.valueOf(maxTemp));
-        }
-        if ((minTemp < x && minTemp == 0)) {
-            minTemp = x;
-            txt3.setText(String.valueOf(minTemp));
-        } else if (minTemp < x) {
-            txt3.setText(String.valueOf(minTemp));
-        } else {
-            minTemp = x;
-            txt3.setText(String.valueOf(minTemp));
-        }
-
-        if (maxTemp != 0 && minTemp != 0) {
-            moyTemp = (maxTemp + minTemp) / 2;
-            txt2.setText(String.valueOf(moyTemp));
-        } else {
-            txt2.setText("00");
-        }
     }
 
-    public void Setvaluesoxygene(int x) {
-
-        TextView txt3 = (TextView) findViewById(R.id.text_oxigen1);
-        TextView txt2 = (TextView) findViewById(R.id.text_oxigen2);
-        TextView txt1 = (TextView) findViewById(R.id.text_oxigen3);
-
-        if (maxOxy <= x) {
-            maxOxy = x;
-            txt1.setText(String.valueOf(maxOxy) + "%");
+    public float Moyenne_Val(List<Integer> list) {
+        int total = 0;
+        for (int val : list) {
+            total += val;
         }
-        if ((minOxy < x && minOxy == 0)) {
-            minOxy = x;
-            txt3.setText(String.valueOf(minOxy) + "%");
-        } else if (minOxy < x) {
-            txt3.setText(String.valueOf(minOxy) + "%");
-        } else {
-            minOxy = x;
-            txt3.setText(String.valueOf(minOxy) + "%");
-        }
-
-        if (maxOxy != 0 && minOxy != 0) {
-            moyOxy = (maxOxy + minOxy) / 2;
-            txt2.setText(String.valueOf(moyOxy) + "%");
-        } else {
-            txt2.setText("00%");
-        }
+        return total / list.size();
     }
 
     public void Test_Les_Seuil(int FCinst, int FRinst, int Tinst) {
 
         list = ds.getListSeuils();
         //Fréquence Cardiaque FC
-        if (maxBat >= Integer.parseInt(list.get(0).getFCactivite_X())
+        if (Collections.max(ListeBPM) >= Integer.parseInt(list.get(0).getFCactivite_X())
                 || FCinst >= Integer.parseInt(list.get(0).getFCactivite_X())) {
             FC = 1;
             N += 1;
-            System.out.print(maxBat);
+            System.out.print(Collections.max(ListeBPM));
         } else {
             FC = 0;
         }
-        if (minBat <= Integer.parseInt(list.get(0).getFCactivite_M())
+        if (Collections.min(ListeBPM) <= Integer.parseInt(list.get(0).getFCactivite_M())
                 || FCinst <= Integer.parseInt(list.get(0).getFCactivite_M())) {
             FC = 1;
             N += 1;
@@ -472,14 +414,14 @@ public class E8 extends AppCompatActivity {
             FC = 0;
         }
         //Fréquence Respiratoire FR
-        if (maxPoum >= Integer.parseInt(list.get(0).getFRactivite_X())
+        if (Collections.max(ListeRPM) >= Integer.parseInt(list.get(0).getFRactivite_X())
                 || FRinst >= Integer.parseInt(list.get(0).getFRactivite_X())) {
             FR = 1;
             N += 1;
         } else {
             FR = 0;
         }
-        if (minPoum <= Integer.parseInt(list.get(0).getFRactivite_M())
+        if (Collections.min(ListeRPM) <= Integer.parseInt(list.get(0).getFRactivite_M())
                 || FRinst <= Integer.parseInt(list.get(0).getFRactivite_M())) {
             FR = 1;
             N += 1;
@@ -487,14 +429,14 @@ public class E8 extends AppCompatActivity {
             FR = 0;
         }
         //Température T°:
-        if (maxTemp >= Integer.parseInt(list.get(0).getTactivite_X())
+        if (Collections.max(ListeTemp) >= Integer.parseInt(list.get(0).getTactivite_X())
                 || Tinst >= Integer.parseInt(list.get(0).getTactivite_X())) {
             T = 1;
             N += 1;
         } else {
             T = 0;
         }
-        if (maxTemp <= Integer.parseInt(list.get(0).getTactivite_M())
+        if (Collections.min(ListeTemp) <= Integer.parseInt(list.get(0).getTactivite_M())
                 || Tinst <= Integer.parseInt(list.get(0).getTactivite_M())) {
             T = 1;
             N += 1;
@@ -601,7 +543,7 @@ public class E8 extends AppCompatActivity {
     public void E10(View view) {
         StopThread = false;
         E7_2.str = null;
-        TrameSop();
+//        TrameSop();
         intent = new Intent(this, E10.class);
         startActivity(intent);
     }
@@ -609,7 +551,7 @@ public class E8 extends AppCompatActivity {
     public void E12(View view) {
         StopThread = false;
         E7_2.str = null;
-        TrameSop();
+//        TrameSop();
         intent = new Intent(this, E12.class);
         startActivity(intent);
     }
@@ -617,7 +559,7 @@ public class E8 extends AppCompatActivity {
     public void E11(View view) {
         StopThread = false;
         E7_2.str = null;
-        TrameSop();
+//        TrameSop();
         intent = new Intent(this, E11.class);
         startActivity(intent);
     }
@@ -626,6 +568,14 @@ public class E8 extends AppCompatActivity {
 //        StopThread=false;
 //        intent = new Intent(this, E9.class);
 //        startActivity(intent);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+        }
+        return false;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)

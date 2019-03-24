@@ -19,7 +19,6 @@
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
@@ -32,16 +31,18 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".E10"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
         <activity
             android:name=".E12"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
         <activity
             android:name=".E11"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"  android:hardwareAccelerated="false"/>
         <activity
             android:name=".E9"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"  android:hardwareAccelerated="false"/>
         <activity
             android:name=".Verif_code_mailActivity"
             android:screenOrientation="portrait" />
@@ -126,14 +127,30 @@
         <activity
             android:name=".CycleActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ParametresMesures" />
-        <activity android:name=".DetaileCardiaque" />
-        <activity android:name=".DetaileCardiogramme" />
-        <activity android:name=".DetaileTemperature" />
-        <activity android:name=".DetaileActivity" />
-        <activity android:name=".DetaileRespiration" />
-        <activity android:name=".HistoriqueActivity" />
-        <activity android:name=".DetaileHistorique"/>
+        <activity
+            android:name=".ParametresMesures"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetaileCardiaque"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetaileCardiogramme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetaileTemperature"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetaileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetaileRespiration"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HistoriqueActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetaileHistorique"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

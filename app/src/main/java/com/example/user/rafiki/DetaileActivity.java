@@ -76,7 +76,7 @@ public class DetaileActivity extends AppCompatActivity {
             if (restoredchrono.length() > 5) {
                 Txt_Chrono.setText(restoredchrono);
             } else {
-                Txt_Chrono.setText("00:"+restoredchrono);
+                Txt_Chrono.setText("00:" + restoredchrono);
             }
         }
         if (restoredduree != null) {
@@ -151,6 +151,10 @@ public class DetaileActivity extends AppCompatActivity {
     public void historique(View view) {
         Intent ite = new Intent(this, HistoriqueActivity.class);
         startActivity(ite);
+    }
+
+    public void Cycle(View view) {
+        startActivity(new Intent(this, CycleActivity.class));
     }
 
     public void supprimer(View view) {

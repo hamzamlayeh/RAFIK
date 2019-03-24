@@ -115,6 +115,7 @@
                                 android:checked="true"
                                 android:clickable="false"
                                 android:textSize="18sp"
+                                android:visibility="invisible"
                                 android:layout_weight="0"
                                 tools:layout_editor_absoluteX="184dp"
                                 tools:layout_editor_absoluteY="225dp" />
@@ -147,6 +148,7 @@
                                 android:buttonTint="@color/btn_radio"
                                 android:checked="true"
                                 android:clickable="false"
+                                android:visibility="invisible"
                                 android:layout_weight="0"
                                 tools:layout_editor_absoluteX="184dp"
                                 tools:layout_editor_absoluteY="225dp" />
@@ -211,6 +213,7 @@
                                 android:layout_height="wrap_content"
                                 android:buttonTint="@color/btn_radio"
                                 android:checked="true"
+                                android:visibility="invisible"
                                 android:clickable="false"
                                 android:layout_weight="0"
                                 tools:layout_editor_absoluteX="184dp"
@@ -294,6 +297,7 @@
                                 android:layout_weight="0"
                                 android:buttonTint="@color/btn_radio"
                                 android:checked="true"
+                                android:visibility="invisible"
                                 android:clickable="false"
                                 tools:layout_editor_absoluteX="184dp"
                                 tools:layout_editor_absoluteY="225dp" />
@@ -374,6 +378,7 @@
                                 android:buttonTint="@color/btn_radio"
                                 android:checked="true"
                                 android:clickable="false"
+                                android:visibility="invisible"
                                 android:layout_weight="0"
                                 tools:layout_editor_absoluteX="184dp"
                                 tools:layout_editor_absoluteY="225dp" />

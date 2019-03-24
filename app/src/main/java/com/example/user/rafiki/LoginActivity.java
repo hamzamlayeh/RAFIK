@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.amitshekhar.DebugDB;
 import com.example.user.rafiki.ItemData.MailBody;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
@@ -31,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Toast.makeText(this, ""+ DebugDB.getAddressLog(), Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, ""+ hexToLong(decToHex(255,255)), Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, decToHex(10,10), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+ hexToLong(TestValeurTrame(255,255)), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, TestValeurTrame(10,10), Toast.LENGTH_SHORT).show();
 
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editors = pref.edit();
@@ -48,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
         }
         setContentView(R.layout.activity_login);
-
         email = findViewById(R.id.nom);
         pass = findViewById(R.id.password);
 
@@ -63,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     public void identifier(View view) {
         mail = email.getText().toString().trim();
         password = pass.getText().toString().trim();
-//        ite = new Intent(this, E8.class);
+//        ite = new Intent(this, MainActivity.class);
 //        startActivity(ite);
         if (valider()) {
             SharedPreferences.Editor editor = getSharedPreferences("Inscription", MODE_PRIVATE).edit();
@@ -171,7 +172,7 @@ public class LoginActivity extends AppCompatActivity {
 //    public static int hexToLong(String hex) {
 //        return Integer.parseInt(hex, 16);
 //    }
-//    public static String decToHex(int dec, int dec2) {
+//    public static String TestValeurTrame(int dec, int dec2) {
 //        return Integer.toHexString(dec2) + Integer.toHexString(dec);
 //    }
 }

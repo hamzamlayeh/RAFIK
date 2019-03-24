@@ -281,12 +281,11 @@
 
             </android.support.constraint.ConstraintLayout>
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
                 android:layout_width="0dp"
                 android:layout_height="104dp"
                 android:layout_marginTop="8dp"
-                android:animationCache="false"
                 android:background="@drawable/gard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -491,6 +490,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="Cycle"
                 android:background="@android:color/white"
                 android:orientation="vertical">
 

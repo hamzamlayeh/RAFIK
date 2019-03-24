@@ -23,8 +23,8 @@
                 android:layout_width="65dp"
                 android:layout_height="12dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 app:layout_constraintHorizontal_bias="0.86"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -46,8 +46,8 @@
                 android:id="@+id/txt_etat"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/course_a_pied"
                 app:layout_constraintStart_toEndOf="@+id/etat_cycle"
@@ -57,11 +57,11 @@
                 android:id="@+id/imageView24"
                 android:layout_width="60dp"
                 android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:padding="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
@@ -84,12 +84,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView24" />
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
                 android:layout_width="0dp"
-                android:layout_height="149dp"
+                android:layout_height="170dp"
                 android:layout_marginTop="8dp"
-                android:animationCache="false"
                 android:background="@drawable/gard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -100,9 +99,9 @@
                 android:id="@+id/suvi"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
                 android:onClick="suivant"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,10 +111,10 @@
                 android:id="@+id/button4"
                 android:layout_width="33dp"
                 android:layout_height="28dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/supp"
                 android:onClick="supprimer"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout21"
@@ -127,10 +126,11 @@
                 android:id="@+id/suvi2"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="8dp"
                 android:onClick="precedant"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/ic_precedant" />
@@ -177,13 +177,6 @@
                     android:padding="5dp"
                     app:srcCompat="@drawable/cercle" />
 
-                <!--<ImageView-->
-                <!--android:id="@+id/imageView100"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:padding="5dp"-->
-                <!--app:srcCompat="@drawable/cercle" />-->
 
             </LinearLayout>
 
@@ -196,17 +189,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chart1">
+                app:layout_constraintTop_toBottomOf="@+id/graph">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="3dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="3dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -237,12 +230,12 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="3dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="3dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -277,10 +270,10 @@
                 android:id="@+id/constraintLayout3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -385,11 +378,11 @@
                     android:id="@+id/view52"
                     android:layout_width="0dp"
                     android:layout_height="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:background="@drawable/cadre_rudus"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -500,8 +493,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="3dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/clocke" />
 
                 <TextView
@@ -528,8 +521,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="3dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/reglage" />
 
                 <TextView
@@ -556,8 +549,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="3dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/ic_misson" />
 
                 <TextView
@@ -576,6 +569,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/white"
+                android:onClick="Cycle"
                 android:orientation="vertical">
 
                 <ImageView
@@ -583,8 +577,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="3dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/horloge2" />
 
                 <TextView
@@ -611,8 +605,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="3dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/exite" />
 
                 <TextView

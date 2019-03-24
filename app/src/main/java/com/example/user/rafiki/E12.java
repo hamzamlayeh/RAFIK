@@ -20,12 +20,18 @@ import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +39,11 @@ import java.util.List;
 public class E12 extends AppCompatActivity {
 
     Intent intent;
-    private LineChart mchart;
+    GraphView graph;
+    LineGraphSeries<DataPoint> series;
+    double lastXpoint = 0;
     static boolean StopThread = true;
     Activity activity;
-    List<Integer> listValeur = new ArrayList<>();
-    int ReestValeur = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,23 +71,30 @@ public class E12 extends AppCompatActivity {
         }, 1000);
         ThreadTEMP thread = new ThreadTEMP();
         thread.start();
-        mchart = (LineChart) findViewById(R.id.chart1);
-        mchart.setDragEnabled(true);
-        mchart.setScaleEnabled(true);
-        mchart.getAxisRight().setEnabled(false);
-        mchart.getXAxis().setEnabled(false);
-        mchart.getDescription().setEnabled(false);
-        mchart.setDrawBorders(false);
-        mchart.setPinchZoom(true);
-        mchart.setDrawGridBackground(false);
 
-        YAxis leftAxis = mchart.getAxisLeft();
-        leftAxis.removeAllLimitLines();
-        leftAxis.setAxisMaximum(75f);
-        leftAxis.setAxisMinimum(0f);
-        leftAxis.setTextColor(R.color.left);
-        leftAxis.enableGridDashedLine(2f, 2f, 0);
-        leftAxis.setDrawLimitLinesBehindData(true);
+        graph = (GraphView) findViewById(R.id.graph);
+
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(10);
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(70);
+        graph.getGridLabelRenderer().setHumanRounding(true);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(4);
+        graph.getGridLabelRenderer().setNumVerticalLabels(3);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
+        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
+        series = new LineGraphSeries<>();
+        series.setDrawDataPoints(true);
+        series.setDataPointsRadius(7);
+        series.setThickness(7);
+        series.setColor(Color.CYAN);
+
+        graph.addSeries(series);
 
     }
 
@@ -121,31 +134,9 @@ public class E12 extends AppCompatActivity {
                             } else if (E7_2.str[3] > 76 && E7_2.str[3] <= 100) {
                                 batteri.setImageResource(R.drawable.batt1);
                             }
-
-                            if (ReestValeur >= 30) {
-                                ReestValeur = 0;
-                                listValeur.clear();
-                            } else {
-                                ReestValeur++;
-                                listValeur.add(BLEManager.unsignedToBytes(E7_2.str[2]));
-                                Log.d("size", listValeur.size() + "");
-                                ArrayList<Entry> yvalues = new ArrayList<>();
-                                for (int i = 0; i < listValeur.size(); i++) {
-                                    yvalues.add(new Entry((i), listValeur.get(i)));
-                                }
-                                LineDataSet set1 = new LineDataSet(yvalues, "");
-
-                                set1.setLineWidth(3f);
-                                set1.setDrawValues(false);
-                                set1.setDrawCircles(true);
-                                set1.setColor(R.color.courbe);
-
-                                ArrayList<ILineDataSet> datasets = new ArrayList<>();
-                                datasets.add(set1);
-                                LineData data = new LineData(datasets);
-                                mchart.setData(data);
-                                mchart.animateX(1000, Easing.EasingOption.Linear);
-                            }
+                            lastXpoint++;
+                            Log.d("trame",BLEManager.unsignedToBytes(E7_2.str[2])+"");
+                            series.appendData(new DataPoint(lastXpoint,BLEManager.unsignedToBytes(E7_2.str[2])),true,100);
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -164,7 +155,6 @@ public class E12 extends AppCompatActivity {
     public void retour(View view) {
         StopThread = false;
         E7_2.str = null;
-        TrameSop();
         Intent intent = new Intent(E12.this, E8.class);
         startActivity(intent);
     }
@@ -174,27 +164,9 @@ public class E12 extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             StopThread = false;
             E7_2.str = null;
-            TrameSop();
             Intent intent = new Intent(E12.this, E8.class);
             startActivity(intent);
         }
         return false;
-    }
-
-    public void TrameSop() {
-        new Handler().postDelayed(new Runnable() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-            public void run() {
-                byte[] buffer = {0x02, 0x73, 0x01, 0x74, 0x03, 0x0A};
-                BLEManager.writeData(buffer);
-                try {
-                    Thread.sleep(1000);
-                    BLEManager.readData();
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, 1000);
     }
 }
