@@ -11,18 +11,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by ASUS on 14/02/2018.
- */
 public class Liste_code_payes extends ArrayAdapter<String> {
 
-    Context context;
-    String[] codes;
-    int[] imge;
-    LayoutInflater inflater;
-    View row;
+    private Context context;
+    private String[] codes;
+    private int[] imge;
+    private LayoutInflater inflater;
+    private View row;
 
-    public Liste_code_payes( Context context, String[] codes, int[] imge) {
+    Liste_code_payes(Context context, String[] codes, int[] imge) {
         super(context, R.layout.liste_codes_pays,codes);
         this.context = context;
         this.codes = codes;
@@ -34,8 +31,8 @@ public class Liste_code_payes extends ArrayAdapter<String> {
 
         inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         row=inflater.inflate(R.layout.liste_codes_pays,null);
-        TextView code = (TextView) row.findViewById(R.id.code_payes);
-        ImageView img = (ImageView) row.findViewById(R.id.img_code);
+        TextView code = row.findViewById(R.id.code_payes);
+        ImageView img = row.findViewById(R.id.img_code);
 
         code.setText(codes[position]);
         img.setImageResource(imge[position]);

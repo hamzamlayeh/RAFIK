@@ -37,7 +37,7 @@ public class ModifierCompte extends AppCompatActivity {
     SeuilValues seuilValues;
     int Age ;
     int FCmarche_X,FCcourse_X,FCactivite_X,FCsommeil_X;
-    List<clients> list = new ArrayList<clients>();
+    List<clients> list = new ArrayList<>();
     String[] codes = new String[199];
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
@@ -48,17 +48,17 @@ public class ModifierCompte extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifier_compte);
         Inscription.NUM_PAGE = 2;
-        nom = (EditText) findViewById(R.id.nom);
-        prenom = (EditText) findViewById(R.id.prenom);
-        naisence = (EditText) findViewById(R.id.age);
-        payes = (EditText) findViewById(R.id.payer);
-        mobile = (EditText) findViewById(R.id.mobile);
-        email = (EditText) findViewById(R.id.email);
-        sexe = (EditText) findViewById(R.id.sexe);
-        pass = (EditText) findViewById(R.id.pass);
-        poid = (EditText) findViewById(R.id.poid);
-        confirm_pass = (EditText) findViewById(R.id.conf_pass);
-        spinner = (Spinner) findViewById(R.id.code_pays);
+        nom = findViewById(R.id.nom);
+        prenom = findViewById(R.id.prenom);
+        naisence = findViewById(R.id.age);
+        payes = findViewById(R.id.payer);
+        mobile = findViewById(R.id.mobile);
+        email = findViewById(R.id.email);
+        sexe = findViewById(R.id.sexe);
+        pass = findViewById(R.id.pass);
+        poid = findViewById(R.id.poid);
+        confirm_pass = findViewById(R.id.conf_pass);
+        spinner = findViewById(R.id.code_pays);
         mkLoader = findViewById(R.id.alerr);
 
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
@@ -207,7 +207,7 @@ public class ModifierCompte extends AppCompatActivity {
     }
 
     public void setage(String age) {
-        naisence.setText(age+ " age");
+        naisence.setText(age);
         try {
             Age = Integer.parseInt(age);
         } catch (Exception e) {

@@ -62,7 +62,7 @@
         android:textColor="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fiche" />
 
@@ -70,9 +70,9 @@
         android:id="@+id/tableLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/edittexte_rudus"
         app:layout_constraintCircleRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +106,7 @@
                 android:id="@+id/spinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|start"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="2"
                 android:fontFamily="@font/raleway_regular"
@@ -116,8 +116,8 @@
                 android:id="@+id/view45"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 
@@ -149,7 +149,7 @@
         android:textColor="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
@@ -157,9 +157,9 @@
         android:id="@+id/tableLayout1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/edittexte_rudus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -192,7 +192,7 @@
                 android:id="@+id/spinner1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|start"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="2"
                 android:fontFamily="@font/raleway_regular"
@@ -202,8 +202,8 @@
                 android:id="@+id/view46"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:layout_weight="0"
                 android:background="@color/ligne_horizontal" />
 

@@ -2,6 +2,7 @@ package com.example.user.rafiki;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Liste_payers extends AppCompatActivity implements TextWatcher {
 
@@ -43,16 +45,16 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
         rempli_nom_pays();
 
         recherch.addTextChangedListener(this);
-        listA=new ArrayList<DataItem>();
+        listA = new ArrayList<DataItem>();
 
         int id = 0;
-        for(int i=0;i<items.length;i++){
+        for (int i = 0; i < items.length; i++) {
 
-            dataItem=new DataItem(String.valueOf(id), Constante.imgs[i],items[i]);
+            dataItem = new DataItem(String.valueOf(id), Constante.imgs[i], items[i]);
             listA.add(dataItem);
             id++;
         }
-        myAdapter=new Adapter_Liste_pays(this,listA);
+        myAdapter = new Adapter_Liste_pays(this, listA);
         listView.setAdapter(myAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,13 +66,13 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
                 editor.putString("Nom_Pays", txt.getText().toString());
                 editor.putString("Id_img", id.getText().toString());
                 editor.apply();
-                if(Inscription.NUM_PAGE==1){
-                    Inscription.idc=getIndexPays(txt.getText().toString().toLowerCase());
+                if (Inscription.NUM_PAGE == 1) {
+                    Inscription.idc = getIndexPays(txt.getText().toString().toLowerCase());
                     ite = new Intent(Liste_payers.this, Inscription.class);
                     startActivity(ite);
                     Liste_payers.this.finish();
-                }else {
-                    ModifierCompte.Indice_Pays=getIndexPays(txt.getText().toString().toLowerCase());
+                } else {
+                    ModifierCompte.Indice_Pays = getIndexPays(txt.getText().toString().toLowerCase());
                     ite = new Intent(Liste_payers.this, ModifierCompte.class);
                     startActivity(ite);
                     Liste_payers.this.finish();
@@ -80,6 +82,7 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
         });
 
     }
+
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -94,10 +97,18 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
     public void afterTextChanged(Editable editable) {
 
     }
+
     public void rempli_nom_pays() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        String lang = pref.getString("lang", null);
 
         try {
-            InputStream inputStream = getAssets().open("payes.txt");
+            InputStream inputStream=null;
+            if (lang.equals("en")) {
+                inputStream = getAssets().open("payes_en.txt");
+            }else {
+                inputStream = getAssets().open("payes.txt");
+            }
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             int x = 0;
@@ -114,16 +125,14 @@ public class Liste_payers extends AppCompatActivity implements TextWatcher {
 
     }
 
-    public int getIndexPays(String countryName)
-    {
+    public int getIndexPays(String countryName) {
         boolean exist = false;
         int index = 0;
-        int i=0;
-        while (!exist && i<items.length){
-            if(items[i].toLowerCase().equals(countryName))
-            {
-                exist=true;
-                index =i;
+        int i = 0;
+        while (!exist && i < items.length) {
+            if (items[i].toLowerCase().equals(countryName)) {
+                exist = true;
+                index = i;
             }
             i++;
         }

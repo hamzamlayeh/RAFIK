@@ -35,8 +35,8 @@ import static com.example.user.rafiki.DetaileCardiaque.Liste_donne;
 
 public class DetaileRespiration extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Txt_Cycle, Cercle;
-    TextView Txt_max, Txt_min, Txt_moy;
+    ImageView Etat_Cycle, Cercle;
+    TextView Txt_Cycle,Txt_max, Txt_min, Txt_moy;
     SharedPreferences prefs, pref;
     GraphView graph;
     ArrayList<Double> list_poumon = new ArrayList<>();
@@ -64,11 +64,11 @@ public class DetaileRespiration extends AppCompatActivity {
 
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
-        graph.getViewport().setMaxY(150);
+        graph.getViewport().setMaxY(70);
 
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
-        graph.getViewport().setMaxX(80);
+        graph.getViewport().setMaxX(4);
 
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
@@ -81,6 +81,7 @@ public class DetaileRespiration extends AppCompatActivity {
         graph.getGridLabelRenderer().setGridColor(Color.CYAN);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         graph.getViewport().setScrollable(true);
+        graph.getViewport().setScalable(true);
 
         String fuldate = prefs.getString("Date_Cycle", null);
         if (fuldate != null && ds.getCountCycle(fuldate) > 0) {
@@ -104,7 +105,7 @@ public class DetaileRespiration extends AppCompatActivity {
             }
 
             LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-            series.setDrawDataPoints(true);
+            series.setDrawDataPoints(false);
             series.setDataPointsRadius(7);
             series.setThickness(7);
             series.setColor(Color.CYAN);
@@ -148,28 +149,33 @@ public class DetaileRespiration extends AppCompatActivity {
             switch (Indice) {
                 case 1:
                     Etat_Cycle.setImageResource(R.drawable.icon_quotidien);
-                    Txt_Cycle.setImageResource(R.drawable.quotidien);
+                    //Txt_Cycle.setImageResource(R.drawable.quotidien);
+                    Txt_Cycle.setText(R.string.quotidien);
                     Cercle.setVisibility(View.GONE);
                     break;
                 case 2:
 
                     Etat_Cycle.setImageResource(R.drawable.icon_marche);
-                    Txt_Cycle.setImageResource(R.drawable.marche);
+//                    Txt_Cycle.setImageResource(R.drawable.marche);
+                    Txt_Cycle.setText(R.string.marche);
                     Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 3:
                     Etat_Cycle.setImageResource(R.drawable.icone_course);
-                    Txt_Cycle.setImageResource(R.drawable.course_a_pied);
+//                    Txt_Cycle.setImageResource(R.drawable.course_a_pied);
+                    Txt_Cycle.setText(R.string.course_pied);
                     Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 4:
                     Etat_Cycle.setImageResource(R.drawable.icone_cycle);
-                    Txt_Cycle.setImageResource(R.drawable.cyclisme);
+//                    Txt_Cycle.setImageResource(R.drawable.cyclisme);
+                    Txt_Cycle.setText(R.string.cyclisme);
                     Cercle.setVisibility(View.GONE);
                     break;
                 case 5:
                     Etat_Cycle.setImageResource(R.drawable.icon_sommeil);
-                    Txt_Cycle.setImageResource(R.drawable.sommeil);
+//                    Txt_Cycle.setImageResource(R.drawable.sommeil);
+                    Txt_Cycle.setText(R.string.sommeil);
                     Cercle.setVisibility(View.GONE);
                     break;
             }

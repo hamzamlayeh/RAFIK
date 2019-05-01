@@ -50,7 +50,6 @@ public class ParametresMesures extends AppCompatActivity {
     Activity activity;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
-    Thread thread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +73,43 @@ public class ParametresMesures extends AppCompatActivity {
         btn_P_R = findViewById(R.id.button3);
         stop = findViewById(R.id.button5);
         declancher = findViewById(R.id.declancher);
+        niveaubatt = findViewById(R.id.NiveauBatt);
+        batteri = findViewById(R.id.batterie);
         stop.setClickable(false);
         Test_Donnees();
         String restoredemail = pref.getString("Email", null);
+        int restoredbat = pref.getInt("NiveauBat", -1);
+        int restoredelctrod = pref.getInt("Electrode", -1);
+        if (restoredbat != -1) {
+            niveaubatt.setText(String.valueOf(String.format("%s%%", restoredbat)));
+            if (restoredbat == 0) {
+                batteri.setImageResource(R.drawable.batt7);
+            } else if (restoredbat >= 1 && restoredbat <= 13) {
+                batteri.setImageResource(R.drawable.batt6);
+
+            } else if (restoredbat > 13 && restoredbat <= 25) {
+                batteri.setImageResource(R.drawable.batt5);
+
+            } else if (restoredbat > 25 && restoredbat <= 38) {
+                batteri.setImageResource(R.drawable.batt4);
+
+            } else if (restoredbat > 38 && restoredbat <= 50) {
+                batteri.setImageResource(R.drawable.batt3);
+
+            } else if (restoredbat > 50 && restoredbat <= 75) {
+                batteri.setImageResource(R.drawable.batt2);
+
+            } else if (restoredbat > 76 && restoredbat <= 100) {
+                batteri.setImageResource(R.drawable.batt1);
+            }
+        }
+        if (restoredelctrod != -1) {
+            if (restoredelctrod == 0) {
+                Resaux.setImageResource(R.drawable.resaux);
+            } else {
+                Resaux.setImageResource(R.drawable.resaux2);
+            }
+        }
         if (restoredemail != null) {
             Poids = Integer.parseInt(ds.getPoid(restoredemail));
         } else {
@@ -145,7 +178,7 @@ public class ParametresMesures extends AppCompatActivity {
                                 startActivity(new Intent(getApplicationContext(), DetaileCardiaque.class));
                             }
                         } else {
-                            Toast.makeText(activity, "tab vide", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(activity, "tab vide", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
@@ -409,14 +442,12 @@ public class ParametresMesures extends AppCompatActivity {
             textCal = findViewById(R.id.chiffrecalorie);
             textDist = findViewById(R.id.chiffreDistance);
             textVitesse = findViewById(R.id.chiffrevittesse);
-            niveaubatt = findViewById(R.id.NiveauBatt);
-            batteri = findViewById(R.id.batterie);
+
             while (StopThread) {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         try {
-//                            SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
                             NumberFormat format = NumberFormat.getInstance();
                             format.setMaximumFractionDigits(2);
                             SimpleDateFormat dateFormat;
@@ -483,6 +514,9 @@ public class ParametresMesures extends AppCompatActivity {
                             }
                             Nbr_pas = BLEManager.hexToInt(BLEManager.decToHex(BLEManager.unsignedToBytes(E7_2.str[5]),
                                     BLEManager.unsignedToBytes(E7_2.str[6])));
+                            Log.i("nbpas",(BLEManager.unsignedToBytes(E7_2.str[6])*255)+BLEManager.unsignedToBytes(E7_2.str[5])+"");
+//                            Log.i("NombrePas",Nbr_pas+"//"+Nbr_pas/3);
+                            Log.i("PasBrut",Integer.toHexString(BLEManager.unsignedToBytes(E7_2.str[5]))+"/"+Integer.toHexString(BLEManager.unsignedToBytes(E7_2.str[6])));
                             if (Indice != 0) {
                                 switch (Indice) {
                                     case 1:
@@ -603,6 +637,7 @@ public class ParametresMesures extends AppCompatActivity {
             }
         }
     }
+
     public void EnvoiaTrame(final byte valeur) {
         new Handler().postDelayed(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)

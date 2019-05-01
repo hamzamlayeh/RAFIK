@@ -96,9 +96,9 @@ public class E10 extends AppCompatActivity {
         graph.getViewport().setScrollable(true);
         series = new LineGraphSeries<>();
         series.setDrawDataPoints(false);
-        series.setDataPointsRadius(7);
-        series.setThickness(7);
-        series.setColor(Color.CYAN);
+        series.setDataPointsRadius(5);
+        series.setThickness(5);
+        series.setColor(Color.RED);
         graph.addSeries(series);
 
 //        mchart = (LineChart) findViewById(R.id.chart1);

@@ -39,8 +39,8 @@ import java.util.List;
 
 public class DetaileCardiaque extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Txt_Cycle, Cercle;
-    TextView Txt_Calorie, Txt_max, Txt_min, Txt_moy;
+    ImageView Etat_Cycle, Cercle;
+    TextView Txt_Cycle,Txt_Calorie, Txt_max, Txt_min, Txt_moy;
     GraphView graph;
     SharedPreferences prefs, pref;
     ConstraintLayout constraintLayout;
@@ -61,7 +61,7 @@ public class DetaileCardiaque extends AppCompatActivity {
         Txt_min = findViewById(R.id.chiffre_min);
         Txt_moy = findViewById(R.id.chifre_moys);
         constraintLayout = findViewById(R.id.constraint);
-        graph = (GraphView) findViewById(R.id.graph);
+        graph = findViewById(R.id.graph);
         Cercle = findViewById(R.id.imageView10);
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
@@ -71,7 +71,7 @@ public class DetaileCardiaque extends AppCompatActivity {
         Test_Donnees();
 
         graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setMinY(0);
+        graph.getViewport().setMinY(30);
         graph.getViewport().setMaxY(150);
 
         graph.getViewport().setXAxisBoundsManual(false);
@@ -79,7 +79,7 @@ public class DetaileCardiaque extends AppCompatActivity {
         graph.getViewport().setMaxX(4);
 
         graph.getGridLabelRenderer().setHumanRounding(true);
-        graph.getGridLabelRenderer().setNumHorizontalLabels(5);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(4);
         graph.getGridLabelRenderer().setNumVerticalLabels(6);
 
         graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
@@ -88,7 +88,7 @@ public class DetaileCardiaque extends AppCompatActivity {
         graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
         graph.getGridLabelRenderer().setGridColor(Color.CYAN);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
-        graph.getViewport().setScalable(false);
+        graph.getViewport().setScalable(true);
         graph.getViewport().setScrollable(true);
 
 
@@ -126,7 +126,7 @@ public class DetaileCardiaque extends AppCompatActivity {
 //                val+=5;
 //            }
             LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-            series.setDrawDataPoints(true);
+            series.setDrawDataPoints(false);
             series.setDataPointsRadius(7);
             series.setThickness(7);
             series.setColor(Color.CYAN);
@@ -160,31 +160,34 @@ public class DetaileCardiaque extends AppCompatActivity {
             switch (Indice) {
                 case 1:
                     Etat_Cycle.setImageResource(R.drawable.icon_quotidien);
-                    Txt_Cycle.setImageResource(R.drawable.quotidien);
+                    Txt_Cycle.setText(R.string.quotidien);
                     constraintLayout.setVisibility(View.VISIBLE);
                     Cercle.setVisibility(View.GONE);
                     break;
                 case 2:
 
                     Etat_Cycle.setImageResource(R.drawable.icon_marche);
-                    Txt_Cycle.setImageResource(R.drawable.marche);
+                    Txt_Cycle.setText(R.string.marche);
                     constraintLayout.setVisibility(View.INVISIBLE);
                     Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 3:
                     Etat_Cycle.setImageResource(R.drawable.icone_course);
-                    Txt_Cycle.setImageResource(R.drawable.course_a_pied);
+                    Txt_Cycle.setText(R.string.course_pied);
+//                    Txt_Cycle.setImageResource(R.drawable.course_a_pied);
                     constraintLayout.setVisibility(View.INVISIBLE);
                     Cercle.setVisibility(View.VISIBLE);
                     break;
                 case 4:
                     Etat_Cycle.setImageResource(R.drawable.icone_cycle);
-                    Txt_Cycle.setImageResource(R.drawable.cyclisme);
+                    Txt_Cycle.setText(R.string.cyclisme);
+//                    Txt_Cycle.setImageResource(R.drawable.cyclisme);
                     constraintLayout.setVisibility(View.VISIBLE);
                     break;
                 case 5:
                     Etat_Cycle.setImageResource(R.drawable.icon_sommeil);
-                    Txt_Cycle.setImageResource(R.drawable.sommeil);
+                    Txt_Cycle.setText(R.string.sommeil);
+//                    Txt_Cycle.setImageResource(R.drawable.sommeil);
                     constraintLayout.setVisibility(View.VISIBLE);
                     Cercle.setVisibility(View.GONE);
                     break;

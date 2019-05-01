@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bglog">
-
-<android.support.constraint.ConstraintLayout
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bglog"
     tools:context="com.example.user.rafiki.LoginActivity">
 
     <LinearLayout
@@ -155,11 +150,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
+            android:textColorHint="#B0FFFFFF"
             android:fontFamily="@font/raleway_regular"
             android:hint="@string/adresse_mail"
             android:inputType="textEmailAddress"
-            android:paddingLeft="10dp"
-            android:textColor="@android:color/black" />
+            android:paddingStart="10dp"
+            android:textColor="@android:color/white"  />
 
         <EditText
             android:id="@+id/password"
@@ -167,12 +163,13 @@
             android:layout_height="47dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
+            android:textColorHint="#B0FFFFFF"
             android:ems="10"
             android:fontFamily="@font/raleway_regular"
             android:hint="@string/mot_de_passe"
             android:inputType="textPassword"
-            android:paddingLeft="10dp"
-            android:textColor="@android:color/black" />
+            android:paddingStart="10dp"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/identifier"
@@ -189,12 +186,10 @@
         android:id="@+id/linearLayout6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -227,4 +222,3 @@
             android:textColor="@color/bt_oublier_nouveau" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
-</ScrollView>

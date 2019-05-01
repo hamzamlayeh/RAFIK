@@ -740,7 +740,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:fontFamily="@font/raleway_regular"
-                                android:padding="5dp"
+                                android:padding="4dp"
                                 android:text="@string/course"
                                 android:textSize="13sp" />
 
@@ -1180,8 +1180,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:fontFamily="@font/raleway_regular"
-                                android:padding="5dp"
-                                android:text="@string/course" />
+                                android:padding="4dp"
+                                android:text="@string/course"
+                                android:textSize="14sp" />
 
                             <ImageView
                                 android:id="@+id/cycle3"
@@ -1200,9 +1201,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:fontFamily="@font/raleway_regular"
-                                android:paddingBottom="9dp"
+                                android:gravity="center"
                                 android:paddingTop="9dp"
-                                android:text="@string/cyclisme" />
+                                android:paddingBottom="9dp"
+                                android:text="@string/cyclisme"
+                                android:textSize="14sp" />
 
                             <View
                                 android:layout_width="1dp"

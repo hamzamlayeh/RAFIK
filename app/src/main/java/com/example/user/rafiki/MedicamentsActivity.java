@@ -35,7 +35,7 @@ public class MedicamentsActivity extends AppCompatActivity {
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle);
+        recyclerView = findViewById(R.id.recycle);
 
         list = (ArrayList<Medicament_Item>) ds.getMedicament();
 

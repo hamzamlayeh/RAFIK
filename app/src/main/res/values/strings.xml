@@ -178,7 +178,7 @@
     <string name="activer_gps_t_l_phone">Activer GPS Téléphone   </string>
     <string name="exit">Exit</string>
     <string name="cycle">Cycle</string>
-    <string name="param_tre">Paramètre</string>
+    <string name="param_tre">Paramètres</string>
     <string name="historique">Historique</string>
     <string name="a_pied">à pied</string>
     <string name="maladie_sup">Maladie Supprimée!</string>
@@ -202,7 +202,7 @@
     <string name="chutes">Chutes</string>
     <string name="frequence_cardiaque">- Fréquence cardiaque</string>
     <string name="respirations">- Respiration</string>
-    <string name="tempirateur">- Températeure</string>
+    <string name="tempirateur">- Température</string>
     <string name="calories">- Calories</string>
     <string name="chute">- Chutes</string>
     <string name="text_supprimer_cycle">Êtes-vous sûr de vouloir supprimer ce cycle ?</string>
@@ -224,4 +224,6 @@
     <string name="text_notif">ATTENTION! Seuils biométriques critiques.</string>
     <string name="test_carte_cycle">Votre carte n\'est pas connectée</string>
     <string name="tempsinst">Temps(s)</string>
+    <string name="nom_med">Nom</string>
+    <string name="d_marrer">Démarrer</string>
 </resources>

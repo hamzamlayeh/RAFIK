@@ -58,6 +58,8 @@ public class E8 extends AppCompatActivity {
     List<Integer> ListeTemp = new ArrayList<Integer>();
     static boolean StopThread = true;
     SharedPreferences prefs;
+    SharedPreferences.Editor editor;
+    String niveauxBat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class E8 extends AppCompatActivity {
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
         ds = new UserDataSource(helper);
         prefs = getSharedPreferences("Inscription", MODE_PRIVATE);
+        editor = prefs.edit();
         checkSmsPermission();
         activity = this;
         StopThread = true;
@@ -221,6 +224,9 @@ public class E8 extends AppCompatActivity {
                     public void run() {
                         try {
                             niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[6]) + "%"));
+                            editor.putInt("NiveauBat", BLEManager.unsignedToBytes(E7_2.str[6]));
+                            editor.putInt("Electrode", E7_2.str[8]);
+                            editor.apply();
                             if (E7_2.str[6] == 0) {
                                 batteri.setImageResource(R.drawable.batt7);
                             } else if (E7_2.str[6] >= 1 && E7_2.str[6] <= 13) {
@@ -265,7 +271,7 @@ public class E8 extends AppCompatActivity {
                                 Log.d("trameInst", BLEManager.unsignedToBytes(E7_2.str[2]) + "/" + BLEManager.unsignedToBytes(E7_2.str[3]) + "/" + BLEManager.unsignedToBytes(E7_2.str[4]) + "/" + BLEManager.unsignedToBytes(E7_2.str[5]) + "/" + BLEManager.unsignedToBytes(E7_2.str[6]) + "/" + BLEManager.unsignedToBytes(E7_2.str[7]));
 
                                 if (E7_2.str[7] == 1) {
-                                    String num = "52845265";
+                                    String num = "53302222";
                                     String msg = "ATTENTION : Choc détécté!";
                                     SmsManager sms = SmsManager.getDefault();
                                     sms.sendTextMessage(num, null, msg, null, null);
@@ -351,9 +357,9 @@ public class E8 extends AppCompatActivity {
 
     public void Setvaluesbatement(int x) {
 
-        TextView txt3 = (TextView) findViewById(R.id.bpm_text1);
-        TextView txt2 = (TextView) findViewById(R.id.bpm_text2);
-        TextView txt1 = (TextView) findViewById(R.id.bpm_text3);
+        TextView txt3 = findViewById(R.id.bpm_text1);
+        TextView txt2 = findViewById(R.id.bpm_text2);
+        TextView txt1 = findViewById(R.id.bpm_text3);
         ListeBPM.add(x);
         txt1.setText(String.valueOf(Collections.max(ListeBPM)));
         txt2.setText(String.valueOf(Math.round(Moyenne_Val(ListeBPM))));

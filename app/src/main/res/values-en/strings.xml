@@ -85,7 +85,7 @@
     <string name="mes_contacts">My contacts</string>
     <string name="contacts_parentaux">Family contacts</string>
     <string name="m_decins_traitants">Doctors</string>
-    <string name="urgences_m_dicales">Emergency Medical contacts</string>
+    <string name="urgences_m_dicales">Medical Emergency</string>
     <string name="allergie_aux_insectes">Insect allergy</string>
     <string name="allergie_aux_m_dicaments">Drug Allergy</string>
     <string name="allergie_aux_animaux">Pet Allergy</string>
@@ -145,21 +145,21 @@
     <string name="alertes">Alert</string>
     <string name="d_connecter">Disconnect</string>
     <string name="cycle_d_activit">Activity cycle</string>
-    <string name="quotidien">Daily activities</string>
+    <string name="quotidien">Daily</string>
     <string name="marche">Walk</string>
     <string name="course_pied">Running</string>
     <string name="reprendre">Return</string>
     <string name="fc">HR</string>
-    <string name="temp_rateur">Temperateure</string>
+    <string name="temp_rateur">Temperature</string>
     <string name="distance">Distance</string>
     <string name="d_clencher">Start</string>
     <string name="km">Km</string>
     <string name="activer_gps_t_l_phone">Activate your phone GPS   </string>
     <string name="exit">Exit</string>
     <string name="cycle">Cycle</string>
-    <string name="param_tre">Parameter</string>
+    <string name="param_tre">Settings</string>
     <string name="historique">History</string>
-    <string name="a_pied">" walk"</string>
+    <string name="a_pied">""</string>
     <string name="maladie_sup">Disease deleted!</string>
     <string name="date_simple">Date</string>
     <string name="modifier_2">Edit</string>
@@ -202,4 +202,6 @@
     <string name="text_notif">WARNING! Critical biometric thresholds.</string>
     <string name="test_carte_cycle">Your device is not connected</string>
     <string name="tempsinst">Time (s)</string>
+    <string name="nom_med">Name</string>
+    <string name="d_marrer">Start</string>
 </resources>

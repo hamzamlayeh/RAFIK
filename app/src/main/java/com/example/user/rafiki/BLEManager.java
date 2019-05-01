@@ -237,7 +237,7 @@ public class BLEManager {
     }
 
     public static String decToHex(int high, int low) {
-        return Integer.toHexString(low) + Integer.toHexString(high);
+        return Integer.toHexString(high) + Integer.toHexString(low);
     }
 
     public static int hexToInt(String hex) {

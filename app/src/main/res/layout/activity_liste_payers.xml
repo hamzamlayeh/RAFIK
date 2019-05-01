@@ -39,32 +39,33 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="314dp"
-        android:layout_marginEnd="32dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/cardview_light_background"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/pays2">
 
         <EditText
             android:id="@+id/txtsearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_search"
             android:drawableStart="@drawable/ic_search"
-            android:hint="@string/recherche"
-            android:paddingLeft="10sp"
-            android:paddingStart="10sp"
+            android:drawablePadding="10dp"
             android:fontFamily="@font/raleway_regular"
+            android:hint="@string/recherche"
+            android:paddingStart="10sp"
             tools:ignore="RtlSymmetry" />
 
         <ListView
             android:id="@+id/listview"
             android:layout_width="match_parent"
-            android:layout_height="282dp" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

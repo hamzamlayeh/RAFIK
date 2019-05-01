@@ -146,11 +146,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
+            android:textColorHint="#B0FFFFFF"
             android:fontFamily="@font/raleway_regular"
             android:hint="@string/adresse_mail"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <EditText
             android:id="@+id/password"
@@ -159,11 +160,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edittexte_rudus"
             android:ems="10"
+            android:textColorHint="#B0FFFFFF"
             android:fontFamily="@font/raleway_regular"
             android:hint="@string/mot_de_passe"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/identifier"

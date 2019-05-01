@@ -222,12 +222,12 @@ public class UserDataSource {
         while (!cursor.isAfterLast()) {
             int id = cursor.getInt(0);
             String email = cursor.getString(1);
-            String taille = cursor.getString(3);
-            String num_scret = cursor.getString(4);
-            String adresse = cursor.getString(5);
-            String code_postal = cursor.getString(6);
-            String ville = cursor.getString(7);
-            String sang = cursor.getString(8);
+            String taille = cursor.getString(2);
+            String num_scret = cursor.getString(3);
+            String adresse = cursor.getString(4);
+            String code_postal = cursor.getString(5);
+            String ville = cursor.getString(6);
+            String sang = cursor.getString(7);
 
             Fiche clt = new Fiche(email, taille, num_scret, adresse, code_postal, ville, sang);
             clt.set_id(id);

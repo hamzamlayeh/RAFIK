@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -38,11 +39,10 @@ public class Inscription extends AppCompatActivity {
     SharedPreferences.Editor editor;
     clients client;
     SeuilValues seuilValues;
-
     MySQLiteOpenHelper helper;
     UserDataSource ds;
     int Age ;
-    int FCmarche_X,FCcourse_X,FCactivite_X,FCsommeil_X;
+    float FCmarche_X,FCcourse_X,FCactivite_X,FCsommeil_X;
     public static int idc = -1, NUM_PAGE = 1;
     MKLoader mkLoader;
 
@@ -51,17 +51,17 @@ public class Inscription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_inscription);
 
-        nom = (EditText) findViewById(id.nom);
-        prenom = (EditText) findViewById(id.prenom);
-        naisence = (EditText) findViewById(id.age);
-        payes = (EditText) findViewById(id.payer);
-        mobile = (EditText) findViewById(id.mobile);
-        email = (EditText) findViewById(id.email);
-        sexe = (EditText) findViewById(id.sexe);
-        pass = (EditText) findViewById(id.pass);
-        poid = (EditText) findViewById(id.poid);
-        confirm_pass = (EditText) findViewById(id.conf_pass);
-        spinner = (Spinner) findViewById(id.code_pays);
+        nom = findViewById(id.nom);
+        prenom = findViewById(id.prenom);
+        naisence = findViewById(id.age);
+        payes = findViewById(id.payer);
+        mobile = findViewById(id.mobile);
+        email = findViewById(id.email);
+        sexe = findViewById(id.sexe);
+        pass = findViewById(id.pass);
+        poid = findViewById(id.poid);
+        confirm_pass = findViewById(id.conf_pass);
+        spinner = findViewById(id.code_pays);
         mkLoader = findViewById(R.id.alerr);
 
         helper = new MySQLiteOpenHelper(this, "Utilisateur", null);
@@ -189,7 +189,7 @@ public class Inscription extends AppCompatActivity {
     }
 
     public void setage(String age) {
-        naisence.setText(age+" age");
+        naisence.setText(age);
         try {
             Age = Integer.parseInt(age);
         } catch (Exception e) {
@@ -230,17 +230,18 @@ public class Inscription extends AppCompatActivity {
             String codephone = prefs.getString("Code_pays", null);
             remplir_champs();
            try {
-               Age = Integer.parseInt(Poid);
+               Age = Integer.parseInt(berthday);
            }catch (Exception e){
                e.printStackTrace();
            }
             client = new clients(name, after_name, berthday, payers, phone, codephone, sexee, mail,Poid, password);
-            FCmarche_X = (int) ((208 - (0.7 * Age)) * 0.7);
-            FCcourse_X = (int) ((208 - (0.7 * Age)) * 0.9);
-            FCactivite_X = (int) ((208 - (0.7 * Age)) * 0.6);
-            FCsommeil_X = (int) ((208 - (0.7 * Age)) * 0.6);
-            seuilValues = new SeuilValues(String.valueOf(FCmarche_X), String.valueOf(FCcourse_X),
-                    String.valueOf(FCactivite_X), String.valueOf(FCsommeil_X));
+            FCmarche_X = (float) ((208 - (0.7 * Age)) * 0.7);
+            FCcourse_X = (float) ((208 - (0.7 * Age)) * 0.9);
+            FCactivite_X = (float) ((208 - (0.7 * Age)) * 0.6);
+            FCsommeil_X = (float) ((208 - (0.7 * Age)) * 0.6);
+
+            seuilValues = new SeuilValues(String.valueOf((int)Math.floor(FCmarche_X + 0.5f)), String.valueOf((int)Math.floor(FCcourse_X + 0.5f)),
+                    String.valueOf((int)Math.floor(FCactivite_X + 0.5f)), String.valueOf( (int)Math.floor(FCsommeil_X + 0.5f)));
             List list = ds.getAllClient();
             if (list.size() > 0) {
                 Toast.makeText(Inscription.this, string.nbCompt, Toast.LENGTH_LONG).show();

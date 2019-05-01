@@ -767,8 +767,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:fontFamily="@font/raleway_regular"
-                                android:paddingBottom="9dp"
-                                android:paddingTop="9dp"
+                               android:padding="5dp"
                                 android:text="@string/cyclisme" />
 
                             <View
@@ -1208,8 +1207,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:fontFamily="@font/raleway_regular"
-                                android:paddingBottom="9dp"
-                                android:paddingTop="9dp"
+                                android:padding="5dp"
                                 android:text="@string/cyclisme" />
 
                             <View

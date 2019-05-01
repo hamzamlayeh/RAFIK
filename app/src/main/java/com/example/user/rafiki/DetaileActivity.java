@@ -18,8 +18,8 @@ import java.text.NumberFormat;
 
 public class DetaileActivity extends AppCompatActivity {
 
-    ImageView Etat_Cycle, Txt_Cycle;
-    TextView Txt_Calorie, Txt_vitesse, Txt_Cadense, Txt_Nbpas, Txt_Distance, Txt_Chrono;
+    ImageView Etat_Cycle;
+    TextView Txt_Cycle,Txt_Calorie, Txt_vitesse, Txt_Cadense, Txt_Nbpas, Txt_Distance, Txt_Chrono;
     SharedPreferences prefs, pref;
     LinearLayout linearLayout;
     double Duree, Nbr_Pas, Distance;
@@ -92,12 +92,14 @@ public class DetaileActivity extends AppCompatActivity {
             switch (Indice) {
                 case 1:
                     Etat_Cycle.setImageResource(R.drawable.icon_quotidien);
-                    Txt_Cycle.setImageResource(R.drawable.quotidien);
+//                    Txt_Cycle.setImageResource(R.drawable.quotidien);
+                    Txt_Cycle.setText(R.string.quotidien);
                     linearLayout.setVisibility(View.INVISIBLE);
                     break;
                 case 2:
                     Etat_Cycle.setImageResource(R.drawable.icon_marche);
-                    Txt_Cycle.setImageResource(R.drawable.marche);
+//                    Txt_Cycle.setImageResource(R.drawable.marche);
+                    Txt_Cycle.setText(R.string.marche);
                     linearLayout.setVisibility(View.VISIBLE);
                     Distance = Nbr_Pas / 1600;
                     Txt_Distance.setText(format.format(Distance));
@@ -105,7 +107,8 @@ public class DetaileActivity extends AppCompatActivity {
                     break;
                 case 3:
                     Etat_Cycle.setImageResource(R.drawable.icone_course);
-                    Txt_Cycle.setImageResource(R.drawable.course_a_pied);
+//                    Txt_Cycle.setImageResource(R.drawable.course_a_pied);
+                    Txt_Cycle.setText(R.string.course_pied);
                     linearLayout.setVisibility(View.VISIBLE);
                     Distance = Nbr_Pas / 1250;
                     Txt_Distance.setText(format.format(Distance));
@@ -113,12 +116,14 @@ public class DetaileActivity extends AppCompatActivity {
                     break;
                 case 4:
                     Etat_Cycle.setImageResource(R.drawable.icone_cycle);
-                    Txt_Cycle.setImageResource(R.drawable.cyclisme);
+//                    Txt_Cycle.setImageResource(R.drawable.cyclisme);
+                    Txt_Cycle.setText(R.string.cyclisme);
                     linearLayout.setVisibility(View.INVISIBLE);
                     break;
                 case 5:
                     Etat_Cycle.setImageResource(R.drawable.icon_sommeil);
-                    Txt_Cycle.setImageResource(R.drawable.sommeil);
+//                    Txt_Cycle.setImageResource(R.drawable.sommeil);
+                    Txt_Cycle.setText(R.string.sommeil);
                     linearLayout.setVisibility(View.GONE);
                     break;
             }

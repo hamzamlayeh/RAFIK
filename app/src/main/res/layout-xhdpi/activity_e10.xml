@@ -482,23 +482,13 @@
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
 
-            <!--<com.github.mikephil.charting.charts.LineChart-->
-            <!--android:id="@+id/chart1"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="172dp"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:animationCache="false"-->
-            <!--android:background="@drawable/gard"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
-
             <com.jjoe64.graphview.GraphView
                 android:id="@+id/graph"
                 android:layout_width="0dp"
-                android:layout_height="167dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/gard"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
