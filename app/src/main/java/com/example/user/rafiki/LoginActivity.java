@@ -48,6 +48,9 @@ public class LoginActivity extends AppCompatActivity {
 
             conf.locale = locale;
             getResources().updateConfiguration(conf, getBaseContext().getResources().getDisplayMetrics());
+        }else {
+            editors.putString("lang", "en");
+            editors.apply();
         }
         setContentView(R.layout.activity_login);
         email = findViewById(R.id.nom);
