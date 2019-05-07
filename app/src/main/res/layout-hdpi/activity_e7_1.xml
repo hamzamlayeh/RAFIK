@@ -8,42 +8,6 @@
     tools:context="com.example.user.rafiki.E7_1">
 
     <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="275dp"
-        android:contentDescription="TODO"
-        android:paddingRight="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView31"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound_left" />
-
-    <ImageView
-        android:id="@+id/imageView31"
-        android:layout_width="50dp"
-        android:layout_height="57dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="265dp"
-        android:contentDescription="TODO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gadget" />
-
-    <ImageView
-        android:id="@+id/imageView32"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="275dp"
-        android:contentDescription="TODO"
-        android:paddingLeft="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView31"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound_right" />
-
-    <ImageView
         android:id="@+id/imageView"
         android:layout_width="116dp"
         android:layout_height="30dp"
@@ -105,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/couplage"
-        app:srcCompat="@drawable/tshert"
+        app:srcCompat="@drawable/tshert2"
         android:contentDescription="TODO" />
 
     <TextView

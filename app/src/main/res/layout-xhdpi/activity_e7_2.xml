@@ -55,29 +55,32 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sevill" />
+
     <ImageView
         android:id="@+id/imageView28"
-        android:layout_width="327dp"
+        android:layout_width="0dp"
         android:layout_height="210dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gadget1"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toBottomOf="@+id/couplage"
+        app:srcCompat="@drawable/gadget" />
+
     <ImageView
         android:id="@+id/test_couple"
         android:layout_width="28dp"
         android:layout_height="34dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView28"
-        app:srcCompat="@drawable/valide"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/valide" />
 
     <TextView
         android:id="@+id/bienc"
