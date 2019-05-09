@@ -201,7 +201,7 @@ public class E10 extends AppCompatActivity {
                             if (E7_2.str[4] == 0) {
 
                                 //if (Compteur <= 214) {
-                                   // Log.d("compteur", Compteur + "");
+                                // Log.d("compteur", Compteur + "");
 //                                    Lists.add(0, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]),
 //                                            BLEManager.unsignedToBytes(E7_2.str[6])));
 //                                    Lists.add(1, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[7]),
@@ -227,10 +227,12 @@ public class E10 extends AppCompatActivity {
 //                                        + "/" + E7_2.str[11] + "/" + E7_2.str[12]+ "/" + E7_2.str[13]
 //                                        + "/" +E7_2.str[14]+ "/" + E7_2.str[15]
 //                                        + "/" + E7_2.str[16]+ "/" + E7_2.str[17]+ "/" + E7_2.str[18]);
-                                    //Compteur++;
-                                series.appendData(new DataPoint(lastXpoint,BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]),
-                                        BLEManager.unsignedToBytes(E7_2.str[6]))),true,100);
+                                //Compteur++;
+                                series.appendData(new DataPoint(lastXpoint, BLEManager.unsignedToBytes(E7_2.str[2])), true, 100);
                                 lastXpoint++;
+//                                series.appendData(new DataPoint(lastXpoint, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[6]))), true, 100);
+//                                lastXpoint++;
                                 //} else {
 //                                    for (int i = 0; i < Lists.size(); i++) {
 //                                        series.appendData(new DataPoint(lastXpoint,Lists.get(i)),true,100);
@@ -250,8 +252,8 @@ public class E10 extends AppCompatActivity {
 //                                    series.setColor(Color.CYAN);
 //                                    graph.addSeries(series);
 //                                    series.resetData(new DataPoint[0]);
-                                    //Compteur=0;
-                                    //Lists.clear();
+                                //Compteur=0;
+                                //Lists.clear();
                                 //}
 
 //                                Lists.clear();

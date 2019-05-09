@@ -32,17 +32,17 @@
         <activity
             android:name=".E10"
             android:screenOrientation="portrait"
-            android:hardwareAccelerated="false"/>
+            android:hardwareAccelerated="true"/>
         <activity
             android:name=".E12"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"/>
         <activity
             android:name=".E11"
-            android:screenOrientation="portrait"  android:hardwareAccelerated="false"/>
+            android:screenOrientation="portrait"  android:hardwareAccelerated="true"/>
         <activity
             android:name=".E9"
-            android:screenOrientation="portrait"  android:hardwareAccelerated="false"/>
+            android:screenOrientation="portrait"  android:hardwareAccelerated="true"/>
         <activity
             android:name=".Verif_code_mailActivity"
             android:screenOrientation="portrait" />
