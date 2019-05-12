@@ -27,7 +27,7 @@
     <string name="anuler">Cancel</string>
     <string name="payer">Country</string>
     <string name="email">Email</string>
-    <string name="s_inscrire">Create Account</string>
+    <string name="s_inscrire">Register</string>
     <string name="sexe">Gender</string>
     <string name="un_code_de_verification">A verification code has been sent to your email address</string>
     <string name="entrer_le_code">Enter the code</string>

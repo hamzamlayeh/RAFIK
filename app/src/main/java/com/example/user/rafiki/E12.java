@@ -79,7 +79,7 @@ public class E12 extends AppCompatActivity {
         graph.getViewport().setMaxX(10);
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
-        graph.getViewport().setMaxY(70);
+        graph.getViewport().setMaxY(50);
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
         graph.getGridLabelRenderer().setNumVerticalLabels(3);
@@ -89,7 +89,7 @@ public class E12 extends AppCompatActivity {
         graph.getGridLabelRenderer().setGridColor(Color.CYAN);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         series = new LineGraphSeries<>();
-        series.setDrawDataPoints(true);
+        series.setDrawDataPoints(false);
         series.setDataPointsRadius(7);
         series.setThickness(7);
         series.setColor(Color.CYAN);

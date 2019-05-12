@@ -80,8 +80,8 @@ public class E11 extends AppCompatActivity {
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(10);
         graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setMinY(-255);
-        graph.getViewport().setMaxY(255);
+        graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(70);
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
         graph.getGridLabelRenderer().setNumVerticalLabels(3);
@@ -91,7 +91,7 @@ public class E11 extends AppCompatActivity {
         graph.getGridLabelRenderer().setGridColor(Color.CYAN);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         series = new LineGraphSeries<>();
-        series.setDrawDataPoints(true);
+        series.setDrawDataPoints(false);
         series.setDataPointsRadius(7);
         series.setThickness(7);
         series.setColor(Color.CYAN);
@@ -170,32 +170,34 @@ public class E11 extends AppCompatActivity {
                                 batteri.setImageResource(R.drawable.batt1);
                             }
                             if (E7_2.str[4] == 0) {
-                                Lists.add(0, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]),
-                                        BLEManager.unsignedToBytes(E7_2.str[6])));
-                                Lists.add(1, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[7]),
-                                        BLEManager.unsignedToBytes(E7_2.str[8])));
-                                Lists.add(2, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[9]),
-                                        BLEManager.unsignedToBytes(E7_2.str[10])));
-                                Lists.add(3, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[11]),
-                                        BLEManager.unsignedToBytes(E7_2.str[12])));
-                                Lists.add(4, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[13]),
-                                        BLEManager.unsignedToBytes(E7_2.str[14])));
-                                Lists.add(5, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[15]),
-                                        BLEManager.unsignedToBytes(E7_2.str[16])));
-                                Lists.add(6, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[17]),
-                                        BLEManager.unsignedToBytes(E7_2.str[18])));
+//                                Lists.add(0, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[6])));
+//                                Lists.add(1, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[7]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[8])));
+//                                Lists.add(2, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[9]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[10])));
+//                                Lists.add(3, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[11]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[12])));
+//                                Lists.add(4, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[13]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[14])));
+//                                Lists.add(5, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[15]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[16])));
+//                                Lists.add(6, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[17]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[18])));
 //                                Log.d("trames", Lists.get(0) + "/" + Lists.get(1) + "/" + Lists.get(2) + "/" + Lists.get(3) + "/" + Lists.get(4) + "/" + Lists.get(5)
 //                                        + "/" + Lists.get(6) + "/ size: " + Lists.size());
-                                Log.d("tram:",  Integer.toHexString(E7_2.str[5]) + "/" + Integer.toHexString(E7_2.str[6]) + "/" + Integer.toHexString(E7_2.str[7])
-                                        + "/" + Integer.toHexString(E7_2.str[8]) + "/" +Integer.toHexString(E7_2.str[9]) + "/" + Integer.toHexString(E7_2.str[10])
-                                        + "/" + Integer.toHexString(E7_2.str[11]) + "/" + Integer.toHexString(E7_2.str[12])+ "/" + Integer.toHexString(E7_2.str[13])
-                                        + "/" + Integer.toHexString(E7_2.str[14])+ "/" + Integer.toHexString(E7_2.str[15])
-                                        + "/" + Integer.toHexString(E7_2.str[16])+ "/" + Integer.toHexString(E7_2.str[17])+ "/" + Integer.toHexString(E7_2.str[18]));
-                                for (int i = 0; i < Lists.size(); i++) {
-                                    series.appendData(new DataPoint(lastXpoint,Lists.get(i)),true,100);
-                                    lastXpoint++;
-                                }
-                                Lists.clear();
+//                                Log.d("tram:",  Integer.toHexString(E7_2.str[5]) + "/" + Integer.toHexString(E7_2.str[6]) + "/" + Integer.toHexString(E7_2.str[7])
+//                                        + "/" + Integer.toHexString(E7_2.str[8]) + "/" +Integer.toHexString(E7_2.str[9]) + "/" + Integer.toHexString(E7_2.str[10])
+//                                        + "/" + Integer.toHexString(E7_2.str[11]) + "/" + Integer.toHexString(E7_2.str[12])+ "/" + Integer.toHexString(E7_2.str[13])
+//                                        + "/" + Integer.toHexString(E7_2.str[14])+ "/" + Integer.toHexString(E7_2.str[15])
+//                                        + "/" + Integer.toHexString(E7_2.str[16])+ "/" + Integer.toHexString(E7_2.str[17])+ "/" + Integer.toHexString(E7_2.str[18]));
+//                                for (int i = 0; i < Lists.size(); i++) {
+//                                    series.appendData(new DataPoint(lastXpoint,Lists.get(i)),true,100);
+//                                    lastXpoint++;
+//                                }
+//                                Lists.clear();
+                                series.appendData(new DataPoint(lastXpoint, BLEManager.unsignedToBytes(E7_2.str[2])), true, 100);
+                                lastXpoint++;
 //                                if (Paire % 3 == 0) {
 //                                    Paire++;
 //                                    indice = 0;

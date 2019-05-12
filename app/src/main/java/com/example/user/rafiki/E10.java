@@ -82,8 +82,8 @@ public class E10 extends AppCompatActivity {
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(100);
         graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setMinY(-255);
-        graph.getViewport().setMaxY(255);
+        graph.getViewport().setMinY(40);
+        graph.getViewport().setMaxY(200);
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
         graph.getGridLabelRenderer().setNumVerticalLabels(5);
