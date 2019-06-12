@@ -282,16 +282,16 @@
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="4dp"
-                android:animationCache="false"
-                android:background="@drawable/gard"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etat" />
+            <!--<com.github.mikephil.charting.charts.LineChart-->
+                <!--android:id="@+id/chart1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="200dp"-->
+                <!--android:layout_marginTop="4dp"-->
+                <!--android:animationCache="false"-->
+                <!--android:background="@drawable/gard"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/etat" />-->
             <ImageView
                 android:id="@+id/etat"
                 android:layout_width="129dp"

@@ -226,4 +226,12 @@
     <string name="tempsinst">Temps(s)</string>
     <string name="nom_med">Nom</string>
     <string name="d_marrer">Démarrer</string>
+    <string name="Q1">Avez-vous oublié votre mot de passe pour RAFIKI ?</string>
+    <string name="ligne2">Nous sommes là pour vous aider </string>
+    <string name="ligne3">Voici votre mot de passe qui vous permettra de vous connecter à votre compte RAFIKI :  </string>
+    <string name="ligne4">ATTENTION : </string>
+    <string name="ligne5">Si vous n\'avez pas demandé de rappeler votre mot de passe, IGNOREZ et EFFACEZ ce courriel immédiatement ! Continuez uniquement si vous souhaitez que votre mot de passe soit rappelé.</string>
+    <string name="ligne6_merci">Merci !</string>
+    <string name="ligne6">Equipe RAFIKI </string>
+    <string name="ligne7">Ceci est un e-mail généré automatiquement, veuillez ne pas y répondre </string>
 </resources>

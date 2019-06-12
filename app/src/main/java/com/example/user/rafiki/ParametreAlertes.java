@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.user.rafiki.ItemData.Alerts;
 
@@ -45,7 +46,13 @@ public class ParametreAlertes extends AppCompatActivity {
         sms4 = SMS4.getText().toString();
 
         if (valider()) {
-            startActivity(new Intent(this,MenuActivity.class));
+            Alerts alerts=new Alerts(sms2,sms3,sms4);
+            long ids = ds.UpdateAlert(alerts, 1);
+            if (ids==-1){
+                Toast.makeText(this, R.string.EreurdanslLinsertion, Toast.LENGTH_LONG).show();
+            }else {
+                startActivity(new Intent(this,MenuActivity.class));
+            }
         }
     }
 

@@ -247,7 +247,7 @@ public class E8 extends AppCompatActivity {
                             } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
                                 batteri.setImageResource(R.drawable.batt1);
                             }
-                            if (E7_2.str[8] == 0) {
+                            if (E7_2.str[8] != 0) {
 //                                Alerts(E7_2.str[7]);
                                 bpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
                                 rpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));
@@ -277,51 +277,58 @@ public class E8 extends AppCompatActivity {
                                     sms.sendTextMessage(num, null, msg, null, null);
                                     E7_2.str[7] = 0;
                                 }
-                                Test_Les_Seuil(BLEManager.unsignedToBytes(E7_2.str[2]), BLEManager.unsignedToBytes(E7_2.str[3]),
-                                        BLEManager.unsignedToBytes(E7_2.str[4]));
-                                if (TempAlert >= 300000) {
-                                    listAlert = ds.getListAlerts();
-                                    if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
-//           Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
-                                        Notification(activity);
-                                    }
-                                    if (ds.getCountParentaux() > 0) {
-
-                                        listFamilia = ds.getListParentaux();
-                                        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
-//                Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
-                                            Notification(activity);
-                                            SmsManager sms = SmsManager.getDefault();
-                                            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
-                                        }
-                                        if (W == 1 && N <= 2) {
-//              Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
-                                            Notification(activity);
-                                            SmsManager sms = SmsManager.getDefault();
-                                            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
-                                        }
-                                    }
-                                    if (ds.getCountParentaux() > 0 && ds.getCountMedecins() > 0) {
-                                        listMedcin = ds.getListMedecins();
-                                        if (W == 1 && N > 2) {
-//                Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
-                                            Notification(activity);
-                                            SmsManager sms = SmsManager.getDefault();
-                                            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau3(), null, null);
-                                        }
-                                        if (W == 1 && N > 2 && E7_2.str[7] == 1) {
-//                Toast.makeText(activity, "aler 4", Toast.LENGTH_SHORT).show();
-                                            SmsManager sms = SmsManager.getDefault();
-                                            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau4(), null, null);
-                                        }
-                                    }
-                                    N = 0;
-                                    TempAlert = 0;
-
-                                } else {
-                                    TempAlert++;
-//                                    Log.d("ttttttt", TempAlert + "");
-                                }
+//                                Test_Les_Seuil(BLEManager.unsignedToBytes(E7_2.str[2]), BLEManager.unsignedToBytes(E7_2.str[3]),
+//                                        BLEManager.unsignedToBytes(E7_2.str[4]));
+//                                if (TempAlert >= 0 && TempAlert <= 300000) {
+//                                    listAlert = ds.getListAlerts();
+//                                    if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N <= 2) {
+////           Toast.makeText(activity, "alert 1", Toast.LENGTH_SHORT).show();
+//                                        Notification(activity);
+//                                    }
+//                                    if (ds.getCountParentaux() > 0) {
+//
+//                                        listFamilia = ds.getListParentaux();
+//                                        if (((FC == 1 || FR == 1 || T == 1) && W == 0) && N > 2) {
+////                Toast.makeText(activity, "alert 2", Toast.LENGTH_SHORT).show();
+//                                            Notification(activity);
+//                                            SmsManager sms = SmsManager.getDefault();
+//                                            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//                                            if (listFamilia.size() == 2)
+//                                                sms.sendTextMessage(listFamilia.get(1).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//                                            if (listFamilia.size() == 3)
+//                                                sms.sendTextMessage(listFamilia.get(2).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//                                        }
+//                                        if (W == 1 && N <= 2) {
+////              Toast.makeText(activity, "aler 2", Toast.LENGTH_SHORT).show();
+//                                            Notification(activity);
+//                                            SmsManager sms = SmsManager.getDefault();
+//                                            sms.sendTextMessage(listFamilia.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//                                            if (listFamilia.size() == 2)
+//                                                sms.sendTextMessage(listFamilia.get(1).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//                                            if (listFamilia.size() == 3)
+//                                                sms.sendTextMessage(listFamilia.get(2).getMobile(), null, listAlert.get(0).getSMSNiveau2(), null, null);
+//                                        }
+//                                    }
+//                                    if (ds.getCountParentaux() > 0 && ds.getCountMedecins() > 0) {
+//                                        listMedcin = ds.getListMedecins();
+//                                        if (W == 1 && N > 2) {
+////                Toast.makeText(activity, "aler 3", Toast.LENGTH_SHORT).show();
+//                                            Notification(activity);
+//                                            SmsManager sms = SmsManager.getDefault();
+//                                            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau3(), null, null);
+//                                        }
+//                                        if (W == 1 && N > 2 && E7_2.str[7] == 1) {
+////                Toast.makeText(activity, "aler 4", Toast.LENGTH_SHORT).show();
+//                                            SmsManager sms = SmsManager.getDefault();
+//                                            sms.sendTextMessage(listMedcin.get(0).getMobile(), null, listAlert.get(0).getSMSNiveau4(), null, null);
+//                                        }
+//                                    }
+//                                    TempAlert++;
+//                                } else {
+//                                    N = 0;
+//                                    TempAlert = 0;
+////                                    Log.d("ttttttt", TempAlert + "");
+//                                }
 
                             } else {
                                 bpm.setText("--");

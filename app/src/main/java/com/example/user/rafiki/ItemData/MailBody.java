@@ -1,18 +1,22 @@
 package com.example.user.rafiki.ItemData;
 
+import android.content.Context;
+
+import com.example.user.rafiki.R;
+
 public class MailBody {
 
-    public static String getBody(String password) {
+    public static String getBody(String password, Context context) {
         String str;
 
-        str = "<html><body><center><img src=''></center>" +
-                "<h3 style='color:#3F51B5;text-align:center;'>"+"Avez-vous oublié votre mot de passe pour RAFIKI ?"+"</h3>" +
-                "<h3 style='color:#3F51B5;text-align:center;'>Nous sommes là pour vous aider </h3>" +
-                "<br><p>Voici votre mot de passe qui vous permettra de vous connecter à votre compte RAFIKI : <br><b>" +password+"</b></p> "+
-                "<p>ATTENTION :<br>" +
-                "Si vous n'avez pas demandé de rappeler votre mot de passe, IGNOREZ et EFFACEZ ce courriel immédiatement ! Continuez uniquement si vous souhaitez que votre mot de passe soit rappelé.</p><br>" +
-                "<p>Merci ! <br>Equipe RAFIKI </p><br>" +
-                "<p>Ceci est un e-mail généré automatiquement, veuillez ne pas y répondre</p>" +
+        str = "<html><body><center><img src='https://i.goopics.net/ODgEK.png' style=\"width: 30%;\"></center>" +
+                "<h3 style='color:#3F51B5;text-align:center;'>"+context.getString(R.string.Q1)+"</h3>" +
+                "<h3 style='color:#3F51B5;text-align:center;'>"+context.getString(R.string.ligne2)+"</h3>" +
+                "<br><p>"+context.getString(R.string.ligne3)+"<br><b>" +password+"</b></p> "+
+                "<p>"+context.getString(R.string.ligne4)+"<br>" +
+                context.getString(R.string.ligne5)+"</p><br>" +
+                "<p>"+context.getString(R.string.ligne6_merci)+"<br>"+context.getString(R.string.ligne6)+" </p><br>" +
+                "<p>"+context.getString(R.string.ligne7)+"</p>" +
                 "</body></html>";
         return str;
     }

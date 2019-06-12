@@ -16,14 +16,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
@@ -82,15 +74,15 @@ public class E10 extends AppCompatActivity {
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(100);
         graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setMinY(40);
-        graph.getViewport().setMaxY(200);
+        graph.getViewport().setMinY(-255);
+        graph.getViewport().setMaxY(255);
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
         graph.getGridLabelRenderer().setNumVerticalLabels(5);
         graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
         graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setGridColor(Color.WHITE);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         graph.getViewport().setScalable(true);
         graph.getViewport().setScrollable(true);
@@ -175,7 +167,9 @@ public class E10 extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-
+                            Log.d("nutre:", BLEManager.unsignedToBytes(E7_2.str[3]) + "/" + BLEManager.unsignedToBytes(E7_2.str[4]) +
+                                    "/" + BLEManager.unsignedToBytes(E7_2.str[2]));
+                            Log.d("h/l:", ""+BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]), BLEManager.unsignedToBytes(E7_2.str[6])));
                             niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3]) + "%"));
 
                             if (E7_2.str[3] == 0) {
@@ -228,11 +222,11 @@ public class E10 extends AppCompatActivity {
 //                                        + "/" +E7_2.str[14]+ "/" + E7_2.str[15]
 //                                        + "/" + E7_2.str[16]+ "/" + E7_2.str[17]+ "/" + E7_2.str[18]);
                                 //Compteur++;
-                                series.appendData(new DataPoint(lastXpoint, BLEManager.unsignedToBytes(E7_2.str[2])), true, 100);
-                                lastXpoint++;
-//                                series.appendData(new DataPoint(lastXpoint, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]),
-//                                        BLEManager.unsignedToBytes(E7_2.str[6]))), true, 100);
+//                                series.appendData(new DataPoint(lastXpoint, BLEManager.unsignedToBytes(E7_2.str[2])), true, 100);
 //                                lastXpoint++;
+                                series.appendData(new DataPoint(lastXpoint, BLEManager.TestValeurTrame(BLEManager.unsignedToBytes(E7_2.str[5]),
+                                        BLEManager.unsignedToBytes(E7_2.str[6]))), true, 100);
+                                lastXpoint++;
                                 //} else {
 //                                    for (int i = 0; i < Lists.size(); i++) {
 //                                        series.appendData(new DataPoint(lastXpoint,Lists.get(i)),true,100);
@@ -345,4 +339,5 @@ public class E10 extends AppCompatActivity {
         }
         return false;
     }
+
 }

@@ -76,24 +76,23 @@ public class E12 extends AppCompatActivity {
 
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
-        graph.getViewport().setMaxX(10);
+        graph.getViewport().setMaxX(100);
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
         graph.getViewport().setMaxY(50);
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
-        graph.getGridLabelRenderer().setNumVerticalLabels(3);
+        graph.getGridLabelRenderer().setNumVerticalLabels(5);
         graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
         graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setGridColor(Color.WHITE);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         series = new LineGraphSeries<>();
         series.setDrawDataPoints(false);
         series.setDataPointsRadius(7);
         series.setThickness(7);
-        series.setColor(Color.CYAN);
-
+        series.setColor(getResources().getColor(R.color.txt_hesto_color));
         graph.addSeries(series);
 
     }
@@ -144,7 +143,7 @@ public class E12 extends AppCompatActivity {
                     }
                 });
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

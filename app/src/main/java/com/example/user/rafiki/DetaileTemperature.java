@@ -76,10 +76,10 @@ public class DetaileTemperature extends AppCompatActivity {
         graph.getGridLabelRenderer().setNumVerticalLabels(6);
 
         graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
-        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.CYAN);
-        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.WHITE);
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setGridColor(Color.WHITE);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         graph.getViewport().setScrollable(true);
         graph.getViewport().setScalable(true);
@@ -105,7 +105,7 @@ public class DetaileTemperature extends AppCompatActivity {
             for (int i = 0; i < points.length; i++) {
 
                 points[i] = new DataPoint(x, Liste_donne.get(i).getTempirateur());
-                x += 5;
+                x += 3;
             }
             LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
             series.setDrawDataPoints(false);

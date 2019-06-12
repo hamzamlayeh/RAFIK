@@ -18,4 +18,5 @@
     <color name="color_loader">#3F51B5</color>
     <color name="color_btnpause">#02366a</color>
     <color name="txt_hesto_color">#e6e721</color>
+    <color name="courbe_resp">#00f9f6</color>
 </resources>

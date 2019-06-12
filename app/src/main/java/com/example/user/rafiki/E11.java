@@ -16,14 +16,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
@@ -57,7 +49,7 @@ public class E11 extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
             public void run() {
-                byte[] buffer = {0x02, 0x73, 0x7C, 0x00, 0x03, 0x0A};
+                byte[] buffer = {0x02, 0x73, 0x00, 0x7B, 0x03, 0x0A};
                 BLEManager.writeData(buffer);
                 try {
                     Thread.sleep(1000);
@@ -78,23 +70,23 @@ public class E11 extends AppCompatActivity {
         graph = (GraphView) findViewById(R.id.graph);
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
-        graph.getViewport().setMaxX(10);
+        graph.getViewport().setMaxX(100);
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
         graph.getViewport().setMaxY(70);
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
-        graph.getGridLabelRenderer().setNumVerticalLabels(3);
+        graph.getGridLabelRenderer().setNumVerticalLabels(5);
         graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
         graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setGridColor(Color.WHITE);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         series = new LineGraphSeries<>();
         series.setDrawDataPoints(false);
         series.setDataPointsRadius(7);
         series.setThickness(7);
-        series.setColor(Color.CYAN);
+        series.setColor(getResources().getColor(R.color.courbe_resp));
         graph.addSeries(series);
 
         animation2.setAnimationListener(new Animation.AnimationListener() {
@@ -147,6 +139,10 @@ public class E11 extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
+                            Log.d("respiration:", BLEManager.unsignedToBytes(E7_2.str[2]) + "/" +
+                                    "/" + BLEManager.unsignedToBytes(E7_2.str[3]) + "/" +
+                                    "/" + BLEManager.unsignedToBytes(E7_2.str[4]));
+
                             niveaubatt.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3]) + "%"));
 
                             if (E7_2.str[3] == 0) {
@@ -272,7 +268,7 @@ public class E11 extends AppCompatActivity {
                     }
                 });
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -282,7 +278,7 @@ public class E11 extends AppCompatActivity {
 
     public void re(View view) {
         StopThread = false;
-//        TrameSop();
+        //TrameSop();
         E7_2.str = null;
         Intent intent = new Intent(this, E8.class);
         startActivity(intent);
@@ -300,21 +296,21 @@ public class E11 extends AppCompatActivity {
         return false;
     }
 
-    public void TrameSop() {
-        new Handler().postDelayed(new Runnable() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-            public void run() {
-                byte[] buffer = {0x02, 0x73, 0x01, 0x74, 0x03, 0x0A};
-                BLEManager.writeData(buffer);
-                try {
-                    Thread.sleep(1000);
-                    BLEManager.readData();
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, 1000);
-    }
+//    public void TrameSop() {
+//        new Handler().postDelayed(new Runnable() {
+//            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+//            public void run() {
+//                byte[] buffer = {0x02, 0x73, 0x01, 0x74, 0x03, 0x0A};
+//                BLEManager.writeData(buffer);
+//                try {
+//                    Thread.sleep(1000);
+//                    BLEManager.readData();
+//
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, 1000);
+//    }
 
 }

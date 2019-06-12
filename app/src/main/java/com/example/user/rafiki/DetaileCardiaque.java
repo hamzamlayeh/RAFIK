@@ -72,7 +72,7 @@ public class DetaileCardiaque extends AppCompatActivity {
 
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(30);
-        graph.getViewport().setMaxY(150);
+        graph.getViewport().setMaxY(200);
 
         graph.getViewport().setXAxisBoundsManual(false);
         graph.getViewport().setMinX(0);
@@ -83,10 +83,10 @@ public class DetaileCardiaque extends AppCompatActivity {
         graph.getGridLabelRenderer().setNumVerticalLabels(6);
 
         graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.tempsinst));
-        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.CYAN);
-        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.CYAN);
-        graph.getGridLabelRenderer().setGridColor(Color.CYAN);
+        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.WHITE);
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setGridColor(Color.WHITE);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.BOTH);
         graph.getViewport().setScalable(true);
         graph.getViewport().setScrollable(true);

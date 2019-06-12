@@ -28,12 +28,12 @@ public class LoginActivity extends AppCompatActivity {
     String mail, password;
     MySQLiteOpenHelper helper;
     UserDataSource ds;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Toast.makeText(this, ""+ DebugDB.getAddressLog(), Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, ""+ hexToLong(TestValeurTrame(255,255)), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, ""+ DebugDB.getAddressLog(), Toast.LENGTH_SHORT).show();
 //        Toast.makeText(this, TestValeurTrame(10,10), Toast.LENGTH_SHORT).show();
 
         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             editors.apply();
         }
         setContentView(R.layout.activity_login);
+        context=this;
         email = findViewById(R.id.nom);
         pass = findViewById(R.id.password);
 
@@ -130,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
         if (isOnline()) {
             if (ds.verifEmail(email.getText().toString())) {
                 SendMail sm = new SendMail(this, email.getText().toString(), getString(R.string.mot_de_passe_oublie),
-                        MailBody.getBody(ds.getPassword(email.getText().toString())));
+                        MailBody.getBody(ds.getPassword(email.getText().toString()),context));
                 sm.execute();
             } else {
                 Toast.makeText(LoginActivity.this, R.string.MailNexistePas, Toast.LENGTH_LONG).show();

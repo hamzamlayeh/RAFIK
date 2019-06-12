@@ -204,4 +204,12 @@
     <string name="tempsinst">Time (s)</string>
     <string name="nom_med">Name</string>
     <string name="d_marrer">Start</string>
+    <string name="Q1">Did you forget your password for RAFIKI?</string>
+    <string name="ligne2">We are here to help you</string>
+    <string name="ligne3">Here is your password which will allow you to connect to your RAFIKI account :</string>
+    <string name="ligne4">"WARNING: "</string>
+    <string name="ligne5">If you did not ask for your password, IGNORE and DELETE this email immediately! Continue only if you want your password remembered.</string>
+    <string name="ligne6_merci">Thank you!</string>
+    <string name="ligne6">RAFIKI Team</string>
+    <string name="ligne7">This is an automatically generated email, please do not reply to it</string>
 </resources>
