@@ -247,7 +247,7 @@ public class E8 extends AppCompatActivity {
                             } else if (E7_2.str[6] > 76 && E7_2.str[6] <= 100) {
                                 batteri.setImageResource(R.drawable.batt1);
                             }
-                            if (E7_2.str[8] != 0) {
+                            if (E7_2.str[8] == 0) {
 //                                Alerts(E7_2.str[7]);
                                 bpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[2])));//batement de coeur
                                 rpm.setText(String.valueOf(BLEManager.unsignedToBytes(E7_2.str[3])));

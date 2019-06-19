@@ -43,7 +43,7 @@ public class E7_2 extends AppCompatActivity {
             } else {
                 testcouple.setImageResource(R.drawable.couplageerr);
                 textcouple.setText(R.string.votre_t_shirt_pas_couple);
-                buttonGo.setVisibility(View.GONE);
+                buttonGo.setVisibility(View.VISIBLE);
             }
         }
     }
